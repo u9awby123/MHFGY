@@ -1,0 +1,548 @@
+
+% TikZ - Ábrázolás
+% ================
+\usepackage{tikz} 
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta, automata, bending, calc, decorations.markings, fit, graphs, intersections, patterns, positioning, scopes, shapes, shapes.geometric, shapes.multipart, trees}
+% bending: a nyílfejek "elnyomják" az íveket, ez a könyvtár helyre teszi...
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+
+% Szögek méretezése
+% =================
+
+\pgfkeys{/tikz/.cd, % to set the path
+	xa/.initial=0, % initial value
+	xa/.get=\xa, % to get the value from a macro
+	xa/.store in=\xa, % to store the value into a macro
+	xb/.initial=0,
+	xb/.get=\xb,
+	xb/.store in=\xb,
+	ya/.initial=0,
+	ya/.get=\ya,
+	ya/.store in=\ya,
+	yb/.initial=0,
+	yb/.get=\yb,
+	yb/.store in=\yb,
+	ra/.initial=1.25 cm,
+	ra/.get=\ra,
+	ra/.store in=\ra,
+	rb/.initial=1.5 cm,
+	rb/.get=\rb,
+	rb/.store in=\rb,
+	rm/.initial=0.5cm,			% \pgfangle: sugár a méretvonal töréspontjáig
+	rm/.get=\rm,
+	rm/.store in=\rm,
+	a/.initial=0,				% \pgfangle: szög (honnan); \pgflength: nyílfej van/nincs
+	a/.get=\a,
+	a/.store in=\a,
+	b/.initial=45,				% \pgfangle: szög (hova); \pgflength: nyílfej van/nincs
+	b/.get=\b,
+	b/.store in=\b,
+	lv/.initial=45,
+	lv/.get=\lv,
+	lv/.store in=\lv,
+	lm/.initial=0.5,
+	lm/.get=\lm,
+	lm/.store in=\lm,
+	alim/.initial=0,			% \pgflength: 0/[1] bal és jobb méretsegédvonal
+	alim/.get=\alim,
+	alim/.store in=\alim,
+	blim/.initial=0,
+	blim/.get=\blim,
+	blim/.store in=\blim,
+	ny/.initial=1,				% \pgflength: 0/[1] a méret elforgatása (csak függőleges esetben)
+	ny/.get=\ny,				% \pgfangle: nyíl/kör kiosztás
+	ny/.store in=\ny,
+	szín/.initial=black,
+	szín/.get=\szín,
+	szín/.store in=\szín,
+	belül/.initial=0,		% \pgfangle: 0/1/2/3, \pgflength: 0/[1]/2 a méret helye
+	belül/.get=\belül,
+	belül/.store in=\belül,
+	horgony/.initial=south west,		% \pgfangle, \pgfpont: a méret jelének/pont nevének horgonyzása
+	horgony/.get=\horgony,
+	horgony/.store in=\horgony,
+	ztengely/.store in=\ztengely,
+	xsh/.initial=0,
+	xsh/.get=\xsh,
+	xsh/.store in=\xsh,
+	ysh/.initial=0,
+	ysh/.get=\ysh,
+	ysh/.store in=\ysh
+	}
+
+\newcommand{\pgfangle}[2][]{ %
+	% Az alapértelmezett értékek visszaállítása
+	\tikzset{alim=0, blim=0, szín=black, belül=0, ra=1.25, ny=1, rm=0.5, horgony=south, xsh=0, ysh=0}
+	
+	\tikzset{#1} % Az első argumentum a tulajdonságlista
+	% (\xa, \ya) a szög csúcspontja
+	% \ra az ív sugara, \rb a szög szárainak hossza
+	
+	% PÉLDA: \pgfangle[ra=1.25, a=\alf, b=0, blim=1]{$\alpha$};
+	
+	\tikzset{rb = \ra + 0.25} % a külső sugár
+	\tikzset{lv = {\ra*abs(\b-\a)*3.14159/180}} % az ívhossz
+	\tikzset{>={Triangle[length=4mm, width=1.25mm]}} % lokális nyílfej beállítás
+	
+	% A kezdőpont
+	\coordinate (O) at (\xa, \ya);
+	
+	% A két szár és az ív végpontjai
+	\coordinate (A) at ($(O) + (xyz polar cs: radius=\ra, angle=\a)$);
+	\coordinate (U) at ($(O) + (xyz polar cs: radius=\rb, angle=\a)$);
+	\coordinate (B) at ($(O) + (xyz polar cs: radius=\ra, angle=\b)$);
+	\coordinate (V) at ($(O) + (xyz polar cs: radius=\rb, angle=\b)$);
+	
+	\ifnum\belül=0
+		% Jobbra
+		\pgfmathsetmacro{\ivalfa}{1.0/\ra*180/3.14159};
+		\pgfmathsetmacro{\ivbeta}{0.5/\ra*180/3.14159};
+	\else
+		\ifnum\belül=2
+			% Balra
+			\pgfmathsetmacro{\ivalfa}{0.5/\ra*180/3.14159};
+			\pgfmathsetmacro{\ivbeta}{1.0/\ra*180/3.14159};
+		\else
+			% A körcikken belül vagy külső vonalon
+			\pgfmathsetmacro{\ivalfa}{0.5/\ra*180/3.14159};
+			\pgfmathsetmacro{\ivbeta}{0.5/\ra*180/3.14159};
+		\fi
+	\fi
+	
+	\ifnum\ny=0
+		% Az ív nyílfejek nélkül
+		\draw[name path=iv, \szín] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+	\fi
+	\ifnum\ny=1
+		% Az ív nyílfejekkel
+		\pgfmathparse{\lv > 1.0 ? int(1) : int(0)}
+		\ifnum\pgfmathresult=1 
+			% Belső nyílfejek
+			\draw[name path=iv, \szín, <->] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+		\else
+			% Külső nyílfejek
+			\draw[name path=iv, \szín] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+			
+			\draw[\szín, <-] (A) arc [start angle=\a, end angle={\a-\ivalfa}, radius=\ra];
+			\draw[\szín, <-] (B) arc [start angle=\b, end angle={\b+\ivbeta}, radius=\ra];
+		\fi
+	\fi
+	\ifnum\ny=2
+		% Az ív nyílfejjel és kezdőkörrel jobboldalon
+		\pgfmathparse{or(equal(\belül, 1), equal(\belül, 3))}
+		\ifnum\pgfmathresult=1 
+			% Belső felirat
+			\pgfmathparse{\lv > 1.0 ? int(1) : int(0)}
+			\ifnum\pgfmathresult=1 
+				% Belső nyílfej
+				\draw[name path=iv, \szín, ->] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+			\else
+				% Külső nyílfej
+				\draw[name path=iv, \szín] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+				
+				\draw[\szín, -] (A) arc [start angle=\a, end angle={\a-\ivalfa}, radius=\ra];
+				\draw[\szín, <-] (B) arc [start angle=\b, end angle={\b+\ivbeta}, radius=\ra];
+			\fi
+		\else
+			% Külső felirat (belül = 0 vagy 2)
+			\ifnum\belül=2
+				% A nyílfej mindig kívül balra
+				\draw[name path=iv, \szín] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+				\draw[\szín, <-] (B) arc [start angle=\b, end angle={\b+\ivbeta}, radius=\ra];
+			\else
+				\pgfmathparse{\lv > 1.0 ? int(1) : int(0)}
+				\ifnum\pgfmathresult=1 
+					% Belső nyílfej)
+					\draw[name path=iv, \szín, ->] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+				\else
+					% Külső nyílfej
+					\draw[name path=iv, \szín] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+					
+					\draw[\szín, -] (A) arc [start angle=\a, end angle={\a-\ivalfa}, radius=\ra];
+					\draw[\szín, <-] (B) arc [start angle=\b, end angle={\b+\ivbeta}, radius=\ra];
+				\fi
+			\fi
+		\fi
+		
+		% A kezdőkör jobboldalon
+		\draw[black, fill=white] ({\ra*cos(\a)}, {\ra*sin(\a)}) circle[radius=0.5mm];
+	\fi
+	\ifnum\ny=3
+		% Az ív nyílfejjel és kezdőkörrel baloldalon
+		\pgfmathparse{or(equal(\belül, 1), equal(\belül, 3))}
+		\ifnum\pgfmathresult=1 
+			% Belső felirat
+			\pgfmathparse{\lv > 1.0 ? int(1) : int(0)}
+			\ifnum\pgfmathresult=1 
+				% Belső nyílfej
+				\draw[name path=iv, \szín, <-] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+			\else
+				% Külső nyílfej
+				\draw[name path=iv, \szín] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+				\draw[\szín, <-] (A) arc [start angle=\a, end angle={\a-\ivalfa}, radius=\ra];
+			\fi
+			
+		\else
+			% Külső felirat (belül = 0 vagy 2)
+			\ifnum\belül=0
+				% A nyílfej mindig kívül jobbra
+				\draw[name path=iv, \szín] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+				\draw[\szín, <-] (A) arc [start angle=\a, end angle={\a-\ivalfa}, radius=\ra];
+			\else
+				\pgfmathparse{\lv > 1.0 ? int(1) : int(0)}
+				\ifnum\pgfmathresult=1 
+					% Belső nyílfej)
+					\draw[name path=iv, \szín, <-] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+					\draw[\szín, -] (B) arc [start angle=\b, end angle={\b+\ivbeta}, radius=\ra];
+				\else
+					% Külső nyílfej
+					\draw[name path=iv, \szín] (A) arc [start angle=\a, end angle=\b, radius=\ra];
+					\draw[\szín, -] (B) arc [start angle=\b, end angle={\b+\ivbeta}, radius=\ra];
+					\draw[\szín, <-] (A) arc [start angle=\a, end angle={\a-\ivalfa}, radius=\ra];
+				\fi
+			\fi
+		\fi
+		
+		% A kezdőkör baloldalon
+		\draw[black, fill=white] ({\ra*cos(\b)}, {\ra*sin(\b)}) circle[radius=0.5mm];
+	\fi
+	
+	%\pgfmathparse{\lv}
+	%\node[blue](X){\lv = \pgfmathresult};
+	
+	% Az ív felezőpontja (a "bending" könyvtárral nem kell a metszéspont...)
+	%\coordinate (S) at ($(O) + (xyz polar cs: radius=2*\rb, angle={(\a+\b)/2})$);
+	%\path[name path=O--S] (O) -- (S);
+	%\path[name intersections={of=iv and O--S}];
+	%\coordinate (T) at (intersection-1);
+	% Másik módszer:
+	%\draw[name intersections={of=V and O--S, by=W}][very thick,orange] (1,0) -- (W);
+	
+	% A méretezés pontjai
+	\coordinate (P) at ($(O) + (xyz polar cs: radius=\ra, angle={(\a+\b)/2})$);
+	\coordinate (Q) at ($(P) + (xyz polar cs: radius=\rm, angle={(\a+\b)/2})$);
+	
+	\pgfmathparse{abs(\a+\b)/2 < 90 ? int(1) : int(0)}
+	\ifnum\pgfmathresult=1 
+		\coordinate (R) at ($(Q) + (xyz polar cs: radius=\lm, angle=0)$);
+		\coordinate (S) at ($(Q) + (xyz polar cs: radius=\lm/2, angle=0)$);
+	\else
+		\coordinate (R) at ($(Q) + (xyz polar cs: radius=-\lm, angle=0)$);
+		\coordinate (S) at ($(Q) + (xyz polar cs: radius=-\lm/2, angle=0)$);
+	\fi
+	
+	% A méretvonalak (alim és blim szerint)
+	\ifnum\alim=1\draw[black] (O) -- (U);\fi
+	\ifnum\blim=1\draw[black] (O) -- (V);\fi
+	
+	% A méret felirat
+	\pgfmathsetmacro{\aha}{0.4/\ra*180/3.14}
+	\ifnum\belül=0
+		% A körcikken kívül jobbra
+		\coordinate (W) at ($(O) + (xyz polar cs: radius={\ra+0.25}, angle={((\a-\aha)+(\a-\ivalfa))/2})$);
+		\node[\szín, anchor={\horgony}, xshift={\xsh}, yshift={\ysh}] at (W) {#2};
+	\fi
+	\ifnum\belül=1
+		% A körcikken belül
+		\coordinate (W) at ($(O) + (xyz polar cs: radius={\rb-0.5}, angle={(\a+\b)/2})$);
+		\node[\szín, anchor=center, xshift={\xsh}, yshift={\ysh}] at (W) {#2};
+	\fi
+	\ifnum\belül=2
+		% A körcikken kívül balra
+		\coordinate (W) at ($(O) + (xyz polar cs: radius={\ra+0.25}, angle={((\b+\aha)+(\b+\ivbeta))/2})$);
+		\node[\szín, anchor=\horgony, xshift={\xsh}, yshift={\ysh}] at (W) {#2};
+	\fi
+	\ifnum\belül=3
+		% Ponttal kapcsolódó külső megtört vonal vízszintes részén
+		\draw[\szín] (P) -- (Q) -- (R);
+		\node[\szín, anchor=\horgony, xshift={\xsh}, yshift={\ysh}] at (S) {#2};
+		\fill[fill=\szín] (P) circle [radius=1pt];
+	\fi
+	}
+
+% Hosszméret
+% ==========
+
+\newcommand{\pgflength}[2][]{ %
+	% Az alapértelmezett értékek visszaállítása
+	\tikzset{alim=1, blim=1, a=1, b=1, szín=black, belül=1, ra=0.65, rb=0.8, ny=1}
+	
+	\tikzset{#1} % Az első bemenet a tulajdonságlista
+	% (\xa, \ya) és (\xb, \yb) a két végpont
+	% \alim és \blim a két méretsegédvonal (van/nincs)
+	% \a és \b a két méretnyíl (van/nincs) (A NYILAK HELYZETE ÖNMŰKÜDŐ)
+	% \belül: a méret belül (1) vagy kívül (0: balra, 2: jobbra) van (A NYILAK ÖNMŰKÜDŐEK)
+	% \ra és \rb a méretvonal távolsága és a méretsegédvonalak hossza (ELŐJELESEK)
+	
+	\pgfmathparse{\ra+sign(\ra)*0.15}
+	\tikzset{rb=\pgfmathresult}
+	%\show\pgfmathresult
+	
+	% A két méretezendő végpont
+	\coordinate (A) at (\xa, \ya);
+	\coordinate (B) at (\xb, \yb);
+	
+	% Zárójelezés
+	\pgfmathsetmacro{\alfa}{atan2((\yb-(\ya)),(\xb-(\xa)))-90}
+	
+%	\pgfmathparse{{\xa, \ya, \xb, \yb}}
+%	\show\pgfmathresult
+%	\pgfmathparse{{\yb,-(\ya),(\yb-(\ya)),(\xb-\xa)}}
+%	\show\pgfmathresult
+%	\pgfmathparse{atan2((\yb-\ya),(\xb-\xa))}
+%	\show\pgfmathresult
+%	\show\alfa
+	
+	% A méretvonal és a méretsegédvonalak végpontjai
+	\coordinate (C) at ($(A) + (xyz polar cs: radius=\ra, angle=\alfa)$);
+	\coordinate (U) at ($(A) + (xyz polar cs: radius=\rb, angle=\alfa)$);
+	\coordinate (D) at ($(B) + (xyz polar cs: radius=\ra, angle=\alfa)$);
+	\coordinate (V) at ($(B) + (xyz polar cs: radius=\rb, angle=\alfa)$);
+	
+	% A méretsegédvonalak függetlenül a többi elemtől
+	\ifnum\alim=1
+		\draw (A) -- (U);
+	\fi
+	\ifnum\blim=1
+		\draw (B) -- (V);
+	\fi
+	
+	% A "belül" kulcs értéke legyen 1, ha nem 0 vagy 2
+	\pgfmathparse{(\belül!=0) && (\belül!=2)}
+	\ifnum\pgfmathresult=1\tikzset{belül = \pgfmathresult}\fi
+	
+	% A \D logikai értékké alakítása
+	\pgfmathsetmacro{\D}{sqrt((\yb-(\ya))^2 + (\xb-(\xa))^2)<1.2}
+	
+	% A méret és a méretnyilak
+	\ifnum\belül=1
+		% A méret legyen belül
+		\coordinate (M) at ($0.5*(C) + 0.5*(D) + (xyz polar cs: radius=0.15, angle={\alfa+180})$);
+		
+		\ifnum\ny=1
+			\node[anchor=base, rotate={90+\alfa}] at (M) {#2};
+		\else
+			% Az elforgatás letiltása, ha alfa = +-90°
+			\pgfmathtruncatemacro\intalfa\alfa
+			\show\intalfa
+			\ifnum\intalfa=0 
+				\node[anchor=east, shift={(0.1, 0)}] at (M) {#2};
+			\else
+				\ifnum\intalfa=-180 
+					\node[anchor=west, shift={(-0.1, 0)}] at (M) {#2};
+				\else
+					\node[anchor=base, rotate={90+\alfa}] at (M) {#2};
+				\fi
+			\fi
+		\fi
+		
+		% A nyilak helyzete a rendelkezésre álló helytől függ
+		\ifnum\D=1
+			\coordinate (E) at ($(C) + (xyz polar cs: radius=0.6, angle={\alfa-90})$);
+			\coordinate (F) at ($(D) + (xyz polar cs: radius=0.6, angle={\alfa+90})$);
+			
+			% A nyilak kívül, ha az \a és \b szerint kellenek
+			\ifnum\a=1
+				\draw[->] (E) -- (C);
+			\fi
+			
+			\draw[-] (C) -- (D);
+			
+			\ifnum\b=1
+				\draw[<-] (D) -- (F);
+			\fi
+		\else
+			% Van 12 mm, belül lesznek a nyilak
+			% A nyilak kívül, ha az \a és \b szerint kellenek
+			\ifnum\a=1
+				\ifnum\b=1
+					\draw[<->] (C) -- (D);
+				\else
+					\draw[<-] (C) -- (D);
+				\fi
+			\else
+				\ifnum\b=1
+					\draw[->] (C) -- (D);
+				\else
+					\draw[-] (C) -- (D);
+				\fi
+			\fi
+		\fi
+	\else
+		% A méret legyen kívül
+		\ifnum\belül=0
+			% Baloldal
+			\coordinate (M) at ($(C) + (xyz polar cs: radius=0.4, angle={\alfa-90}) + (xyz polar cs: radius=0.15, angle={\alfa+180})$);
+			\node[rotate={\alfa+90}, anchor=base east] (mrt) at (M) {#2};
+			
+			\coordinate (E) at ($(mrt.base west) + (xyz polar cs: radius=0.15, angle={\alfa})$);
+			\coordinate (F) at ($(D) + (xyz polar cs: radius=0.6, angle={\alfa+90})$);
+			
+			\draw[->] (E) -- (C);
+			\ifnum\b=1
+				\draw[<-] (D) -- (F);
+			\fi
+		\else
+			% Jobboldal
+			\coordinate (M) at ($(D) + (xyz polar cs: radius=0.4, angle={\alfa+90}) + (xyz polar cs: radius=0.15, angle={\alfa+180})$);
+			\node[rotate={\alfa+90}, anchor=base west] (mrt) at (M) {#2};
+			
+			\coordinate (E) at ($(C) + (xyz polar cs: radius=0.6, angle={\alfa-90})$);
+			\coordinate (F) at ($(mrt.base east) + (xyz polar cs: radius=0.15, angle={\alfa})$);
+			
+			\draw[<-] (D) -- (F);
+			\ifnum\a=1
+				\draw[->] (E) -- (C);
+			\fi
+		\fi
+		
+		\draw[-] (C) -- (D);
+		
+	\fi
+	}
+
+% Derékszög jelölés
+\newcommand{\pgfperpendicular}[1]{ %
+	% Az alapértelmezett értékek visszaállítása
+	\tikzset{a=0, b=90, szín=black, ra=0.25}
+	
+	\tikzset{#1} % Az első bemenet a tulajdonságlista
+	% (\xa, \ya) a sarokpont
+	% \a az egyik szög, \b = [90, -90]
+	% \ra az ív sugara
+	
+	\draw[szín] ({\xa+\ra*cos(\a)}, {\ya+\ra*sin(\a)}) arc[radius={\ra}, start angle={\a}, end angle={\a + \b}];
+	\fill[szín] ({\xa + 0.6*\ra*cos(\a+0.5*\b)}, {\ya + 0.6*\ra*sin(\a+0.5*\b)}) circle[radius=0.25mm];
+	}
+
+% Körvonal írásjel körül
+\newcommand{\pgfcircled}[1]{ %
+	\tikz[baseline=(char.base)]{\node[shape=circle, draw, inner sep=0pt] (char) {#1}} %
+	}
+
+% Pont rajzolása
+\newcommand{\pgfpont}[2][]{ %
+	% Az alapértelmezett értékek visszaállítása
+	\tikzset{szín=black, ra=0.075, horgony=south west}
+	
+	\tikzset{#1} % Az első argumentum a tulajdonságlista
+	% (\xa, \ya) a pont koordinátái
+	% \ra a kereszt mérete
+	
+	\draw[szín, very thick] (\xa-\ra,\ya-\ra) -- (\xa+\ra,\ya+\ra);
+	\draw[szín, very thick] (\xa+\ra,\ya-\ra) -- (\xa-\ra,\ya+\ra);
+	
+	\node[anchor=\horgony] at (\xa,\ya) {#2};
+	}
+
+% Koordinátarendszer 2D, 4 bemenet, az első elhagyható -> []
+% \pgfcoordsys[xa={\xk}, ya={\yk}, alim={\lim}]{$x$}{$y$}{$z$};
+\newcommand{\pgfcoordsys}[4][]{ %
+	% A felhasznált alapértelmezett értékek visszaállítása
+	\tikzset{xa=0, ya=0, alim=1, szín=black, ztengely=1}
+	
+	\tikzset{#1} % Az első argumentum a tulajdonságlista
+	% (\xa, \ya) a koordinátarendszer középpontjának helye
+	% \alim a tengelyek hossza
+	
+	% A középpont helye
+	\coordinate (O) at (\xa, \ya, 0);
+	
+	\ifnum\ztengely=1
+		% 3D
+		\draw[->, szín] (O) -- (\xa+\alim, \ya, 0) node[anchor=north east, yshift={-0.1cm}]{#3}; % Y
+		\draw[->, szín] (O) -- (\xa, \ya, 0+\alim) node[anchor=north west, yshift={0.1cm}]{#2}; % X
+		\draw[->, szín] (O) -- (\xa, \ya+\alim, 0) node[anchor=north east]{#4}; % Z
+	\else
+		% 2D
+		\draw[->, szín] (O) -- (\xa+\alim, \ya, 0) node[anchor=north east, yshift={-0.1cm}]{#2}; % Y
+		\draw[->, szín] (O) -- (\xa, \ya+\alim, 0) node[anchor=north east]{#3}; % Z
+	\fi
+	
+	%\pgfmathparse{\ra+sign(\ra)*0.15}
+	%\tikzset{rb=\pgfmathresult}
+	}
+
+
+% STÍLUSOK
+
+% Globális nyílfej alapértelmezés
+% A Triangle és a Stealth valamiért rövidebb háromszög nyílfejet eredményez.
+\tikzset{>={Kite[length=4mm, width=1.2mm, inset=0pt]}}
+
+% Nyílfej hozzáadása egy vonal felezőpontjához
+\tikzset{
+	mid arrow/.style={
+		postaction={
+			decorate, 
+			decoration={
+				markings, 
+				mark=% actually add a mark
+				at position 0.5 with {
+					\fill[#1] (3mm,0mm) -- (-3mm,1.2mm) -- (-3mm,-1.2mm) -- cycle; 
+					} 
+				}
+			}
+		}
+	}
+
+% Blokkstílus
+\tikzset{
+	blockmain/.style = {
+		% The shape: 
+		rectangle, 
+		% The size: 
+		minimum size=6mm, 
+		inner sep=4mm, 
+		% The border: 
+		ultra thick, draw=blue!25!black!75, % 50% red and 50% black, 
+		% and that mixed with 50% white 
+		% The filling: 
+		top color=white, % a shading that is white at the top... 
+		bottom color=blue!50!black!20, % and something else 
+		% Font 
+		font=\Large\bfseries
+		}
+	}
+
+\tikzset{
+	block/.style = { 
+		% The shape: 
+		rectangle, 
+		% The size: 
+		minimum size=6mm, 
+		% The border: 
+		thick, draw=blue!50!black!75, 
+		% and that mixed with 50% white 
+		% The filling: 
+		top color=white, % a shading that is white at the top... 
+		bottom color=blue!25!black!25
+		}
+	}
+	
+% Szaggatottvonal-stílus zárt görbékhez
+% https://tex.stackexchange.com/questions/214400/tikz-dashes-and-closed-curves
+\tikzset{
+	cycled dash pattern/.code args={on #1 off #2}{
+		% Use csname so catcode of @ doesn't have do be changed.
+		\csname tikz@addoption\endcsname{%
+			\pgfgetpath\currentpath%
+			\csname pgf@decorate@parsesoftpath\endcsname{\currentpath}{\currentpath}%
+			% Length of path
+			\pgfmathparse{\csname pgf@decorate@totalpathlength\endcsname}\let\lc=\pgfmathresult%
+			% Length of pattern
+			\pgfmathparse{#1+#2}\let\lp=\pgfmathresult%
+			% Scaling factor for pattern
+			\pgfmathparse{\lc/(\lp*round(\lc/\lp))}\let\f=\pgfmathresult%
+			% Actually scale the pattern
+			\pgfmathparse{#1*\f}\let\on=\pgfmathresult%
+			\pgfmathparse{#2*\f}\let\off=\pgfmathresult%
+			% Tell PGF to dash this line
+			\pgfsetdash{{\on}{\off}}{0pt}}%
+		}
+	}
+
