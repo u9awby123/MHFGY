@@ -1,3 +1,5 @@
+% !TeX TS-program = xelatex
+
 \documentclass[11pt, a4paper]{report}
 
 % Dokumentum adatok
@@ -7,7 +9,7 @@
 
 % A közös fájlok beszúrása
 % ========================
-\newcommand*{\JakiFolder}{../JAKI}%
+\newcommand*{\JakiFolder}{./JAKI}%
 
 % A közös fájlok a JAKI tárolóban vannak, amit az MHFGY-vel 
 % közös mappába kell letölteni (clone/pull).
@@ -27,9 +29,9 @@
 	\vspace{1cm}
 	{\scshape\Large Segédlet\par}
 	\vspace{1.5cm}
-	{\huge\bfseries{\t} \par}
+	{\huge\bfseries{\JakiTitle} \par}
 	\vspace{2cm}
-	{\Large\itshape Szerzők\par}
+	{\Large\itshape\JakiAuthor\par}
 	\vfill
 	Műszaki hőtan \par
 	Műszaki áramlástan és hőtan II.\par
