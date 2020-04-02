@@ -1,0 +1,175 @@
+
+
+\section*{K6/1. feladat}
+\addcontentsline{toc}{section}{K6/1. feladat}
+Egy ellenáramú hőcserélőnél veszteségmentes hőcserét feltételezve a következő adatokat ismerjük: a közegek kezdeti hőmérsékletei $T_{1k} = \SI{140}{\celsius}$ és $T_{2k} = \SI{15}{\celsius}$, a két közeg konvektív vízértéke egyenlő $\dot{w} = \dot{w}_1 = \dot{w}_2 = \SI{58000}{\watt\per\kelvin}$, a hőátszármaztatási tényező $\kappa = \SI{220}{\watt\per\meter\squared\kelvin}$, a teljes hőátadó felület $A_{\ddot{O}} = \SI{100}{\meter\squared}$.
+
+\subsubsection*{a) A véghőmérsékletek meghatározása}
+A hőcserélőben történő hőterjedést a következő hőáramokkal jellemezhetjük:
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item Az \ding{172}-es közeg belépő hőszállításos hőárama $\dot{w}_1 T_{1k}$, a kilépő hőszállításos hőáram $\dot{w}_1 T_{1v}$, a kettő különbsége az \ding{172}-es közeg által \textbf{leadott} $\Delta \dot{Q}_1 = \dot{w}_1 \left(T_{1v} - T_{1k}\right)$; negatív, mert az \ding{172}-es közeg hőmérséklete csökken.
+	\item Az átszármaztatott hőáram $\Delta \dot{Q}_{\acute{a}tsz} = \kappa A_{\ddot{O}} \Delta T_{k\ddot{o}z,ln}$, értéke pozitív, a számításánál figyelembe kell venni, hogy a $\dot{w}_1 = \dot{w}_2$ egyenlőség miatt a két közeg közötti hőmérsékletkülönbség állandó $\Delta T = \Delta T_N = \Delta T_K$, és ezzel egyenlő a logaritmikus közepes hőmérsékletkülönbség is.
+	
+	\begin{equation}
+		\dot{w}_1 = \dot{w}_2 \quad \Rightarrow \quad \Delta T_{k\ddot{o}z,ln} = \lim_{\Delta T_N \to \Delta T_K} \dfrac{\Delta T_N - \Delta T_K}{\ln\frac{\Delta T_N}{\Delta T_K}} = \Delta T_N = \Delta T_K = \Delta T
+	\end{equation}
+	
+	A $\Delta T$ hőmérsékletkülönbség felírható a megfelelő vég- és kezdeti hőmérsékletek különbségeként, például $\Delta T = T_{1v} - T_{2k}$.
+	
+	\item A \ding{173}-es közeg belépő hőszállításos hőárama $\dot{w}_2 T_{2k}$, a kilépő hőszállításos hőáram $\dot{w}_2 T_{2v}$, a kettő különbsége a \ding{173}-es közeg által \textbf{felvett} $\Delta \dot{Q}_2 = \dot{w}_2 \left(T_{2v} - T_{2k}\right)$; pozitív, mert a \ding{173}-es közeg hőmérséklete növekszik.
+\end{itemize}
+
+A három hőáram az energiamegmaradás miatt egyenlő, ez alapján a két ismeretlen véghőmérsékletre egy kétismeretlenes egyenletrendszert tudunk felírni (behelyettesítve $\Delta T$-t és a közös $\dot{w}$-t):
+\begin{equation}
+	-\Delta \dot{Q}_1 = \Delta \dot{Q}_{\acute{a}tsz} = \Delta \dot{Q}_2
+	\quad \Rightarrow \quad 
+	\left.
+		\begin{array}{l}
+			I.\: -\dot{w} \left(\highlight{cyan}{T_{1v}} - T_{1k}\right) 
+			= 
+			\kappa A_{\ddot{O}} \left(\highlight{cyan}{T_{1v}} - T_{2k}\right) \\ \\
+			II.\: -\dot{w} \left(\highlight{cyan}{T_{1v}} - T_{1k}\right) 
+			= 
+			\dot{w} \left(\highlight{orange!75!yellow}{T_{2v}} - T_{2k}\right)
+		\end{array}
+	\right\rbrace
+\end{equation}
+
+Az egyenletrendszer lineáris, a véghőmérsékletek átrendezéssel kifejezhetők:
+\begin{equation}
+	\highlight{cyan}{T_{1v}} = \frac{\kappa A_{\ddot{O}} T_{2k} + \dot{w} T_{1k}}{\kappa A_{\ddot{O}} + \dot{w}} = \SI{105.625}{\celsius}
+\end{equation}
+\begin{equation}
+	\highlight{orange!75!yellow}{T_{2v}} = T_{2k} + T_{1k} - T_{1v} = \SI{49.375}{\celsius}
+\end{equation}
+
+\subsubsection*{b) Mekkora kellene legyen a hőátszármaztatási tényező, hogy a két véghőmérséklet egyenlő legyen?}
+A feltétel egyenlet alakban $T_{1v} = T_{2v}$. Mivel a konvektív vízértékek továbbra is egyenlők, a $T\left(A\right)$ hőmérséklet-hely függvények lineárisak és azonos meredekségűek, ezért a két véghőmérséklet úgy lehet egyenlő, ha a kezdeti hőmérsékletek átlagával is egyenlők:
+\begin{equation}
+	T_{1v} = T_{2v} = \dfrac{T_{1k} + T_{2k}}{2} = \SI{77.5}{\celsius}
+\end{equation}
+
+A módosított $\kappa^*$ hőátszármaztatási tényező az átszármaztatott és az egyik szállításos hőáram egyenlőségéből kifejezhető:
+\begin{equation}
+	-\Delta \dot{Q}_1 = \Delta \dot{Q}_{\acute{a}tsz}
+	\quad \Rightarrow \quad 
+	-\dot{w} \left(T_{1v} - T_{1k}\right) 
+	= 
+	\highlight{green!75!black}{\kappa^*} A_{\ddot{O}} \left(T_{1v} - T_{2k}\right)
+\end{equation}
+
+Kifejezve a hőátszármaztatási tényező:
+\begin{equation}
+	\highlight{green!75!black}{\kappa^*} 
+	= 
+	\dfrac{\dot{w} \left(T_{1k} - T_{1v}\right)}{A_{\ddot{O}} \left(T_{1v} - T_{2k}\right)} 
+	= 
+	\dfrac{\dot{w} \Delta T}{A_{\ddot{O}} \Delta T} 
+	= 
+	\dfrac{\dot{w}}{A_{\ddot{O}}} = \SI{580}{\watt\per\meter\squared\kelvin}
+\end{equation}
+
+\subsubsection*{c) A léptékhelyes hőmérséklet-hely függvények}
+Hőcserélőknél a hőmérséklet-hely függvény a $T\!\left(A\right)$ függvény, amit közegenként különböző, és a helyet az $A$ érintett hőátadó felület jelenti. Az a) és b) részben a konvektív vízértékek egyenlők, ezért lineárisak a $T\!\left(A\right)$ függvények.
+
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.5\textwidth} 
+		\centering
+		\begin{tikzpicture}
+			\pgfmathsetmacro{\L}{4}
+			\pgfmathsetmacro{\AÖ}{5}
+			
+			\pgfmathsetmacro{\kelvin}{34}
+			\pgfmathsetmacro{\TAK}{140/\kelvin}
+			\pgfmathsetmacro{\TAV}{105.6/\kelvin}
+			\pgfmathsetmacro{\TBK}{15/\kelvin}
+			\pgfmathsetmacro{\TBV}{49.4/\kelvin}
+			
+			% Tengelyek
+			\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
+			\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
+			
+			% Az összes felület
+			\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
+			\draw (\AÖ,-0.1) -- (\AÖ,0.1);
+			\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
+			
+			% A két T(A)
+			\draw[mid arrow=red, red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
+			\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
+			
+			% A hőmérséklet értékek
+			\draw (-0.1,\TAK) -- (0.1,\TAK);
+			\node[anchor=base east] at (0,\TAK) {$T_{1k}$};
+			\node[anchor=north east] at (0,\TAK) {$\SI{140}{\celsius}$};
+			
+			\draw (-0.1,\TBV) -- (0.1,\TBV);
+			\node[anchor=base east] at (0,\TBV) {$T_{2v}$};
+			
+			\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
+			\node[anchor=base west] at (\AÖ,\TBK) {$T_{2k}$};
+			\node[anchor=north west] at (\AÖ,\TBK) {$\SI{15}{\celsius}$};
+			
+			\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
+			\node[anchor=base west] at (\AÖ,\TAV) {$T_{1v}$};
+			
+			% A hőmérsékletkülönbség
+			\pgflength[xb={\AÖ*0.25}, yb={0.75*\TBV+0.25*\TBK}, xa={\AÖ*0.25}, ya={0.75*\TAK+0.25*\TAV}, alim=0, blim=0, ra=0, ny=0]{$\Delta T$};
+			
+		\end{tikzpicture}
+		\caption{A hőmérséklet-hely függvények az a) esetben.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\pgfmathsetmacro{\L}{4}
+			\pgfmathsetmacro{\AÖ}{5}
+			
+			\pgfmathsetmacro{\kelvin}{34}
+			\pgfmathsetmacro{\TAK}{140/\kelvin}
+			\pgfmathsetmacro{\TAV}{77.5/\kelvin}
+			\pgfmathsetmacro{\TBK}{15/\kelvin}
+			\pgfmathsetmacro{\TBV}{77.5/\kelvin}
+			
+			% Tengelyek
+			\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
+			\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
+			
+			% Az összes felület
+			\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
+			\draw (\AÖ,-0.1) -- (\AÖ,0.1);
+			\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
+			
+			% A két T(A)
+			\draw[mid arrow=red, red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
+			\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
+			
+			% A hőmérséklet értékek
+			\draw[black!50, dashed] (0,\TBV) -- (\AÖ,\TAV);
+			
+			\draw (-0.1,\TAK) -- (0.1,\TAK);
+			\node[anchor=base east] at (0,\TAK) {$T_{1k}$};
+			\node[anchor=north east] at (0,\TAK) {$\SI{140}{\celsius}$};
+			
+			\draw (-0.1,\TBV) -- (0.1,\TBV);
+			\node[anchor=base east] at (0,\TBV) {$T_{2v}$};
+			
+			\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
+			\node[anchor=base west] at (\AÖ,\TBK) {$T_{2k}$};
+			\node[anchor=north west] at (\AÖ,\TBK) {$\SI{15}{\celsius}$};
+			
+			\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
+			\node[anchor=base west] at (\AÖ,\TAV) {$T_{1v}$};
+			
+			% A hőmérsékletkülönbség
+			\pgflength[xb={\AÖ*0.25}, yb={0.75*\TBV+0.25*\TBK}, xa={\AÖ*0.25}, ya={0.75*\TAK+0.25*\TAV}, alim=0, blim=0, ra=0, ny=0]{$\Delta T$};
+			
+		\end{tikzpicture}
+		\caption{A hőmérséklet-hely függvények a b) esetben.}
+	\end{subfigure}
+\end{figure}
+ 
+A kézzel történő feladatmegoldást gyakran lehet az ábrák közelítő felrajzolásával kezdeni, azonban az görbék jelleghelyes rajzolása általában csak a számítások elvégzése után lehetséges.
+
+\pagebreak

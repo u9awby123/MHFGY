@@ -1,0 +1,237 @@
+
+\section*{K7/1. feladat}
+\addcontentsline{toc}{section}{K7/1. feladat}
+Egy $A_{\ddot{O}} = \SI{15}{\meter\squared}$ hőátadó felületű csőköteges hőcserélőben $\dot{m}_a = \SI{820}{\kilogram\per\hour}$ tömegáramú cseppfolyós ammóniát kell vízzel lehűtenünk. Az ammónia belépési hőmérséklete $T_{ak} = \SI{25}{\celsius}$, a rendelkezésre álló hűtővíz hőmérséklete $T_{vk} = \SI{12}{\celsius}$.
+
+Ha az ellenáramú hőcserélőn $\dot{m}_v = \SI{1130}{\kilogram\per\hour}$ tömegáramú vizet áramoltatunk keresztül és a hőátszármaztatási tényező $\kappa = \SI{160}{\watt\per\meter\squared\kelvin}$, akkor mekkorák lesznek a kilépési hőmérsékletek?
+
+A víz fajhője $c_v = \SI{4.18}{\kilo\joule\per\kilogram\kelvin}$, az ammónia fajhője $c_a = \SI{4.6}{\kilo\joule\per\kilogram\kelvin}$.
+
+\subsubsection*{a) A hőcserét leíró egyenletek}
+Az ammónia a hűtött közeg, ezért ez lesz az \ding{172}-es közeg, a víz pedig a \ding{173}-es. A meghatározandó ismeretlenek a $T_{av}$ és $T_{vv}$ véghőmérsékletek, emiatt két független egyenletet kell felírnunk. A hőcserélőben a leadott, az átszármaztatott és a felvett hőáram az energiamegmaradás miatt egyenlő. A leadott és a felvett hőáram egyenlőségéből a véghőmérsékletekre lineáris egyenletet kapunk, az átszármaztatott hőáram viszont csak akkor ad lineáris egyenletet, ha a konvektív vízértékek egyenlők. 
+A konvektív vízértékek:
+\begin{equation}
+	\dot{w}_a = \dot{m}_a c_a = \SI{1047}{\watt\per\kelvin} 
+	\quad \textrm{és} \quad 
+	\dot{w}_v = \dot{m}_v c_v = \SI{1312}{\watt\per\kelvin} 
+\end{equation}
+
+Később a számítási eredmények ellenőrzésére lesz használható az a tény, hogy a nagyobb konvektív vízértékű közeg hőmérséklete változik kevesebbet.
+
+A konvektív vízértékek nem egyenlők, emiatt célszerű keresni egy másik egyenletet, ami lineáris. Ez lehet a $\Delta T\!\left(A\right)$ hőmérsékletkkülönbség-hely függvény a teljes $A_{\ddot{O}}$ hőátadó felületre.
+\begin{equation}
+	\Delta T\!\left(A_{\ddot{O}}\right) = \Delta T_N \mathrm{e}^{-\kappa \overrightarrow{\overleftarrow{m}} A_{\ddot{O}}} = \Delta T_K
+\end{equation}
+
+Ennél az egyenletnél a $\Delta T_N$ és a $\Delta T_K$ hőmérsékletkülönbségek helyes felírására kell odafigyelni, mivel ellenáramú hőcserénél a \textbf{nagyobb konvektív vízértékű közeg belépésénél van a kisebb hőmérsékletkülönbség}. Azaz vizsgált esetben $\Delta T_N = T_{ak} - T_{vv}$ az ammónia belépésénél és $\Delta T_K = T_{av} - T_{vk}$ a víz belépésénél.
+
+Ezek alapján a két ismeretlen véghőmérsékletre az alábbi kétismeretlenes egyenletrendszert tudjuk felírni:
+\begin{equation}
+	\label{equation:K71T}
+	\begin{array}{l}
+		-\Delta \dot{Q}_a = \Delta \dot{Q}_v
+		\\ \\
+		\Delta T\!\left(A_{\ddot{O}}\right) = \Delta T_K
+	\end{array}
+	\quad \Rightarrow \quad
+	\left.
+	\begin{array}{l}
+		I.\: -\dot{w}_a \left(\highlight{cyan}{T_{av}} - T_{ak}\right) 
+		= 
+		\dot{w}_v \left(\highlight{orange!75!yellow}{T_{vv}} - T_{vk}\right) 
+		\\ \\
+		II.\: \left(T_{ak} - \highlight{orange!75!yellow}{T_{vv}}\right) \mathrm{e}^{-\kappa \overrightarrow{\overleftarrow{m}} A_{\ddot{O}}} = \highlight{cyan}{T_{av}} - T_{vk}
+	\end{array}
+	\right\rbrace
+\end{equation}
+
+A fenti egyenletrendszer megoldható egyszerű átrendezéssel, azonban mivel gyakran előfordul, kialakult egy mátrixos megoldási módszer is.
+
+Mindkét a módszernél célszerű a (\ref{equation:K71T}) egyenletrendszerbe az alábbi mennyiségeket behelyettesíteni:
+\begin{equation}
+	\label{equation:K71FE}
+	\varphi = \dfrac{\dot{w}_1}{\dot{w}_2} = \dfrac{\dot{w}_a}{\dot{w}_v}
+	\quad \textrm{és} \quad 
+	\eta = \mathrm{e}^{-\kappa \overrightarrow{\overleftarrow{m}} A_{\ddot{O}}}
+\end{equation}
+
+A $\varphi$ a konvektív vízértékek hányadosa, az $\eta$ az exponenciális függvény értéke.
+
+\subsubsection*{b) Megoldás átrendezéssel}
+A (\ref{equation:K71T}) egyenletrendszer átrendezéssel megoldható. A (\ref{equation:K71FE}) szerinti behelyettesítéssel rövidebbek az egyenletek.
+Az $I.$ egyenlet átrendezése, $\varphi$ és $\eta$ behelyettesítése után:
+\begin{equation}
+	\label{equation:K71TT}
+	\left.
+	\begin{array}{l}
+		I.\: \varphi \left( T_{ak} - \highlight{cyan}{T_{av}} \right) 
+		= 
+		\highlight{orange!75!yellow}{T_{vv}} - T_{vk} 
+	\\ \\
+		II.\: \left(T_{ak} - \highlight{orange!75!yellow}{T_{vv}}\right) \eta = \highlight{cyan}{T_{av}} - T_{vk}
+	\end{array}
+\right\rbrace
+\end{equation}
+
+Fejezzük ki $\highlight{orange!75!yellow}{T_{vv}}$-t az $I.$ egyenletből és helyettesítsük be a $II.$-ba:
+\begin{equation}
+	\label{equation:K71TVV}
+	I.\: \highlight{orange!75!yellow}{T_{vv}} = \varphi T_{ak} + T_{vk} - \varphi \highlight{cyan}{T_{av}} 
+\end{equation}
+
+\begin{equation}
+	II.\: \highlight{cyan}{T_{av}} + \eta \left(\varphi T_{ak} + T_{vk} - \varphi \highlight{cyan}{T_{av}}\right) = \eta T_{ak} + T_{vk}
+\end{equation}
+
+\begin{equation}
+	\label{equation:K71TAV}
+	II.\: \highlight{cyan}{T_{av}} = \dfrac{
+		\eta T_{ak} + T_{vk} - \eta \left(\varphi T_{ak} + T_{vk}\right)
+		}{
+		1-\eta \varphi
+		}
+	= 
+	\SI{15.32}{\celsius}
+\end{equation}
+
+Visszahelyettesítve az $I.$ egyenletbe, megkapjuk a víz véghőmérsékletét:
+\begin{equation}
+	I.\: \highlight{orange!75!yellow}{T_{vv}} = \varphi T_{ak} + T_{vk} - \SI{15.32}{\celsius} =  \SI{19.72}{\celsius} 
+\end{equation}
+
+
+\subsubsection*{c) Megoldás mátrix alakban}
+A (\ref{equation:K71TT}) egyenletrendszer átrendezéses megoldást paraméteresen elvégezve mindkét ismeretlen hőmérsékletre az $\mathbf{T}_v = c\mathbf{A}\mathbf{T}_k$ mátrix alakra hozható. A (\ref{equation:K71TAV}) egyenlet jobb oldalát alakítsuk a kezdeti hőmérsékletes lineáris kombinációjává:
+\begin{equation}
+	\highlight{cyan}{T_{av}} = \dfrac{
+		\eta \left( 1 - \varphi \right) T_{ak} + \left( 1 - \eta \right) T_{vk}
+	}{
+		1-\eta \varphi
+	}
+	=
+	\dfrac{1}{1-\eta \varphi}
+	\begin{bmatrix}
+		\eta \left( 1 - \varphi \right) && 1 - \eta
+	\end{bmatrix}
+	\begin{bmatrix}
+		T_{ak} \\
+		T_{vk}
+	\end{bmatrix}
+\end{equation}
+
+A $II.$ egyenletből kifejezve $\highlight{cyan}{T_{av}}$ és behelyettesítve az $I.$ egyenletbe:
+\begin{equation}
+	II.\: \highlight{cyan}{T_{av}} = \left(T_{ak} - \highlight{orange!75!yellow}{T_{vv}}\right) \eta + T_{vk}
+\end{equation}
+\begin{equation}
+	I.\: \varphi \left( T_{ak} - \left(T_{ak} - \highlight{orange!75!yellow}{T_{vv}}\right) \eta + T_{vk} \right) 
+	= 
+	\highlight{orange!75!yellow}{T_{vv}} - T_{vk} 
+\end{equation}
+\begin{equation}
+	\highlight{orange!75!yellow}{T_{vv}}
+	=
+	\dfrac{
+		\varphi \left( T_{ak} - T_{ak} \eta + T_{vk} \right) + T_{vk}
+	}{
+		1 - \eta \varphi
+	}
+\end{equation}
+
+Innen a mátrixos alak:
+\begin{equation}
+	\highlight{orange!75!yellow}{T_{vv}}
+	=
+	\dfrac{
+		\varphi \left( 1 - \eta \right) T_{ak} + T_{vk} \left( 1 + \varphi \right)
+	}{
+		1 - \eta \varphi
+	}
+	=
+	\dfrac{1}{1-\eta \varphi}
+	\begin{bmatrix}
+		\varphi \left( 1 - \eta \right) && 1 + \varphi
+	\end{bmatrix}
+	\begin{bmatrix}
+		T_{ak} \\
+		T_{vk}
+	\end{bmatrix}
+\end{equation}
+
+Összevonva két mátrixos egyenlet:
+\begin{equation}
+	\label{equation:K71TM}
+	\begin{bmatrix}
+		\highlight{cyan}{T_{av}} \\
+		\highlight{orange!75!yellow}{T_{vv}}
+	\end{bmatrix}
+	=
+	\dfrac{1}{1 - \eta \varphi}
+	\begin{bmatrix}
+		\eta\left(1-\varphi\right) & 1-\eta \\
+		\varphi\left(1-\eta\right) & 1-\varphi
+	\end{bmatrix}
+	\begin{bmatrix}
+		T_{ak} \\
+		T_{vk}
+	\end{bmatrix}
+\end{equation}
+
+Itt a $c$ állandót és az $\mathbf{A}$ mátrix elemeit kell kiszámolni, és képezni velük a kezdeti hőmérsékletek lineáris kombinációit. 
+
+\subsubsection*{d) A léptékhelyes hőmérséklet-hely függvények}
+A véghőmérsékletek megrajzolása után megrajzolhatók a hőmérséklet-hely függvények.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\pgfmathsetmacro{\L}{4}
+		\pgfmathsetmacro{\AÖ}{8}
+		
+		\pgfmathsetmacro{\kelvin}{6}
+		\pgfmathsetmacro{\TAK}{25/\kelvin}
+		\pgfmathsetmacro{\TAV}{15.32/\kelvin}
+		\pgfmathsetmacro{\TBK}{12/\kelvin}
+		\pgfmathsetmacro{\TBV}{19.72/\kelvin}
+		
+		% Tengelyek
+		\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
+		\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
+		
+		% Az összes felület
+		\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
+		\draw (\AÖ,-0.1) -- (\AÖ,0.1);
+		\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
+		
+		% A két T(A)
+		%\draw[red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
+		%\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
+		
+		\draw[ultra thick, color=red, mid arrow=red, domain=0:\AÖ, smooth, variable=\A] plot (\A, {\TAK - (\TAK-\TBV)/(1047*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )});
+		\draw[ultra thick, color=blue, mid arrow=blue, domain=\AÖ:0, smooth, variable=\A] plot (\A, {\TBV - (\TAK-\TBV)/(1312*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )});
+		
+		% A hőmérséklet értékek
+		\draw (-0.1,\TAK) -- (0.1,\TAK);
+		\node[anchor=base east] at (0,\TAK) {$T_{ak}$};
+		\node[anchor=north east] at (0,\TAK) {$\SI{25}{\celsius}$};
+		
+		\draw (-0.1,\TBV) -- (0.1,\TBV);
+		\node[anchor=base east] at (0,\TBV) {$T_{vv}$};
+		
+		\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
+		\node[anchor=base west] at (\AÖ,\TBK) {$T_{vk}$};
+		\node[anchor=north west] at (\AÖ,\TBK) {$\SI{12}{\celsius}$};
+		
+		\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
+		\node[anchor=base west] at (\AÖ,\TAV) {$T_{av}$};
+		
+		% A hőmérsékletkülönbség
+		%\pgflength[xb={\AÖ*0.25}, yb={0.75*\TBV+0.25*\TBK}, xa={\AÖ*0.25}, ya={0.75*\TAK+0.25*\TAV}, alim=0, blim=0, ra=0, ny=0]{$\Delta T$};
+		
+	\end{tikzpicture}
+	\caption{A hőmérséklet-hely függvények.}
+\end{figure}
+
+A kézzel történő feladatmegoldást gyakran lehet az ábrák közelítő felrajzolásával kezdeni, azonban az görbék jelleghelyes rajzolása általában csak a számítások elvégzése után lehetséges.
+
+\pagebreak
