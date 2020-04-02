@@ -5,7 +5,7 @@
 % Dokumentum adatok
 % =================
 \author{}
-\title{Műszaki hőtan \\ feladatgyűjtemény}
+\title{Műszaki hőtan feladatgyűjtemény}
 
 % A közös fájlok beszúrása
 % ========================
@@ -16,7 +16,6 @@
 \input{\JakiFolder/JakiAlap.tex}				% Formázás, csomagok
 \input{\JakiFolder/JakiTikz.tex}				% Rajzoló parancsok
 
-
 % A dokumentum kezdete
 % ====================
 \begin{document}
@@ -24,23 +23,25 @@
 % Címoldal
 \begin{titlepage}
 	\centering
-	{\scshape\LARGE Pannon Egyetem \par}
-	{\scshape\LARGE Mérnöki Kar \par}
-	\vspace{1cm}
-	{\scshape\Large Segédlet\par}
-	\vspace{1.5cm}
-	{\huge\bfseries{\JakiTitle} \par}
-	\vspace{2cm}
-	{\Large\itshape\JakiAuthor\par}
-	\vfill
-	Műszaki hőtan \par
-	Műszaki áramlástan és hőtan II.\par
-	Műszaki áramlás- és hőtan
+	\begin{hyphenrules}{nohyphenation}
+		{\scshape\LARGE Pannon Egyetem \par}
+		{\scshape\LARGE Mérnöki Kar \par}
+		\vspace{1cm}
+		{\scshape\Large Segédlet\par}
+		\vspace{1.5cm}
+		\parbox{8cm}{{\centering\huge\bfseries{\JakiTitle} \par}}
+		\vspace{2cm}
+		{\Large\itshape\JakiAuthor\par}
+		\vfill
+		Műszaki hőtan \par
+		Műszaki áramlástan és hőtan II.\par
+		Műszaki áramlás- és hőtan
 
-	\vfill
+		\vfill
 
-% A lap alja
-	{\large \today\par}
+		% A lap alja
+		{\large \today\par}
+	\end{hyphenrules}
 \end{titlepage}
 
 % Tartalomjegyzék
@@ -50,7 +51,7 @@
 
 % Bevezetés
 \chapter*{Alapadatok}
-\addcontentsline{toc}{chapter}{Alapadatok}
+\addcontentsline{toc}{chapter}{Alapadatok}		% Számozatlan címsor és tartalomjegyzék-bejegyzés
 
 \section*{A tárgy adatai}
 \addcontentsline{toc}{section}{A tárgy adatai}
@@ -81,9 +82,6 @@ A segédlet kidolgozása még folyamatban van, ezen sorok írásakor az elsődle
 	\item Dr. Pleva László, Zsíros László: Műszaki hőtan, Pannon Egyetemi Kiadó (ebből kimarad: 59-62; 66-69; 100-104; 114-209; 237-245; 280-309 oldalak)
 	\item M. A. Mihajev: A hőátadás számításának gyakorlati alapjai, Tankönyvkiadó, Budapest, 1990.
 \end{itemize}
-
-
-
 
 
 % 1. fejezet
