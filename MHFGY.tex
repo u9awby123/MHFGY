@@ -1,0 +1,172 @@
+\documentclass[11pt, a4paper]{report}
+
+% Dokumentum adatok
+% =================
+\author{}
+\title{Műszaki hőtan \\ feladatgyűjtemény}
+
+% A közös fájlok beszúrása
+% ========================
+\newcommand*{\JakiFolder}{../JAKI}%
+
+% A közös fájlok a JAKI tárolóban vannak, amit az MHFGY-vel 
+% közös mappába kell letölteni (clone/pull).
+\input{\JakiFolder/JakiAlap.tex}				% Formázás, csomagok
+\input{\JakiFolder/JakiTikz.tex}				% Rajzoló parancsok
+
+
+% A dokumentum kezdete
+% ====================
+\begin{document}
+
+% Címoldal
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Pannon Egyetem \par}
+	{\scshape\LARGE Mérnöki Kar \par}
+	\vspace{1cm}
+	{\scshape\Large Segédlet\par}
+	\vspace{1.5cm}
+	{\huge\bfseries{\t} \par}
+	\vspace{2cm}
+	{\Large\itshape Szerzők\par}
+	\vfill
+	Műszaki hőtan \par
+	Műszaki áramlástan és hőtan II.\par
+	Műszaki áramlás- és hőtan
+
+	\vfill
+
+% A lap alja
+	{\large \today\par}
+\end{titlepage}
+
+% Tartalomjegyzék
+% A frissüléséhez általában kétszer kell lefordítani a dokumentumot
+\tableofcontents
+
+
+% Bevezetés
+\chapter*{Alapadatok}
+\addcontentsline{toc}{chapter}{Alapadatok}
+
+\section*{A tárgy adatai}
+\addcontentsline{toc}{section}{A tárgy adatai}
+
+\begin{tabular}{ l l }
+Név: & Műszaki áramlástan és hőtan II. (Műszaki hőtan) \\
+Kód: & VEMKGEB242H \\
+Kreditérték: & 2 (1 elmélet, 1 gyakorlat) \\
+Követelmény típus: & vizsga \\
+Szervezeti egység: & Gépészmérnöki Intézet \\
+Előadás látogatása: & kötelező \\
+Gyakorlat látogatása: & kötelező \\
+Számonkérés: & a félév végén zárthelyi, írásbeli és szóbeli vizsga \\
+\end{tabular}
+
+\section*{A segédlet célja}
+\addcontentsline{toc}{section}{A segédlet célja}
+
+A segédlet célja ismertetni a \textbf{Műszaki hőtan szemináriumi segédlet és példatár} (Dr. Pleva László, Zsíros László) feladatainak megoldását.
+
+A segédlet kidolgozása még folyamatban van, ezen sorok írásakor az elsődleges célja az ötödik, hatodik és hetedik fejezetben található feladatok megoldásának ismertetése, melyekre a 2016/17-es tanév őszi féléve során nem jutott idő az előadásokon, azonban a számonkérés részét képezik.
+
+
+\section*{Ajánlott szakirodalom}
+\addcontentsline{toc}{section}{Ajánlott szakirodalom}
+
+\begin{itemize}
+	\item Dr. Pleva László, Zsíros László: Műszaki hőtan, Pannon Egyetemi Kiadó (ebből kimarad: 59-62; 66-69; 100-104; 114-209; 237-245; 280-309 oldalak)
+	\item M. A. Mihajev: A hőátadás számításának gyakorlati alapjai, Tankönyvkiadó, Budapest, 1990.
+\end{itemize}
+
+
+
+
+
+% 1. fejezet
+% ==========
+\chapter{Levegő állapotváltozásai}
+
+% K1/9-es feladat
+\input{./guh7ud/guh7ud_k19.tex}
+
+
+% 2. fejezet
+% ==========
+\chapter{Víz és vízgőz állapotváltozásai}
+
+% K2/1-es feladat
+\section*{K2/1. feladat: Gőzfejlesztés állandó nyomáson}
+\addcontentsline{toc}{section}{K2/1. feladat}
+
+
+% 3. fejezet
+% ==========
+\chapter{Munkát szolgáltató körfolyamatok}
+
+% K1/5-ös feladat
+\section*{K1/5. feladat: Levegő Carnot-körfolyamata}
+\addcontentsline{toc}{section}{K1/5. feladat}
+
+
+
+% 4. fejezet
+% ==========
+\chapter{Hűtőgépek, hűtőkörfolyamatok}
+
+
+
+% 5. fejezet
+% ==========
+\chapter{Hőterjedés álló közegben}
+
+% K5/1-es feladat
+\input{./guh7ud/guh7ud_k51.tex}
+
+
+% K5/2-es feladat
+\input{./guh7ud/guh7ud_k52.tex}
+
+
+% K5/3-as feladat
+
+
+% K5/4-es feladat
+\input{./guh7ud/guh7ud_k54.tex}
+
+
+
+% 6. fejezet
+% ==========
+\chapter{Hőterjedés áramló közegben}
+
+% K6/1-es feladat
+\input{./guh7ud/guh7ud_k61.tex}
+
+% K6/2-es feladat
+
+% K6/3-as feladat
+
+% K6/4-es feladat
+\input{./guh7ud/guh7ud_k64.tex}
+
+
+
+% 7. fejezet
+% ==========
+\chapter{Hőcserélők, hőszigetelés}
+
+% K7/1-es feladat
+\input{./guh7ud/guh7ud_k71.tex}
+
+% K7/1-es feladat
+\input{./guh7ud/guh7ud_k72.tex}
+
+
+
+
+\end{document}
+
+
+
