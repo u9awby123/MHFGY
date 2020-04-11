@@ -1,7 +1,19 @@
 
 \section*{K7/1. feladat}
 \addcontentsline{toc}{section}{K7/1. feladat}
-Egy $A_{\ddot{O}} = \SI{15}{\meter\squared}$ hőátadó felületű csőköteges hőcserélőben $\dot{m}_a = \SI{820}{\kilogram\per\hour}$ tömegáramú cseppfolyós ammóniát kell vízzel lehűtenünk. Az ammónia belépési hőmérséklete $T_{ak} = \SI{25}{\celsius}$, a rendelkezésre álló hűtővíz hőmérséklete $T_{vk} = \SI{12}{\celsius}$.
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Szalay István \\ 
+	\hline
+	Szak & \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent Egy $A_{\ddot{O}} = \SI{15}{\meter\squared}$ hőátadó felületű csőköteges hőcserélőben $\dot{m}_a = \SI{820}{\kilogram\per\hour}$ tömegáramú cseppfolyós ammóniát kell vízzel lehűtenünk. Az ammónia belépési hőmérséklete $T_{ak} = \SI{25}{\celsius}$, a rendelkezésre álló hűtővíz hőmérséklete $T_{vk} = \SI{12}{\celsius}$.
 
 Ha az ellenáramú hőcserélőn $\dot{m}_v = \SI{1130}{\kilogram\per\hour}$ tömegáramú vizet áramoltatunk keresztül és a hőátszármaztatási tényező $\kappa = \SI{160}{\watt\per\meter\squared\kelvin}$, akkor mekkorák lesznek a kilépési hőmérsékletek?
 
@@ -101,7 +113,7 @@ Visszahelyettesítve az $I.$ egyenletbe, megkapjuk a víz véghőmérsékletét:
 
 
 \subsubsection*{c) Megoldás mátrix alakban}
-A (\ref{equation:K71TT}) egyenletrendszer átrendezéses megoldást paraméteresen elvégezve mindkét ismeretlen hőmérsékletre az $\mathbf{T}_v = c\mathbf{A}\mathbf{T}_k$ mátrix alakra hozható. A (\ref{equation:K71TAV}) egyenlet jobb oldalát alakítsuk a kezdeti hőmérsékletes lineáris kombinációjává:
+A (\ref{equation:K71TT}) egyenletrendszer átrendezéses megoldást paraméteresen elvégezve mindkét ismeretlen hőmérsékletre az $\mat{T}_v = c\mat{A}\,\mat{T}_k$ mátrix alakra hozható. A (\ref{equation:K71TAV}) egyenlet jobb oldalát alakítsuk a kezdeti hőmérsékletes lineáris kombinációjává:
 \begin{equation}
 	\highlight{cyan}{T_{av}} = \dfrac{
 		\eta \left( 1 - \varphi \right) T_{ak} + \left( 1 - \eta \right) T_{vk}
@@ -177,7 +189,7 @@ Innen a mátrixos alak:
 	\end{bmatrix}
 \end{equation}
 
-Itt a $c$ állandót és az $\mathbf{A}$ mátrix elemeit kell kiszámolni, és képezni velük a kezdeti hőmérsékletek lineáris kombinációit. 
+Itt a $c$ állandót és az $\mat{A}$ mátrix elemeit kell kiszámolni, és képezni velük a kezdeti hőmérsékletek lineáris kombinációit. 
 
 \subsubsection*{d) A léptékhelyes hőmérséklet-hely függvények}
 A véghőmérsékletek megrajzolása után megrajzolhatók a hőmérséklet-hely függvények.
@@ -207,8 +219,12 @@ A véghőmérsékletek megrajzolása után megrajzolhatók a hőmérséklet-hely
 		%\draw[red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
 		%\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
 		
-		\draw[ultra thick, color=red, mid arrow=red, domain=0:\AÖ, smooth, variable=\A] plot (\A, {\TAK - (\TAK-\TBV)/(1047*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )});
-		\draw[ultra thick, color=blue, mid arrow=blue, domain=\AÖ:0, smooth, variable=\A] plot (\A, {\TBV - (\TAK-\TBV)/(1312*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )});
+		\draw[ultra thick, color=red, mid arrow=red, domain=0:\AÖ, smooth, variable=\A] plot (\A, {%
+			\TAK - (\TAK-\TBV)/(1047*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
+			});
+		\draw[ultra thick, color=blue, mid arrow=blue, domain=\AÖ:0, smooth, variable=\A] plot (\A, {%
+			\TBV - (\TAK-\TBV)/(1312*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
+			});
 		
 		% A hőmérséklet értékek
 		\draw (-0.1,\TAK) -- (0.1,\TAK);
