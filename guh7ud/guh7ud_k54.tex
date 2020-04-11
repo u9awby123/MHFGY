@@ -1,24 +1,37 @@
 
 
-\section*{K5/4. feladat}
-\addcontentsline{toc}{section}{K5/4. feladat}
-Gyakorlati számítások során szokás a hengeres falon vezetéssel átjutó hőáramot közelítő módon síkfalra vonatkozó összefüggésekkel számolni.
+\section*{K5/4. feladat: Hengeres fal közelítése síkfallal}
+\addcontentsline{toc}{section}{K5/4. feladat: Hengeres fal közelítése síkfallal}
 
-Határozza meg egy hengeres fal külső $d_2$ és belső $d_1$ átmérőjének hányadosa függvényében, hogy a lineáris hőáramsűrűség számításakor hány \%-os hibát vétünk az alábbi közelítő összefüggéseket használva:
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Szalay István \\ 
+	\hline
+	Szak & \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent Gyakorlati számítások során szokás a hengeres falon vezetéssel átjutó hőáramot közelítő módon síkfalra vonatkozó összefüggésekkel számolni. Határozza meg egy hengeres fal külső $d_2$ és belső $d_1$ átmérőjének hányadosa függvényében, hogy a lineáris hőáramsűrűség számításakor hány \%-os hibát vétünk az alábbi közelítő összefüggéseket használva:
 \begin{equation}
-	\dot{q}_{lin} = \dfrac{\lambda}{\delta} d_K \pi \left(T_1 - T_2\right)
+	\dot{q}_{lin} = \dfrac{\lambda}{\delta} d_K \pi \left(T_1 - T_2\right),
+	\quad 
+	\delta = \dfrac{d_2 - d_1}{2}, 
+	\quad 
+	\text{és} 
+	\quad d_K = \dfrac{d_1 + d_2}{2}
 \end{equation}
 
-ahol $\delta$ a falvastagság és $d_K$ a közepes átmérő:
-\begin{equation}
-	\delta = \dfrac{d_2 - d_1}{2}, \quad \text{és} \quad d_K = \dfrac{d_1 + d_2}{2}
-\end{equation}
+ahol $\delta$ a falvastagság és $d_K$ a közepes átmérő.
+
 
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
-		\pgfmathsetmacro{\DB}{2.9}
-		\pgfmathsetmacro{\DK}{3.3}
+		\pgfmathsetmacro{\DB}{1.9}
+		\pgfmathsetmacro{\DK}{2.4}
 		
 		\shade[shading=axis, bottom color=black!20, top color=black!60, shading angle=-135, even odd rule] (0,0) circle[radius=\DB/2] (1, 1) circle[radius=\DB/2];
 		\draw[ultra thick] (1, 1) circle[radius=\DB/2];
