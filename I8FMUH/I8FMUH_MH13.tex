@@ -47,7 +47,7 @@
 \end{tabular}
 \vspace{0.5cm}
 
-	Határozza meg, hogy mennyi hőt kell közölni 1 kg $p_1=\SI{1,76}{\bar}$ nyomású és $x = 0,7$ fajlagos gőztartalmú vízgőzzel $allando$ $terfogaton$ ahhoz, hogy a hőmérséklete $\SI{200}{\celsius}$ legyen. Először i-s diagram segítségével oldja meg a feladatot, majd ábrázolja az állapotváltozást T-s és p-v diagramban is, és határozza meg a végállapotban a gőz többi állapotjelzőit is (v2; p2; i2; u2) gőztáblázat segítségével!
+	Határozza meg, hogy mennyi hőt kell közölni 1 kg $p_1=\SI{1,76}{\bar}$ nyomású és $x = 0,7$ fajlagos gőztartalmú vízgőzzel \textit{állandó térfogaton} ahhoz, hogy a hőmérséklete $\SI{200}{\celsius}$ legyen. Először i-s diagram segítségével oldja meg a feladatot, majd ábrázolja az állapotváltozást T-s és p-v diagramban is, és határozza meg a végállapotban a gőz többi állapotjelzőit is (v2; p2; i2; u2) gőztáblázat segítségével!
 	\vspace{2mm}
 
 \subsection*{a) Feladat felismerése}
@@ -126,7 +126,7 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 \end{equation}
 \subsection*{d) Állapotváltozási diagramok megrajzolása:}
 \centering
-
+%T-s diagram
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
@@ -162,12 +162,16 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 	axis line style = {draw = none},
 	xlabel={},
 	ylabel={},
-	ytick={\TegyC, \TvesszoC, \TkettoC},
+	ytick={\TegyC-18, \TvesszoC+10, \TkettoC},
 	yticklabels={$T_1$, $T"$, $T_2$},
-	xtick={\segy, \svesszo, \sketto},
+	ytick style={draw=none},
+	xtick={\segy, \svesszo-0.2, \sketto+0.2},
 	xticklabels={$s_1$, $s"$, $s_2$},
-	width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0
+	xtick style={draw=none},
+	width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0	
 	]
+	
+	%tickek elhelyezése
 	
 	%T-s alap
 	\addplot [thick] table {./I8FMUH/tsah.txt};
@@ -177,7 +181,7 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 	\draw[fill] (axis cs:\segy, \TegyC) circle [radius = \pontvastagsag];
 	\draw[fill] (axis cs:\svesszo, \TvesszoC) circle [radius = \pontvastagsag];
 	\draw[fill] (axis cs:\sketto, \TkettoC) circle [radius = \pontvastagsag];
-	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:4.9, 85) {1};
+	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:4.9, 75) {1};
 	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:7.8, 230) {2};
 	
 	%allapotjelzo egyenesek
@@ -239,8 +243,8 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 	\draw[dashed] (axis cs:\vegy, \pvesszo) -- (axis cs:0.3925, \pvesszo);
 	\draw[dashed] (axis cs:\vegy, \pketto) -- (axis cs:0.3925, \pketto);
 	
-	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:0.75, 0.176) {1};
-	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:0.75, 0.32) {2};
+	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:0.76, 0.176) {1};
+	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:0.76, 0.32) {2};
 	
 	\end{axis}
 	\end{tikzpicture}
