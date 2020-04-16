@@ -1,11 +1,3 @@
-
-\usetikzlibrary{arrows.meta}
-\usetikzlibrary{patterns}
-
-\tikzset{
-	myarrow/.style={-{Triangle[length=5mm,width=2mm]}}
-}
-
 %állapot változók
 %1-es pont
 \newcommand\pegy{0.176} %nyomás MPa-ban
@@ -36,6 +28,7 @@
 
 \newcommand\pontvastagsag{0.7 mm} %állapotjelző pontoknál a pont mérete
 
+\section*{K2/13. feladat: Vízgőz melegítése állandó térfogaton}
 \begin{tabular}{ | p{2cm} | p{14cm} | } 
 	\hline
 	Név & Rupert Balázs \\ 
@@ -47,82 +40,82 @@
 \end{tabular}
 \vspace{0.5cm}
 
-	Határozza meg, hogy mennyi hőt kell közölni 1 kg $p_1=\SI{1,76}{\bar}$ nyomású és $x = 0,7$ fajlagos gőztartalmú vízgőzzel \textit{állandó térfogaton} ahhoz, hogy a hőmérséklete $\SI{200}{\celsius}$ legyen. Először i-s diagram segítségével oldja meg a feladatot, majd ábrázolja az állapotváltozást T-s és p-v diagramban is, és határozza meg a végállapotban a gőz többi állapotjelzőit is (v2; p2; i2; u2) gőztáblázat segítségével!
+	Határozza meg, hogy mennyi hőt kell közölni 1 kg $p_1=\SI{1,76}{\bar}$ nyomású és $x = 0,7$ fajlagos gőztartalmú vízgőzzel \textit{állandó térfogaton} ahhoz, hogy a hőmérséklete $\SI{200}{\celsius}$ legyen. Először $h-s$ diagram segítségével oldja meg a feladatot, majd ábrázolja az állapotváltozást $T-s$ és $p-v$ diagramban is, és határozza meg a végállapotban a gőz többi állapotjelzőit is gőztáblázat segítségével! ($v_2$; $p_2$; $i_2$; $u_2$)
 	\vspace{2mm}
 
 \subsection*{a) Feladat felismerése}
-	Mivel ebben a feladatban a vízgőzt állandó térfogaton melegítjük, ezért ez izochor állapotváltozás.
-	Izochor állapotváltozásnál a következőket tudjuk:
+	Mivel ebben a feladatban a vízgőzt állandó térfogaton melegítjük, ezért az állapotváltozás izochor.
+	Izochor állapotváltozásnál a következőket ismerjük:
 	
 \begin{equation}
 	v=const. \rightarrow dv=0
 \end{equation}
 
 \begin{equation}
-	q_{12}=u_2-u_1=C_v(T_2-T_1)
+	q_{1,2}=u_2-u_1=c_v(T_2-T_1)
 \end{equation}
 
 \begin{equation}
-	\omega_{t_{12}}=0	
+	w_{t_{1,2}}=0	
 \end{equation}
 
 \subsection*{b) Állapotváltozók meghatározása a nevezetes pontokban}
-\subsubsection{\quad 1) Nedves-gőz állapotjelzők $x$ = 0,7 és $p$ = 1,76 bar esetén:}
+\subsubsection{- Nedves-gőz állapotjelzők $x = 0,7$ és $p = \SI{1,76}{\bar}$ esetén:}
 \begin{equation}
 	p_1=\SI{1,76}{\bar},
 	\quad
 	T_1=\SI{389,34}{\kelvin},
 	\quad
-	v_1=\SI{0,699}{\frac{\meter\cubed}{\kilogram}},
+	v_1=\SI{0,699}{\meter\cubed\per\kilogram},
 	\quad
-	u_1=\SI{1913,2}{\frac{\kilo\joule}{\kilogram}},
+	u_1=\SI{1913,2}{\kilo\joule\per\kilogram},
 \end{equation}
 \begin{equation}
-	h_1=\SI{2036,3}{\frac{\kilo\joule}{\kilogram}},
+	h_1=\SI{2036,3}{\kilo\joule\per\kilogram},
 	\quad
-	s_1=\SI{5,4645}{\frac{\kilo\joule}{\kilogram\kelvin}},
+	s_1=\SI{5,4645}{\kilo\joule\per\kilogram\kelvin},
 	\quad
 	x_1=0,7
 \end{equation}
 
-\subsubsection{\quad 2) Telített gőz vonalon az állapotjelzők:}
+\subsubsection{- Telített gőz vonalon az állapotjelzők:}
 \begin{equation}
 	p"=\SI{2,575}{\bar},
 	\quad
 	T"=\SI{401,52}{\kelvin},
 	\quad
-	v"=\SI{0,699}{\frac{\meter\cubed}{\kilogram}},
+	v"=\SI{0,699}{\meter\cubed\per\kilogram},
 	\quad
-	u"=\SI{2537,3}{\frac{\kilo\joule}{\kilogram}},
+	u"=\SI{2537,3}{\kilo\joule\per\kilogram},
 \end{equation}
 \begin{equation}
-	h"=\SI{2717,3}{\frac{\kilo\joule}{\kilogram}},
+	h"=\SI{2717,3}{\kilo\joule\per\kilogram},
 	\quad
-	s"=\SI{7,0419}{\frac{\kilo\joule}{\kilogram\kelvin}},
+	s"=\SI{7,0419}{\kilo\joule\per\kilogram\kelvin},
 	\quad
 	x"=1
 \end{equation}
 
-\subsubsection{\quad 3) Túlhevített gőz mezőnél a 2-es pontban az állapotjelzők:}
+\subsubsection{- Túlhevített gőz mezőnél a 2-es pontban az állapotjelzők:}
 \begin{equation}
 	p_2=\SI{3,073}{\bar},
 	\quad
 	T_2=\SI{473,15}{\kelvin},
 	\quad
-	v_2=\SI{0,699}{\frac{\meter\cubed}{\kilogram}},
+	v_2=\SI{0,699}{\meter\cubed\per\kilogram},
 	\quad
-	u_2=\SI{2649,5}{\frac{\kilo\joule}{\kilogram}},
+	u_2=\SI{2649,5}{\kilo\joule\per\kilogram},
 \end{equation}
 \begin{equation}
-	h_2=\SI{2864,3}{\frac{\kilo\joule}{\kilogram}},
+	h_2=\SI{2864,3}{\kilo\joule\per\kilogram},
 	\quad
-	s_2=\SI{7,2992}{\frac{\kilo\joule}{\kilogram\kelvin}}
+	s_2=\SI{7,2992}{\kilo\joule\per\kilogram\kelvin}
 \end{equation}
 
 \subsection*{c) Szükséges hő számítása:}
 Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 \begin{equation}
-	q_{12}=u_2-u_1=\SI{2649,5}{\frac{\kilo\joule}{\kilogram}}-\SI{1913,2}{\frac{\kilo\joule}{\kilogram}}=\SI{736,3}{\frac{\kilo\joule}{\kilogram}}
+	q_{1,2}=u_2-u_1=\SI{2649,5}{\kilo\joule\per\kilogram}-\SI{1913,2}{\kilo\joule\per\kilogram}=\SI{736,3}{\kilo\joule\per\kilogram}
 \end{equation}
 \subsection*{d) Állapotváltozási diagramok megrajzolása:}
 \centering
@@ -131,76 +124,75 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 	\centering
 	\begin{tikzpicture}
 	%sraffozás beállításai
-	[
-	hatch distance/.store in=\hatchdistance,
-	hatch distance=6pt,
-	hatch thickness/.store in=\hatchthickness,
-	hatch thickness=0.5pt
-	]
-	\makeatletter
-	\pgfdeclarepatternformonly[\hatchdistance,\hatchthickness]{flexible hatch}
-	{\pgfqpoint{0pt}{0pt}}
-	{\pgfqpoint{\hatchdistance}{\hatchdistance}}
-	{\pgfpoint{\hatchdistance-1pt}{\hatchdistance-1pt}}
-	{
-		\pgfsetcolor{\tikz@pattern@color}
-		\pgfsetlinewidth{\hatchthickness}
-		\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
-		\pgfpathlineto{\pgfqpoint{\hatchdistance}{\hatchdistance}}
-		\pgfusepath{stroke}
-	}
-	
-	%változó a tábla méreteinek arányos változtatására
-	\newcommand\kicsinyites{0.6};
-	
-	% Tengelyek
-	\draw[myarrow] ({0}, {0}) -- ({14*\kicsinyites}, {0}) node[anchor=base east, shift={(0,-0.5)}]{$s$};
-	\draw[myarrow] ({0}, {0}) -- ({0}, {9*\kicsinyites}) node[anchor=north east]{$T$};
-	
-	\begin{axis}[
-	axis lines = middle,
-	axis line style = {draw = none},
-	xlabel={},
-	ylabel={},
-	ytick={\TegyC-18, \TvesszoC+10, \TkettoC},
-	yticklabels={$T_1$, $T"$, $T_2$},
-	ytick style={draw=none},
-	xtick={\segy, \svesszo-0.2, \sketto+0.2},
-	xticklabels={$s_1$, $s"$, $s_2$},
-	xtick style={draw=none},
-	width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0	
-	]
-	
-	%tickek elhelyezése
-	
-	%T-s alap
-	\addplot [thick] table {./I8FMUH/tsah.txt};
-	\addplot [thick] table {./I8FMUH/tsfh.txt};
-	
-	%nevezetes pontok
-	\draw[fill] (axis cs:\segy, \TegyC) circle [radius = \pontvastagsag];
-	\draw[fill] (axis cs:\svesszo, \TvesszoC) circle [radius = \pontvastagsag];
-	\draw[fill] (axis cs:\sketto, \TkettoC) circle [radius = \pontvastagsag];
-	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:4.9, 75) {1};
-	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:7.8, 230) {2};
-	
-	%allapotjelzo egyenesek
-	\draw[dashed] (axis cs:\segy, \TegyC) -- (axis cs:0, \TegyC);
-	\draw[dashed] (axis cs:\svesszo, \TvesszoC) -- (axis cs:0, \TvesszoC);
-	\draw[dashed] (axis cs:\sketto, \TkettoC) -- (axis cs:0, \TkettoC);
-	\draw[dashed] (axis cs:\svesszo, \TvesszoC) -- (axis cs:\svesszo, 0);
-	
-	%1 - 2 görbe
-	\addplot[thick] table {./I8FMUH/12gorbe_ts.txt};
-	
-	%sraffozás
-	\addplot+[mark=none,
-	domain=05.47:7.29,
-	samples=100,
-	pattern=flexible hatch,
-	draw = black,
-	pattern color=black] table {./I8FMUH/12gorbe_ts.txt} \closedcycle;
-	\end{axis}
+		[
+		hatch distance/.store in=\hatchdistance,
+		hatch distance=6pt,
+		hatch thickness/.store in=\hatchthickness,
+		hatch thickness=0.5pt
+		]
+		\makeatletter
+		\pgfdeclarepatternformonly[\hatchdistance,\hatchthickness]{flexible hatch}
+		{\pgfqpoint{0pt}{0pt}}
+		{\pgfqpoint{\hatchdistance}{\hatchdistance}}
+		{\pgfpoint{\hatchdistance-1pt}{\hatchdistance-1pt}}
+		{
+			\pgfsetcolor{\tikz@pattern@color}
+			\pgfsetlinewidth{\hatchthickness}
+			\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+			\pgfpathlineto{\pgfqpoint{\hatchdistance}{\hatchdistance}}
+			\pgfusepath{stroke}
+		}
+		
+		%változó a tábla méreteinek arányos változtatására
+		\newcommand\kicsinyites{0.6};
+		
+		% Tengelyek
+		\draw[->] ({0}, {0}) -- ({14*\kicsinyites}, {0}) node[anchor=base east, shift={(0.4,-0.7)}]{$s$ [\si{\kilo\joule\per\kilogram\kelvin}]};
+		\draw[->] ({0}, {0}) -- ({0}, {9*\kicsinyites}) node[anchor=north east]{$T$ $[\si{\celsius}]$};
+		
+		\begin{axis}[
+			axis lines = middle,
+			axis line style = {draw = none},
+			xlabel={},
+			ylabel={},
+			ytick={\TegyC-18, \TvesszoC+10, \TkettoC},
+			yticklabels={$T_1=116.19$, $T"=128.37$, $T_2=200$},
+			ytick style={draw=none},
+			xtick={\segy, \svesszo-0.2, \sketto+0.2},
+			xticklabels={$s_1=5.46$, $s"=7.04$, $s_2=7.30$},
+			x tick label style={rotate=90,anchor=east},
+			xtick style={draw=none},
+			width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0	
+			]
+			
+			%T-s alap
+			\addplot [thick] table {./I8FMUH/tsah.txt};
+			\addplot [thick] table {./I8FMUH/tsfh.txt};
+			
+			%nevezetes pontok
+			\draw[fill] (axis cs:\segy, \TegyC) circle [radius = \pontvastagsag];
+			\draw[fill] (axis cs:\svesszo, \TvesszoC) circle [radius = \pontvastagsag];
+			\draw[fill] (axis cs:\sketto, \TkettoC) circle [radius = \pontvastagsag];
+			\node[thick, circle, draw, inner sep = 1mm] at (axis cs:4.9, 75) {1};
+			\node[thick, circle, draw, inner sep = 1mm] at (axis cs:7.8, 230) {2};
+			
+			%allapotjelzo egyenesek
+			\draw[dashed] (axis cs:\segy, \TegyC) -- (axis cs:0, \TegyC);
+			\draw[dashed] (axis cs:\svesszo, \TvesszoC) -- (axis cs:0, \TvesszoC);
+			\draw[dashed] (axis cs:\sketto, \TkettoC) -- (axis cs:0, \TkettoC);
+			\draw[dashed] (axis cs:\svesszo, \TvesszoC) -- (axis cs:\svesszo, 0);
+			
+			%1 - 2 görbe
+			\addplot[thick] table {./I8FMUH/12gorbe_ts.txt};
+			
+			%sraffozás
+			\addplot+[mark=none,
+			domain=05.47:7.29,
+			samples=100,
+			pattern=flexible hatch,
+			draw = black,
+			pattern color=black] table {./I8FMUH/12gorbe_ts.txt} \closedcycle;
+		\end{axis}
 	\end{tikzpicture}
 	\caption{Az állapotváltozás T-s diagramja}
 \end{figure}
@@ -208,45 +200,47 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
-	\newcommand\kicsinyites{0.6};
-	% Tengelyek
-	\draw[myarrow] ({0}, {0}) -- ({14*\kicsinyites}, {0}) node[anchor=base east, shift={(0,-0.5)}]{$log(v)$};
-	\draw[myarrow] ({0}, {0}) -- ({0}, {9*\kicsinyites}) node[anchor=north east]{$p$};
-	
-	\begin{axis}[
-	%nyomás skála adatai MPa-ban vannak megadva
-	axis lines = left,
-	axis line style = {draw = none},
-	xlabel={},
-	ylabel={},
-	ytick = {\pegy, \pvesszo, \pketto},
-	yticklabels = {$p_1$,$p"$,$p_2$},
-	xtick = {\vegy},
-	xticklabels = {$v = const$},
-	xmode = log,
-	width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0
-	]
-	
-	\addplot [thick] table {./I8FMUH/pv_jelleghelyes.txt};
-	
-	%nevezetes pontok
-	\draw[fill] (axis cs:\vegy, \pegy) circle [radius = \pontvastagsag];
-	\draw[fill] (axis cs:\vvesszo, \pvesszo) circle [radius = \pontvastagsag];
-	\draw[fill] (axis cs:\vketto, \pketto) circle [radius = \pontvastagsag];
-	
-	%állapotváltozás iránya
-	\draw[thick] (axis cs:\vegy, \pegy) -- (axis cs:0.699, 0.3073);
-	
-	%állapotot jelző vonalak
-	\draw[dashed] (axis cs:\vegy, \pegy) -- (axis cs:\vegy, 0);
-	\draw[dashed] (axis cs:\vegy, \pegy) -- (axis cs:0.3925, \pegy);
-	\draw[dashed] (axis cs:\vegy, \pvesszo) -- (axis cs:0.3925, \pvesszo);
-	\draw[dashed] (axis cs:\vegy, \pketto) -- (axis cs:0.3925, \pketto);
-	
-	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:0.76, 0.176) {1};
-	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:0.76, 0.32) {2};
-	
-	\end{axis}
+		\newcommand\kicsinyites{0.6};
+		% Tengelyek
+		\draw[->] ({0}, {0}) -- ({14*\kicsinyites}, {0}) node[anchor=base east, shift={(1,-0.5)}]{$lg(v)$ [\si{\meter\cubed\per\kilogram]}};
+		\draw[->] ({0}, {0}) -- ({0}, {9*\kicsinyites}) node[anchor=north east]{$p$ [\si{\bar}]};
+		
+		\begin{axis}[
+			%nyomás skála adatai MPa-ban vannak megadva
+			axis lines = left,
+			axis line style = {draw = none},
+			xlabel={},
+			ylabel={},
+			ytick = {\pegy, \pvesszo, \pketto},
+			yticklabels = {$p_1=1.76$,$p"=2.575$,$p_2=3.073$},
+			xtick = {\vegy},
+			xticklabels = {$v=0.699$},
+			xmode = log,
+			width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0
+			]
+			
+			\addplot [thick] table {./I8FMUH/pv_jelleghelyes.txt};
+			
+			%nevezetes pontok
+			\draw[fill] (axis cs:\vegy, \pegy) circle [radius = \pontvastagsag];
+			\draw[fill] (axis cs:\vvesszo, \pvesszo) circle [radius = \pontvastagsag];
+			\draw[fill] (axis cs:\vketto, \pketto) circle [radius = \pontvastagsag];
+			
+			%állapotváltozás iránya
+			\draw[thick] (axis cs:\vegy, \pegy) -- (axis cs:0.699, 0.3073);
+			
+			%állapotot jelző vonalak
+			\draw[dashed] (axis cs:\vegy, \pegy) -- (axis cs:\vegy, 0);
+			\draw[dashed] (axis cs:\vegy, \pegy) -- (axis cs:0.3925, \pegy);
+			\draw[dashed] (axis cs:\vegy, \pvesszo) -- (axis cs:0.3925, \pvesszo);
+			\draw[dashed] (axis cs:\vegy, \pketto) -- (axis cs:0.3925, \pketto);
+			
+			\node[thick, circle, draw, inner sep = 1mm] at (axis cs:0.76, 0.176) {1};
+			\node[thick, circle, draw, inner sep = 1mm] at (axis cs:0.76, 0.32) {2};
+		\end{axis}
 	\end{tikzpicture}
 	\caption{Az állapotváltozás p-v diagramja}
 \end{figure}
+\begin{flushleft}
+Az ábrák rajzolásához, illetve a különböző állapotok adataihoz a \textit{\url{https://www.spiraxsarco.com/resources-and-design-tools/steam-tables}} weboldal segítségét használtam fel, melynél a víz különböző állapotait kiválasztva dolgozhatunk előre definiált függvényekkel. Előre megadott adatainkat felhasználva nyerhetjük ki az állapotok értékeit, illetve függvények rajzolásához átváltva a "Table" jelölésre a köztes állapotok adatait is megkapjuk egy listában. Ennek a segítségével rajzoltam meg a $T-s$ és $p-v$ diagramot is, illetve a $T-s$ diagramnak az alapját a $github$ felületéről vettem le.
+\end{flushleft}
