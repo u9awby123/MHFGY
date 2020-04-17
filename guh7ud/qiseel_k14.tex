@@ -1,0 +1,74 @@
+\section*{K1/4. feladat: Légsűrítő (kompresszor) teljesítménye} 
+\addcontentsline{toc}{section}{K1/4. feladat}
+Egy légkompresszor $\dot{V} = \SI{580}{\meter\cubed\per\hour}$ levegőt $p_1=\SI{1}{\bar}$ nyomásról $p_2=\SI{8}{\bar}$ nyomásra sűrít. A levegő hőmérséklete $t_1=\SI{22}{\celsius}$, beszíváskor. Mennyi a kompresszor teljesítmény igébye a/izometrikus;b/adiabatikus  ($=\SI{1,4}{} $ ); c/politrópikus ($n = \SI{1,3}{} $) kompresszió esetén? 
+
+\vspace{2mm}
+\noindent Ábrázolja a folyamatokat $p$-$v$ és $T$-$s$ diagramokban!
+
+%$\alpha \Alpha$
+%\begin{figure}
+%	\begin{center}
+%		\includegraphics{./images/elso.eps}
+%	\end{center}
+%	\label{fig_elso_kepem}
+%	\caption{Ez a kép felirata}
+%\end{figure}
+
+%Nézd meg a \ref{fig_elso_kepem} képet!
+
+\subsubsection{Teljesítmény számolása}
+Technikai munka az a munkamennyiség amely egy nyitott rendszerben adott folyamatsor ismételt, ciklikus végrehajtására alkalmas technikai gép működéséhez szükséges.
+Technikai munka számítása:
+\begin{equation*}
+	W_t=mw_t
+\end{equation*}
+\begin{equation*}
+P\approx \dod{W_t}{t}=\underbrace{\dod{m}{t} }_{\dot{m}} W_t +\underbrace{ m\dod{w_t}{t}}_{\SI{0}{\watt\per\kilogram}}=\dot{m} w_t\
+\end{equation*}
+
+
+
+
+\noindent\hrulefill
+%a) izotermikus T_1=a\'llando\'
+\subsubsection{a) izotermikus $T_1$=állandó}
+Izotermikus állapotváltozás: ha a hőmérsékletet állandó értéken tartjuk, ekkor $T=állandó$.
+\begin{equation}
+\dot{m}=\rho \dot{V}=\frac{\dot{V_1}}{v_1}=\SI{0,19}{\kilogram\per\second}
+\end{equation}
+Fajtérfogat az állapotegyenletből kifejezve:
+\begin{equation}
+v_1=\frac{R_L T_1}{p_1}=\SI{0,847}{\frac{m^3}{kg}}
+\end{equation}
+W értéke negatív mert a rendszer végez munkát a környezeten és ezért számolunk $ln\frac{p1}{p2}$ -vel. Számolhatunk $ln\frac{p2}{p1}$-gyel viszont akkor az eredmény mínusz egyszeresét kell venni.
+\begin{equation}
+w_{t1,2}=R_LT_1ln\frac{p_1}{p_2}=\SI{-176,17}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+P=\dot{m}w_t=\SI{-33,5}{kN}
+\end{equation}
+
+\subsubsection{b) adiabatikus q=0}
+Adiabatikus állapotváltozás : ha az entrópia állandó.Ilyenkor sem hőkölés sem hőelvonás nem történik.$q=0$ tehát belsőenergia rovására történik munkavégzés.
+\begin{equation}
+T_{2ad}=T_1\left(\frac{p_2}{p_1}\right)^\frac{\kappa-1}{\kappa}=\SI{534,6}{\kelvin}
+\end{equation}
+\begin{equation}
+w_{t1,2ad}=\kappa\frac{p_1v_1}{\kappa-1}\left(1-\frac{T_{2ad}}{T_1}\right)=\SI{-240,6}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+P_{ad}=\SI{-45,75}{\kilogram\watt}
+\end{equation}
+
+\subsubsection{c) politrópikus n=1,3}
+Politrópikus állapotváltozás: a legtöbb valós folyamatban a nyomás, hőmérséklet, térfogat bevitt vagy elvont hőenergia is változik.ahol $"n"$politrópikus tényező.A b és c pontokban a számolás azonos módon történik csak a kitevő értékében van különbség.
+A $\kappa$ értéke két atomos gáz esetén $\SI{1,4}{}$ egy atomos gáz esetén $\SI{1,3}{}$.
+\begin{equation}
+w_{t1,2p}=n\frac{p_1v_1}{n-1}\left(1-\frac{T_{2p}}{T_1}\right)=\SI{-226}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+T_{2p}=T_1=T_1\left(\frac{p_2}{p_1}\right)^\frac{n-1}{n}=\SI{-226}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+P_{pol}=\SI{-42,99}{\kilo\watt}
+\end{equation}
