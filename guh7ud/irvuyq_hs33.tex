@@ -1,0 +1,135 @@
+		
+\section*{HS 33.: Ellenáramú hőcserélő}	
+\addcontentsline{toc}{section}{HS 33.}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Molnár Anna \\ 
+	\hline
+	Szak & Vegyészmérnök \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+\noindent
+ Egy ellenáramú hőcserélőről az alábbi adatokat ismerjük:
+$T_{1k} = \SI{115}{\celsius}$ meleg közeg belépési(kezdeti) hőmérsékletét,
+$T_{2k} = \SI{18}{\celsius}$ hideg közeg belépési hőmérsékletét,
+$\dot{w}_1 = \dot{w}_2 =\SI{50000}{\watt\per\kelvin}$ konvektív vízértékét,
+$\kappa$ $= \SI{185}{\watt\per\meter\squared\kelvin}$ hőátszármaztatási tényezőjét,
+$A_{\ddot{O}} = \SI{85}{\meter\squared}$ hőátadó felületét.
+\vspace{5mm}
+
+\underline{Feladat veszteségmentes esetben:}
+\begin{itemize}
+\item a,Számítsa ki a kilépési hőmérsékletet! 
+\item b, Határozza meg $\kappa$ * értékét, ha $T_{1v} = T_{2v}$ (a kilépési hőmérsékletek azonosak)!
+\item c,Rajzolja le a hőmérséklet-hely függvényt!
+\end{itemize}
+\vspace{5mm}
+% A feladat megoldása
+\subsubsection*{a) A kilépési hőmérsékletek kiszámítása}
+
+ Hőáramokkal történik a hőterjedés, amit definiálni lehet. A belépő(k) és kilépő(v) hőáramok különbsége: $\Delta \dot{Q}_1 = \dot{w}_1 \left(T_{1v} - T_{1k}\right)$.
+ Az $\dot{w}_1 = \dot{w}_2$ egyenlősége miatt a állandó a hőmérsékletkülönbség $\Delta T_N = \Delta T_k = \Delta T = $állandó , így a hőmérséklet felírható így a vég-és kezdeti $\Delta T$ alapján:
+ $\Delta T = T_{1v} - T_{2k}$
+
+\begin{equation}
+  \left(T_{1k} - T_{1v}\right) = \kappa A_{\ddot{0}} \Delta T = \kappa A_{\ddot{0}} \left(T_{1v} - T_{2k}\right)
+ \end{equation}
+
+Felbontva a zárójeleket:
+
+ \begin{equation}
+\dot{w}_1 T_{1k} - \dot{w}_1 T_{1v} =  \kappa A_{\ddot{0}} T_{1v} -  \kappa A_{\ddot{0}} T_{2k}
+ \end{equation}
+
+
+Ezután ha rendezzük az egyenletet kezdeti és végső oldalra $T_{1v}$ kifejezhető.
+
+\begin{equation}
+T_{1v} = \frac{\kappa A_{\ddot{O}} T_{2k} + \dot{w} T_{1k}}{\kappa A_{\ddot{O}} + \dot{w}} =\frac{\SI{185}{\watt\per\meter\squared\kelvin}\cdot \SI{85}{\meter\squared}\cdot \SI{18}{\celsius} + \SI{50000}{\watt\per\kelvin} \cdot \SI{115}{\celsius}}{\SI{185}{\watt\per\meter\squared\kelvin}\cdot \SI{85}{\meter\squared} + \SI{50000}{\watt\per\kelvin}}= \SI{91.79}{\celsius}
+\end{equation}
+$T_{2v}$ meghatározása pedig:
+\begin{equation}
+\dot{w}_1\left(T_{1v} - T_{1k}\right) = \dot{w}_2\left(T_{2v} - T_{2}\right)
+\end{equation}
+
+De mivel a konvektív vezetés megegyezik($\dot{w}_1 = \dot{w}_2$), azzal egyszerűsítve, majd átrendezzük $T_{2v}$-re.
+
+\begin{equation}
+T_{2v} = T_{2k} + T_{1k} - T_{1v} = \SI{18}{\celsius} + \SI{115}{\celsius} - \SI{91.79}{\celsius} = \SI{49.375}{\celsius}
+\end{equation}
+
+\subsubsection*{b) $\kappa$* értékének meghatározása, ha a kilépési hőmérsékletek egyenlőek( $T_{1v} = T_{2v}$) }
+Az a, feladatban használt egyenletből kifejezhető a $\kappa$* értéke mert már kiszámoltuk a kilépő közegek hőmérsékletét.De mivel tudjuk, hogy $\Delta T_N = \Delta T_k = \Delta T = $állandó ezért:
+\vspace{1mm}
+\begin{equation}
+\dot{w}\left(T_{1k} - T_{1v}\right) = \kappa* A_{\ddot{0}} \Delta T = \kappa A_{\ddot{0}} \left(T_{1v} - T_{2k}\right)
+\end{equation}
+
+\begin{equation}
+\kappa^*=\dfrac{\dot{w} \left(T_{1k} - T_{1v}\right)}{A_{\ddot{O}} \left(T_{1v} - T_{2k}\right)} =\dfrac{\dot{w} \Delta T}{A_{\ddot{O}} \Delta T}=\dfrac{\dot{w}}{A_\ddot{O}}=\dfrac{\SI{50000}{\watt\per\kelvin}}{\SI{85}{\meter\squared}}=\SI{588.23}{\watt\per\meter\squared\kelvin}
+\end{equation}
+\vspace{5mm}
+\subsubsection*{c)Hőmérséklet-hely függvény}
+$\Delta T(A) = \Delta T_{N}\mathrm{e}^{0} = \Delta T_{k} =$állandó
+
+\begin{figure}[h]
+\centering
+\label{figure:sm}
+\begin{tikzpicture}
+\pgfmathsetmacro{\L}{4}
+\pgfmathsetmacro{\AÖ}{8}
+		
+\pgfmathsetmacro{\kelvin}{34}
+\pgfmathsetmacro{\TAK}{115/\kelvin}
+\pgfmathsetmacro{\TAV}{91.79/\kelvin}
+\pgfmathsetmacro{\TBK}{18/\kelvin}
+\pgfmathsetmacro{\TBV}{41.21/\kelvin}
+		
+% Tengelyek
+\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
+\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
+	
+% Az Aö
+\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
+\draw (\AÖ,-0.1) -- (\AÖ,0.1);
+\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
+		
+% A két T(A)
+\draw[mid arrow=yellow, yellow, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
+\draw[mid arrow=green, green, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
+		
+% A hőmérsékletek
+\draw (-0.1,\TAK) -- (0.1,\TAK);
+\node[anchor=base east] at (0,\TAK) {$T_{1k}$};
+\node[anchor=north east] at (0,\TAK) {$\SI{115}{\celsius}$};
+		
+\draw (-0.1,\TBV) -- (0.1,\TBV);
+\node[anchor=base east] at (0,\TBV) {$T_{2v}$};
+\node[anchor=north east] at (0,\TBV) {$\SI{41.21}{\celsius}$};
+		
+\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
+\node[anchor=base west] at (\AÖ,\TBK) {$T_{2k}$};
+\node[anchor=north west] at (\AÖ,\TBK) {$\SI{18}{\celsius}$};
+		
+\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
+\node[anchor=base west] at (\AÖ,\TAV) {$T_{1v}$};
+\node[anchor=north west] at (\AÖ,\TAV) {$\SI{91.79}{\celsius}$};
+		
+% A hőmérsékletkülönbség
+\pgflength[xb={\AÖ*0.35}, yb={0.75*\TBV+0.35*\TBK}, xa={\AÖ*0.35}, ya={0.65*\TAK+0.35*\TAV}, alim=0, blim=0, ra=0, ny=0]{$\Delta T$};
+		
+\end{tikzpicture}
+\caption{A hőmérséklet-hely függvények.}
+\end{figure}
+
+\pagebreak	
+
+
+
+
