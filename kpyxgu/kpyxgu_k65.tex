@@ -1,0 +1,42 @@
+\section*{K6/5. feladat}
+\addcontentsline{toc}{section}{H1/5. feladat}
+
+Freon-12 nevű anyag kondenzálódik $d = \SI{20}{\milli\meter}$ külső átmérőjű vízszintes csövek felületén. Egymás alatt függőleges síkban $z = 18 db$ csövet helyezünk el. A kondenzáció hőmérséklete $t_s = \SI{25}{\celsius}$. A csövekben hűtővíz áramlik, a csőfal hőmérsékletét $t_w = \SI{21}{\celsius}$-ra becsüljük. Határozzuk meg a kondenzáció hőátadási tényezőjét!
+
+\vspace{6mm}
+
+Nusselt képlet:
+
+\vspace{2mm}
+
+\begin{equation}
+\alpha = c \left(\dfrac{r \varrho^2 \lambda^3 g}{\eta H \Delta T}\right)^{\tfrac{1}{4}}
+\end{equation}
+
+\vspace{2mm}
+
+Adatok:
+
+\vspace{2mm}
+\begin{equation}
+	\label{equation:k65T}
+\left.
+\begin{array}{l}
+r = \SI{142,8}{\kilo\joule\per\kilogram} = \SI{142800}{\joule\per\kilogram}
+\quad
+\varrho = \SI{1318}{\kilogram\per\meter\cubed}
+\\ \\
+\lambda = \SI{0,0897}{\watt\per\meter\kelvin}
+\quad
+\eta = \SI{2,3e-4}{\newton\second\per\meter\squared\left(\kilogram\per\second\meter)\right}
+\end{array}
+\right\rbrace \quad \text{\SI{23}{\celsius}-nal}
+\end{equation}
+
+\vspace{6mm}
+Megoldás: Az egyenletbe behelyettesítünk
+
+\begin{equation}
+\alpha = c \left(\dfrac{r \varrho^2 \lambda^3 g}{\eta H \Delta T}\right)^{\tfrac{1}{4}} = \SI{1101,7}{\watt\per\meter\squared\kelvin}
+\end{equation}
+
