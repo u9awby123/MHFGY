@@ -8,7 +8,7 @@
 \newcommand\hegy{2036.3}
 \newcommand\segy{5.4645}
 \newcommand\xegy{0.7}
-% " pont
+% '' pont
 \newcommand\pvesszo{0.2575}
 \newcommand\TvesszoK{401.52}
 \newcommand\TvesszoC{128.37}
@@ -48,19 +48,20 @@
 	Izochor állapotváltozásnál a következőket ismerjük:
 	
 \begin{equation}
-	v=const. \rightarrow dv=0
+	v=\textrm{állandó} \rightarrow \dif v=\SI{0}{\meter\cubed\per\kilo\gram}
 \end{equation}
 
 \begin{equation}
-	q_{1,2}=u_2-u_1=c_v(T_2-T_1)
+	q_{1,2}=u_2-u_1%=c_V(T_2-T_1)
 \end{equation}
 
 \begin{equation}
-	w_{t_{1,2}}=0	
+	w_{t_{1,2}}=\SI{0}{\kilo\joule\per\kilogram}	
 \end{equation}
 
 \subsection*{b) Állapotváltozók meghatározása a nevezetes pontokban}
-\subsubsection{- Nedves-gőz állapotjelzők $x = 0,7$ és $p = \SI{1,76}{\bar}$ esetén:}
+\subsubsection{Nedves-gőz állapotjelzők $x = 0,7$ és $p = \SI{1,76}{\bar}$ esetén}
+Ismert a fajlagos gőztartalom és a nyomás. Ennek a két ismert állapotjelzőnek a segítségével gőztáblázatból meghatározhatóak a további állapotjelzők az \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}}-es állapotban. Ez az állapot a nedves-gőz mezőben található.
 \begin{equation}
 	p_1=\SI{1,76}{\bar},
 	\quad
@@ -78,25 +79,27 @@
 	x_1=0,7
 \end{equation}
 
-\subsubsection{- Telített gőz vonalon az állapotjelzők:}
+\subsubsection{Telített gőz vonalon az állapotjelzők}
+Az állapotváltozás izochor, ezért a fajtérfogat bármely állapotban azonos értékű. A $v=\SI{0,699}{\meter\cubed\per\kilo\gram}$ izochor görbe ahol metszi a telített gőz határgörbét, ott kell meghatározni az állapotjelzőket.
 \begin{equation}
-	p"=\SI{2,575}{\bar},
+	p''=\SI{2,575}{\bar},
 	\quad
-	T"=\SI{401,52}{\kelvin},
+	T''=\SI{401,52}{\kelvin},
 	\quad
-	v"=\SI{0,699}{\meter\cubed\per\kilogram},
+	v''=\SI{0,699}{\meter\cubed\per\kilogram},
 	\quad
-	u"=\SI{2537,3}{\kilo\joule\per\kilogram},
+	u''=\SI{2537,3}{\kilo\joule\per\kilogram},
 \end{equation}
 \begin{equation}
-	h"=\SI{2717,3}{\kilo\joule\per\kilogram},
+	h''=\SI{2717,3}{\kilo\joule\per\kilogram},
 	\quad
-	s"=\SI{7,0419}{\kilo\joule\per\kilogram\kelvin},
+	s''=\SI{7,0419}{\kilo\joule\per\kilogram\kelvin},
 	\quad
-	x"=1
+	x''=1
 \end{equation}
 
-\subsubsection{- Túlhevített gőz mezőnél a 2-es pontban az állapotjelzők:}
+\subsubsection{Túlhevített gőz mezőnél a 2-es pontban az állapotjelzők}
+Ismert a fajtérfogat az izochor állapotváltozás végett, valamint a \raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}}-es állapot hőmérséklete, melyből meghatározhatóak az állapotjelzők. Ez az állapot a túlhevített gőz mezőben található.
 \begin{equation}
 	p_2=\SI{3,073}{\bar},
 	\quad
@@ -112,12 +115,12 @@
 	s_2=\SI{7,2992}{\kilo\joule\per\kilogram\kelvin}
 \end{equation}
 
-\subsection*{c) Szükséges hő számítása:}
+\subsection*{c) A szükséges hő számítása}
 Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 \begin{equation}
 	q_{1,2}=u_2-u_1=\SI{2649,5}{\kilo\joule\per\kilogram}-\SI{1913,2}{\kilo\joule\per\kilogram}=\SI{736,3}{\kilo\joule\per\kilogram}
 \end{equation}
-\subsection*{d) Állapotváltozási diagramok megrajzolása:}
+\subsection*{d) Az állapotváltozás $T-s$ és $p-v$ diagramban}
 %T-s diagram
 \begin{figure}[h]
 	\centering
@@ -155,25 +158,25 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 			xlabel={},
 			ylabel={},
 			ytick={\TegyC-18, \TvesszoC+10, \TkettoC},
-			yticklabels={$T_1=116.19$, $T"=128.37$, $T_2=200$},
+			yticklabels={{$T_1=116,19$}, {$T''=128,37$}, {$T_2=200$}},
 			ytick style={draw=none},
 			xtick={\segy, \svesszo-0.2, \sketto+0.2},
-			xticklabels={$s_1=5.46$, $s"=7.04$, $s_2=7.30$},
+			xticklabels={{$s_1=5,46$}, {$s''=7,04$}, {$s_2=7,30$}},
 			x tick label style={rotate=90,anchor=east},
 			xtick style={draw=none},
-			width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0	
+			width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0
 			]
 			
 			%T-s alap
-			\addplot [thick] table {./I8FMUH/tsah.txt};
-			\addplot [thick] table {./I8FMUH/tsfh.txt};
+			\addplot [thick] table {./I8FMUH/ts.txt}; %T-s diagram alap
+			\addplot [thick, red] table {./I8FMUH/ts_v0699.txt}; %v=0.699 vonal ábrázolása
 			
 			%nevezetes pontok
 			\draw[fill] (axis cs:\segy, \TegyC) circle [radius = \pontvastagsag];
 			\draw[fill] (axis cs:\svesszo, \TvesszoC) circle [radius = \pontvastagsag];
 			\draw[fill] (axis cs:\sketto, \TkettoC) circle [radius = \pontvastagsag];
-			\node[thick, circle, draw, inner sep = 1mm] at (axis cs:4.9, 75) {1};
-			\node[thick, circle, draw, inner sep = 1mm] at (axis cs:7.8, 230) {2};
+			\node[thick, circle, draw, inner sep = 1mm] at (axis cs:4.9, 60) {1};
+			\node[thick, circle, draw, inner sep = 1mm] at (axis cs:8, 200) {2};
 			
 			%allapotjelzo egyenesek
 			\draw[dashed] (axis cs:\segy, \TegyC) -- (axis cs:0, \TegyC);
@@ -183,6 +186,9 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 			
 			%1 - 2 görbe
 			\addplot[thick] table {./I8FMUH/12gorbe_ts.txt};
+			
+			%fajtérfogat görbe jelölése
+			\node[red, rotate = 77] at (axis cs:7.04, 370) {\SI{0,699}{\meter\cubed\per\kilogram}};
 			
 			%sraffozás
 			\addplot+[mark=none,
@@ -196,7 +202,7 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 	\caption{Az állapotváltozás T-s diagramja}
 \end{figure}
 %p-v diagram
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
 		\newcommand\kicsinyites{0.6};
@@ -211,9 +217,9 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 			xlabel={},
 			ylabel={},
 			ytick = {\pegy, \pvesszo, \pketto},
-			yticklabels = {$p_1=1.76$,$p"=2.575$,$p_2=3.073$},
-			xtick = {\vegy},
-			xticklabels = {$v=0.699$},
+			yticklabels = {{$p_1=1,76$},{$p''=2,575$},{$p_2=3,073$}},
+			xtick = {\vegy, 0.7},
+			xticklabels = {{$0,699$}, {}}, %sajnos a vesszőt csak úgy tudtam megoldani, hogy a listához hozzátettem egy értéket, ami "láthatatlan"
 			xmode = log,
 			width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0
 			]
@@ -240,6 +246,4 @@ Az a) pontban ismertetett képlet alapján számoljuk a szükséges hőt,
 	\end{tikzpicture}
 	\caption{Az állapotváltozás p-v diagramja}
 \end{figure}
-\begin{flushleft}
 Az ábrák rajzolásához, illetve a különböző állapotok adataihoz a \textit{\url{https://www.spiraxsarco.com/resources-and-design-tools/steam-tables}} weboldal segítségét használtam fel, melynél a víz különböző állapotait kiválasztva dolgozhatunk előre definiált függvényekkel. Előre megadott adatainkat felhasználva nyerhetjük ki az állapotok értékeit, illetve függvények rajzolásához átváltva a "Table" jelölésre a köztes állapotok adatait is megkapjuk egy listában. Ennek a segítségével rajzoltam meg a $T-s$ és $p-v$ diagramot is, illetve a $T-s$ diagramnak az alapját a $github$ felületéről vettem le.
-\end{flushleft}
