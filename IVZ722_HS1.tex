@@ -1,2 +1,65 @@
+% !TeX TS-program = xelatex
 
-Teszt
+\documentclass[11pt, a4paper]{report}
+
+% Dokumentum adatok
+% =================
+\author{}
+\title{Műszaki hőtan feladatgyűjtemény}
+
+% A közös fájlok beszúrása
+% ========================
+\newcommand*{\JakiFolder}{./JAKI}%
+
+% A közös fájlok a JAKI tárolóban vannak, amit az MHFGY-vel 
+% közös mappába kell letölteni (clone/pull).
+\input{\JakiFolder/JakiAlap.tex}				% Formázás, csomagok
+\input{\JakiFolder/JakiTikz.tex}				% Rajzoló parancsok
+
+% A dokumentum kezdete
+% ====================
+\begin{document}
+
+
+% 5. fejezet
+% ==========
+\chapter{Hőterjedés álló közegben}
+% sajat IDE PROBALKOZOK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{HS 1. feladat: Kazánfalon áthaladó hőmennyiség}
+\addcontentsline{toc}{section}{HS 1. feladat}
+Határozza meg azt a hőmennyiséget amely a kazánfal $\SI{1}{\meter^2}$-én óránként átadódik, ha a fal vastagsága $\SI{20}{\milli\meter}$, anyagának hővezetési tényezője $\SI{45}{\watt\per\meter}$ és a fal belső oldalát $\SI{2}{\milli\meter}$ vastag kazánkő réteg borítja. Ennek a hővezetési tényezője $\lambda = \SI{1.5}{\watt\per\meter}$ fok. A kazán falának füstgázoldali hőmérséklete $\SI{260}{\celsius}$, vízoldali hőmérséklete $\SI{195}{\celsius}$. Számítsa ki a kazán falának közepes hőmérsékletét és rajzljda fel a hőmérséklet-hely függvényt léptékhelyesen!
+
+        (q =  $ \SI{36562,5}{\watt\per\meter^2}$; $t_k_o_z =  \SI{251.9}{\celsius}$)
+        
+        
+\section*{HS 2. feladat: Vízforraló üst acélfalának hőforgalma}
+\addcontentsline{toc}{section}{HS 2. feladat}
+Egy vízforraló üst $\SI{20}{\milli\meter}$ vastag acélfalának vízoldali hőfoka $\SI{100}{\celsius}$ s a falban kialakuló áramsűrüség $\SI{60000}{\watt\per\meter^2}$.
+
+\vspace{1mm}
+\noindent a: Határozza meg az üst füstgázoldali hőmérsékletét!
+
+\vspace{1mm}
+\noindent b: Számítsa ki a falban lévő hőáramsűrüség változását, ha a vízoldalon $\SI{2}{\milli\meter}$ vastag vízkőréteg képződik és a fal két oldalán a hőmérséklet változatlan marad!
+
+\vspace{1mm}
+\noindent c: Határozza meg a két felületi érintkezésnél kialakult hőmérsékletet
+
+\vspace{1mm}
+\noindent Adatok:    ($\lambda_a_c = \SI{45}{\watt\per\meter\K}$ ;
+                     $\lambda_v_i_z_k_o = \SI{1,8}{\watt\per\meter\K}$)
+                     
+\vspace{1mm}
+(A:t_f_g = $\SI{126,43}{\celsius}$ ; B:q_2 = $\SI{17300}{\watt\per\meter^2}$ ; C:t_w = $\SI{118,93}{\celsius}$)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% K5/1-es feladat
+\input{./guh7ud/guh7ud_k51.tex}
+
+
+\end{document}
