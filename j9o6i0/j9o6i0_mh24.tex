@@ -1,0 +1,164 @@
+\section*{MH 24. feladat: Rankine-Clausius körfolyamat módosítása}
+\addcontentsline{toc}{section}{MH 24. feladat}
+
+%feladatleírás
+Elméleti Rankine-Clausius körfolyamat alsó folyáshatára $p_k = \SI{0,05}{\bar}$. Mennyivel javul a körfolyamat termikus hatásfoka, ha a felső nyomáshatárt $p_1 = \SI{40}{\bar}$-ról $p^x = \SI{180}{\bar}$-ra emeljük? A túlhevített hőmérsékletet mindkét esetben azonos $T_{TH} = \SI{500}{\celsius}$. A tápszivattyú munkáját figyelmen kívül hagyjuk. Rajzolja meg a körfolyamatot T-s diagramban.
+
+\subsubsection{Ismert adatok:}
+
+\begin{equation*}
+	p_k = \SI{0,05}{\bar},
+	\quad
+	p_1 = \SI{40}{\bar}	
+\end{equation*}
+
+\begin{equation*}
+	i' = \SI{136}{\kilo\joule\per\kilogram},
+	\quad
+	i'' = \SI{2560}{\kilo\joule\per\kilogram},
+	\quad
+	i_1 = \SI{3446}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+\begin{equation*}
+	s' = \SI{0,46}{\kilo\joule\per\kilogram\kelvin},
+	\quad
+	s'' = \SI{8,4}{\kilo\joule\per\kilogram\kelvin},
+	\quad
+	s = \SI{7,1}{\kilo\joule\per\kilogram\kelvin}
+\end{equation*}
+\begin{equation*}
+	p^x = \SI{180}{\bar},
+	\quad
+	i^x = \SI{3272}{\kilo\joule\per\kilogram},
+	\quad
+	s^x = \SI{6,2}{\kilo\joule\per\kilogram\kelvin}
+\end{equation*}
+
+
+\subsubsection*{a) Termikus hatásfok számítása $p_1=\SI{40}{\bar}$ esetén.}
+
+A végállapot állapotjelzőinek számításához szükségünk lesz az x fajlagos gőztartalomra. Az állapotváltozás adiabatikus jellegű, így (ha reverzibilisnek tekintjük az állapotváltozást) $s_1 = s_2 = s $.
+
+\begin{equation}
+	s = \left(1 - x\right) s' + x s''
+	\quad 
+	\Rightarrow
+	\quad 
+	x =	\dfrac{s - s'}{s'' - s'} = \SI{0,836}{}
+\end{equation}
+
+
+\noindent Így ki tudjuk számolni a hőtartalmat a végállapotban:
+\begin{equation}
+	h_2 = \left(1 - x\right) h' + x h'' = \SI{2163,12}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\noindent A végállapotra kapott hőtartalom és a kezdeti hőtartalom segítségével meghatározhatjuk a tömegfajlagos technika munkát.
+\begin{equation}
+	w_t = h_1 - h_2 = \SI{1282,88}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\noindent Ezután meghatározzuk a tömegfajlagos hőt:
+\begin{equation}
+	q_{BE} = h_1 - h' = \SI{3310}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\pagebreak
+
+\noindent A tömegfajlagos technikai munka és tömegfajlagos hő hányadosa a termikus hatásfok:
+\begin{equation}
+	\eta_{T} = \dfrac{w_t}{q_{BE}} = \SI{0,3876}{}
+		\quad 
+	\Rightarrow
+	\quad 
+	\SI{38,76}{\percent}
+\end{equation}
+
+\subsubsection*{b) Termikus hatásfok számítása $p_1=\SI{180}{\bar}$ esetén.}
+
+A végállapot állapotjelzőinek számításához szükségünk lesz az $x^x$ fajlagos gőztartalomra. Az állapotváltozás adiabatikus jellegű, így (ha reverzibilisnek tekintjük az állapotváltozást) $s_1 = s_2 = s^x $.
+
+\begin{equation}
+s^x = \left(1 - x^x\right) s' + x^x s''
+\quad 
+\Rightarrow
+\quad 
+x^x =	\dfrac{s^x - s'}{s'' - s'} = \SI{0,723}{}
+\end{equation}
+
+
+\noindent Így ki tudjuk számolni a hőtartalmat a végállapotban:
+\begin{equation}
+h_2^x = \left(1 - x^x\right) h' + x h'' = \SI{1888,31}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\noindent A végállapotra kapott hőtartalom és a kezdeti hőtartalom segítségével meghatározhatjuk a tömegfajlagos technika munkát.
+\begin{equation}
+w_t^x = h^x- h_2^x = \SI{1383,69}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\noindent Ezután meghatározzuk a tömegfajlagos hőt:
+\begin{equation}
+q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\noindent A tömegfajlagos technikai munka és tömegfajlagos hő hányadosa a termikus hatásfok:
+\begin{equation}
+\eta_{T}^x = \dfrac{w_t^x}{q_{BE}^x} = \SI{0,4412}{}
+\quad 
+\Rightarrow
+\quad 
+\SI{44,12}{\percent}
+\end{equation}
+
+\noindent Tehát $\SI{5,36}{\percent}$-kal javul a körfolyamat hatásfoka, ha a felső nyomáshatárt $p_1 = \SI{40}{\bar}$-ról $p^x = \SI{180}{\bar}$-ra emeljük.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\draw[->] ({0}, {0}) -- ({14}, {0}) node[anchor=base east, shift={(0.4,-0.7)}]{$s$ [\si{\kilo\joule\per\kilogram\kelvin}]};
+	\draw[->] ({0}, {0}) -- ({0}, {9}) node[anchor=north east]{$T$ $[\si{\celsius}]$};
+	
+	\begin{axis}[
+	axis lines = middle,
+	axis line style = {draw = none},
+	xlabel={},
+	ylabel={},
+	ytick style={draw=none},
+	xtick style={draw=none},
+	width=15cm, height=10cm, xmin=0, ymin=0, ymax=550,
+	]
+	
+	\addplot [] table {./j9o6i0/ts.txt}; %T-s
+	\addplot [thick] table {./j9o6i0/p40.txt};
+	\addplot [thick] table {./j9o6i0/izochor_0865.txt};
+	\addplot [thick, red] table {./j9o6i0/p180.txt};
+	\addplot [thick, red] table {./j9o6i0/izochor_0166.txt};
+	
+	\draw[fill] (axis cs:7.1, 500) circle [radius = 1mm];
+	\draw[fill] (axis cs:6.286, 219.75) circle [radius = 1mm];
+	\draw[fill] (axis cs:2.552, 219.75) circle [radius = 1mm];
+	\draw[fill] (axis cs:0.46, 32.88) circle [radius = 1mm];
+	\draw[fill] (axis cs:7.1, 32.88) circle [radius = 1mm];
+	
+	\draw[fill, red] (axis cs:6.2, 500) circle [radius = 1mm];
+	\draw[fill, red] (axis cs:5.574, 315.88) circle [radius = 1mm];
+	\draw[fill, red] (axis cs:3.416, 315.88) circle [radius = 1mm];
+ 	\draw[fill, red] (axis cs:6.2, 32.88) circle [radius = 1mm];
+	
+	\draw[thick, red] (axis cs:0.46, 32.88) -- (axis cs:6.2, 32.88);
+	\draw[thick, red] (axis cs:3.416, 315.88) -- (axis cs:5.574, 315.88);
+	\draw[thick, red] (axis cs:6.2, 32.88) -- (axis cs:6.2, 500);
+	
+	\draw[thick] (axis cs:0.46, 32.88) -- (axis cs:7.1, 32.88);
+	\draw[thick] (axis cs:2.552, 219.75) -- (axis cs:6.286, 219.75);
+	\draw[thick] (axis cs:7.1, 32.88) -- (axis cs:7.1, 500);
+	
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+\end{figure}
+
+\pagebreak
