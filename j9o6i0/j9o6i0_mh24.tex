@@ -1,3 +1,4 @@
+
 \section*{MH 24. feladat: Rankine-Clausius körfolyamat módosítása}
 \addcontentsline{toc}{section}{MH 24. feladat}
 
@@ -66,6 +67,7 @@ A végállapot állapotjelzőinek számításához szükségünk lesz az x fajla
 
 \pagebreak
 
+
 \noindent A tömegfajlagos technikai munka és tömegfajlagos hő hányadosa a termikus hatásfok:
 \begin{equation}
 	\eta_{T} = \dfrac{w_t}{q_{BE}} = \SI{0,3876}{}
@@ -103,7 +105,7 @@ w_t^x = h^x- h_2^x = \SI{1383,69}{\kilo\joule\per\kilogram}
 q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
 \end{equation}
 
-\noindent A tömegfajlagos technikai munka és tömegfajlagos hő hányadosa a termikus hatásfok:
+\noindent A tömegfajlagos technikai munka és tömegfajlagos hő hányadosaként megkapjuk a termikus hatásfokot:
 \begin{equation}
 \eta_{T}^x = \dfrac{w_t^x}{q_{BE}^x} = \SI{0,4412}{}
 \quad 
@@ -114,6 +116,10 @@ q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
 
 \noindent Tehát $\SI{5,36}{\percent}$-kal javul a körfolyamat hatásfoka, ha a felső nyomáshatárt $p_1 = \SI{40}{\bar}$-ról $p^x = \SI{180}{\bar}$-ra emeljük.
 
+\vspace{0.2cm}
+\noindent Ábrázoljuk a körfolyamatot T-s diagramon.
+
+%T-s diagram
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
@@ -135,7 +141,8 @@ q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
 	\addplot [thick] table {./j9o6i0/izochor_0865.txt};
 	\addplot [thick, red] table {./j9o6i0/p180.txt};
 	\addplot [thick, red] table {./j9o6i0/izochor_0166.txt};
-	
+
+%körfolyamat ábrázolása	
 	\draw[fill] (axis cs:7.1, 500) circle [radius = 1mm];
 	\draw[fill] (axis cs:6.286, 219.75) circle [radius = 1mm];
 	\draw[fill] (axis cs:2.552, 219.75) circle [radius = 1mm];
@@ -154,6 +161,43 @@ q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
 	\draw[thick] (axis cs:0.46, 32.88) -- (axis cs:7.1, 32.88);
 	\draw[thick] (axis cs:2.552, 219.75) -- (axis cs:6.286, 219.75);
 	\draw[thick] (axis cs:7.1, 32.88) -- (axis cs:7.1, 500);
+	
+%a körfolyamat iránya
+	\draw[->, red] (axis cs:6.2, 500) -- (axis cs:6.2, 250);
+	\draw[->, red] (axis cs:6.2, 32.88) -- (axis cs:3.3, 32.88);
+	\draw[->, red] (axis cs:3.416, 315.88) -- (axis cs:4.65, 315.88);
+	
+	\draw[->] (axis cs:7.1, 500) -- (axis cs:7.1, 250);
+	\draw[->] (axis cs:7.1, 32.88) -- (axis cs:3.55, 32.88);
+	\draw[->] (axis cs:2.552, 219.75) -- (axis cs:4.65, 219.75);
+	
+	
+%értékek jelölése	
+	\draw[thick, dashed] (axis cs:0, 32.88) -- (axis cs:0.46, 32.888);
+	\draw[thick, dashed] (axis cs:0, 219.75) -- (axis cs:2.552, 219.75);
+	\draw[thick, dashed] (axis cs:0, 500) -- (axis cs:7.1, 500);
+	\draw[thick, dashed, red] (axis cs:0, 315.88) -- (axis cs:3.416, 315.8);
+	
+	\draw[thick, dashed] (axis cs: 0.46, 0) -- (axis cs:0.46, 32.888);
+	\draw[thick, dashed] (axis cs: 2.552, 0) -- (axis cs:2.552, 219.75);
+	\draw[thick, dashed] (axis cs: 6.286, 0) -- (axis cs:6.286, 219.75);
+	\draw[thick, dashed] (axis cs: 7.1, 0) -- (axis cs:7.1, 32.888);	
+	\draw[thick, dashed, red] (axis cs:3.416, 0) -- (axis cs:3.416, 315.8);
+	\draw[thick, dashed, red] (axis cs:5.574, 0) -- (axis cs:5.574, 315.8);	
+	\draw[thick, dashed, red] (axis cs:6.2, 0) -- (axis cs:6.2, 32.88);	
+	
+	
+%nevezetes pontok
+	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:7.5, 500) {1};
+	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:6.8, 70) {2};
+	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:1.3, 60) {3};
+	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:2.3, 250) {4};
+	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:6.7, 220) {5};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:6, 525) {x};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:5.8, 70) {$x_2$};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:0.5, 75) {$x_3$};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:3.1, 350) {$x_4$};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:5.45, 380) {$x_5$};
 	
 	
 	\end{axis}
