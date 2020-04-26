@@ -1,0 +1,106 @@
+
+\section*{HS 2. feladat: Vízforraló üst acélfalának hőforgalma}
+\addcontentsline{toc}{section}{HS 2. feladat}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Kovács Bence \\ 
+	\hline
+	Szak &  Mechatronikai Mérnöki\\
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+
+Egy vízforraló üst $\SI{20}{\milli\meter}$ vastag acélfalának vízoldali hőfoka $\SI{100}{\celsius}$ s a falban kialakuló áramsűrüség $\SI{60000}{\watt\per\meter^2}$.
+
+\noindent Adatok:    ($\lambda_a_c = \SI{45}{\watt\per\meter\K}$ ;
+                     $\lambda_v_i_z_k_o = \SI{1,8}{\watt\per\meter\K}$)
+                     
+\vspace{1mm}
+
+\vspace{1mm}
+\noindent a: Határozza meg az üst füstgázoldali hőmérsékletét!
+
+
+Adatok:
+($ T_v = 100 °C $ , $\lambda = \SI{45.4}{\watt\per\meter\K}$ , $\delta = \SI{20}{\milli\meter}$ ,  $ q = \SI{60000}{\watt\per\meter^2} $)
+
+Számolás:
+
+\begin{equation}
+60 \cdot 10^3 = \frac{45,4}{0,02} (T_f_g - T_v)
+\end{equation}
+
+\begin{equation}
+60 \cdot 10^3 + \frac{45,4}{0,02} \cdot 373,15= \frac{45,4}{0,02} \cdot T_2
+\end{equation}
+
+\begin{equation}
+60 \cdot 10^3 + 847050,5 = 2270 \cdot T_2
+\end{equation}
+
+\begin{equation}
+T_2 = 399.58K = 126,43 °C
+\end{equation}
+
+\vspace{1mm}
+\noindent b: Számítsa ki a falban lévő hőáramsűrüség változását, ha a vízoldalon $\SI{2}{\milli\meter}$ vastag vízkőréteg képződik és a fal két oldalán a hőmérséklet változatlan marad!
+
+\vspace{1mm}
+\noindent c: Határozza meg a két felületi érintkezésnél kialakult hőmérsékletet
+
+\vspace{1mm}
+
+
+\begin{equation}
+	 {q} = \frac{\lambda_1}{\delta_1} (T_1 - T_w)
+\end{equation}
+
+
+\begin{equation}
+	 {q}_1 = \frac{45,4}{0,02} (399,58 - T_w)
+\end{equation}
+
+
+\begin{equation}
+	 {q}_2 = \frac{1,8}{0,002} (T_w - 373,15)
+\end{equation}
+
+
+\begin{equation}     
+     {q}_1 = \SI{2270}{\watt\per\K} \cdot (399,58 - T_w)
+\end{equation}
+
+
+ \begin{equation}   
+    {q}_2 = \SI{900}{\watt\per\K}} \cdot (T_w - 373,15)
+\end{equation}
+
+    
+\begin{equation}    
+    2270 \cdot (399,58-T_2) = 900(T_w-373,15)
+\end{equation}
+
+
+\begin{equation}
+    1007-3 \cdot T_w = T_w-373,15
+\end{equation}
+        
+    Felületi érintkezésnél kialakult hőmérséklet (C):
+
+\begin{equation}
+    T_w = \frac{1380}{3,52} = \SI{392.08}{\Kelvin} = \SI{118,93}{\celsius}
+\end{equation}
+    
+     Hőáramsűrüség változása (B):
+    
+\begin{equation}
+     {q} = \SI{900}{\watt\per\K}} \cdot (392.08 - 373,15) = \SI{17046}{\watt\per\meter^2}
+\end{equation}
+
+\begin{equation}
+            60 \cdot 10^3 - 17046 =  \SI{42954}{\watt\per\meter^2}
+\end{equation}
