@@ -17,63 +17,73 @@
 Határozza meg azt a hőmennyiséget amely a kazánfal $\SI{1}{\meter^2}$-én óránként átadódik, ha a fal vastagsága $\SI{20}{\milli\meter}$, anyagának hővezetési tényezője $\SI{45}{\watt\per\meter}$ és a fal belső oldalát $\SI{2}{\milli\meter}$ vastag kazánkő réteg borítja. Ennek a hővezetési tényezője $\lambda = \SI{1.5}{\watt\per\meter\K}$ fok. A kazán falának füstgázoldali hőmérséklete $\SI{260}{\celsius}$, vízoldali hőmérséklete $\SI{195}{\celsius}$. Számítsa ki a kazán falának közepes hőmérsékletét és rajzolja fel a hőmérséklet-hely függvényt léptékhelyesen!
     \vspace{1mm}
 
-Adatok: $\lambda_1 = \SI{45}{\watt\per\meter\K}$
-        $\lambda_2 = \SI{1.5}{\watt\per\meter\K}$
+Adatok: ( $\lambda_1 = \SI{45}{\watt\per\meter\K}$
+        $\lambda_2 = \SI{1.5}{\watt\per\meter\K}$ )
+     \vspace{1mm}
 
 
-
+Először felírjuk az áramsűrüségre vonatkozó egyenletet:
 
 \begin{equation}
-	 {q} = \frac{\lambda_1}{\delta_1} (T_1 - T_2)
+	 \dot{q} = \frac{\lambda_1}{\delta_1} (T_1 - T_2)
+\end{equation}
+
+Majd ezt külön kiszámoljuk a kazánfal 2 oldalára, beleértve a 2mm vastag kazánkő réteget is.Mivel a kazánkőréteg és a kazánfal érintkezési felületénél nem ismerjük a hőmérsékletet, ezt paraméteresen $T_2$ vel számoljuk.:
+
+\begin{equation}
+	 \dot{q}_1 = \frac{\SI{45}{\watt\per\meter\K}}{\SI{0.02}{\meter}} (\SI{533.15}{\kelvin} - T_2)
 \end{equation}
 
 
 \begin{equation}
-	 {q}_1 = \frac{45}{0,02} (533,15 - T_2)
-\end{equation}
-
-
-\begin{equation}
-	 {q}_2 = \frac{1,5}{0,002} (T_2 - 468,15)
+	 \dot{q}_2 = \frac{\SI{1.5}{\watt\per\meter\K}}{\SI{0.002}{\meter}} (T_2 - \SI{468.15}{\kelvin})
 \end{equation}
 
 
 \begin{equation}     
-     {q}_1 = \SI{2250}{\watt\per\K} \cdot (533,15 - T_2)
+     \dot{q}_1 = \SI{2250}{\watt\per\kelvin} \cdot (\SI{533.15}{\kelvin} - T_2)
 \end{equation}
 
 
  \begin{equation}   
-    {q}_2 = \SI{750}{\watt\per\K}} \cdot (T_2 - 468,15)
+    \dot{q}_2 = \SI{750}{\watt\per\K}} \cdot (T_2 -  \SI{468.15}{\kelvin})
 \end{equation}
 
-    
+    A kapott egyenleteket egyenlővé tesszük egymással, így az alábbi egyenletet kapjuk:
 \begin{equation}    
-    2250 \cdot (533,15-T_2) = 750(T_2-468.15)
+    \SI{2250}{\watt\per\kelvin} \cdot (\SI{533.15}{\kelvin}-T_2) = \SI{750}{\watt\per\K}(T_2-\SI{468}{\kelvin})
 \end{equation}
 
 
 \begin{equation}
-    1599,45-3 \cdot T_2 = T_2-468,15
+    \SI{1599,45}{\kelvin}-3 \cdot T_2 = T_2-\SI{468.15}{\kelvin}
 \end{equation}
         
+Ebből $T_2$ őt kifejezve, megkapjuk az érintkezési felület hőmérsékletét:
 
 \begin{equation}
-    T_2 = \frac{2067,6}{4} = \SI{516,9}{\Kelvin} = \SI{243,73}{\celsius}
+    T_2 = \frac{\SI{2067.6}{\kelvin}}{4} = \SI{516,9}{\kelvin} = \SI{243,73}{\celsius}
 \end{equation}
     
-    
+    Visszahelyettesítve az eredeti egyenletbe, megkapjuk a kazánfalon átadódó hőmérsékletet
 \begin{equation}
-     {q} = \SI{750}{\watt\per\K}} \cdot (516,9 - 468,15) = \SI{36562,5}{\watt\per\meter^2} 
+     \dot{q} = \SI{750}{\watt\per\K}} \cdot (\SI{516,9}{\kelvin} - \SI{468.15}{\kelvin}) = \SI{36562,5}{\watt\per\meter^2} 
 \end{equation}
     
+A közepes hőmérséklethez az alábbi egyenletet hazsnáljuk fel.
 \begin{equation}
      {T_k_o_z} = T_1- \frac{T_1 - T_2}{\delta_1} \cdot x
 \end{equation}
+\vspace{0.5cm}
 
+Mivel a változók ismertek, behelyettesítve az egyenletbe megkapjuk a kívánt értéket.
 \begin{equation}
-     {T_k_o_z} = 533,15- \frac{533,15 - 516,9}{0,02} \cdot 0.01 = 525.025K = 251.87°C
+     {T_k_o_z} = \SI{533.15}{\kelvin} - \frac{\SI{533.15}{\kelvin} - \SI{516.9}{\kelvin}}{\SI{0.02}{\meter}} \cdot 0.01 =  \SI{525.025}{\kelvin} =  \SI{251.87}{\celsius}
 \end{equation}
+        
+\vspace{0.5cm} 
+A Feladat kiszámítása után ábrázoljuk a hőmérséklet-hely függvényt:
+\vspace{0.5cm} 
         
     \begin{figure}[h]
 	\centering
