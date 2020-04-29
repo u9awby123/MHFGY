@@ -7,7 +7,7 @@
 	\hline
 	Név & Kovács Bence \\ 
 	\hline
-	Szak &  Mechatronikai Mérnöki\\
+	Szak &  Mechatronikai mérnöki alapszak\\
 	\hline
 	Félév & 2019/2020 II. (tavaszi) félév \\ 
 	\hline
@@ -46,7 +46,7 @@ Majd ezt külön kiszámoljuk a kazánfal 2 oldalára, beleértve a 2mm vastag k
 
 
  \begin{equation}   
-    \dot{q}_2 = \SI{750}{\watt\per\K}} \cdot (T_2 -  \SI{468.15}{\kelvin})
+    \dot{q}_2 = \SI{750}{\watt\per\K} \cdot (T_2 -  \SI{468.15}{\kelvin})
 \end{equation}
 
     A kapott egyenleteket egyenlővé tesszük egymással, így az alábbi egyenletet kapjuk:
@@ -67,18 +67,21 @@ Ebből $T_2$ őt kifejezve, megkapjuk az érintkezési felület hőmérsékleté
     
     Visszahelyettesítve az eredeti egyenletbe, megkapjuk a kazánfalon átadódó hőmérsékletet
 \begin{equation}
-     \dot{q} = \SI{750}{\watt\per\K}} \cdot (\SI{516,9}{\kelvin} - \SI{468.15}{\kelvin}) = \SI{36562,5}{\watt\per\meter^2} 
+     \dot{q} = \SI{750}{\watt\per\K} \cdot (\SI{516,9}{\kelvin} - \SI{468.15}{\kelvin}) = \SI{36562,5}{\watt\per\meter^2} 
 \end{equation}
     
 A közepes hőmérséklethez az alábbi egyenletet hazsnáljuk fel.
 \begin{equation}
-     {T_k_o_z} = T_1- \frac{T_1 - T_2}{\delta_1} \cdot x
+     T_K = T_1- \frac{T_1 - T_2}{\delta_1} \cdot x
+     
 \end{equation}
 \vspace{0.5cm}
 
+x a vízkőréteg vastagság fele.
+
 Mivel a változók ismertek, behelyettesítve az egyenletbe megkapjuk a kívánt értéket.
 \begin{equation}
-     {T_k_o_z} = \SI{533.15}{\kelvin} - \frac{\SI{533.15}{\kelvin} - \SI{516.9}{\kelvin}}{\SI{0.02}{\meter}} \cdot 0.01 =  \SI{525.025}{\kelvin} =  \SI{251.87}{\celsius}
+     T_K = \SI{533.15}{\kelvin} - \frac{\SI{533.15}{\kelvin} - \SI{516.9}{\kelvin}}{\SI{0.02}{\meter}} \cdot 0.01 =  \SI{525.025}{\kelvin} =  \SI{251.87}{\celsius}
 \end{equation}
         
 \vspace{0.5cm} 

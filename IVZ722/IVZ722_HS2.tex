@@ -6,7 +6,7 @@
 	\hline
 	Név & Kovács Bence \\ 
 	\hline
-	Szak &  Mechatronikai Mérnöki\\
+	Szak &  Mechatronikai mérnöki alapszak\\
 	\hline
 	Félév & 2019/2020 II. (tavaszi) félév \\ 
 	\hline
@@ -16,8 +16,8 @@
 
 Egy vízforraló üst $\SI{20}{\milli\meter}$ vastag acélfalának vízoldali hőfoka $\SI{100}{\celsius}$ s a falban kialakuló áramsűrüség $\SI{60000}{\watt\per\meter^2}$.
 
-\noindent Adatok:    ($\lambda_a_c = \SI{45}{\watt\per\meter\kelvin}$ ;
-                     $\lambda_v_i_z_k_o = \SI{1,8}{\watt\per\meter\kelvin}$)
+\noindent Adatok:    ($\lambda_{AC} = \SI{45}{\watt\per\meter\kelvin}$ ;
+                     $\lambda_{\textit{vízkő}} = \SI{1,8}{\watt\per\meter\kelvin}$)
                      
 \vspace{1mm}
 
@@ -32,7 +32,7 @@ Egy vízforraló üst $\SI{20}{\milli\meter}$ vastag acélfalának vízoldali h�
 \vspace{1mm}
 
 Adatok:
-($ T_v = \SI{100}{\celsius} $ , $\lambda = \SI{45.4}{\watt\per\meter\kelvin}$ , $\delta = \SI{20}{\milli\meter}$ ,  $ q = \SI{60000}{\watt\per\meter^2} $)
+($ T_V = \SI{100}{\celsius} $ , $\lambda = \SI{45.4}{\watt\per\meter\kelvin}$ , $\delta = \SI{20}{\milli\meter}$ ,  $ q = \SI{60000}{\watt\per\meter^2} $)
 
 \vspace{2mm}
 
@@ -48,10 +48,10 @@ Először felírjuk az áramsűrüségre vonatkozó egyenletet:
 
 Majd behelyettesítjük az értékeket:
 \begin{equation}
-60 \cdot \SI{1000}{\watt\per\meter^2} =  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} (T_f_g - T_v)
+60 \cdot \SI{1000}{\watt\per\meter^2} =  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} (T_{fg} - T_V)
 \end{equation}
 
-Mivel tudjuk, hogy $T_v = \SI{373.15}{\kelvin}$ , behelyettesítjül ezt is.
+Mivel tudjuk, hogy $T_V = \SI{373.15}{\kelvin}$ , behelyettesítjül ezt is.
 A zárójel felbontása után, a $T_2$-őt jobb oldalra rendezve az alábbi egyenletet kapjuk:
 
 \begin{equation}
@@ -75,53 +75,53 @@ T_2 = \SI{399.58}{\kelvin} = \SI{126.43}{\celsius}
 A 'b' illetve a 'c' feladat megoldásához ismételten felírjuk az áramsűrűség egyenletét:
 
 \begin{equation}
-	 \dot{q} = \frac{\lambda_1}{\delta_1} (T_1 - T_w)
+	 \dot{q} = \frac{\lambda_1}{\delta_1} (T_1 - T_W)
 \end{equation}
 
-Majd felírjuk az $\dot{q}_1$ illetve $\dot{q}_2$-re vonatkozó egyenleteket. Mivel a vízkőréteg és a fal érintkezésénél nem ismerjük a hőmérsékletet, ezt paraméteresen $T_w$-vel fogjuk jelölni
+Majd felírjuk az $\dot{q}_1$ illetve $\dot{q}_2$-re vonatkozó egyenleteket. Mivel a vízkőréteg és a fal érintkezésénél nem ismerjük a hőmérsékletet, ezt paraméteresen $T_W$-vel fogjuk jelölni
 
 \begin{equation}
-	 \dot{q}_1 =  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} (\SI{399.58}{\kelvin} - T_w)
+	 \dot{q}_1 =  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} (\SI{399.58}{\kelvin} - T_W)
 \end{equation}
 
 
 \begin{equation}
-	 \dot{q}_2 =  \frac{\SI{1.8}{\watt\per\meter\kelvin}}{\SI{0.002}{\meter}} (T_w - \SI{373.15}{\kelvin})
+	 \dot{q}_2 =  \frac{\SI{1.8}{\watt\per\meter\kelvin}}{\SI{0.002}{\meter}} (T_W - \SI{373.15}{\kelvin})
 \end{equation}
 
 Majd egyszerűsítések után az alábbi két egyenletet kapjuk:
 
 \begin{equation}     
-     \dot{q}_1 = \SI{2270}{\watt\per\kelvin\meter^2} \cdot (\SI{399.58}{\kelvin} - T_w)
+     \dot{q}_1 = \SI{2270}{\watt\per\kelvin\meter^2} \cdot (\SI{399.58}{\kelvin} - T_W)
 \end{equation}
 
 
  \begin{equation}   
-    \dot{q}_2 = \SI{900}{\watt\per\kelvin\meter^2} \cdot (T_w - \SI{373.15}{\kelvin})
+    \dot{q}_2 = \SI{900}{\watt\per\kelvin\meter^2} \cdot (T_W - \SI{373.15}{\kelvin})
 \end{equation}
 
 A kapott egyenleteket egyenlővé tesszük egymással
     
 \begin{equation}    
-     \SI{2270}{\watt\per\kelvin\meter^2} \cdot (\SI{399.58}{\kelvin}-T_2) =  \SI{900}{\watt\per\kelvin\meter^2}(T_w-\SI{373.15}{\kelvin})
+     \SI{2270}{\watt\per\kelvin\meter^2} \cdot (\SI{399.58}{\kelvin}-T_2) =  \SI{900}{\watt\per\kelvin\meter^2}(T_W-\SI{373.15}{\kelvin})
 \end{equation}
 
 Majd kiszámoljuk és rendezzük az egyenletet:
 
 \begin{equation}
-    \SI{1007}{\kelvin}-3 \cdot T_w = T_w-\SI{373.15}{\kelvin}
+    \SI{1007}{\kelvin}-3 \cdot T_W = T_W-\SI{373.15}{\kelvin}
 \end{equation}
         
-$T_w$-t kifejezve az egyenletből megkapjuk a felületi érintkezésnél kialakul hőmérsékletet, ami a 'c' kérdésre adott válasz:
+$T_W$-t kifejezve az egyenletből megkapjuk a felületi érintkezésnél kialakul hőmérsékletet, ami a 'c' kérdésre adott válasz:
 
 \begin{equation}
-    T_w = \frac\SI{1380}{\kelvin}3,52} = \SI{392.08}{\kelvin} = \SI{118,93}{\celsius}
+    T_W = \frac\SI{1380}{\kelvin}3,52} = \SI{392.08}{\kelvin} = \SI{118,93}{\celsius}
 \end{equation}
     
-Behelyettesítve a kezdeti egyenletbe a kapott $T_w$ értéket, ki tudjuk számolni az áramsűrüséget is, amire a következőt kapjuk:
+Behelyettesítve a kezdeti egyenletbe a kapott $T_W$ értéket, ki tudjuk számolni az áramsűrüséget is, amire a következőt kapjuk:
     
 \begin{equation}
-     \dot{q} = \SI{900}{\watt\per\K}} \cdot (\SI{392.08}{\kelvin} - \SI{373.15}{\kelvin}) = \SI{17046}{\watt\per\meter^2}
+     \dot{q} = \SI{900}{\watt\per\K} \cdot (\SI{392.08}{\kelvin} - \SI{373.15}{\kelvin}) = \SI{17046}{\watt\per\meter^2}
 \end{equation}
 
 Kivonva a kapott értéket az erdeteti feladat áramsűrüségéből, megkapjuk, hogy az eredeti feladathoz képest mennyivel változott ez az érték:
