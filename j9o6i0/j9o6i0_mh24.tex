@@ -1,9 +1,20 @@
 
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Simon Ivett Alexandra \\ 
+	\hline
+	Szak & gépészmérnöki alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+
+
 \section*{MH 24. feladat: Rankine-Clausius körfolyamat módosítása}
 \addcontentsline{toc}{section}{MH 24. feladat}
 
 %feladatleírás
-Elméleti Rankine-Clausius körfolyamat alsó folyáshatára $p_k = \SI{0,05}{\bar}$. Mennyivel javul a körfolyamat termikus hatásfoka, ha a felső nyomáshatárt $p_1 = \SI{40}{\bar}$-ról $p^x = \SI{180}{\bar}$-ra emeljük? A túlhevített hőmérsékletet mindkét esetben azonos $T_{TH} = \SI{500}{\celsius}$. A tápszivattyú munkáját figyelmen kívül hagyjuk. Rajzolja meg a körfolyamatot T-s diagramban.
+Elméleti Rankine-Clausius körfolyamat alsó nyomáshatára $p_k = \SI{0,05}{\bar}$. Mennyivel javul a körfolyamat termikus hatásfoka, ha a felső nyomáshatárt $p_1 = \SI{40}{\bar}$-ról $p^* = \SI{180}{\bar}$-ra emeljük? A túlhevített hőmérsékletet mindkét esetben azonos $T_{TH} = \SI{500}{\celsius}$. A tápszivattyú munkáját figyelmen kívül hagyjuk. Rajzolja meg a körfolyamatot $T-s$ diagramban.
 
 \subsubsection{Ismert adatok:}
 
@@ -14,11 +25,11 @@ Elméleti Rankine-Clausius körfolyamat alsó folyáshatára $p_k = \SI{0,05}{\b
 \end{equation*}
 
 \begin{equation*}
-	i' = \SI{136}{\kilo\joule\per\kilogram},
+	h' = \SI{136}{\kilo\joule\per\kilogram},
 	\quad
-	i'' = \SI{2560}{\kilo\joule\per\kilogram},
+	h'' = \SI{2560}{\kilo\joule\per\kilogram},
 	\quad
-	i_1 = \SI{3446}{\kilo\joule\per\kilogram}
+	h_1 = \SI{3446}{\kilo\joule\per\kilogram}
 \end{equation*}
 
 \begin{equation*}
@@ -29,17 +40,17 @@ Elméleti Rankine-Clausius körfolyamat alsó folyáshatára $p_k = \SI{0,05}{\b
 	s = \SI{7,1}{\kilo\joule\per\kilogram\kelvin}
 \end{equation*}
 \begin{equation*}
-	p^x = \SI{180}{\bar},
+	p^* = \SI{180}{\bar},
 	\quad
-	i^x = \SI{3272}{\kilo\joule\per\kilogram},
+	i^* = \SI{3272}{\kilo\joule\per\kilogram},
 	\quad
-	s^x = \SI{6,2}{\kilo\joule\per\kilogram\kelvin}
+	s^* = \SI{6,2}{\kilo\joule\per\kilogram\kelvin}
 \end{equation*}
 
 
 \subsubsection*{a) Termikus hatásfok számítása $p_1=\SI{40}{\bar}$ esetén.}
 
-A végállapot állapotjelzőinek számításához szükségünk lesz az x fajlagos gőztartalomra. Az állapotváltozás adiabatikus jellegű, így (ha reverzibilisnek tekintjük az állapotváltozást) $s_1 = s_2 = s $.
+A végállapot állapotjelzőinek számításához szükségünk lesz az $x$ fajlagos gőztartalomra. Az állapotváltozás adiabatikus jellegű, így (ha reverzibilisnek tekintjük az állapotváltozást) $s_1 = s_2 = s $.
 
 \begin{equation}
 	s = \left(1 - x\right) s' + x s''
@@ -79,68 +90,80 @@ A végállapot állapotjelzőinek számításához szükségünk lesz az x fajla
 
 \subsubsection*{b) Termikus hatásfok számítása $p_1=\SI{180}{\bar}$ esetén.}
 
-A végállapot állapotjelzőinek számításához szükségünk lesz az $x^x$ fajlagos gőztartalomra. Az állapotváltozás adiabatikus jellegű, így (ha reverzibilisnek tekintjük az állapotváltozást) $s_1 = s_2 = s^x $.
+A végállapot állapotjelzőinek számításához szükségünk lesz az $x^*$ fajlagos gőztartalomra. Az állapotváltozás adiabatikus jellegű, így (ha reverzibilisnek tekintjük az állapotváltozást) $s_1 = s_2 = s^* $.
 
 \begin{equation}
-s^x = \left(1 - x^x\right) s' + x^x s''
+s^* = \left(1 - x^*\right) s' + x^* s''
 \quad 
 \Rightarrow
 \quad 
-x^x =	\dfrac{s^x - s'}{s'' - s'} = \SI{0,723}{}
+x^* =	\dfrac{s^* - s'}{s'' - s'} = \SI{0,723}{}
 \end{equation}
 
 
 \noindent Így ki tudjuk számolni a hőtartalmat a végállapotban:
 \begin{equation}
-h_2^x = \left(1 - x^x\right) h' + x h'' = \SI{1888,31}{\kilo\joule\per\kilogram}
+h_2^* = \left(1 - x^*\right) h' + x h'' = \SI{1888,31}{\kilo\joule\per\kilogram}
 \end{equation}
 
 \noindent A végállapotra kapott hőtartalom és a kezdeti hőtartalom segítségével meghatározhatjuk a tömegfajlagos technika munkát.
 \begin{equation}
-w_t^x = h^x- h_2^x = \SI{1383,69}{\kilo\joule\per\kilogram}
+w_t^* = h^*- h_2^* = \SI{1383,69}{\kilo\joule\per\kilogram}
 \end{equation}
 
 \noindent Ezután meghatározzuk a tömegfajlagos hőt:
 \begin{equation}
-q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
+q_{BE}^* = h^* - h' = \SI{3310}{\kilo\joule\per\kilogram}
 \end{equation}
 
 \noindent A tömegfajlagos technikai munka és tömegfajlagos hő hányadosaként megkapjuk a termikus hatásfokot:
 \begin{equation}
-\eta_{T}^x = \dfrac{w_t^x}{q_{BE}^x} = \SI{0,4412}{}
+\eta_{T}^* = \dfrac{w_t^*}{q_{BE}^*} = \SI{0,4412}{}
 \quad 
 \Rightarrow
 \quad 
 \SI{44,12}{\percent}
 \end{equation}
 
-\noindent Tehát $\SI{5,36}{\percent}$-kal javul a körfolyamat hatásfoka, ha a felső nyomáshatárt $p_1 = \SI{40}{\bar}$-ról $p^x = \SI{180}{\bar}$-ra emeljük.
+\noindent Tehát $\SI{5,36}{\percent}$-kal javul a körfolyamat hatásfoka, ha a felső nyomáshatárt $p_1 = \SI{40}{\bar}$-ról $p^* = \SI{180}{\bar}$-ra emeljük.
 
 \vspace{0.2cm}
-\noindent Ábrázoljuk a körfolyamatot T-s diagramon.
+\noindent Ábrázoljuk a körfolyamatot $T-s$ diagramon.
 
 %T-s diagram
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
-	\draw[->] ({0}, {0}) -- ({14}, {0}) node[anchor=base east, shift={(0.4,-0.7)}]{$s$ [\si{\kilo\joule\per\kilogram\kelvin}]};
-	\draw[->] ({0}, {0}) -- ({0}, {9}) node[anchor=north east]{$T$ $[\si{\celsius}]$};
-	
+
 	\begin{axis}[
 	axis lines = middle,
-	axis line style = {draw = none},
-	xlabel={},
-	ylabel={},
+	axis line style = {->},
+	xlabel={$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$},
+	ylabel={$T \left(\si{\celsius}\right)$},
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	},
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	ytick={32.88, 219.75, 315.88, 500},
+	yticklabels={{$32,88$}, {$219,75$}, {$315,88$}, {$500$}},
+	xtick={0.46, 2.552, 3.416, 5.574, 6.1, 6.5, 7.1},
+	xticklabels={{$0,46$}, {$2,552$}, {$3,416$}, {$5,574$}, {$6,2$}, {$6,286$}, {$7,1$}},
+	x tick label style={rotate=90,anchor=east},
 	ytick style={draw=none},
 	xtick style={draw=none},
-	width=15cm, height=10cm, xmin=0, ymin=0, ymax=550,
+	width=15cm, height=10cm, xmin=0, xmax=10, ymin=0, ymax=600,
 	]
+
 	
 	\addplot [] table {./j9o6i0/ts.txt}; %T-s
-	\addplot [thick] table {./j9o6i0/p40.txt};
-	\addplot [thick] table {./j9o6i0/izochor_0865.txt};
-	\addplot [thick, red] table {./j9o6i0/p180.txt};
-	\addplot [thick, red] table {./j9o6i0/izochor_0166.txt};
+	\addplot [ultra thick, red] table {./j9o6i0/p180.txt};
+	\addplot [ultra thick, red] table {./j9o6i0/p180_0166.txt};
+	\addplot [ultra thick] table {./j9o6i0/p40_0865.txt};
+	\addplot [ultra thick, dashed] table {./j9o6i0/p40.txt};
 
 %körfolyamat ábrázolása	
 	\draw[fill] (axis cs:7.1, 500) circle [radius = 1mm];
@@ -154,25 +177,26 @@ q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
 	\draw[fill, red] (axis cs:3.416, 315.88) circle [radius = 1mm];
  	\draw[fill, red] (axis cs:6.2, 32.88) circle [radius = 1mm];
 	
-	\draw[thick, red] (axis cs:0.46, 32.88) -- (axis cs:6.2, 32.88);
-	\draw[thick, red] (axis cs:3.416, 315.88) -- (axis cs:5.574, 315.88);
-	\draw[thick, red] (axis cs:6.2, 32.88) -- (axis cs:6.2, 500);
+	\draw[ultra thick] (axis cs:0.46, 32.88) -- (axis cs:7.1, 32.88);
+	\draw[ultra thick] (axis cs:2.552, 219.75) -- (axis cs:6.286, 219.75);
+	\draw[ultra thick] (axis cs:7.1, 32.88) -- (axis cs:7.1, 500);
 	
-	\draw[thick] (axis cs:0.46, 32.88) -- (axis cs:7.1, 32.88);
-	\draw[thick] (axis cs:2.552, 219.75) -- (axis cs:6.286, 219.75);
-	\draw[thick] (axis cs:7.1, 32.88) -- (axis cs:7.1, 500);
+	\draw[ultra thick, dashed, red] (axis cs:0.46, 32.88) -- (axis cs:6.2, 32.88);
+	\draw[ultra thick, red] (axis cs:3.416, 315.88) -- (axis cs:5.574, 315.88);
+	\draw[ultra thick, red] (axis cs:6.2, 32.88) -- (axis cs:6.2, 500);
+	
 	
 %a körfolyamat iránya
-	\draw[->, red] (axis cs:6.2, 500) -- (axis cs:6.2, 250);
-	\draw[->, red] (axis cs:6.2, 32.88) -- (axis cs:3.3, 32.88);
-	\draw[->, red] (axis cs:3.416, 315.88) -- (axis cs:4.65, 315.88);
+	\draw[mid arrow=red] (axis cs:6.2, 500) -- (axis cs:6.2, 32.88);
+	\draw[mid arrow=red] (axis cs:6.2, 32.88) -- (axis cs:0.46, 32.88);
+	\draw[mid arrow=red] (axis cs:3.416, 315.88) -- (axis cs:5.574, 315.88);
 	
-	\draw[->] (axis cs:7.1, 500) -- (axis cs:7.1, 250);
-	\draw[->] (axis cs:7.1, 32.88) -- (axis cs:3.55, 32.88);
-	\draw[->] (axis cs:2.552, 219.75) -- (axis cs:4.65, 219.75);
+	\draw[mid arrow=black] (axis cs:7.1, 500) -- (axis cs:7.1, 32.88);
+	\draw[mid arrow=black] (axis cs:7.1, 32.88) -- (axis cs:0.46, 32.88);
+	\draw[mid arrow=black] (axis cs:2.552, 219.75) -- (axis cs:6.286, 219.75);
 	
 	
-%értékek jelölése	
+%értékek jelölése
 	\draw[thick, dashed] (axis cs:0, 32.88) -- (axis cs:0.46, 32.888);
 	\draw[thick, dashed] (axis cs:0, 219.75) -- (axis cs:2.552, 219.75);
 	\draw[thick, dashed] (axis cs:0, 500) -- (axis cs:7.1, 500);
@@ -185,7 +209,7 @@ q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
 	\draw[thick, dashed, red] (axis cs:3.416, 0) -- (axis cs:3.416, 315.8);
 	\draw[thick, dashed, red] (axis cs:5.574, 0) -- (axis cs:5.574, 315.8);	
 	\draw[thick, dashed, red] (axis cs:6.2, 0) -- (axis cs:6.2, 32.88);	
-	
+
 	
 %nevezetes pontok
 	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:7.5, 500) {1};
@@ -193,11 +217,11 @@ q_{BE}^x = h^x - h' = \SI{3310}{\kilo\joule\per\kilogram}
 	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:1.3, 60) {3};
 	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:2.3, 250) {4};
 	\node[thick, circle, draw, inner sep = 1mm] at (axis cs:6.7, 220) {5};
-	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:6, 525) {x};
-	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:5.8, 70) {$x_2$};
-	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:0.5, 75) {$x_3$};
-	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:3.1, 350) {$x_4$};
-	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:5.45, 380) {$x_5$};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:6, 530) {$1^*$};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:5.9, 70) {$2^*$};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:0.5, 80) {$3^*$};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:3.1, 350) {$4^*$};
+	\node[thick, red, circle, draw, inner sep = 1mm] at (axis cs:5.45, 380) {$5^*$};
 	
 	
 	\end{axis}
