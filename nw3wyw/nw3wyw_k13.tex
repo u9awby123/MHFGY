@@ -1,0 +1,421 @@
+\section*{K1/3. feladat: Levegő melegítése}
+\addcontentsline{toc}{section}{K1/3. feladat: Levegő melegítése}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Palkó László \\ 
+	\hline
+	Szak & Mechatronikai mérnök alapszak\\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent \SI{30}{\dm\cubed} térfogatú, \SI{20}{\bar} nyomású és \SI{18}{\celsius} hőmérsékletű levegőt
+
+\subsubsection*{a) állandó nyomáson  \SI{600}{\celsius}-ra melegítünk. Számítsuk ki a gáz térfogatváltozását. Mennyi és mire fordítódik a közölt hő? Mennyi munkát végez a gáz a hőközlés közben?}
+\vspace{2mm}
+
+\subsubsection*{b) ha a hőközlést állandó térfogaton végezzük, akkor mennyi és mire fordítódik a közölt hő?}
+
+\noindent Mindkét esetben ábrázolja az állapotváltozást p-v és T-s diagramban! 
+
+\begin{equation*}
+	{R}_{lev}= \SI{287,04}{\newton\meter\per\kilogram\kelvin};c_p=\SI{1,05}{\kilo\joule\per\kilogram\kelvin} 
+\end{equation*}
+
+\subsubsection*{Ismert jellemzők:}
+
+\begin{equation*}
+V_1=\SI{30}{\deci\meter\cubed}=\SI{0,03}{\meter\cubed},
+\quad
+p_1=\SI{20}{bar}=2\cdot \SI{e6}{\pascal},
+\quad
+T_1=\SI{18}{\celsius}=\SI{291}{\kelvin},
+\quad
+T_2=\SI{600}{\celsius}=\SI{873}{\kelvin},
+\quad
+\end{equation*}
+\begin{equation*}
+R_{lev}=\SI{287,04}{\joule\per\kilogram\kelvin},
+\quad
+c_p=\SI{1,05}{\kilo\joule\per\kilogram\kelvin}
+\end{equation*}
+
+\noindent\hrulefill
+
+\subsubsection{a) A hőközlést állandó nyomáson végezzük ($ p_1=p_2 $).}
+\vspace{2mm}
+\noindent Az egyesített gáztörvény felhasználásával számolható a megváltozott térfogat:
+
+\begin{equation}
+\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}
+\quad 
+\Rightarrow
+\quad
+V_2=\SI{90}{\deci\meter\cubed}
+\end{equation}
+
+\noindent A közölt hő kiszámításához határozzuk meg a kérdéses gáz tömegét:
+\begin{equation}
+p_1\dfrac{V_1}{m}=R_{lev}T_1
+\quad
+\Rightarrow
+\quad
+m=\dfrac{p_1 V_1}{R_{lev}T_1}=\SI{0,718}{\kilogram}
+\end{equation}
+
+\noindent A közölt hő:
+\begin{equation}
+Q_{1,2}=m c_p\left(T_2-T_1\right)=\SI{438,8}{\kilo\joule}
+\end{equation}
+
+\noindent A végzett munka:
+\begin{equation}
+W_{1,2}=p_1\left(V_2-V_1\right)=\SI{119,9}{\kilo\joule}
+\end{equation}
+\noindent A belső energia:
+\begin{equation}
+\Delta U_{1,2}= Q_{1,2}-W_{1,2}=\SI{318,8}{\kilo\joule}
+\end{equation}
+
+\noindent Az izobár állapotváltozás p-V diagramon ábrázolva:
+
+\begin{figure}[h]
+	\centering
+	\label{figure:pva}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+%	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0.01, xmax=0.15,
+	ymin=0.1, ymax=2500, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$V \left(\si{\meter\cubed}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north west
+	}, 
+	ylabel=$p \left(\si{\kilo\pascal}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=south east
+	},
+	xtick={0.01,0.03,0.05,0.07,0.09,0.11,0.13},
+	ytick={400,800,1200,1600,2000,2400},
+%	extra x ticks={0.0031056},
+%	extra x tick labels={$v_K$},
+%	extra y ticks={220.64},
+%	extra y tick labels={$p_K$}
+	]
+
+	\addplot[ultra thick] table {./nw3wyw/pV_a/pvat1.txt};
+		\node[anchor=north east] at (axis cs: 0.11, 750) {$T_1$};
+	
+	\addplot[ultra thick] table {./nw3wyw/pV_a/pvat2.txt};
+		\node[anchor=north east] at (axis cs: 0.11, 1900) {$T_2$};
+		
+	\addplot[thick, dashed, blue] table {./nw3wyw/pV_a/20bar.txt};
+		\node[anchor=south west, blue] at (axis cs: 0.01, 2000) {$p_1$};
+	
+	\addplot[mid arrow,ultra thick] table {./nw3wyw/pV_a/p1v.txt};
+	
+	\addplot+ [name path=A,black] table {
+		x y
+		0.03 2000
+		0.09 2000
+	};
+	
+	\addplot+ [name path=B] table {
+		x y
+		0.03 -1
+		0.09 -1
+	};
+	\addplot [orange] fill between [of=A and B];
+	
+	\addplot[thick, dashed, blue] table {./nw3wyw/pV_a/v1.txt};
+		\node[anchor=south east, blue] at (axis cs: 0.03, 1) {$V_1$};
+	
+	\addplot[thick, dashed, blue] table {./nw3wyw/pV_a/v2.txt};
+		\node[anchor=south west, blue] at (axis cs: 0.09, 1) {$V_2$};
+		
+		% A v1 p1 metszéspontja
+	\node[anchor=north east] at (axis cs: 0.03, 2000) {\pgfcircled{$1$}};
+		\filldraw[blue, fill=black] (axis cs: 0.03, 2000) circle (1mm);
+		
+			% A v2 p1 metszéspontja
+	\node[anchor=south west] at (axis cs: 0.09, 2000) {\pgfcircled{$2$}};
+		\filldraw[blue, fill=black] (axis cs: 0.09, 2000) circle (1mm);
+
+	\node[anchor=west] at (axis cs: 0.06, 600) {$W_{1,2}$};
+
+
+		
+\end{axis}
+
+
+\end{tikzpicture}
+\caption{Az izobár állapotváltozás p-V diagramja}
+\end{figure}
+\pagebreak
+
+\noindent Az izobár állapotváltozás T-s diagramon ábrázolva:
+
+\begin{figure}[h]
+	\centering
+	\label{figure:tsa}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=124, xmax=210,
+	ymin=0, ymax=1100, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$s \left(\si{\joule\per\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north west
+	}, 
+	ylabel=$T \left(\si{\kelvin}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=south east
+	},
+	xtick={125, 150,175, 200 },
+	ytick={0, 250, 500, 750, 1000},
+	%	extra x ticks={0.0031056},
+	%	extra x tick labels={$v_K$},
+	%	extra y ticks={220.64},
+	%	extra y tick labels={$p_K$}
+	]
+	
+\addplot [mid arrow,ultra thick] table {./nw3wyw/ts_a/tsa.txt};
+	\node[anchor=north west] at (axis cs: 172, 873) {$p_1$};
+		
+\addplot [name path=A] table {./nw3wyw/ts_a/tsa_pthA.txt};
+\addplot+ [name path=B,black] table {
+	x y
+	142.9 -1
+	171.5 -1
+};
+\addplot [orange] fill between [of=A and B];
+
+		
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_a/tsa_t1.txt};
+		\node[anchor=west, blue] at (axis cs: 124, 325) {$T_1$};
+	
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_a/tsa_t2.txt};
+		\node[anchor=west, blue] at (axis cs: 124, 900) {$T_2$};
+		
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_a/tsa_t1p.txt};
+		\node[anchor=north east] at (axis cs: 142.9169444, 291) {\pgfcircled{$1$}};
+		\filldraw[blue, fill=black] (axis cs: 142.9169444, 291) circle (1mm);
+	
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_a/tsa_t2p.txt};
+		\node[anchor=south west] at (axis cs: 171.5245819, 873) {\pgfcircled{$2$}};
+		\filldraw[blue, fill=black] (axis cs: 171.5245819, 873) circle (1mm);
+		
+	\node[anchor=west] at (axis cs: 155, 300) {$q_{1,2}$};
+	
+	
+	\end{axis}
+	
+	
+	\end{tikzpicture}
+	\caption{Az izobár állapotváltozás T-s diagramja}
+\end{figure}
+
+
+
+\subsubsection{b) A hőközlést állandó térfogaton végezzük ($ V_1=V_2 $).}
+\vspace{2mm}
+\noindent $dV = 0 $ esetén a megváltozott nyomás:
+
+\begin{equation}
+\dfrac{p_1}{T_1}=\dfrac{p_2}{T_2}
+\quad
+\Rightarrow
+\quad
+p_2=\dfrac{T_2}{T_1}p_1=\SI{60}{\bar}
+\end{equation}
+
+\noindent Az ekkor közölt hő:
+\begin{equation}
+Q_{1,2}=m c_v \Delta T=m \left(c_p-R_{lev}\right) \left(T_2-T_1 \right)=\SI{318,8}{\kilo\joule}
+\end{equation}
+
+\noindent A végzett munka és a belső energia:
+\begin{equation}
+W_{1,2}=\SI{0}{\joule}
+\quad
+\Rightarrow
+\quad
+\Delta U_{1,2}= Q_{1,2}=\SI{318,8}{\kilo\joule}
+\end{equation}
+
+\pagebreak
+
+\noindent Az izochor állapotváltozás p-V diagramon ábrázolva:
+
+\begin{figure}[h]
+	\centering
+	\label{figure:pvb}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0.001, xmax=0.16,
+	ymin=0.1, ymax=7250, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$V \left(\si{\meter\cubed}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north west
+	}, 
+	ylabel=$p \left(\si{\kilo\pascal}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=south east
+	},
+	xtick={0.01,0.03,0.05,0.07,0.09,0.11,0.13,0.15},
+	ytick={1000,2000,3000,4000,5000,6000,7000},
+	%	extra x ticks={0.0031056},
+	%	extra x tick labels={$v_K$},
+	%	extra y ticks={220.64},
+	%	extra y tick labels={$p_K$}
+	]
+	
+	\addplot[ultra thick] table {./nw3wyw/pV_b/pvbt1.txt};
+	\node[anchor=south west] at (axis cs: 0.1, 600) {$T_1$};
+	
+	\addplot[ultra thick] table {./nw3wyw/pV_b/pvbt2.txt};
+	\node[anchor=south west] at (axis cs: 0.1, 1800) {$T_2$};
+	
+	\addplot[thick, dashed, blue] table {./nw3wyw/pV_b/p1.txt};
+	\node[anchor=south west, blue] at (axis cs: 0.01, 2000) {$p_1$};
+
+	\addplot[thick, dashed, blue] table {./nw3wyw/pV_b/p2.txt};
+	\node[anchor=south west, blue] at (axis cs: 0.01, 6000) {$p_2$};
+	
+	\addplot[thick, dashed, blue] table {./nw3wyw/pV_b/v1.txt};
+	\node[anchor=south east, blue] at (axis cs: 0.03, 1) {$V_1$};
+		
+			% A v1 p1 metszéspontja
+	\node[anchor=north east] at (axis cs: 0.03, 2000) {\pgfcircled{$1$}};
+	\filldraw[blue, fill=black] (axis cs: 0.03, 2000) circle (1mm);
+	
+	% A v1 p2 metszéspontja
+	\node[anchor=south west] at (axis cs: 0.03, 6000) {\pgfcircled{$2$}};
+	\filldraw[blue, fill=black] (axis cs: 0.03, 6000) circle (1mm);
+	
+	\addplot[mid arrow, ultra thick] table {./nw3wyw/pV_b/p12.txt};
+	
+	
+	\end{axis}
+	
+	
+	\end{tikzpicture}
+	\caption{Az izochor állapotváltozás p-V diagramja}
+\end{figure}
+
+\pagebreak
+\noindent Az izochor állapotváltozás T-s diagramon ábrázolva:
+
+\begin{figure}[h]
+	\centering
+	\label{figure:tsb}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0, xmax=30,
+	ymin=0, ymax=1100, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$s \left(\si{\joule\per\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north west
+	}, 
+	ylabel=$T \left(\si{\kelvin}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=south east
+	},
+	xtick={5,10,115,20,25},
+	ytick={0, 250, 500, 750, 1000},
+	%	extra x ticks={0.0031056},
+	%	extra x tick labels={$v_K$},
+	%	extra y ticks={220.64},
+	%	extra y tick labels={$p_K$}
+	]
+	
+	
+	\addplot [mid arrow ,ultra thick] table {./nw3wyw/ts_b/tsb.txt};
+	
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_b/tsb_t1.txt};
+		\node[anchor=south, blue] at (axis cs: 25, 291) {$T_1$};
+	
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_b/tsb_t2.txt};
+		\node[anchor=south, blue] at (axis cs: 25, 873) {$T_2$};
+	
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_b/tsb_smax.txt};
+	
+
+	
+	\addplot [name path=A] table {./nw3wyw/ts_b/tsb.txt};
+	\addplot+ [name path=B,black] table {
+		x y
+		0	-1
+		20.78821653	-1
+	};
+	\addplot [orange] fill between [of=A and B];
+	
+	
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_a/tsa_t1p.txt};
+	\node[anchor=south west] at (axis cs: 0, 291) {\pgfcircled{$1$}};
+	\filldraw[blue, fill=black] (axis cs: 0, 291) circle (1mm);
+	
+	\addplot[thick,dashed, blue] table {./nw3wyw/ts_a/tsa_t2p.txt};
+	\node[anchor=south west] at (axis cs: 20.78821653, 873) {\pgfcircled{$2$}};
+	\filldraw[blue, fill=black] (axis cs: 20.78821653, 873) circle (1mm);
+	
+	\node[anchor=west] at (axis cs: 15, 200) {$q_{1,2}$};
+	
+	
+	\end{axis}
+	
+	
+	\end{tikzpicture}
+	\caption{Az izochor állapotváltozás T-s diagramja}
+\end{figure}
+
+\pagebreak
