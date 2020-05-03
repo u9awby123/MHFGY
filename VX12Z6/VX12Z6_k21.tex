@@ -1,0 +1,92 @@
+\section*{K2/1. feladat: Gőzfejlesztés állandó nyomáson}
+\addcontentsline{toc}{section}{K2/1. feladat: Gőzfejlesztés állandó nyomáson}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Fehér Árpád VX12Z6 \\ 
+	\hline
+	Szak & Vegyészmérnök alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent Számítsa ki a \textit{vízgőzfejlesztéshez szükséges hőenergiát} (külön-külön a folyadékhőt, párolgáshőt és túlhevítési hőt), illetve a \textit{hőközlés átlagos hőmérsékletét}. Ha \SI{9,81}{\bar} \SI{35}{\celsius}-os vízből állítunk elő \SI{400}{\celsius}-os túlhevített gőzt, \textbf{izobár} körülmények között. A vizsgálat 1 kg vízre vonatkozik. A feladatot gőztáblázat segítségével oldjuk meg.
+
+\vspace{2mm}
+\noindent Ábrázolja a folyamatot $T-s$ diagramban!
+
+\subsubsection{Kezdeti és gőztáblázati adatok.}
+\begin{equation*}
+p = \SI{9,81}{\bar}, 
+\quad 
+T_a = \SI{35}{\celsius}, 
+\quad
+T_t = \SI{400}{\celsius},
+\quad
+s_1 = \SI{0,5035}{\kilo\joule\per\kilogram\kelvin},
+\quad
+s_4 = \SI{7,4705}{\kilo\joule\per\kilogram\kelvin}
+\end{equation*}
+\begin{equation*}
+i_1 = \SI{147,4}{\kilo\joule\per\kilogram},
+\quad
+i_2 = \SI{759,07}{\kilo\joule\per\kilogram},
+\quad
+i_3 = \SI{2777,1}{\kilo\joule\per\kilogram},
+\quad
+i_4 = \SI{3263,6}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+\noindent\hrulefill
+
+\subsubsection*{a) Határozzuk meg vízgőzfejlesztéshez szűkséges energiát}
+
+A vizsgált folyamat p = áll. nyomáson megy végbe ezért, az első főtétel megfelelő alakja alapján kapjuk, hogy:
+
+\begin{equation}
+\delta q = di + \bcancel{\delta w_t}-\bcancel{vdp}
+\end{equation}
+
+\begin{equation}
+\ q = i_2-i_1
+\end{equation}
+
+Ez alapján a folyadékhő:
+\begin{equation}
+\ q_{1-2} = i_2-i_1 = \SI{611,67}{\kilo\joule\per\kilogram}
+\end{equation}
+
+A párolgáshő:
+\begin{equation}
+\ q_{2-3} = i_3-i_2 = \SI{2018,03}{\kilo\joule\per\kilogram}
+\end{equation}
+
+A túlhevítési hő:
+\begin{equation}
+\ q_{3-4} = i_4-i_3 = \SI{486,5}{\kilo\joule\per\kilogram}
+\end{equation}
+
+Az összes hő
+\begin{equation}
+\ q_{1-4} = i_4-i_1 = \SI{3116,2}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\subsubsection*{b) Határozzuk meg a hőközlés átlagos hőmérsékletét}
+
+A $T_{\textit{köz}}$ átlagos hőmérséklet lényegében az állapotváltozás átlag hőmérséklete. Ezt egy folytonos mennyiség átlagolásával kapjuk meg. Integráljuk az adott mennyiséget és elosztjuk az intervallum nagyságával. 
+
+\begin{equation*}
+\ q_{1-4} = \int\displaylimits_{1}^{4} T_{\textit{köz}} ds = T_{\textit{köz}} \int\displaylimits_{1}^{4} ds = T_{\textit{köz}} (s_4-s_1)
+\end{equation*}
+
+Az egyenlet átrendezve $T_{\textit{köz}}$-re
+
+\begin{equation}
+\ T_{\textit{köz}} = \frac{q_{1-4}}{s_4-s_1} = \SI{447,28}{\kelvin} = \SI{174}{\celsius}
+\end{equation}
+
+\subsubsection*{c) Az állapotváltozás $T-s$ diagramban}
+
+\pagebreak
