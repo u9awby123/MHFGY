@@ -51,7 +51,7 @@ P=\dot{m}w_t=\SI{-33,5}{kN}
 \end{equation}
 
 \subsubsection{b) adiabatikus q=0}
-Adiabatikus állapotváltozás : ha az entrópia állandó.Ilyenkor sem hőkölés sem hőelvonás nem történik.$q=0$ tehát belsőenergia rovására történik munkavégzés.
+Adiabatikus állapotváltozás : ha az entrópia állandó.Ilyenkor sem hőközlés sem hőelvonás nem történik.$q=0$ tehát belsőenergia rovására történik munkavégzés.
 \begin{equation}
 T_{2ad}=T_1\left(\frac{p_2}{p_1}\right)^\frac{\kappa-1}{\kappa}=\SI{534,6}{\kelvin}
 \end{equation}
@@ -77,25 +77,18 @@ P_{pol}=\SI{-42,99}{\kilo\watt}
 
 
 \begin{figure}[h]
-	\centering
-	\begin{subfigure}[b]{0.4\textwidth} 
+	\begin{subfigure}[b]{0.45\linewidth} 
 		\begin{tikzpicture}
-		%	\draw[->](0,0) -- (6,0)  node[anchor=north] {$v$};
-		%	\draw[->](0,0) -- (0,6) node[anchor=east] {$p$};
-			\pgfmathsetmacro{\RLEV}{220}
+		\pgfmathsetmacro{\RLEV}{220}
 		\pgfmathsetmacro{\TA}{300}
 		\pgfmathsetmacro{\TB}{600}
 		
-			\begin{axis}[
+		\begin{axis}[
 		width=8cm, height=8cm,
 		xmin=0, xmax=1.25, ymin=0, ymax=10, 
 		axis lines = middle, axis line style={->},
 		xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
-		xlabel style={
-			at={(0.0,10.0)}
-			%at=(current axis.right of origin), 
-			anchor=north east
-		}, 
+		x label style={at={(axis description cs:1,-0.02)},anchor=north},
 		ylabel=$p \left(\si{\bar}\right)$, 
 		ylabel style={
 			at=(current axis.above origin), 
@@ -109,102 +102,32 @@ P_{pol}=\SI{-42,99}{\kilo\watt}
 		]
 		
 		\addplot[red, thick, domain=0.075:1.1, samples=100] {\RLEV*\TA/x/100000} node[anchor=south west] {$T_1$};
-			% p2
-		\addplot[black, thick, domain=0.1:0, samples=2]
-		{8} node[anchor=west] {$p_2$};
+		\addplot[black, thick, domain=0.1:0, samples=2]	{8}; 
 		\addplot[black, thick, domain=1.1:0, samples=2]
-		{1} node[anchor=west] {$p_1$};		
+		{1};
+
 		
 		\addplot+[ycomb, black, dashed] plot coordinates
-			{(0.25, 8)};
+		{(0.25, 8)};
 		
 		\end{axis}
-		
+		\node[anchor=north] at (-0.7, 0.95) {$p_1$};
+		\node[anchor=north] at (-0.7, 5.35) {$p_2$};
 		\end{tikzpicture}
 		\caption{p-v diagram}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.4\textwidth} 
+	\hspace{2cm}
+	\begin{subfigure}[b]{0.45\linewidth} 
 		\begin{tikzpicture}
-	\draw[->](0,0) -- (6,0)  node[anchor=north] {$s \si{\joule\per\kelvin} $};
-	\draw[->](0,0) -- (0,6) node[anchor=east] {$T\mbox(K) $};
+		\pgfmathsetmacro{\OFS}{1.5}
+		\draw[->](0,0) -- (6,0)  node[anchor=north] {$s \si{\joule\per\kelvin} $};
+		\draw[->](0,0) -- (0,6) node[anchor=east] {$T\mbox(K) $};
+		\draw[white](0,-\OFS) -- (1,-\OFS);
 		\end{tikzpicture}
 		\caption{T-s diaggram}
 	\end{subfigure}
-
+	
 \end{figure}
 
 
-\begin{figure}[h]
-	\centering
-	\begin{tikzpicture}
-	% Rács és vágómaszk
-	%\draw[step=1cm, gray!25, very thin] (-1.5, -1) grid (14.5, 11);
-	%\clip (-1.5, -1) rectangle (14.5, 11);
-	
-	\pgfmathsetmacro{\RLEV}{220}
-	\pgfmathsetmacro{\TA}{300}
-	\pgfmathsetmacro{\TB}{600}
-	
-	% A tengelykeresztet az axis környezet hozza létre
-	\begin{axis}[
-		width=16cm, height=12cm,
-		xmin=0, xmax=1.25, ymin=0, ymax=10, 
-		axis lines = middle, axis line style={->},
-		xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
-		xlabel style={
-			at=(current axis.right of origin), 
-			anchor=north east
-		}, 
-		ylabel=$p \left(\si{\bar}\right)$, 
-		ylabel style={
-			at=(current axis.above origin), 
-			anchor=north east
-		},
-		xtick={0.25, 0.5, 0.75, 1},
-		ytick={1, 2, 3, 4, 5, 6, 7, 8, 9},
-		axis on top=true,
-		no markers,
-		/pgf/number format/.cd, use comma, 1000 sep={}
-		]
-	
-	% Izotermák, de a nyomás barban van. Az x a fajtérfogat.
-	\addplot[red, thick, domain=0.075:1.1, samples=100] {\RLEV*\TA/x/100000} node[anchor=north west] {$T_A$};
-	\addplot[blue, thick, domain=0.15:1.1, samples=100] {\RLEV*\TB/x/100000} node[anchor=north west] {$T_B$};
-	
-	% A T_A megint, de csak az állapotváltozás szakasza
-	\addplot[red, ultra thick, domain=0.25:0.5, samples=25, mid arrow=red] {\RLEV*\TA/x/100000};
-	
-	% T_B szakasz
-	\addplot[blue, ultra thick, domain=0.5:0.25, samples=25, mid arrow=blue] {\RLEV*\TB/x/100000};
-	
-	% Átlátszó vonalak a kitöltésekhez (a kitöltés és a mid arrow összeakadna)
-	\addplot[opacity=0, name path=A0, domain=0.25:0.5, samples=2] {0};
-	\addplot[opacity=0, name path=TA, domain=0.25:0.5, samples=25] {\RLEV*\TA/x/100000};
-	\addplot[opacity=0, name path=TB, domain=0.5:0.25, samples=25] {\RLEV*\TB/x/100000};
-	
-	% Kitöltések
-	\addplot[red!25] fill between [of=A0 and TA];
-	\addplot[blue!25] fill between [of=TA and TB];
-	
-	% A függőleges tengely felé történő kitöltéshez kell két segédgörbe
-	\addplot[opacity=0, name path=TBPF, domain=0:0.5, samples=25] {
-		min(\RLEV*\TB/x/100000, \RLEV*\TB/0.25/100000)
-	};
-	\addplot[opacity=0, name path=TBPA, domain=0:0.5, samples=2] {\RLEV*\TB/0.5/100000};
-	\addplot[pattern=north east lines] fill between [of=TBPA and TBPF];
-	
-	% Pontok
-	\node[anchor=south west] at (axis cs: 0.5, {\RLEV*\TB/0.5/100000}) {\pgfcircled{$1$}};
-	\filldraw[blue, fill=white] (axis cs: 0.5, {\RLEV*\TB/0.5/100000}) circle (1mm);
-	
-	\node[anchor=south west] at (axis cs: 0.25, {\RLEV*\TB/0.25/100000}) {\pgfcircled{$2$}};
-	\filldraw[blue, fill=white] (axis cs: 0.25, {\RLEV*\TB/0.25/100000}) circle (1mm);
-	
-	% Felirat a technikai munkának
-	\node[fill=white, rounded corners] at (axis cs: 0.1, 4) {$w_{t1,2}$};
-	
-	\end{axis}
-	
-	\end{tikzpicture}
-	\caption{Ideális gáz $p-v$ diagram}
-\end{figure}
+
