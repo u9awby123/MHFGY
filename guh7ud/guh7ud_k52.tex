@@ -158,119 +158,100 @@ A jégréteg esetén $T_0 = T_2$ és $r_0 = \dfrac{d_2}{2}$:
 	T\!\left(r\right) = T_2 + \dfrac{\dot{q}}{2 \pi \lambda_2} \ln\dfrac{2 r}{d_2}
 \end{equation}
 
-
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
-		% Fiktív értékek a vázlathoz
-		\pgfmathsetmacro{\meter}{1/50}
-		\pgfmathsetmacro{\DB}{0.125/\meter}
-		\pgfmathsetmacro{\DK}{0.133/\meter}
-		\pgfmathsetmacro{\DJ}{0.3816/\meter}
-		\pgfmathsetmacro{\lambdaA}{45}
-		\pgfmathsetmacro{\lambdaJ}{2.32}
-		\pgfmathsetmacro{\alfaL}{11.5}
-		\pgfmathsetmacro{\qlin}{137.873}
-		
-		\pgfmathsetmacro{\RA}{\DB/2}
-		\pgfmathsetmacro{\RB}{\DK/2}
-		\pgfmathsetmacro{\RC}{\DJ/2}
-		
-		\pgfmathsetmacro{\L}{3}
-		
-		\pgfmathsetmacro{\kelvin}{4.2}
-		\pgfmathsetmacro{\TA}{-10/\kelvin}
-		\pgfmathsetmacro{\TB}{-9.96/\kelvin}
-		\pgfmathsetmacro{\TC}{0/\kelvin}
-		\pgfmathsetmacro{\TD}{10/\kelvin}
-		
-		% KÖRBEVÁGÁS
-		\clip ({-1.25}, {-(\L)-2}) rectangle ({1.32*\RC}, {\L+1});
-		
-		% A csőfal és a jégréteg
-		\fill[gray,opacity=0.25] (\RA,\L) -- (\RB, \L) -- (\RB, -\L) -- (\RA,-\L);
-		\draw[] (\RA,\L) -- (\RB, \L);
-		\draw[] (\RA,-\L) -- (\RB, -\L);
-		
-		\fill[blue,opacity=0.25] (\RB,\L) -- ({(\RB+\RC)/2-0.16},\L) -- ({(\RB+\RC)/2-0.08}, {\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {\L+0.12}) -- ({(\RB+\RC)/2+0.16}, \L) -- (\RC, \L) -- (\RC, -\L) -- ({(\RB+\RC)/2+0.16}, -\L) -- ({(\RB+\RC)/2+0.08}, {-\L+0.12}) -- ({(\RB+\RC)/2-0.08}, {-\L-0.12}) -- ({(\RB+\RC)/2-0.16},-\L) -- (\RB,-\L);
-		\draw[] (\RB,\L) -- ({(\RB+\RC)/2-0.16},\L) -- ({(\RB+\RC)/2-0.08}, {\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {\L+0.12}) -- ({(\RB+\RC)/2+0.16}, \L) -- (\RC, \L);
-		\draw[] (\RB,-\L) -- ({(\RB+\RC)/2-0.16},-\L) -- ({(\RB+\RC)/2-0.08}, {-\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {-\L+0.12}) -- ({(\RB+\RC)/2+0.16}, -\L) -- (\RC, -\L);
-		
-		\draw[ultra thick] (\RA,-\L) -- (\RA,\L);
-		\draw[ultra thick] (\RB,-\L) -- (\RB,\L);
-		\draw[ultra thick] (\RC,-\L) -- (\RC,\L);
-		
-		% Tengelyek
-		\draw[->] (0,-\L) -- (0,\L+1) node[anchor=north east]{$T$};
-		\draw[->] (-1.25, 0) -- (\RC+3, 0) node[anchor=base east, shift={(0,-0.5)}]{$r$};
-		
-		% Hőáram és hőáramsűrűség
-		\draw[->, ultra thick] (\RC-0.2,{\L+0.35}) -- ({(\RA+\RC)/2},{\L+0.35}) node[anchor=south]{$\dot{q}_{lin}$} -- (\RA+0.2,{\L+0.35});
-		\draw[->, ultra thick] (\RC+2.2,{\L+0.35}) -- (\RC+1.2,{\L+0.35}) node[anchor=south]{$\dot{q}_{\acute{a}t}$} -- (\RC+0.2,{\L+0.35});
-		
-		% A hővezetési és hőátadási tényezők
-		\node[anchor=base east] at ({\RA},{\L-1.5}) {$\lambda_1$};
-		\draw ({\RA-0.65},{\L-1.65}) -- ({(\RA+\RB)/2},{\L-1.65});
-		\fill[] ({(\RA+\RB)/2},{\L-1.65}) circle[radius=0.05];
-		
-		\node[anchor=base] at ({(\RB+\RC)/2},{\L-0.5}) {$\lambda_2$};
-		\node[anchor=base west] at ({(\RC+0.1},{\L-0.5}) {$\alpha$};
-		
-		% Az átmérők
-		\pgflength[xa={-\RA}, ya={-\L}, xb={\RA}, yb={-\L}, alim=0, blim=1, ra=0.6]{$\diameter d_1$};
-		\pgflength[xa={-\RB}, ya={-\L}, xb={\RB}, yb={-\L}, alim=0, blim=1, ra=1.2]{$\diameter d_2$};
-		\pgflength[xa={-\RC}, ya={-\L}, xb={\RC}, yb={-\L}, alim=0, blim=1, ra=1.8]{$\diameter d_3$};
-		
-		% A T(r) VALÓS hőmérséklet-hely függvény
-		\draw[red, ultra thick] (0.5,\TA) -- (\RA,\TA);
-		
-		\draw[ultra thick, color=red, domain=\RA:\RB, smooth, variable=\r] plot (\r, {\TA + ( \qlin/(2*3.14159*\lambdaA) * ln(2*\r/\DB))/\kelvin});
-		
-		\draw[ultra thick, color=red, domain=\RB:\RC, smooth, variable=\r] plot (\r, {\TA + (\qlin/(2*3.14159*\lambdaA) * ln(\DK/\DB) + \qlin/(2*3.14159*\lambdaJ) * ln(2*\r/\DK))/\kelvin});
-		
-		\draw[ultra thick, color=red, domain=\RC:1.25*\RC, smooth, variable=\r] plot (\r, {\TD * (1-exp(-(\r-\RC)/0.5))});
-		
-		% A hőmérséklet értékek
-		\draw (-0.1,\TA) -- (0.1,\TA);
-		\node[anchor=base east] at (0,\TA) {$T_1$};
-		\node[anchor=north east] at (0,\TA) {$\SI{-10}{\celsius}$};
-		
-		\node[anchor=north west] at (\RB,\TB) {$T_2 = \SI{-9.96}{\celsius}$};
-		
-		\draw (-0.1,\TD) -- (0.1,\TD);
-		\draw[black, opacity=0.5, dashed] (0,\TD) -- (1.25*\RC,\TD);
-		\node[anchor=base east] at (0,\TD) {$T_4$};
-		\node[anchor=north east] at (0,\TD) {$\SI{10}{\celsius}$};
-		
-		\node[anchor=north west] at (\RC,\TC) {$T_3$};
-		\node[anchor=north west] at (\RC, -0.45) {$\SI{0}{\celsius}$};
-		
-		% Feliratok
-		\node[anchor=base east] at (\RA, \L) {ammónia};
-		\node[anchor=base west] at (\RC, -\L) {levegő};
-		
+	% Fiktív értékek a vázlathoz
+	\pgfmathsetmacro{\meter}{1/50}
+	\pgfmathsetmacro{\DB}{0.125/\meter}
+	\pgfmathsetmacro{\DK}{0.133/\meter}
+	\pgfmathsetmacro{\DJ}{0.3816/\meter}
+	\pgfmathsetmacro{\lambdaA}{45}
+	\pgfmathsetmacro{\lambdaJ}{2.32}
+	\pgfmathsetmacro{\alfaL}{11.5}
+	\pgfmathsetmacro{\qlin}{137.873}
+	
+	\pgfmathsetmacro{\RA}{\DB/2}
+	\pgfmathsetmacro{\RB}{\DK/2}
+	\pgfmathsetmacro{\RC}{\DJ/2}
+	
+	\pgfmathsetmacro{\L}{3}
+	
+	\pgfmathsetmacro{\kelvin}{4.2}
+	\pgfmathsetmacro{\TA}{-10/\kelvin}
+	\pgfmathsetmacro{\TB}{-9.96/\kelvin}
+	\pgfmathsetmacro{\TC}{0/\kelvin}
+	\pgfmathsetmacro{\TD}{10/\kelvin}
+	
+	% KÖRBEVÁGÁS
+	\clip ({-1.25}, {-(\L)-2}) rectangle ({1.32*\RC}, {\L+1});
+	
+	% A csőfal és a jégréteg
+	\fill[gray,opacity=0.25] (\RA,\L) -- (\RB, \L) -- (\RB, -\L) -- (\RA,-\L);
+	\draw[] (\RA,\L) -- (\RB, \L);
+	\draw[] (\RA,-\L) -- (\RB, -\L);
+	
+	\fill[blue,opacity=0.25] (\RB,\L) -- ({(\RB+\RC)/2-0.16},\L) -- ({(\RB+\RC)/2-0.08}, {\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {\L+0.12}) -- ({(\RB+\RC)/2+0.16}, \L) -- (\RC, \L) -- (\RC, -\L) -- ({(\RB+\RC)/2+0.16}, -\L) -- ({(\RB+\RC)/2+0.08}, {-\L+0.12}) -- ({(\RB+\RC)/2-0.08}, {-\L-0.12}) -- ({(\RB+\RC)/2-0.16},-\L) -- (\RB,-\L);
+	\draw[] (\RB,\L) -- ({(\RB+\RC)/2-0.16},\L) -- ({(\RB+\RC)/2-0.08}, {\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {\L+0.12}) -- ({(\RB+\RC)/2+0.16}, \L) -- (\RC, \L);
+	\draw[] (\RB,-\L) -- ({(\RB+\RC)/2-0.16},-\L) -- ({(\RB+\RC)/2-0.08}, {-\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {-\L+0.12}) -- ({(\RB+\RC)/2+0.16}, -\L) -- (\RC, -\L);
+	
+	\draw[ultra thick] (\RA,-\L) -- (\RA,\L);
+	\draw[ultra thick] (\RB,-\L) -- (\RB,\L);
+	\draw[ultra thick] (\RC,-\L) -- (\RC,\L);
+	
+	% Tengelyek
+	\draw[->] (0,-\L) -- (0,\L+1) node[anchor=north east]{$T$};
+	\draw[->] (-1.25, 0) -- (\RC+3, 0) node[anchor=base east, shift={(0,-0.5)}]{$r$};
+	
+	% Hőáram és hőáramsűrűség
+	\draw[->, ultra thick] (\RC-0.2,{\L+0.35}) -- ({(\RA+\RC)/2},{\L+0.35}) node[anchor=south]{$\dot{q}_{lin}$} -- (\RA+0.2,{\L+0.35});
+	\draw[->, ultra thick] (\RC+2.2,{\L+0.35}) -- (\RC+1.2,{\L+0.35}) node[anchor=south]{$\dot{q}_{\acute{a}t}$} -- (\RC+0.2,{\L+0.35});
+	
+	% A hővezetési és hőátadási tényezők
+	\node[anchor=base east] at ({\RA},{\L-1.5}) {$\lambda_1$};
+	\draw ({\RA-0.65},{\L-1.65}) -- ({(\RA+\RB)/2},{\L-1.65});
+	\fill[] ({(\RA+\RB)/2},{\L-1.65}) circle[radius=0.05];
+	
+	\node[anchor=base] at ({(\RB+\RC)/2},{\L-0.5}) {$\lambda_2$};
+	\node[anchor=base west] at ({(\RC+0.1},{\L-0.5}) {$\alpha$};
+	
+	% Az átmérők
+	\pgflength[xa={-\RA}, ya={-\L}, xb={\RA}, yb={-\L}, alim=0, blim=1, ra=0.6]{$\diameter d_1$};
+	\pgflength[xa={-\RB}, ya={-\L}, xb={\RB}, yb={-\L}, alim=0, blim=1, ra=1.2]{$\diameter d_2$};
+	\pgflength[xa={-\RC}, ya={-\L}, xb={\RC}, yb={-\L}, alim=0, blim=1, ra=1.8]{$\diameter d_3$};
+	
+	% A T(r) VALÓS hőmérséklet-hely függvény
+	\draw[red, ultra thick] (0.5,\TA) -- (\RA,\TA);
+	
+	\draw[ultra thick, color=red, domain=\RA:\RB, smooth, variable=\r] plot (\r, {\TA + ( \qlin/(2*3.14159*\lambdaA) * ln(2*\r/\DB))/\kelvin});
+	
+	\draw[ultra thick, color=red, domain=\RB:\RC, smooth, variable=\r] plot (\r, {\TA + (\qlin/(2*3.14159*\lambdaA) * ln(\DK/\DB) + \qlin/(2*3.14159*\lambdaJ) * ln(2*\r/\DK))/\kelvin});
+	
+	\draw[ultra thick, color=red, domain=\RC:1.25*\RC, smooth, variable=\r] plot (\r, {\TD * (1-exp(-(\r-\RC)/0.5))});
+	
+	% A hőmérséklet értékek
+	\draw (-0.1,\TA) -- (0.1,\TA);
+	\node[anchor=base east] at (0,\TA) {$T_1$};
+	\node[anchor=north east] at (0,\TA) {$\SI{-10}{\celsius}$};
+	
+	\node[anchor=north west] at (\RB,\TB) {$T_2 = \SI{-9.96}{\celsius}$};
+	
+	\draw (-0.1,\TD) -- (0.1,\TD);
+	\draw[black, opacity=0.5, dashed] (0,\TD) -- (1.25*\RC,\TD);
+	\node[anchor=base east] at (0,\TD) {$T_4$};
+	\node[anchor=north east] at (0,\TD) {$\SI{10}{\celsius}$};
+	
+	\node[anchor=north west] at (\RC,\TC) {$T_3$};
+	\node[anchor=north west] at (\RC, -0.45) {$\SI{0}{\celsius}$};
+	
+	% Feliratok
+	\node[anchor=base east] at (\RA, \L) {ammónia};
+	\node[anchor=base west] at (\RC, -\L) {levegő};
+	
 	\end{tikzpicture}
 	\caption{A hőmérséklet-hely függvény méretarányosan ábrázolva.}
 \end{figure}
 
-
-\subsubsection*{Vizsgálat többrétegű síkfalként}
-A hengeres falon keresztül történő hőterjedés mindig közelíthető a hengeres fal kiterítésével kapott síkfalon át történő hőterjedéssel. A közelítés hibája a a hengeres fal vastagságától függ, minél vékonyabb, annál kisebb a síkfallal történő közelítés hibája.
-
-A többrétegű hengeres falat többrétegű síkfallal közelíthetjük. A közelítő síkfal vastagsága és hossza megegyezik a hengeres réteg vastagságával és hosszával, a szélessége a hengeres réteg közepes átmérőjéhez tartozó kerülettel közelíthető:
-\begin{equation}
-	\left.
-	\begin{array}{l}
-		\dot{q}_{lin} = \dfrac{\lambda_1}{\frac{d_2-d_1}{2}} \dfrac{d_1+d_2}{2} \pi (T_2 - T_1) \\ \\
-		\dot{q}_{lin} = \dfrac{\lambda_2}{\frac{d_3-d_2}{2}} \dfrac{d_2+d_3}{2} \pi (T_3 - T_2)
-	\end{array}
-	\right\rbrace
-	\quad \Rightarrow \quad 
-	\dot{q}_{lin} = \dfrac{T_3 - T_1}{
-		\dfrac{d_2-d_1}{\lambda_1\left(d_1+d_2\right) \pi} + 
-		\dfrac{d_3-d_2}{\lambda_2\left(d_2+d_3\right) \pi}
-		}
-\end{equation}
 
 A falbeli lineáris hőáram és a hőátadást jellemző lineáris hőáram most is egyenlő. 
 \begin{equation}
