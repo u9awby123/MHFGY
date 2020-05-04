@@ -30,13 +30,13 @@ s_1 = \SI{0,5035}{\kilo\joule\per\kilogram\kelvin},
 s_4 = \SI{7,4705}{\kilo\joule\per\kilogram\kelvin}
 \end{equation*}
 \begin{equation*}
-i_1 = \SI{147,4}{\kilo\joule\per\kilogram},
+h_1 = \SI{147,4}{\kilo\joule\per\kilogram},
 \quad
-i_2 = \SI{759,07}{\kilo\joule\per\kilogram},
+h_2 = \SI{759,07}{\kilo\joule\per\kilogram},
 \quad
-i_3 = \SI{2777,1}{\kilo\joule\per\kilogram},
+h_3 = \SI{2777,1}{\kilo\joule\per\kilogram},
 \quad
-i_4 = \SI{3263,6}{\kilo\joule\per\kilogram}
+h_4 = \SI{3263,6}{\kilo\joule\per\kilogram}
 \end{equation*}
 
 \noindent\hrulefill
@@ -46,31 +46,31 @@ i_4 = \SI{3263,6}{\kilo\joule\per\kilogram}
 A vizsgált folyamat p = áll. nyomáson megy végbe ezért, az első főtétel megfelelő alakja alapján kapjuk, hogy:
 
 \begin{equation}
-\delta q = di + \bcancel{\delta w_t}-\bcancel{vdp}
+\delta q = dh + \bcancel{\delta w_t}-\bcancel{vdp}
 \end{equation}
 
 \begin{equation}
-\ q = i_2-i_1
+\ q = h_2-h_1
 \end{equation}
 
 Ez alapján a folyadékhő:
 \begin{equation}
-\ q_{1-2} = i_2-i_1 = \SI{611,67}{\kilo\joule\per\kilogram}
+\ q_{1,2} = h_2-h_1 = \SI{611,67}{\kilo\joule\per\kilogram}
 \end{equation}
 
 A párolgáshő:
 \begin{equation}
-\ q_{2-3} = i_3-i_2 = \SI{2018,03}{\kilo\joule\per\kilogram}
+\ q_{2,3} = h_3-h_2 = \SI{2018,03}{\kilo\joule\per\kilogram}
 \end{equation}
 
 A túlhevítési hő:
 \begin{equation}
-\ q_{3-4} = i_4-i_3 = \SI{486,5}{\kilo\joule\per\kilogram}
+\ q_{3,4} = h_4-h_3 = \SI{486,5}{\kilo\joule\per\kilogram}
 \end{equation}
 
 Az összes hő
 \begin{equation}
-\ q_{1-4} = i_4-i_1 = \SI{3116,2}{\kilo\joule\per\kilogram}
+\ q_{1,4} = h_4-h_1 = \SI{3116,2}{\kilo\joule\per\kilogram}
 \end{equation}
 
 \subsubsection*{b) Határozzuk meg a hőközlés átlagos hőmérsékletét}
@@ -78,15 +78,91 @@ Az összes hő
 A $T_{\textit{köz}}$ átlagos hőmérséklet lényegében az állapotváltozás átlag hőmérséklete. Ezt egy folytonos mennyiség átlagolásával kapjuk meg. Integráljuk az adott mennyiséget és elosztjuk az intervallum nagyságával. 
 
 \begin{equation*}
-\ q_{1-4} = \int\displaylimits_{1}^{4} T_{\textit{köz}} ds = T_{\textit{köz}} \int\displaylimits_{1}^{4} ds = T_{\textit{köz}} (s_4-s_1)
+\ q_{1,4} = \int\displaylimits_{1}^{4} T_{\textit{köz}} ds = T_{\textit{köz}} \int\displaylimits_{1}^{4} ds = T_{\textit{köz}} (s_4-s_1)
 \end{equation*}
 
 Az egyenlet átrendezve $T_{\textit{köz}}$-re
 
 \begin{equation}
-\ T_{\textit{köz}} = \frac{q_{1-4}}{s_4-s_1} = \SI{447,28}{\kelvin} = \SI{174}{\celsius}
+\ T_{\textit{köz}} = \frac{q_{1,4}}{s_4-s_1} = \SI{447,28}{\kelvin} = \SI{174}{\celsius}
 \end{equation}
 
 \subsubsection*{c) Az állapotváltozás $T-s$ diagramban}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	\pgfmathsetmacro{\RLEV}{220}
+	\pgfmathsetmacro{\TA}{300}
+	\pgfmathsetmacro{\TB}{600}
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0, xmax=10.8,
+	ymin=0, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400}
+	]
+	
+
+		% A nedves gőzmező fázishatárai
+		\addplot[thick] table {./guh7ud/ts.txt};
+
+		% Az p = 9,81 bar-hoz tartozó izobár vonal
+		\addplot[ultra thick, blue, mid arrow=blue] table {./VX12Z6/ts_p981.txt};
+		
+		%egyenesek
+		\draw[dashed] (axis cs:0.5047, 35) -- (axis cs:0.5047, 0);
+		\draw[dashed] (axis cs:2.129, 179) -- (axis cs:2.129, 0);
+		\draw[dashed] (axis cs:6.591, 179) -- (axis cs:6.591, 0);
+		\draw[dashed] (axis cs:7.47, 400) -- (axis cs:7.47, 0);
+		
+		%Sraffozás
+		\addplot[opacity=0, name path=A, domain=0.5047:7.47, samples=25] table {./VX12Z6/ts_p981.txt};
+		\addplot[opacity=0, name path=B, domain=0.5047:7.47, samples=2] {0};
+		\addplot[pattern=north east lines] fill between [of=A and B];
+				
+		% Az állapotváltozás pontjai
+		\node[anchor=south east] at (axis cs: 0.5047, 35) {\pgfcircled{$1$}};
+		\filldraw[black, fill=white] (axis cs: 0.5047, 35) circle (1mm);
+	
+		\node[anchor=south east] at (axis cs: 2.129, 179) {\pgfcircled{$2$}};
+		\filldraw[black, fill=white] (axis cs: 2.129, 179) circle (1mm);
+		
+		\node[anchor=south east] at (axis cs: 6.591, 179) {\pgfcircled{$3$}};
+		\filldraw[black, fill=white] (axis cs: 6.591, 179) circle (1mm);
+		
+		\node[anchor=south east] at (axis cs: 7.47, 400) {\pgfcircled{$4$}};
+		\filldraw[black, fill=white] (axis cs: 7.47, 400) circle (1mm);
+		
+		%Feliratok
+		\node[fill=white, rounded corners] at (axis cs: 1.5, 40) {$q_{1,2}$};
+		\node[fill=white, rounded corners] at (axis cs: 4.5, 100) {$q_{2,3}$};
+		\node[fill=white, rounded corners] at (axis cs: 7.05, 50) {$q_{3,4}$};
+		
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{Víz-gőz $T-s$ diagram}
+\end{figure}
+
 
 \pagebreak
