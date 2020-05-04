@@ -137,7 +137,7 @@ Az egyenlet átrendezve $T_{\textit{köz}}$-re
 		%Sraffozás
 		\addplot[opacity=0, name path=A, domain=0.5047:7.47, samples=25] table {./VX12Z6/ts_p981.txt};
 		\addplot[opacity=0, name path=B, domain=0.5047:7.47, samples=2] {0};
-		\addplot[pattern=north east lines] fill between [of=A and B];
+		\addplot[gray!20] fill between [of=A and B];
 				
 		% Az állapotváltozás pontjai
 		\node[anchor=south east] at (axis cs: 0.5047, 35) {\pgfcircled{$1$}};
