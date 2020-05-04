@@ -35,7 +35,7 @@ Feladat veszteségmentes esetben:
 \subsubsection*{a) A kilépési hőmérsékletek kiszámítása}
 
  Az ellenáramú hőcsere esetén a melegebb és a hidegebb közeg az elválasztó felület két oldalán egymással párhuzamosan, ellentétes irányba haladnak. Feltételezzük, hogy a hőcserefolyamatban csak a két áramló közeg vesz részt, és a környezet felé nincs hőveszteség. Így az energiamegmaradás tétele következtében azt írhatjuk, hogy a felmelegedő közeg által felvett hő egyenlő a csökkenő hőmérsékletű közeg által leadott hővel $\Delta \dot{Q} = \dot{m}_1{c}_1 \left(T_{1v} - T_{1k}\right)=\dot{m}_2{c}_2 \left(T_{2v} - T_{2k}\right)$.A konvektív hőáramokkal történő  hőterjedést tehát a kezdeti(k) és vég(v) hőáramok különbségével felírható: $\Delta \dot{Q} = \dot{w}_1 \left(T_{1v} - T_{1k}\right)=\dot{w}_2 \left(T_{2v} - T_{2k}\right)$.
- Az $\dot{w}_1 = \dot{w}_2$ egyenlő, ami azt jeleni, hogy a T(A) függvények között lineáris viszony van. Illetve, ha a hőmérsékletkülönbségeket átírjuk $\Delta T_N =\left(T_{1k} - T_{2v}\right)$ és $\Delta T_K= \left(T_{1v} - T_{2k}\right)$ miatt a állandó a hőmérsékletkülönbség $\Delta T_N = \Delta T_K = \Delta T = \textrm{állandó}$. A hőmérséklet felírható így a vég-és kezdeti $\Delta T$ alapján:
+ Az $\dot{w}_1 = \dot{w}_2$ egyenlő, ami azt jeleni, hogy a T(A) függvények között lineáris viszony van. Illetve, ha a hőmérsékletkülönbségeket átírjuk $\Delta T_N =\left(T_{1k} - T_{2v}\right)$ és $\Delta T_K= \left(T_{1v} - T_{2k}\right)$ miatt a állandó a hőmérsékletkülönbség $\Delta T_N = \Delta T_K = \Delta T = \textrm{állandó}$. A hőmérséklet felírható így a vég- és kezdeti $\Delta T$ alapján:
  
 \begin{equation}
   \dot{w}_1\left(T_{1k} - T_{1v}\right) = \kappa A_{\ddot{O}} \Delta T = \kappa A_{\ddot{O}} \left(T_{1v} - T_{2k}\right)
@@ -58,13 +58,13 @@ $T_{2v}$ meghatározása pedig:
 \dot{w}_1\left(T_{1v} - T_{1k}\right) = \dot{w}_2\left(T_{2v} - T_{2k}\right)
 \end{equation}
 
-De mivel a konvektív vízérték megegyezik($\dot{w}_1 = \dot{w}_2$), tudunk egyszerűsíteni. Illetve átrendezve az egyenletet megkapjuk k $T_{2v}$-t.
+De mivel a konvektív vízérték megegyezik($\dot{w}_1 = \dot{w}_2$), tudunk egyszerűsíteni. Illetve átrendezve az egyenletet megkapjuk a $T_{2v}$-t.
 
 \begin{equation}
-T_{2v} = T_{2k} + T_{1k} - T_{1v} = \SI{18}{\celsius} + \SI{115}{\celsius} - \SI{91.79}{\celsius} = \SI{49.375}{\celsius}
+T_{2v} = T_{2k} + T_{1k} - T_{1v} = \SI{18}{\celsius} + \SI{115}{\celsius} - \SI{91.79}{\celsius} = \SI{41.21}{\celsius}
 \end{equation}
 
-\subsubsection*{b) $\kappa^*$ értékének meghatározása, ha a kilépési hőmérsékletek egyenlőek( $T_{1v} = T_{2v}$) }
+\subsubsection*{b) $\kappa^*$ értékének meghatározása, ha a kilépési hőmérsékletek egyenlőek ($T_{1v} = T_{2v}$) }
 Az a) feladatrészben használt egyenletből kifejezhető a $\kappa^*$ értéke mert már kiszámoltuk a kilépő közegek hőmérsékletét. A $\Delta \dot{Q}= \kappa^* A_{\ddot{O}} \Delta T$ alapegyenletnek a $\Delta T$ tényezője az ellenáramú hőcserélőnek a vízértékei egyenlősége miatt ($\dot{w}_1 = \dot{w}_2$) ,  $\Delta T_N = \Delta T_K = \Delta T = \textrm{állandó}$ ezért:
 \vspace{1mm}
 \begin{equation}
@@ -85,10 +85,9 @@ Az a) feladatrészben használt egyenletből kifejezhető a $\kappa^*$ értéke 
 \begin{equation}
 \Delta T_{\textit{köz}}=\dfrac{\Delta T_N - \Delta T_K}{\ln\frac{\Delta T_N}{\Delta T_K}}
 \end{equation}
-Ehhez kell a kisebb és a nagyobb hőmérsékletkülönbség, amik egyenlőek jelen esetben. Tehát ez nem meghatározható. Itt, ha a hőmérsékletkülönbségeket behelyettesítjük, ln1-et kapunk, ami 0, illetve a számláló is 0.
-\begin{equation}
-\Delta T(A) = \Delta T_{N}\mathrm{e}^{0} = \Delta T
-\end{equation}
+
+Ehhez kell a kisebb és a nagyobb hőmérsékletkülönbség, amik egyenlőek jelen esetben. Emiatt ez egyenlőség miatt $\Delta T$ van mindenhol, akkor a számlálóban és a nevezőben kapott 0-ák hányadának meghatározásához határértéket kell vizsgálni. Egy egyszerűbb megoldás az, hogy mivel $\Delta T$ a hőmérséklet különbség, így megegyezik a $\Delta T_{\textit{köz}}$ -vel. A hőmérséklet-hely függvény pedig nem más, mint: $\Delta T(A) = \Delta T_{N}\mathrm{e}^{0} = \Delta T$
+
 \begin{figure}[h]
 \centering
 \label{figure:sm}
@@ -141,8 +140,5 @@ Ehhez kell a kisebb és a nagyobb hőmérsékletkülönbség, amik egyenlőek je
 
 
 Az ábrán is látszik, hogy a $\Delta T_{N}= \Delta T_{K}= \Delta T$.   Ha $\dot{w}_1 > \dot{w}_2$, akkor $\Delta T_{N} < \Delta T_{K}$ és ha $\dot{w}_1 < \dot{w}_2$, akkor $\Delta T_{N} > \Delta T_{K}$ igaz. Ezekben az esetekben viszont meghatározható a $\Delta T_{\textit{köz}}$.
+
 \pagebreak	
-
-
-
-
