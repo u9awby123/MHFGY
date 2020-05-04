@@ -1,3 +1,6 @@
+\section*{HS 5. feladat} 
+\addcontentsline{toc}{section}{HS 5. feladat}
+
 \begin{tabular}{ | p{2cm} | p{13cm} | } 
 	\hline
 	Név & Kovács Miklós \\ 
@@ -6,57 +9,55 @@
 	\hline
 	Félév & 2019/2020 II. (tavaszi) félév \\ 
 	\hline
-\end{tabular}
-
-\section*{HS 5. feladat} 
-\addcontentsline{toc}{section}{HS 5. feladat}
+\end{tabular}\\
+\vspace{5mm}
 
 %feladatleírás
 Egy 160/170 $mm$ átmérőjű gőzvezetéket kétrétegű szigetelés fog körül. A belső réteg vastagsága 30 $mm$, a külsőé 50 $mm$. A cső falának és szigetelő anyagának hővezetési tényezői a következők:
 \begin{equation*}
-	\lambda_{ac} = \SI{58,15}{\watt\per\meter\kelvin};
+	\lambda_{AC} = \SI{58,15}{\watt\per\meter\kelvin};
 	\quad
 	\lambda_1 = \SI{0,1745}{\watt\per\meter\kelvin};
 	\quad
 	\lambda_2 = \SI{0,093}{\watt\per\meter\kelvin}
 \end{equation*}
-A cső belső felületének hőmérséklete $t_1 =\SI{300}{\celsius}$, a szigetelőréteg külső felületének hőmérséklete $t_4 =\SI{50}{\celsius}$. Határozza meg a csővezeték folyóméterenkénti hőveszteségét, valamint a különböző rétegek határfelületeinek hőmérsékletét!
+A cső belső felületének hőmérséklete $T_1 =\SI{300}{\celsius}$, a szigetelőréteg külső felületének hőmérséklete $T_4 =\SI{50}{\celsius}$. Határozza meg a csővezeték folyóméterenkénti hőveszteségét, valamint a különböző rétegek határfelületeinek hőmérsékletét!
 
 \subsubsection*{a) A lineáris hőáramsűrűség meghatározása }
 Hengeres fal esetén lineáris hőáramsűrűségről beszélhetünk:
 \begin{equation*}
- \dot{q}_{lin} = \dfrac {t_1 - t_4}{\dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{ac}} \ln ( \dfrac {d_2}{d_1})+\dfrac {1}{\lambda_{1}} \ln ( \dfrac {d_3}{d_2})+\dfrac {1}{\lambda_{2}} \ln ( \dfrac {d_4}{d_3})\right)} 
+ \dot{q}_{lin} = \dfrac {T_1 - T_4}{\dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{AC}} \ln \dfrac {d_2}{d_1}+\dfrac {1}{\lambda_{1}} \ln \dfrac {d_3}{d_2}+\dfrac {1}{\lambda_{2}} \ln \dfrac {d_4}{d_3}\right)} 
 \end{equation*}
 
 \begin{equation}
-\dot{q}_{lin} = \dfrac {300 - 50}{\dfrac{1}{2 \pi} \left(\dfrac {1}{58,15} \ln ( \dfrac {170}{160})+\dfrac {1}{0,1745} \ln ( \dfrac {230}{170})+\dfrac {1}{0,093} \ln ( \dfrac {330}{230})\right)} =\SI{279,74}{\watt\per\meter\squared}
+ \dot{q}_{lin} = \dfrac {300 - 50}{\dfrac{1}{2 \pi} \left(\dfrac {1}{58,15} \ln \dfrac {170}{160}+\dfrac {1}{0,1745} \ln \dfrac {230}{170}+\dfrac {1}{0,093} \ln \dfrac {330}{230}\right)} =\SI{279,74}{\watt\per\meter\squared}
 \end{equation}
 A csővezeték folyóméterenkénti hővesztesége $\dot{q}_{lin} = \SI{279,74}{\watt\per\meter}$.
 
 
-\subsubsection*{b) A $t_2$ hőmérséklet meghatározása }
+\subsubsection*{b) A $T_2$ hőmérséklet meghatározása }
 Az előző képletet, a csőfalra felírva és átrendezve:
 \begin{equation}
-	\dot{q}_{lin} = \dfrac {t_1 - t_2}{\dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{ac}} \ln ( \dfrac {d_2}{d_1})\right)} \Rightarrow t_2 = -1 \left(\dot{q}_{lin} \dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{ac}} \ln ( \dfrac {d_2}{d_1})\right) - t_1 \right) = 
+	\dot{q}_{lin} = \dfrac {T_1 - T_2}{\dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{AC}} \ln \dfrac {d_2}{d_1}\right)} \Rightarrow T_2 = -1 \left(\dot{q}_{lin} \dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{AC}} \ln \dfrac {d_2}{d_1}\right) - T_1 \right) = 
 \end{equation}
 behelyettesítve
 \begin{equation*}
-	= -1 \left(279,74 \dfrac{1}{2 \pi} \left(\dfrac {1}{58,15} \ln ( \dfrac {170}{160})\right) - 300 \right) = \SI{299,954}{\celsius}
+	= -1 \left(279,74 \dfrac{1}{2 \pi} \left(\dfrac {1}{58,15} \ln \dfrac {170}{160}\right) - 300 \right) = \SI{299,954}{\celsius}
 \end{equation*}
-Tehát a hőmérséklet a csőfal és a belső szigetelőréteg határfelületén $t_2 = \SI{299,954}{\celsius}$.
+Tehát a hőmérséklet a csőfal és a belső szigetelőréteg határfelületén $T_2 = \SI{299,954}{\celsius}$.
 
 
-\subsubsection*{c) A $t_3$ hőmérséklet meghatározása }
-A $t_2$ hőmérséklet meghatározásához hasonlóan eljárva, a két szigetelőréteg határfelületére:
+\subsubsection*{c) A $T_3$ hőmérséklet meghatározása }
+A $T_2$ hőmérséklet meghatározásához hasonlóan eljárva, a két szigetelőréteg határfelületére:
 
 \begin{equation}
-\dot{q}_{lin} = \dfrac {t_2 - t_3}{\dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{1}} \ln ( \dfrac {d_3}{d_2})\right)} \Rightarrow t_3 = -1 \left(\dot{q}_{lin} \dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{1}} \ln ( \dfrac {d_3}{d_2})\right) - t_2 \right) = 
+\dot{q}_{lin} = \dfrac {T_2 - T_3}{\dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{1}} \ln \dfrac {d_3}{d_2}\right)} \Rightarrow T_3 = -1 \left(\dot{q}_{lin} \dfrac{1}{2 \pi} \left(\dfrac {1}{\lambda_{1}} \ln \dfrac {d_3}{d_2}\right) - T_2 \right) = 
 \end{equation}
 behelyettesítve
 \begin{equation*}
-	= -1 \left(279,74 \dfrac{1}{2 \pi} \left(\dfrac {1}{0,1745} \ln ( \dfrac {230}{170})\right) - 299,954 \right) = \SI{222,826}{\celsius}
+	= -1 \left(279,74 \dfrac{1}{2 \pi} \left(\dfrac {1}{0,1745} \ln \dfrac {230}{170}\right) - 299,954 \right) = \SI{222,826}{\celsius}
 \end{equation*}
-A két szigetelőréteg határfelületének hőmérséklete $t_3 =\SI{299,954}{\celsius}$. 
+A két szigetelőréteg határfelületének hőmérséklete $T_3 =\SI{299,954}{\celsius}$. 
 
 \pagebreak
 
@@ -97,14 +98,14 @@ A két szigetelőréteg határfelületének hőmérséklete $t_3 =\SI{299,954}{\
 		\draw[] (\RA,\LA) -- ({(\RA+\RB)/2-0.16}, \LA) -- ({(\RA+\RB)/2-0.08}, \LA-0.12) -- ({(\RA+\RB)/2+0.08}, \LA+0.12) -- ({(\RA+\RB)/2+0.16}, \LA) -- (\RB, \LA);
 		\draw[ultra thick] (\RA,\LA) -- (\RA, -0);
 	
-		\fill[red,opacity=0.4] (\RB,\LA) -- ({(\RB+\RC)/2-0.16}, \LA) -- ({(\RB+\RC)/2-0.08}, \LA-0.12) -- ({(\RB+\RC)/2+0.08}, \LA+0.12) -- ({(\RB+\RC)/2+0.16}, \LA) -- (\RC, \LA) -- (\RC, -0) -- (\RB,-0);
+		\fill[blue,opacity=0.25] (\RB,\LA) -- ({(\RB+\RC)/2-0.16}, \LA) -- ({(\RB+\RC)/2-0.08}, \LA-0.12) -- ({(\RB+\RC)/2+0.08}, \LA+0.12) -- ({(\RB+\RC)/2+0.16}, \LA) -- (\RC, \LA) -- (\RC, -0) -- (\RB,-0);
 		\draw[] (\RB,\LA) -- ({(\RB+\RC)/2-0.16}, \LA) -- ({(\RB+\RC)/2-0.08}, \LA-0.12) -- ({(\RB+\RC)/2+0.08}, \LA+0.12) -- ({(\RB+\RC)/2+0.16}, \LA) -- (\RC, \LA);
 		\draw[ultra thick] (\RB,\LA) -- (\RB, -0);
 	
-		\fill[purple,opacity=0.4] (\RC,\LA) -- ({(\RC+\RD)/2-0.16}, \LA) -- ({(\RC+\RD)/2-0.08}, \LA-0.12) -- ({(\RC+\RD)/2+0.08}, \LA+0.12) -- ({(\RC+\RD)/2+0.16}, \LA) -- (\RD, \LA) -- (\RD, -0) -- (\RC,-0);
+		\fill[red,opacity=0.25] (\RC,\LA) -- ({(\RC+\RD)/2-0.16}, \LA) -- ({(\RC+\RD)/2-0.08}, \LA-0.12) -- ({(\RC+\RD)/2+0.08}, \LA+0.12) -- ({(\RC+\RD)/2+0.16}, \LA) -- (\RD, \LA) -- (\RD, -0) -- (\RC,-0);
 		\draw[] (\RC,\LA) -- ({(\RC+\RD)/2-0.16}, \LA) -- ({(\RC+\RD)/2-0.08}, \LA-0.12) -- ({(\RC+\RD)/2+0.08}, \LA+0.12) -- ({(\RC+\RD)/2+0.16}, \LA) -- (\RD, \LA);
-		\draw[] (\RD,\LA) -- (\RD, -0);
-		\draw[] (\RC,\LA) -- (\RC, -0);
+		\draw[ultra thick] (\RD,\LA) -- (\RD, -0);
+		\draw[ultra thick] (\RC,\LA) -- (\RC, -0);
 	
 	% Az átmérők
 	\pgflength[xa={-\RA}, ya={-0.3}, xb={\RA}, yb={-0.3}, alim=0, blim=1, ra=0.6]{$\diameter d_1$};

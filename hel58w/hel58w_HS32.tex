@@ -1,3 +1,6 @@
+\section*{HS 32. feladat} 
+\addcontentsline{toc}{section}{HS 32. feladat}
+
 \begin{tabular}{ | p{2cm} | p{14cm} | } 
 	\hline
 	Név & Kovács Miklós \\ 
@@ -6,18 +9,16 @@
 	\hline
 	Félév & 2019/2020 II. (tavaszi) félév \\ 
 	\hline
-\end{tabular}
-
-\section*{HS 32. feladat} 
-\addcontentsline{toc}{section}{HS 32. feladat}
+\end{tabular}\\
+\vspace{5mm}
 
 %feladatleírás
-Az olajhűtőben $\dot{m}_1 = \SI{500}{\kilogram\per\hour}$ mennyiségű olajat $t_{1k} = \SI{120}{\celsius}$ -ról $t_{1v} = \SI{30}{\celsius}$ -ra kell lehűteni. A rendelkezésre álló hűtővíz mennyisége $\dot{m}_2 = \SI{1500}{\kilogram\per\hour}$, hőmérséklete $t_{2k} = \SI{13}{\celsius}$. Meghatározandó a szükséges hőátszármaztató felület egyenáramú ill. ellenáramú kapcsolás esetén! (Veszteséget elhanyagoljuk.)
+Az olajhűtőben $\dot{m}_1 = \SI{500}{\kilogram\per\hour}$ mennyiségű olajat $T_{1k} = \SI{120}{\celsius}$ -ról $T_{1v} = \SI{30}{\celsius}$ -ra kell lehűteni. A rendelkezésre álló hűtővíz mennyisége $\dot{m}_2 = \SI{1500}{\kilogram\per\hour}$, hőmérséklete $T_{2k} = \SI{13}{\celsius}$. Meghatározandó a szükséges hőátszármaztató felület egyenáramú ill. ellenáramú kapcsolás esetén! (Veszteséget elhanyagoljuk.)
 
 %további adatok
-$c_o = \SI{1,67}{\kilo\joule\per\kilogram\kelvin}$ ...olaj fajhője;
-$c_v = \SI{4,18}{\kilo\joule\per\kilogram\kelvin}$ ...víz fajhője;
-$\kappa = \SI{75}{\watt\per\meter\squared\kelvin}$ ...hőátszármaztatási tényező
+$c_o = \SI{1,67}{\kilo\joule\per\kilogram\kelvin}$ az olaj fajhője;
+$c_v = \SI{4,18}{\kilo\joule\per\kilogram\kelvin}$ a víz fajhője;
+$\kappa = \SI{75}{\watt\per\meter\squared\kelvin}$ a hőátszármaztatási tényező
 
 \subsubsection*{a) A vízértékek meghatározása }
 A vízértékeket megkapjuk, ha az egyes tömegáramokat megszorozzuk a közegek fajhőjeivel.
@@ -28,28 +29,28 @@ A vízértékeket megkapjuk, ha az egyes tömegáramokat megszorozzuk a közegek
 \dot{w}_2 = \dot{m}_2 c_v = \SI{1,742}{\kilo\watt\per\kelvin}
 \end{equation}
 
-\subsubsection*{b) konvektív hőátadás }
-A hőáram nagyságát megkaphatjuk, ha az olaj tömegáramát és fajhőjét (tehát az egyes vízérték) az olaj hőmérséklet különbségével összeszorozzuk ($t_{1k} - t_{1v}$).
+\subsubsection*{b) Konvektív hőátadás }
+A hőáram nagyságát megkaphatjuk, ha az olaj tömegáramát és fajhőjét (tehát az egyes vízérték) az olaj hőmérséklet különbségével összeszorozzuk ($T_{1k} - T_{1v}$).
 \begin{equation}
-\dot{Q}_{konv.} = \dot{m}_1 c_o (t_{1k} - t_{1v}) = \dot{w}_1  (t_{1k} - t_{1v}) =\SI{20,88}{\kilo\watt} =\SI{20880}{\watt}
+\dot{Q}_{konv.} = \dot{m}_1 c_o (T_{1k} - T_{1v}) = \dot{w}_1  (T_{1k} - T_{1v}) =\SI{20,88}{\kilo\watt} =\SI{20880}{\watt}
 \end{equation}
 
 A továbbiakban a hűtővíz felmelegedésének mértékére vagyunk kíváncsiak: 
 \begin{equation}
-\dot{Q}_{konv.} = \dot{w}_2 \Delta t_2 => \Delta t_2 = \dfrac {\dot{Q}_{konv.}}{\dot{w}_2} =\SI{12}{\celsius}
+\dot{Q}_{konv.} = \dot{w}_2 \Delta T_2 => \Delta T_2 = \dfrac {\dot{Q}_{konv.}}{\dot{w}_2} =\SI{12}{\celsius}
 \end{equation}
 így megkaptuk, hogy a hűtővíz $\SI{12}{\celsius}$-kal melegedett, tehát kilépéskor a hőmérséklete:
 \begin{equation}
-t_{2v} = t_{2k} + \Delta t_2 = 13 + 12 =\SI{25}{\celsius}
+T_{2v} = T_{2k} + \Delta T_2 = 13 + 12 =\SI{25}{\celsius}
 \end{equation}
 
-\subsubsection*{c) ellenáramú kapcsolás esete }
+\subsubsection*{c) Ellenáramú kapcsolás esete }
 Ellenáramú kapcsolás esetén a az olaj és a hűtővíz áramlása egymással ellentétes irányban valósul meg az olajhűtőben. 
 \begin{equation}
-\Delta t_N =  t_{1k} - t_{2v} = 120 - 25 =\SI{95}{\celsius}
+\Delta T_N =  T_{1k} - T_{2v} = 120 - 25 =\SI{95}{\celsius}
 \end{equation}
 \begin{equation}
-\Delta t_k =  t_{1v} - t_{2k} = 30 - 13 =\SI{17}{\celsius}
+\Delta T_k =  T_{1v} - T_{2k} = 30 - 13 =\SI{17}{\celsius}
 \end{equation}
 Így megkaptuk a logaritmikus közepes hőmérséklet különbség (LMTD) számításához szükséges  kisebb és nagyobb hőmérséklet különbségeket.
 \begin{equation}
@@ -69,13 +70,13 @@ Tudjuk, hogy a hőáram egyenlő a hőátszármaztatási tényező, az LMTD és 
 Tehát ellenáramú kapcsolás esetében a szükséges hőátszármaztatási felület nagysága $A_{ellen} = \SI{6,14}{\meter\squared}$.
 
 %egyenáramú eset-----------------------------------------------------------------------------
-\subsubsection*{d) egyenáramú kapcsolás esete }
+\subsubsection*{d) Egyenáramú kapcsolás esete }
 Egyenáramú kapcsolás esetén a az olaj és a hűtővíz áramlása egymással megegyező irányban valósul meg az olajhűtőben. 
 \begin{equation}
-\Delta t_N =  t_{1k} - t_{2k} = 120 - 13 =\SI{107}{\celsius}
+\Delta T_N =  T_{1k} - T_{2k} = 120 - 13 =\SI{107}{\celsius}
 \end{equation}
 \begin{equation}
-\Delta t_k =  t_{1v} - t_{2v} = 30 - 25 =\SI{5}{\celsius}
+\Delta T_k =  T_{1v} - T_{2v} = 30 - 25 =\SI{5}{\celsius}
 \end{equation}
 Ezen értékek felhasználásával:
 \begin{equation}
