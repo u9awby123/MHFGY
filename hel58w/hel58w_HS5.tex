@@ -83,8 +83,13 @@ A két szigetelőréteg határfelületének hőmérséklete $T_3 =\SI{299,954}{\
 	\pgfmathsetmacro{\lambdaAC}{58.15}
 	\pgfmathsetmacro{\lambdaA}{0.1745}
 	\pgfmathsetmacro{\lambdaB}{0.093}
-	\pgfmathsetmacro{\kelvin}{50}
 	
+	\pgfmathsetmacro{\kelvin}{50}
+	\pgfmathsetmacro{\TA}{300/\kelvin}
+	\pgfmathsetmacro{\TB}{299.95/\kelvin}
+	\pgfmathsetmacro{\TC}{222.826/\kelvin}
+	\pgfmathsetmacro{\TD}{50/\kelvin}
+
 	% KÖRBEVÁGÁS
 	\clip ({-0.345}, {-(\L)-1}) rectangle ({12}, {\L*3});
 	
@@ -106,7 +111,7 @@ A két szigetelőréteg határfelületének hőmérséklete $T_3 =\SI{299,954}{\
 		\draw[] (\RC,\LA) -- ({(\RC+\RD)/2-0.16}, \LA) -- ({(\RC+\RD)/2-0.08}, \LA-0.12) -- ({(\RC+\RD)/2+0.08}, \LA+0.12) -- ({(\RC+\RD)/2+0.16}, \LA) -- (\RD, \LA);
 		\draw[ultra thick] (\RD,\LA) -- (\RD, -0);
 		\draw[ultra thick] (\RC,\LA) -- (\RC, -0);
-	
+		
 	% Az átmérők
 	\pgflength[xa={-\RA}, ya={-0.3}, xb={\RA}, yb={-0.3}, alim=0, blim=1, ra=0.6]{$\diameter d_1$};
 	\pgflength[xa={-\RB}, ya={-0.6}, xb={\RB}, yb={-0.6}, alim=0, blim=1, ra=1.2]{$\diameter d_2$};
@@ -136,21 +141,21 @@ A két szigetelőréteg határfelületének hőmérséklete $T_3 =\SI{299,954}{\
 	
 	%homersekletek
 	\node[anchor=base] at (\RD+1.5,6.2) {$T_1 = \SI{300}{\celsius}$};
-		\draw [dashed] (-0.1,\L*2 ) -- (\RD+1.5,\L*2);
+		\draw [dashed] (-0.1,\TA ) -- (\RD+1.5,\TA);
 	\node[anchor=base] at (\RD+1.5,5.5) {$T_2 = \SI{299.95}{\celsius}$};
-		\draw [dashed] (-0.1,\L*2) -- (\RD+1.5,\L*2);
+		\draw [dashed] (-0.1,\TB) -- (\RD+1.5,\TB);
 	\node[anchor=base] at (\RD+1.5, 4.6) {$T_3 = \SI{222.87}{\celsius}$};
-		\draw [dashed] (-0.1,4.456 ) -- ((\RD+1.5, 4.456);
+		\draw [dashed] (-0.1,\TC ) -- ((\RD+1.5, \TC);
 	\node[anchor=base] at (\RD+1.5,1.2) {$T_4 = \SI{50}{\celsius}$};
-		\draw [dashed] (-0.1,\L/3 ) -- (\RD+1.5,\L/3);
+		\draw [dashed] (-0.1,\TD ) -- (\RD+1.5,\TD);
 	
 	% A T(r) VALÓS hőmérséklet-hely függvény
-	\draw[ultra thick, color=red, domain=\RA:\RB, smooth, variable=\r] plot (\r, {\L*2 - ( \qlin/(2*3.14159*\lambdaAC) * ln(2*\r/\DB))/\kelvin});
+	\draw[ultra thick, color=red, domain=\RA:\RB, smooth, variable=\r] plot (\r, {\TA - ( \qlin/(2*3.14159*\lambdaAC) * ln(2*\r/\DB))/\kelvin});
 	
-	\draw[ultra thick, color=red, domain=\RB:\RC, smooth, variable=\r] plot (\r, {\L*2 - ( \qlin/(2*3.14159*\lambdaAC) * ln(\DB/\DA) + \qlin/(2*3.14159*\lambdaA) * ln(2*\r/\DB))/\kelvin});
+	\draw[ultra thick, color=red, domain=\RB:\RC, smooth, variable=\r] plot (\r, {\TB - ( \qlin/(2*3.14159*\lambdaA) * ln(2*\r/\DC))/200-(\TA-\TC)});
 	
-	\draw[ultra thick, color=red, domain=\RC:\RD, smooth, variable=\r] plot (\r, {4.456 - ( \qlin/(2*3.14159*\lambdaB) * ln(2*\r/\DC))/\kelvin});
-		
+	\draw[ultra thick, color=red, domain=\RC:\RD, smooth, variable=\r] plot (\r, {\TC - ( \qlin/(2*3.14159*\lambdaB) * ln(2*\r/\DD))/107-(\TC-\TD)});
+	
 	
 			
 	\end{tikzpicture}
