@@ -1,0 +1,135 @@
+\section*{MH 15. Vízgőz fojtása}
+\addcontentsline{toc}{section}{MH 15. feladat}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | }
+	\hline
+	Név & Somodi Mihály András \\
+	\hline
+	Szak & Mechatronikai mérnöki alapszak\\
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\noindent Az \textbf{MH 14.} számú példában szereplő gőztárolóban lévő közeget $p_{2} = \SI{1}{bar}$, környezeti nyomásra fojtjuk. Mennyi gőz keletkezik az állapotváltozás során és mennyi a fojtás miatt bekövetkező entrópia növekedés? Mennyi munkát kapnánk, ha a fojtás helyett adiabatikus reverzibilis expanziót alkalmaznánk? Ábrázolja \textit{T-s} diagramban a folyamatot!
+
+\subsubsection{Adatok(gőztáblázatból):}
+\noindent\textbf{ $p_{1}$ nyomáson:}
+\begin{equation*}
+	h_{1}' =\SI{990,4}{\dfrac{kJ}{kg}},
+	\qquad
+	s_{1}' =\SI{2,61}{\dfrac{kJ}{kgK}}
+\end{equation*}
+
+\noindent\textbf{ $p_{2}$ nyomáson:}
+\begin{equation*}
+	h_{2}' = \SI{417,4}{\dfrac{kJ}{kg}},
+	\qquad
+	s_{2}' = \SI{1,3026}{\dfrac{kJ}{kgK}},
+	\qquad
+	s_{2}'' = \SI{7,360}{\dfrac{kJ}{kgK}},
+	\qquad
+	r_{2} = \SI{2258}{\dfrac{kJ}{kg}},
+	\qquad
+	t_{s} = \SI{99,6}{°C}
+\end{equation*}
+
+\noindent\hrulefill
+
+\subsubsection{A fajlagos gőztartalom számítása}
+Ennek meghatározásához, először ki kell számolni a $h_{1}$-et: ($h_{1}^{''} = \SI{2803}{\frac{kJ}{kg}}$ gőztáblázatból)
+\begin{equation}
+	h_{1}
+	=
+	(1 - x_{1})h_{1}^{'} + x_{1}h_{1}^{''}
+	=
+	\SI{997,02}{\dfrac{kJ}{kg}}
+\end{equation}
+A fajlagos gőztartalmat úgy kapjuk meg, hogy figyelembe vesszük, hogy az entalpia a fojtás során nem változik, a két állapot között ezért $h_{1} = h_{2}$. Ehhez először azonban meg kell határoznunk a $h_{2}^{''}$-t, amelyet a fajlagos párolgáshő segítségével ki lehet számolni:
+\begin{equation}
+	h_{2}^{''} = r_{2} + h_{1}^{'}
+	=
+	\SI{2675,4}{\dfrac{kJ}{kg}}
+\end{equation}
+Végül pedig, a 2-es állapothoz tartozó fajlagos gőztartalmat az entalpia képletének átrendezéséből:
+\begin{equation}
+	h_{2} = \left(1 - x_{2}\right) h_{2}' + x_{2} h_{2}^{''}
+	\quad 
+	\Rightarrow
+	\quad 
+	x_{2}
+	= 
+	\dfrac{h_{2} - h_{2}^{'}}{h_{2}^{''} - h_{2}^{'}} 
+	=
+	\dfrac{h_{1} - h_{2}^{'}}{h_{2}^{''} - h_{2}^{'}} 
+	= 
+	0,2567
+\end{equation}
+
+\subsubsection{A keletkezett gőz tömegének számítása}
+A keletkezett gőz tömegének számításához szükségünk van a kiindulási állapotban lévő tömegre és a 2-es állapot fajlagos gőztartalmára. A fajlagos gőztartalom képletébe illesztve lehet megkapni a keletkezett gőz tömegét:
+\begin{equation}
+	x_{2} = \dfrac{m_{g}}{m_{telj.}}
+	\qquad
+	\Rightarrow
+	\qquad
+	m_{g} = x_{2}m_{telj.}
+	=
+	\SI{0,2567}{}\cdot\SI{3069,1}{kg}
+	=
+	\SI{787,8}{kg}
+\end{equation}
+
+
+\subsubsection{Az entrópia növekedés számítása}
+Az entrópiaváltozást ki lehet számolni, a két állapot entrópiájának különbségeként, amelyeket a következő módon kapunk:
+($s_{1}^{''} = \SI{6,213}{\frac{kJ}{kgK}}$ gőztáblázatból)
+\begin{equation}
+	s_{1}
+	=
+	(1-x_{1})s_{1}^{'}+x_{1}s_{1}^{''}
+	=
+	\SI{2,6232}{\dfrac{kJ}{kgK}}
+\end{equation}
+\begin{equation}
+	s_{2}
+	=
+	(1-x_{2})s_{2}^{'}+x_{2}s_{2}^{''}
+	=
+	\SI{2,8575}{\dfrac{kJ}{kgK}}
+\end{equation}
+Ezekből az entrópia növekedése az állapotváltozás során:
+\begin{equation}
+	\Delta s = s_{2}-s_{1}\approx \SI{0,2344}{\frac{kJ}{kgK}}
+\end{equation}
+
+\subsubsection{A munka számítása adiabatikus reverzibilis expanzió esetén}
+A munka kiszámításánál figyelembe kell vennünk, hogy itt már nem fojtással dolgozunk, ezért a feltételek megváltoznak. Adiabatikus tehát $q = 0$ és $s_{1}\approx s_{2}$ (reverzibilis is ezért $s_{1} = s_{2}$). Ennek viszont a következménye, hogy újra kell számolni a fajlagos gőztartalmat, mivel immár az entalpia, az 1-es és a 2-es állapotban nem egyezik meg.
+Ebből kifolyólag:
+\begin{equation}
+	x_{ad} =
+	\dfrac{s_{2} - s_{2}^{'}}{s_{2}^{''} - s_{2}^{'}} 
+	=
+	\dfrac{s_{1} - s_{2}{'}}{s_{2}^{''} - s_{2}^{'}}
+	=
+	\SI{0,2178}{}
+\end{equation}
+Innen pedig az expanzió végrehajtása után az entalpia:
+\begin{equation}
+	h_{2uj} = (1 - x_{ad})h_{2}^{'}+x_{ad}h_{2}^{''}
+	=
+	\SI{909,1924}{\dfrac{kJ}{kg}}
+\end{equation}
+
+\noindent Ebből pedig a munkát:
+\begin{equation}
+	W_{t} = h_{1} - h_{2uj}
+	=
+	\SI{87,8276}{\dfrac{kJ}{kg}}
+\end{equation}
+\begin{equation}
+	W_{ad} = m_{g}W_{t} = \SI{69190,58}{kJ} \Rightarrow \SI{69190583}{J}
+\end{equation}
+\subsubsection{T-s diagram}

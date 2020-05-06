@@ -1,0 +1,61 @@
+\section*{MH 14. Gőztároló számítása}
+\addcontentsline{toc}{section}{MH 14. feladat}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | }
+	\hline
+	Név & Somodi Mihály András \\
+	\hline
+	Szak & Mechatronikai mérnöki alapszak \\
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\noindent Egy gőztároló $\SI{4,5}{m^{3}} $ térfogatú dobjában $p_{1} = \SI{28}{bar}$ telítési nyomáson lévő $V =\SI{3,7}m^{3}$ víz van. Határozza meg a dobban lévő gőz mennyiségét ($m_{g}$) és fajlagos gőztartalmát (\textit{x})!
+
+\subsubsection{Fajtérfogatok $p_{1}$ nyomáson:}
+ \begin{equation*}
+	 v^{'} =\SI{0,00121}{\dfrac{m^{3}}{kg}},
+	 \qquad
+	 v^{''} =\SI{0,07141}{\dfrac{m^{3}}{kg}}
+\end{equation*}
+
+\noindent\hrulefill
+
+\subsubsection{A keletkezett gőz tömegének számítása}
+Először meg kell határozni, hogy mennyi helyet foglal el a gőz, a dob teljes térfogatából:
+\begin{equation}
+	V_{g} = V_{telj.}-V_{v}
+	= 
+	\SI{4,5}{m^{3}}-\SI{3,7}{m^{3}} = \SI{0,8}{m^{3}}
+\end{equation}
+
+\noindent Tudjuk, hogy a keletkezett gőz tömege az azonos állapotra vonatkozó térfogat és a fajtérfogat hányadosa. Ebben az esetben a fajtérfogat szélső értékét kell felhasználni:
+\begin{equation}
+	m_{g} = \frac{V_{g}}{v''}
+	=
+    \frac{\SI{0,8}{m^{3}}}{\SI{0,07141}{\dfrac{m^{3}}{kg}}}
+    = 
+	\SI{11,2}{kg}
+\end{equation}
+
+\subsubsection{A fajlagos gőztartalom számítása}
+A fajlagos gőztartalmat keverékmezőben meg lehet határozni a két fázis arányával. Általános esetben az egyik fázis tömege és a két fázis együttes tömegének hányadosaként.Ehhez meg kell határoznunk a víz tömegét is amelyet a 2.2-es egyenlethez hasonlóan meg tudunk tenni:
+\begin{equation}
+	m_{v} = \frac{V_{g}}{v'}
+	=
+	\frac{\SI{3,7}{m^{3}}}{\SI{0,00121}{\dfrac{m^{3}}{kg}}}
+	= 
+	\SI{3057,8512}{kg}
+\end{equation}
+ 
+\noindent Ezek után kiszámolható a fajlagos gőztartalom:
+\begin{equation}
+	x = \frac{m_{g}}{m_{g}+m_{v}}
+	=
+	\frac{\SI{11,2}{kg}}{\SI{11,2}{kg}+\SI{3057,8512}{kg}}
+	\approx
+	 \SI{0,00365}{}
+\end{equation}
