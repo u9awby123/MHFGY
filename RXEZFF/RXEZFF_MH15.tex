@@ -13,45 +13,45 @@
 
 \vspace{0.5cm}
 
-\noindent Az \textbf{MH 14.} számú példában szereplő gőztárolóban lévő közeget $p_{2} = \SI{1}{bar}$, környezeti nyomásra fojtjuk. Mennyi gőz keletkezik az állapotváltozás során és mennyi a fojtás miatt bekövetkező entrópia növekedés? Mennyi munkát kapnánk, ha a fojtás helyett adiabatikus reverzibilis expanziót alkalmaznánk? Ábrázolja \textit{T-s} diagramban a folyamatot!
+\noindent Az \textbf{MH 14.} számú példában szereplő gőztárolóban lévő közeget $p_{2} = \SI{1}{\bar}$, környezeti nyomásra fojtjuk. Mennyi gőz keletkezik az állapotváltozás során és mennyi a fojtás miatt bekövetkező entrópia növekedés? Mennyi munkát kapnánk, ha a fojtás helyett adiabatikus reverzibilis expanziót alkalmaznánk? Ábrázolja \textit{T-s} diagramban a folyamatot!
 
 \subsubsection{Adatok(gőztáblázatból):}
 \noindent\textbf{ $p_{1}$ nyomáson:}
 \begin{equation*}
-	h_{1}' =\SI{990,4}{\dfrac{kJ}{kg}},
+	h_{1}' =\SI{990,4}{\dfrac{\kilo\joule}{\kilogram}},
 	\qquad
-	s_{1}' =\SI{2,61}{\dfrac{kJ}{kgK}}
+	s_{1}' =\SI{2,61}{\dfrac{\kilo\joule}{\kilogram\kelvin}}
 \end{equation*}
 
 \noindent\textbf{ $p_{2}$ nyomáson:}
 \begin{equation*}
-	h_{2}' = \SI{417,4}{\dfrac{kJ}{kg}},
+	h_{2}' = \SI{417,4}{\dfrac{\kilo\joule}{\kilogram}},
 	\qquad
-	s_{2}' = \SI{1,3026}{\dfrac{kJ}{kgK}},
+	s_{2}' = \SI{1,3026}{\dfrac{\kilo\joule}{\kilogram\kelvin}},
 	\qquad
-	s_{2}'' = \SI{7,360}{\dfrac{kJ}{kgK}},
+	s_{2}'' = \SI{7,360}{\dfrac{\kilo\joule}{\kilogram\kelvin}},
 	\qquad
-	r_{2} = \SI{2258}{\dfrac{kJ}{kg}},
+	r_{2} = \SI{2258}{\dfrac{\kilo\joule}{\kilogram}},
 	\qquad
-	t_{s} = \SI{99,6}{°C}
+	t_{s} = \SI{99,6}{\degreeCelsius}
 \end{equation*}
 
 \noindent\hrulefill
 
 \subsubsection{A fajlagos gőztartalom számítása}
-Ennek meghatározásához, először ki kell számolni a $h_{1}$-et: ($h_{1}^{''} = \SI{2803}{\frac{kJ}{kg}}$ gőztáblázatból)
+Ennek meghatározásához, először ki kell számolni a $h_{1}$-et: ($h_{1}^{''} = \SI{2803}{\dfrac{\kilo\joule}{\kilogram}}$ gőztáblázatból)
 \begin{equation}
 	h_{1}
 	=
 	(1 - x_{1})h_{1}^{'} + x_{1}h_{1}^{''}
 	=
-	\SI{997,02}{\dfrac{kJ}{kg}}
+	\SI{997,02}{\dfrac{\kilo\joule}{\kilogram}}
 \end{equation}
 A fajlagos gőztartalmat úgy kapjuk meg, hogy figyelembe vesszük, hogy az entalpia a fojtás során nem változik, a két állapot között ezért $h_{1} = h_{2}$. Ehhez először azonban meg kell határoznunk a $h_{2}^{''}$-t, amelyet a fajlagos párolgáshő segítségével ki lehet számolni:
 \begin{equation}
 	h_{2}^{''} = r_{2} + h_{1}^{'}
 	=
-	\SI{2675,4}{\dfrac{kJ}{kg}}
+	\SI{2675,4}{\dfrac{\kilo\joule}{\kilogram}}
 \end{equation}
 Végül pedig, a 2-es állapothoz tartozó fajlagos gőztartalmat az entalpia képletének átrendezéséből:
 \begin{equation}
@@ -65,7 +65,7 @@ Végül pedig, a 2-es állapothoz tartozó fajlagos gőztartalmat az entalpia k�
 	=
 	\dfrac{h_{1} - h_{2}^{'}}{h_{2}^{''} - h_{2}^{'}} 
 	= 
-	0,2567
+	\SI{0,2567}{}
 \end{equation}
 
 \subsubsection{A keletkezett gőz tömegének számítása}
@@ -77,32 +77,32 @@ A keletkezett gőz tömegének számításához szükségünk van a kiindulási 
 	\qquad
 	m_{g} = x_{2}m_{telj.}
 	=
-	\SI{0,2567}{}\cdot\SI{3069,1}{kg}
+	\SI{0,2567}{}\cdot\SI{3069,1}{\kilogram}
 	=
-	\SI{787,8}{kg}
+	\SI{787,8}{\kilogram}
 \end{equation}
 
 
 \subsubsection{Az entrópia növekedés számítása}
 Az entrópiaváltozást ki lehet számolni, a két állapot entrópiájának különbségeként, amelyeket a következő módon kapunk:
-($s_{1}^{''} = \SI{6,213}{\frac{kJ}{kgK}}$ gőztáblázatból)
+($s_{1}^{''} = \SI{6,213}{\dfrac{\kilo\joule}{kgK}}$ gőztáblázatból)
 \begin{equation}
 	s_{1}
 	=
-	(1-x_{1})s_{1}^{'}+x_{1}s_{1}^{''}
+	(1-x_{1})s_{1}^{'} + x_{1}s_{1}^{''}
 	=
-	\SI{2,6232}{\dfrac{kJ}{kgK}}
+	\SI{2,6232}{\dfrac{\kilo\joule}{\kilogram\kelvin}}
 \end{equation}
 \begin{equation}
 	s_{2}
 	=
-	(1-x_{2})s_{2}^{'}+x_{2}s_{2}^{''}
+	(1-x_{2})s_{2}^{'} + x_{2}s_{2}^{''}
 	=
-	\SI{2,8575}{\dfrac{kJ}{kgK}}
+	\SI{2,8575}{\dfrac{\kilo\joule}{\kilogram\kelvin}}
 \end{equation}
 Ezekből az entrópia növekedése az állapotváltozás során:
 \begin{equation}
-	\Delta s = s_{2}-s_{1}\approx \SI{0,2344}{\frac{kJ}{kgK}}
+	\Delta s = s_{2} - s_{1}\approx \SI{0,2344}{\dfrac{\kilo\joule}{\kilogram\kelvin}}
 \end{equation}
 
 \subsubsection{A munka számítása adiabatikus reverzibilis expanzió esetén}
@@ -118,18 +118,18 @@ Ebből kifolyólag:
 \end{equation}
 Innen pedig az expanzió végrehajtása után az entalpia:
 \begin{equation}
-	h_{2uj} = (1 - x_{ad})h_{2}^{'}+x_{ad}h_{2}^{''}
+	h_{2uj} = (1 - x_{ad})h_{2}^{'} + x_{ad}h_{2}^{''}
 	=
-	\SI{909,1924}{\dfrac{kJ}{kg}}
+	\SI{909,1924}{\dfrac{\kilo\joule}{\kilogram}}
 \end{equation}
 
 \noindent Ebből pedig a munkát:
 \begin{equation}
 	W_{t} = h_{1} - h_{2uj}
 	=
-	\SI{87,8276}{\dfrac{kJ}{kg}}
+	\SI{87,8276}{\dfrac{\kilo\joule}{\kilogram}}
 \end{equation}
 \begin{equation}
-	W_{ad} = m_{g}W_{t} = \SI{69190,58}{kJ} \Rightarrow \SI{69190583}{J}
+	W_{ad} = m_{g}W_{t} = \SI{69190,58}{\kilo\joule} \Rightarrow \SI{69190583}{\joule}
 \end{equation}
 \subsubsection{T-s diagram}
