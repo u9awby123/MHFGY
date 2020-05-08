@@ -14,7 +14,7 @@
 \end{tabular}
 \vspace{0.5cm}
 
-Határozza meg azt a hőmennyiséget, amely a kazánfal $A_1$ felületén óránként átadódik, ha a fal vastagsága $d_1$ , anyagának hővezetési tényezője $\lambda_1$ és a fal belső oldalát $d_2$ vastag kazánkő réteg borítja. Ennek a hővezetési tényezője $\lambda_2$. A kazán falának füstgázoldali hőmérséklete $T_1$, vízoldali hőmérséklete $T_2$. Számítsa ki a kazán falának közepes hőmérsékletét és rajzolja fel a hőmérséklet-hely függvényt léptékhelyesen!
+Határozza meg azt a hőmennyiséget, amely a kazánfal $A_1$ felületén óránként átadódik, ha a fal vastagsága $d_1$, anyagának hővezetési tényezője $\lambda_1$ és a fal belső oldalát $d_2$ vastag kazánkő réteg borítja, aminek a hővezetési tényezője $\lambda_2$. A kazán falának füstgázoldali hőmérséklete $T_1$, vízoldali hőmérséklete $T_2$. Számítsa ki a kazán falának közepes hőmérsékletét és rajzolja fel a hőmérséklet-hely függvényt léptékhelyesen!
     \vspace{1mm}
 
 Adatok: 
@@ -24,9 +24,10 @@ Adatok:
     $d_1 = \SI{20}{\milli\meter}$ ; 
     $d_2 = \SI{2}{\milli\meter}$ ; 
     $T_1 = $\SI{260}{\celsius}$ ; 
-    $T_2 = \SI{195}{\celsius}$ )
-    \vspace{1mm}
+    $     T_2 = \SI{195}{\celsius}$ )
+    \vspace{3mm}
 
+\hline
 \subsubsection*{Megoldás:}
 
 Először felírjuk a hőáramsűrüségre vonatkozó egyenletet:
@@ -66,13 +67,13 @@ Majd ezt külön kiszámoljuk a kazánfal 2 oldalára, beleértve a $\SI{2}{\mil
     \SI{1599,45}{\kelvin}-3 \cdot T_2 = T_2-\SI{468.15}{\kelvin}
 \end{equation}
         
-Ebből $T_2$ őt kifejezve, megkapjuk az érintkezési felület hőmérsékletét:
+Ebből $T_2$őt kifejezve, megkapjuk az érintkezési felület hőmérsékletét:
 
 \begin{equation}
     T_2 = \frac{\SI{2067.6}{\kelvin}}{4} = \SI{516,9}{\kelvin} = \SI{243,73}{\celsius}
 \end{equation}
     
-    Visszahelyettesítve az eredeti egyenletbe, megkapjuk a kazánfalon átadódó hőmérsékletet
+    Visszahelyettesítve az eredeti egyenletbe, megkapjuk a kazánfalon átadódó hőmérsékletet:
 \begin{equation}
      \dot{q} = \SI{750}{\watt\per\K} \cdot (\SI{516,9}{\kelvin} - \SI{468.15}{\kelvin}) = \SI{36562,5}{\watt\per\meter^2} 
 \end{equation}
