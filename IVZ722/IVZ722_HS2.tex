@@ -14,14 +14,14 @@
 \vspace{0.5cm}
 
 
-Egy vízforraló üst $d_1$ vastag acélfalának vízoldali hőfoka $T_1$, a falban kialakuló hőáramsűrüség pedig $q$.(Az üst falát síkfalnak tekintjük.)
+Egy vízforraló üst $d_1$ vastag acélfalának vízoldali hőfoka $T_1$, a falban kialakuló hőáramsűrűség pedig $\dot{q}_1$.Az üst falát síkfalnak tekintjük.
 
 \noindent Adatok:    
 ($\lambda_{AC} = \SI{45.4}{\watt\per\meter\kelvin}$ ;
 $\lambda_{\textit{vízkő}} = \SI{1,8}{\watt\per\meter\kelvin}$ ; 
 $d_1 = \SI{20}{\milli\meter}$ ; 
-$T_V = \SI{100}{\celsius} $ ; 
-$q = \SI{60000}{\watt\per\meter\squared}$)
+$T_1 = \SI{100}{\celsius} $ ; 
+$\dot{q}_1 = \SI{60000}{\watt\per\meter\squared}$)
 
 \vspace{3mm}
 
@@ -32,10 +32,10 @@ $q = \SI{60000}{\watt\per\meter\squared}$)
 \subsubsection*{A) Határozza meg az üst füstgázoldali hőmérsékletét!}
 
 
-Először felírjuk a hőáramsűrüségre vonatkozó egyenletet:
+Először felírjuk a hőáramsűrűségre vonatkozó egyenletet:
 
 \begin{equation}
-	 \dot{q} = \frac{\lambda_1}{\delta_1} (T_1 - T_2)
+	 \dot{q} = \frac{\lambda}{\delta} (T_1 - T_2)
 \end{equation}
 
 
@@ -44,8 +44,8 @@ Majd behelyettesítjük az értékeket:
 60 \cdot \SI{1000}{\watt\per\meter\squared} =  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} (T_{fg} - T_V)
 \end{equation}
 
-Mivel tudjuk, hogy $T_V = \SI{373.15}{\kelvin}$ , behelyettesítjül ezt is.
-A zárójel felbontása után, a $T_2$-őt jobb oldalra rendezve az alábbi egyenletet kapjuk:
+Mivel tudjuk, hogy $T_1 = \SI{373.15}{\kelvin}$ , behelyettesítjül ezt is.
+A zárójel felbontása után, a $T_2$-t jobb oldalra rendezve az alábbi egyenletet kapjuk:
 
 \begin{equation}
 60 \cdot \SI{1000}{\watt\per\meter\squared}+  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} \cdot \SI{373.15}{\kelvin}=  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} \cdot T_2
@@ -56,7 +56,7 @@ A zárójel felbontása után, a $T_2$-őt jobb oldalra rendezve az alábbi egye
 \end{equation}
 \vspace{1mm}
 
-Ebből $T_2$-őt ki tudjuk fejezni, ezzel meg is kapjuk az 'a' kérdésre a választ:
+Ebből $T_2$-t ki tudjuk fejezni, ezzel meg is kapjuk az 'A' kérdésre a választ:
 
 \begin{equation}
 T_2 = \SI{399.58}{\kelvin} = \SI{126.43}{\celsius}
@@ -66,59 +66,61 @@ T_2 = \SI{399.58}{\kelvin} = \SI{126.43}{\celsius}
 
 \subsubsection*{B)  Határozza meg a két felület érintkezésnél kialakult hőmérsékletet, ha a vízoldalon $\SI{2}{\milli\meter}$ vastag vízkőréteg képződik és a fal két oldalán a hőmérséklet változatlan marad!}
 
+Jelöljük a két felület érintkezési pontjánál lévő hőmérsékletet T_3-mal
+
 \begin{equation}
-	 \dot{q} = \frac{\lambda_1}{\delta_1} (T_1 - T_W)
+	 \dot{q} = \frac{\lambda}{\delta} (T_1 - T_3)
 \end{equation}
 
-Majd felírjuk az $\dot{q}_1$ illetve $\dot{q}_2$-re vonatkozó egyenleteket. Mivel a vízkőréteg és a fal érintkezésénél nem ismerjük a hőmérsékletet, ezt paraméteresen $T_W$-vel fogjuk jelölni
+Majd felírjuk az $\dot{q}_1$ illetve $\dot{q}_2$-re vonatkozó egyenleteket. Mivel a vízkő réteg és a fal érintkezésénél nem ismerjük a hőmérsékletet, ezt paraméteresen $T_3$-mal fogjuk jelölni
 
 \begin{equation}
-	 \dot{q}_1 =  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} (\SI{399.58}{\kelvin} - T_W)
+	 \dot{q}_1 =  \frac{\SI{45.4}{\watt\per\meter\kelvin}}{\SI{0.02}{\meter}} (\SI{399.58}{\kelvin} - T_3)
 \end{equation}
 
 
 \begin{equation}
-	 \dot{q}_2 =  \frac{\SI{1.8}{\watt\per\meter\kelvin}}{\SI{0.002}{\meter}} (T_W - \SI{373.15}{\kelvin})
+	 \dot{q}_2 =  \frac{\SI{1.8}{\watt\per\meter\kelvin}}{\SI{0.002}{\meter}} (T_3 - \SI{373.15}{\kelvin})
 \end{equation}
 
 Majd egyszerűsítések után az alábbi két egyenletet kapjuk:
 
 \begin{equation}     
-     \dot{q}_1 = \SI{2270}{\watt\per\kelvin\meter\squared} \cdot (\SI{399.58}{\kelvin} - T_W)
+     \dot{q}_1 = \SI{2270}{\watt\per\kelvin\meter\squared} \cdot (\SI{399.58}{\kelvin} - T_3)
 \end{equation}
 
 
  \begin{equation}   
-    \dot{q}_2 = \SI{900}{\watt\per\kelvin\meter\squared} \cdot (T_W - \SI{373.15}{\kelvin})
+    \dot{q}_2 = \SI{900}{\watt\per\kelvin\meter\squared} \cdot (T_3 - \SI{373.15}{\kelvin})
 \end{equation}
 
-A kapott egyenleteket egyenlővé tesszük egymással
+    Mivel az energimegmaradás és az állandósult állapot miatt a két réteg hőáramsűrűsége egyenlő, így az alábbi egyenletet kapjuk:
     
 \begin{equation}    
-     \SI{2270}{\watt\per\kelvin\meter\squared} \cdot (\SI{399.58}{\kelvin}-T_2) =  \SI{900}{\watt\per\kelvin\meter\squared}(T_W-\SI{373.15}{\kelvin})
+     \SI{2270}{\watt\per\kelvin\meter\squared} \cdot (\SI{399.58}{\kelvin}-T_2) =  \SI{900}{\watt\per\kelvin\meter\squared}(T_3-\SI{373.15}{\kelvin})
 \end{equation}
 
 Majd kiszámoljuk és rendezzük az egyenletet:
 
 \begin{equation}
-    \SI{1007}{\kelvin}-3 \cdot T_W = T_W-\SI{373.15}{\kelvin}
+    \SI{1007}{\kelvin}-3 \cdot T_W = T_3-\SI{373.15}{\kelvin}
 \end{equation}
         
-$T_W$-t kifejezve az egyenletből megkapjuk a felületi érintkezésnél kialakul hőmérsékletet:
+$T_3$-at kifejezve az egyenletből megkapjuk a felületi érintkezésnél kialakul hőmérsékletet:
 
 \begin{equation}
-    T_W = \frac{\SI{1380}{\kelvin}}{3.52} = \SI{392.08}{\kelvin} = \SI{118,93}{\celsius}
+    T_3 = \frac{\SI{1380}{\kelvin}}{3.52} = \SI{392.08}{\kelvin} = \SI{118,93}{\celsius}
 \end{equation}
     
-\subsubsection*{C) Számítsa ki a falban lévő hőáramsűrüség változását!}
+\subsubsection*{C) Számítsa ki a falban lévő hőáramsűrűség változását!}
     
-Behelyettesítve a kezdeti egyenletbe a kapott $T_W$ értéket, ki tudjuk számolni a hőáramsűrüséget is, amire a következőt kapjuk:
+Behelyettesítve a kezdeti egyenletbe a kapott $T_3$ értéket, ki tudjuk számolni a hőáramsűrűséget is, amire a következőt kapjuk:
     
 \begin{equation}
-     \dot{q} = \SI{900}{\watt\per\K} \cdot (\SI{392.08}{\kelvin} - \SI{373.15}{\kelvin}) = \SI{17046}{\watt\per\meter\squared}
+     \dot{q}_2 = \SI{900}{\watt\per\K} \cdot (\SI{392.08}{\kelvin} - \SI{373.15}{\kelvin}) = \SI{17046}{\watt\per\meter\squared}
 \end{equation}
 
-Kivonva a kapott értéket az erdeteti feladat hőáramsűrüségéből, megkapjuk, hogy az eredeti feladathoz képest mennyivel változott ez az érték:
+Kivonva a kapott értéket az erdeteti feladat hőáramsűrűségéből, megkapjuk, hogy az eredeti feladathoz képest mennyivel változott ez az érték:
 
 \begin{equation}
             60 \cdot 10^3 - 17046 =  \SI{42954}{\watt\per\meter\squared}
@@ -133,7 +135,7 @@ Kivonva a kapott értéket az erdeteti feladat hőáramsűrüségéből, megkapj
 		\begin{tikzpicture}
 			\pgfmathsetmacro{\d}{16/6.5}
 			\pgfmathsetmacro{\L}{5}
-			\pgfmathsetmacro{\TA}{126.43/160*2}
+			\pgfmathsetmacro{\TA}{126.43/160*4}
 			\pgfmathsetmacro{\TB}{100/160}
 			\pgfmathsetmacro{\TK}{(\TA+\TB)/2}
 			
@@ -152,7 +154,7 @@ Kivonva a kapott értéket az erdeteti feladat hőáramsűrüségéből, megkapj
 			\draw[->] (-1,0) -- (4.25,0) node[anchor=base east, shift={(0,-0.5)}]{$x$};
 			
 			% Hőáram és hőáramsűrűség
-			\draw[->, ultra thick] (0.5,{\L+0.35}) -- ({\d/2},{\L+0.35}) node[anchor=south]{$\dot{q}_a$} -- ({\d - 0.5},{\L+0.35});
+			\draw[->, ultra thick] (0.5,{\L+0.35}) -- ({\d/2},{\L+0.35}) node[anchor=south]{$\dot{q}_1$} -- ({\d - 0.5},{\L+0.35});
 			
 			% A hővezetési tényező
 			\node[anchor=base] at ({\d/2},{\L-0.5}) {$\lambda_1$};
@@ -178,7 +180,7 @@ Kivonva a kapott értéket az erdeteti feladat hőáramsűrüségéből, megkapj
 			\node[anchor=north east] at (0,\TK) {$T_K$};
 			
 		\end{tikzpicture}
-		\caption{A hőmérséklet-hely függvény az a) esetben, vízkő réteg nélkül}
+		\caption{A hőmérséklet-hely függvény az A) esetben, vízkő réteg nélkül}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
@@ -186,8 +188,8 @@ Kivonva a kapott értéket az erdeteti feladat hőáramsűrüségéből, megkapj
 			\pgfmathsetmacro{\d}{16/6.5}
 			\pgfmathsetmacro{\v}{1.2/6}
 			\pgfmathsetmacro{\L}{5}
-			\pgfmathsetmacro{\TA}{126.43/160*2.1}
-			\pgfmathsetmacro{\TB}{118.93/160*1.1}
+			\pgfmathsetmacro{\TA}{126.43/160*4.2}
+			\pgfmathsetmacro{\TB}{118.93/160*1.2}
 			\pgfmathsetmacro{\TC}{100/160}
 			\pgfmathsetmacro{\TK}{(\TA+\TB)/2}
 			
@@ -208,7 +210,7 @@ Kivonva a kapott értéket az erdeteti feladat hőáramsűrüségéből, megkapj
 			\draw[->] (-1,0) -- (4.25,0) node[anchor=base east, shift={(0,-0.5)}]{$x$};
 			
 			% Hőáram és hőáramsűrűség
-			\draw[->, ultra thick] (0.5,{\L+0.35}) -- ({\d/2},{\L+0.35}) node[anchor=south]{$\dot{q}_b = \dot{q}_a$} -- ({\d - 0.5},{\L+0.35});
+			\draw[->, ultra thick] (0.5,{\L+0.35}) -- ({\d/2},{\L+0.35}) node[anchor=south]{$\dot{q}_1 = \dot{q}_2$} -- ({\d - 0.5},{\L+0.35});
 			
 			% A hővezetési tényező
 			\node[anchor=base] at ({\d/2},{\L-1.5}) {$\lambda_1$};
@@ -228,7 +230,7 @@ Kivonva a kapott értéket az erdeteti feladat hőáramsűrüségéből, megkapj
 			\node[anchor=base east] at (0,\TA) {$T_1$};
 			
 			\draw (-0.1+\d,\TB) -- (0.1+\d,\TB);
-			\node[anchor=north east] at (\d-0.1,\TB) {$T_2$};
+			\node[anchor=north east] at (\d-0.1,\TB) {$T_3$};
 			
 			
 			\draw (-0.1+\d+\v,\TC) -- (0.1+\d+\v,\TC);
