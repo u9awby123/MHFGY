@@ -1,0 +1,279 @@
+
+
+
+\section*{K4/1. feladat:Hűtőkörfolyamatok utóhűtővel}
+\addcontentsline{toc}{section}{K4/1. feladat:Hűtőkörfolyamatok utóhűtővel}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Nagy Krisztina CLCWJ1 \\ 
+	\hline
+	Szak & Környezetmérnök \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+\noindent Egy ammóniák közvetítő közeggel dolgozó kompresszoros hűtőgép, utóhűtővel, \SI{-20}{\celsius} elpárolgási és \SI{25}{\celsius} kondenzációs hőmérséklet mellett $3\cdot10^5 W$ hűtőteljesítményt szolgáltat, $p_2/p_1 = \SI{10,0}{\bar}$ /  $\SI{1,90}{\bar}$ nyomásviszonynál. A kompresszió végén száraz telített gőz  $(x=\SI{1}{}) $ van.
+
+\vspace{2mm}
+
+a) Határozzuk meg a kompresszió elején a gőz állapotjelzőit!
+
+b) Kiszámítandó a keringetett hűtőközeg mennyisége $(\dot{G})$ a kompresszoros elméleti teljesítménye $(Pelm)$
+
+c)és a fajlagos hűtőteljesítmény ($\epsilon$) !
+
+d) Mennyi a kondenzátorban leadott hő ?
+
+\subsubsection{Ismert jellemzők}
+\begin{equation*}
+	T_a = \SI{-20}{\celsius},
+	\quad
+	T_f = \SI{+25}{\celsius},
+	\quad
+	p_1 = \SI{1,9}{\bar},
+	\quad
+	p_2 = \SI{10}{\bar},
+	\quad
+	\dot{Q}_H = 3\cdot10^5 W,
+	\quad
+	x_2 = \SI{1}{},
+\end{equation*}
+\begin{equation*}
+	s_1' = \SI{1,632}{\kilo\joule\per\kilogram\kelvin},
+	\quad
+	s_1'' = \SI{6,883}{\kilo\joule\per\kilogram\kelvin},
+	\quad
+	s_2 = \SI{6,3}{\kilo\joule\per\kilogram\kelvin},
+	\quad
+	v_1' = \SI{0,0015}{\meter\cubed\per\kilogram},
+	\quad
+	v_1'' = \SI{0,6239}{\meter\cubed\per\kilogram},
+\end{equation*}
+\begin{equation*}
+	h_1' = \SI{408,8}{\kilo\joule\per\kilogram},
+    \quad
+    h_1'' = \SI{1737,9}{\kilo\joule\per\kilogram},
+    \quad
+	h_2 = \SI{1784}{\kilo\joule\per\kilogram},
+    \quad
+    h_3' = \SI{617}{\kilo\joule\per\kilogram},
+    \quad
+    h_3 = h_4 = \SI{596}{\kilo\joule\per\kilogram},
+\end{equation*}
+
+\noindent\hrulefill
+
+\subsubsection*{a) A fajlagos gőztartalom a sűrítés elején}
+
+\begin{equation}
+   x_1
+   = 
+   \dfrac{s_2 - s_1'}{s_1'' - s_1'} 
+   = 
+   \SI{0,889}{}
+\end{equation}
+\begin{equation}
+   h_1 = \left(1 - x_1\right) h_1' + x_1 h_1'' 
+   = 
+   \SI{1590}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+   v_1 = \left(1 - x_1\right) v_1' + x_1 v_1'' 
+   = 
+   \SI{0,5548}{\meter\cubed\per\kilogram}
+\end{equation}
+ 
+\subsubsection*{b) Tömegfajlagos hőelvonás a hűtőtérből}
+ 
+\begin{equation}
+  q_H = h_1-h_4 
+  = 
+  \SI{994}{\kilo\joule\per\kilogram}
+\end{equation}
+ 
+ \subsubsection*{Keringetett hűtőközeg tömegárama}
+ 
+\begin{equation}
+   {\dot{m}}_{NH3}= \dfrac{\dot{Q}_H}{q_h} = \SI{0,3018}{\kilogram\per\second}
+\end{equation}
+
+\subsubsection*{Térfogatfajlagos hűtőteljesítmény}
+  
+\begin{equation}
+    {q}_{VOL} = q_H\cdot \rho_1
+    =
+    \dfrac{q_H}{v_1}
+    =\SI{1791,64}{\kilo\joule\per\meter\cubed}
+\end{equation} 
+\subsubsection*{A kompresszor óránkénti lökettérfogata, a térfogatkiszorítás hatásfokának figyelembevételével}
+
+\noindent $ {\alpha}_{VOL} = 0,7 $
+
+\begin{equation}
+    {\dot{V}}_{H}= \dfrac{{\dot{Q}}_H}{{q}_{VOL} {\alpha}_{VOL}} = \SI{860,9}{\meter\cubed\per\hour}
+\end{equation}
+
+\begin{equation}
+   n=210 \dfrac{1}{min}
+\end{equation}
+\begin{equation}
+    V = \dfrac{{\dot{V}}_{H}}{n} = 68 l 
+\end{equation}
+
+\subsubsection*{A henger átmérője, ha a löketfurat 68 liter}
+
+\begin{equation}
+    V=\dfrac{d^2\cdot\pi}{4\cdot s} = \dfrac{d^2\cdot\pi\cdot 1,2d}{4}
+\end{equation}
+
+\begin{equation}
+     d =\left(\dfrac{4V}{1,2\pi}\right)^{\dfrac{1}{3}} = 0,416 m
+\end{equation}
+
+\begin{equation}
+     {P}_{elm}=\dot{m} \cdot W_K = \dot{m} (h_2 - h_1)=58,55 W
+\end{equation}
+
+\begin{equation}
+     \nu_o = 0,643
+     \quad
+     {P}_{val} = \dfrac{{P}_{elm}}{\nu_o} = 91,06 kW
+\end{equation}
+
+\subsubsection* { c) Fajlagos hűtőteljesítmény }
+
+\begin{equation}
+     \epsilon = \dfrac{q_H}{W_K} = 5,124
+\end{equation}
+
+\subsubsection* {d) Lecsapatóban leadott hő}
+
+\begin{equation}
+     q_K = h_2 - h_ 3' = \SI{1167}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+     \dot{Q}_K = \dot{m} \cdot q_K = 352 kW
+\end{equation}
+
+\subsubsection*{e) Ha a lecsapatóban leadott hő is hasznosítható, akkor egy hőtranszportot kapunk, aminek a fajlagos hőteljesítménye}
+
+\begin{equation}
+    \epsilon = \dfrac{q_H + q_K}{W_K} = 11,14
+\end{equation}
+
+\subsubsection* {A hűtőgép kapcsolási vázlata és T-s diagramja}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:sm}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%\draw[step=1cm, gray,  ultra thin] (-8, -8) grid (8, 8);
+	%\clip (-8, -8) rectangle (8, 8);
+	
+		% Az ábra tartalma
+			%alsó
+			\draw (-5, -5) -- (-3.5, -5) -- (-3.5, -4.5) -- (-3, -5.5) -- (-2.5, -4.5) -- (-2, -5.5) -- (-1.5, -4.5) -- (-1, -5.5) -- (-0.5, -4.5) -- (0, -5.5) -- (0.5, -4.5) -- (1, -5.5) -- (1.5, -4.5) -- (1.5, -5)-- (5, -5);
+		       	  %nyíl fej rá
+		  	      \draw[-> ] (3, -5) -- (4, -5);
+		  	      
+		  	  \draw [ultra thick] (-4, -6) -- (-4, -4) -- (2, -4) -- (2, -6);
+		  	  
+		  	  %feliratok
+			  	  % szám: 4
+			  	  \node[anchor=mid] at (-5, -6) {$4$};
+			  	  \draw(-5, -6) circle(0.5);
+			  	   % szám: 1
+			  	  \node[anchor=mid] at (5, -6) {$1$};
+			  	  \draw(5, -6) circle(0.5);
+			  	  %ELP
+			  	  \node[anchor=mid] at (-1, -6) {$ELP$};
+		  	      
+			%jobb oldal
+			\draw (5, -5) -- (5, 5);
+			      %nyíl fej rá
+		       	  \draw[-> ] (5, 3) -- (5, 4);
+		       	  
+		       	\draw (7, -1) -- (4, -1) -- (4, 1) -- (7,1);
+		       	\draw (5.5, -1) -- (5.5, 1);
+		       	\draw (5.5, 0) -- (7, 0);
+		       	  
+			%felső
+			\draw (5, 5) -- (4, 5) -- (4, 4.5) -- (3.5, 5.5) --(3, 4.5) -- (2.5, 5.5)--(2, 4.5) -- (1.5, 5.5) -- (1, 4.5) -- (0.5, 5.5) -- (0, 4.5) -- (-0.5, 5.5) -- (-1, 4.5) -- (-1.5, 5.5) -- (-2, 4.5) -- (-2.5, 5.5) -- (-3, 4.5) -- (-3, 5) -- (-5, 5);
+		
+				  %nyíl fej rá
+			      \draw[->] (-3, 5) -- (-4, 5);
+			      
+			       %feliratok
+				      % szám: 2
+				      \node[anchor=mid] at (5, 6) {$2$};
+				      \draw(5, 6) circle(0.5);
+				      % szám: 3
+				      \node[anchor=mid] at (-5, 6) {$3$};
+				      \draw(-5, 6) circle(0.5);
+				      %LCS
+				      \node[anchor=mid] at (0, 4) {$L.CS$};
+			
+			%baloldal
+			   %U.H
+			   \draw (-5, 5) -- (-5, 4) -- (-5.5, 4) -- (-4.5, 3.5) -- (-5.5, 3) -- (-4.5, 2.5) -- (-5.5, 2) -- (-4.5, 1.5) -- (-5.5, 1) -- (-5, 1) -- (-5, 0) -- (-5, -1);
+			   
+			  \draw (-6, 0) rectangle (-4, -2);
+			  \draw (-4, -2) -- (-5, -1) -- (-6, -2);
+			  \draw (-5, -2) -- (-5, -5);
+			       %nyíl fej rá
+		   	       \draw[->] (-5, -3) -- (-5, -4);
+		   	       
+		   	        %felirat
+			   	       % szám: 3'
+			   	       \node[anchor=mid] at (-6, 1) {$3'$};
+			   	       \draw(-6, 1) circle(0.5);
+			   	       %LCS
+			   	       \node[anchor=mid] at (-3.5, 2.5) {$U.H$};
+		
+	\end{tikzpicture}
+	\caption{Hűtőgép kapcsolási vázlata}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	%\label{figure:CLCWJ1-tsd}
+	\begin{tikzpicture}
+	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0, xmax=10.8,
+	ymin=0, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	%xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	%ytick={270, 300, 400, 500, 600, 700}
+	]
+	%\addplot[thick] table {./CLCWJ1/T_s_diagram.txt};
+	\end{axis}
+	
+	
+	\end{tikzpicture}
+	\caption{ $T-s$ diagram}
+	
+\end{figure}
+
+
+
+					
