@@ -1,0 +1,367 @@
+% !TeX TS-program = xelatex
+
+\documentclass[11pt, a4paper]{report}
+
+% Dokumentum adatok
+% =================
+\author{}
+\title{Műszaki hőtan feladatgyűjtemény}
+
+% A közös fájlok beszúrása
+% ========================
+\newcommand*{\JakiFolder}{./JAKI}%
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+
+% XeLaTeX ékezetes betűk
+\usepackage{fontspec}
+
+% A margók beállítása, később a 
+%	\newgeometry{left=3cm,bottom=0.1cm}
+% és a 
+%	\restoregeometry
+% parancsokkal egyedileg módosíthatók a margók
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% A dupla betűk betűtípusának beállítása
+\AtBeginDocument{
+	\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+	\DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+}
+
+% A régi német betűtípusok támogatása (fraktúra, Schwabacher, gót)
+% A gót betűtípus nem működik
+% Az ékezetes betűk csak a Table 18: Text-mode Accents táblázat szerint működnek
+\usepackage{yfonts}
+
+% Tabu hiba kezelés
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand\tabitem{\makebox[1em][r]{\textbullet~}}
+\usepackage{tabto}
+\usepackage{tabu}
+
+% Bekeretezett részek
+\usepackage[framemethod=tikz]{mdframed}
+% Megjegyzés
+\newcommand{\comment}[2][black!10]{%
+	\begin{mdframed}[hidealllines=true, backgroundcolor=#1, innerleftmargin=3pt, innerrightmargin=3pt, leftmargin=-3pt, rightmargin=-3pt]
+		Megjegyzés: #2
+	\end{mdframed}
+}
+
+%\usepackage{titlesec}
+
+\pagestyle{plain}
+
+\usepackage{float}
+\usepackage{xifthen}
+
+% Tizedesvessző
+\usepackage{icomma}
+
+% Függelék
+
+\usepackage[toc,titletoc,page]{appendix}
+\renewcommand{\appendixtocname}{Függelékek}
+\renewcommand{\appendixpagename}{Függelékek}
+
+
+%\fontspec{Times New Roman}
+%\setmonofont{Consolas}
+%\setmainfont{Calibri}
+
+\usepackage{commath}
+% A \Dif esetén a hatványkitevők rálógnak a D-re.
+% A deriváltakban a d után sok az üres hely.
+
+% This package will provide a complete implementation of 
+% unicode maths for XELATEX and LuaLATEX.
+% A Cambria Math támogatott.
+% Javítja a vektor jelek elhelyezését a betűk felett.
+% Az alsó és felső indexek betűtípusait módosítja, és szélesebbek a betűk.
+\usepackage[math-style=TeX]{unicode-math}
+%\setmathfont{XITS Math} % Túl vastagok a betűk
+%\setmathfont{Cambria Math}
+
+\usepackage{siunitx}
+\sisetup{
+	per-mode = fraction,
+	fraction-function = \dfrac,
+	detect-family = true,
+	output-decimal-marker = {,},
+	space-before-unit = true,
+	use-xspace = true,
+	exponent-product = \cdot,
+	sticky-per = true
+}
+
+\usepackage[makeroom]{cancel}
+
+% Többrészes ábrák létrehozása, subfigure környezet
+\usepackage[justification=centering]{caption}
+\usepackage{subcaption}
+
+% A Hyperref csomagot lehetőleg utolsóként kell betölteni.
+\usepackage[colorlinks=false]{hyperref}
+
+% A címsorok másolása a kereszthivatkozásokba
+\usepackage{nameref}
+
+% Bekarikázott számok
+\usepackage{pifont}
+
+% Kiemelés színnel
+\usepackage{xcolor}
+
+% Az oszlopvektorok és mátrixok jelölésére
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+
+% Színes táblázat, a tabuhoz nem szükséges
+%\usepackage{colortbl}
+
+% Fekvő oldalak
+% If you are using pdfLaTeX, you should use pdflscape instead. The pdflscape package adds PDF support to the landscape environment of package lscape, by setting the PDF/Rotate page attribute. Pages with this attribute will be displayed in landscape orientation by conforming PDF viewers:
+\usepackage{pdflscape}
+
+% Kiemelés
+% Több sorba osztásnál %-ezni kell a sortöréseket
+%\newcommand{\highlight}[2]{\colorbox{#1}{$\displaystyle#2$}}
+
+% Függőleges távolságok
+\newcommand{\reducedstrut}{\vrule width 0pt height 1.2\ht\strutbox depth 0.95\dp\strutbox\relax}
+\newcommand{\highlight}[2]{%
+	\begingroup
+	\setlength{\fboxsep}{1pt}% Vízszintes távolság
+	\colorbox{#1}{\reducedstrut$\displaystyle#2$\/}%
+	\endgroup
+}
+
+% Sortáv módosítás
+\usepackage{setspace}
+%\singlespacing
+%\onehalfspacing
+%\doublespacing
+
+% Felsorolások
+\usepackage{enumitem}
+
+% Megjegyzés létrehozás
+%\newlist{notes}{enumerate}{1}
+%\setlist[notes]{label=Megjegyzés: , leftmargin=*}
+
+% Külső fájlok írása
+% Elvileg szükségtelen
+%\usepackage{filecontents}
+
+% Forráskezelés
+%When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.
+\usepackage{csquotes}
+\usepackage[ 
+backend=biber, 
+url=false, 
+citestyle=numeric,%draft,
+bibstyle=numeric,%style=numeric,%authoryear,%numeric, 
+giveninits=true, 
+clearlang=true, 
+bibencoding=auto,
+sorting=none]{biblatex}
+
+\makeatletter
+
+\newrobustcmd*{\parentexttrack}[1]{%
+	\begingroup
+	\blx@blxinit
+	\blx@setsfcodes
+	\blx@bibopenparen#1\blx@bibcloseparen
+	\endgroup}
+
+\AtEveryCite{%
+	\let\parentext=\parentexttrack%
+	\let\bibopenparen=\bibopenbracket%
+	\let\bibcloseparen=\bibclosebracket}
+
+\makeatother
+
+
+% Az egyenletek előtti és utáni térközök beállítása
+% A TikZ blokkdiagamban a 3. szinttől lefele fölösleges bal margót hoz létre (???)
+%
+% => NE LEGYEN ÜRES SOR AZ EGYENLETEK ELŐTT!
+%
+%\makeatletter
+%\g@addto@macro\normalsize{%
+%	\setlength\abovedisplayskip{6pt}
+%	\setlength\belowdisplayskip{12pt}
+%	\setlength\abovedisplayshortskip{0pt}
+%	\setlength\belowdisplayshortskip{12pt}
+%}
+%\makeatother
+
+% Az árva- és özvegysorok büntetése (nem biztos, hogy nem lesznek...)
+\widowpenalty10000
+\clubpenalty10000
+
+
+% SAJÁT PARANCSOK LÉTREHOZÁSA
+% ===========================
+
+\DeclareMathOperator{\tr}{tr}
+
+% Gradiens, forráserősség, örvényerősség
+\newcommand{\Grad}[1] {\mathrm{grad\,} #1}
+\newcommand{\Div}[1] {\mathrm{div\,} #1}
+\newcommand{\Rot}[1] {\mathrm{rot\,} #1}
+\newcommand{\Diag}[1] {\mathrm{diag\,} #1}
+
+% Függvények
+\newcommand{\Det}[1] {\mathrm{det} #1}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\arctgNN}{arctg2}
+
+% Mátrix belső közei
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+	\edef\arraystretch{#1}%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{*\c@MaxMatrixCols c}}
+\makeatother
+
+% Oszlopvektor, sorvektor és mátrix jelölések
+\newcommand{\mat}[1] {\underline{\underline{#1}}\reducedstrut}
+\newcommand{\cvec}[1] {\underline{#1}\reducedstrut}
+%\def\rvec#1{\underline{#1}^{T}}
+%\def\mat#1{\underline{\underline{#1}}}
+%\def\mat3#1{\underline{\underline{\underline{#1}}}}
+
+\newcommand{\vektor}[2][1]{\begin{bmatrix}[#1] #2 \end{bmatrix}}
+\newcommand{\tmb}[2][2]{\begin{bmatrix}[#1] #2 \end{bmatrix}}
+\newcommand{\vek}[4][1]{\begin{bmatrix}[#1] #2 \\ #3 \\ #4 \end{bmatrix}}
+\newcommand{\mtrx}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+
+
+% FÜGGELÉK TARTALOMJEGYZÉK
+% Appendix csomag (appendix.sty)
+%\newcommand{\@redotocentry@pp}[1]{%
+%  \let\oldacl@pp=\addcontentsline
+%  \def\addcontentsline##1##2##3{%
+%    \def\@pptempa{##1}\def\@pptempb{toc}%
+%    \ifx\@pptempa\@pptempb
+%      \def\@pptempa{##2}\def\@pptempb{#1}%
+%      \ifx\@pptempa\@pptempb
+%\oldacl@pp{##1}{##2}{##3}%A kísérleti változat: \oldacl@pp{##1}{##2}{\appendixname\space [##1][##2][##3] (\@car \splitlist{##3}\@nil) (\@cdr \splitlist{##3}\@nil)}%
+%      \else
+%        \oldacl@pp{##1}{##2}{##3}%
+%      \fi
+%    \else
+%      \oldacl@pp{##1}{##2}{##3}%
+%    \fi}
+%}
+
+
+% VÁLTOZÓK
+\makeatletter
+\let\JakiTitle\@title
+\let\JakiAuthor\@author
+\makeatother
+
+% OLDALSZÁMOZÁS
+% Oldalszámozás váltás a kezdő, a fő és a befejező szakasz határán
+% A "report" osztályban nincs, a "book" osztályból másolva...
+%https://tex.stackexchange.com/questions/154646/is-there-an-easy-way-to-get-the-frontmatter-mainmatter-and-backmatter-in-a-l
+\makeatletter
+\newcommand\frontmatterreport{%
+	\cleardoublepage
+	%\@mainmatterfalse
+	\pagenumbering{Roman}}
+
+\newcommand\mainmatterreport{%
+	\cleardoublepage
+	%\@mainmattertrue
+	\pagenumbering{arabic}}
+
+\newcommand\backmatterreport{%
+	\if@openright
+	\cleardoublepage
+	\else
+	\clearpage
+	\fi
+	% \@mainmatterfalse
+}
+\makeatother
+
+\hypersetup{
+	pdftitle={\JakiTitle}, 
+	pdfauthor={\JakiAuthor}, 
+	colorlinks = true,
+	citecolor = orange,
+	filecolor = red,
+	linkcolor = blue,
+	urlcolor = red}
+
+\begin{document}
+\section*{K6/3. feladat: Hőátadási tényező számítása}
+\addcontentsline{toc}{section}{K6/3. feladat: Hőátadási tényező számítása}
+	\begin{tabular}{ | p{2cm} | p{14cm} | } 
+		\hline
+		Szerző & Hadabás Márk István TV3AA4 \\ 
+		\hline
+		Szak & Vegyészmérnöki \\ 
+		\hline
+		Félév & 2019/2020 II. (tavaszi) félév \\ 
+		\hline
+	\end{tabular} \\
+	\vspace{0.5cm} 
+		
+	\noindent
+	15 °C-os víz áramlik a $d$=0,015m átmérőjű, $L$=0,5 m hosszú csőben. A közepes áramlási sebesség $w$=0,1 m/s. A cső belső falának hőmérséklete $t_w$ =50 °C. Számítsa ki a hőátadási tényező értéket!
+	\\ \\
+	Hausensen képlet:
+		\[ Nu = \left[ 3,65 + \frac{0,19 \left( Re \cdot Pr \cdot \frac{d}{L} \right)^{0,8} }{1 + 0,117 \left( Re \cdot Pr \cdot \frac{d}{L} \right)^{0,467} } \right] \cdot \left( \frac{Pr}{Pr_w} \right)^{0,11}  \]
+	Érvényes, ha $Re$ < 2320 és 0,1 < $Re \cdot Pr \cdot \frac{d}{L}$; (di=belső átmérő) folyadékra.
+	\\ 
+	\subsubsection{Ismert jellemzők a kezdeti állapotban}
+		\begin{equation*}	
+			T= \SI{15}{\celsius}, 
+			\quad
+			d= \SI{0,015}{\meter},
+			\quad
+			L= \SI{0,5}{\meter},
+			\quad
+			w= \SI{0,1}{\meter\per\second},
+			\quad
+			t_w= \SI{50}{\celsius},			
+		\end{equation*}
+		\begin{equation*}
+			\lambda= \SI{0,595}{\watt\per\meter\kelvin},
+			\quad
+			\nu = \SI{1,15 10}{\meter\squared\per\second },
+			\quad
+			Pr_{15}= 8,11,
+			\quad
+			Pr_{50}= 3,54,			
+		\end{equation*}
+		\noindent\hrulefill
+	\subsubsection{Dimenzió mentes számok számítása}
+	A Re és a Nu szám számítása a megadott adatok alapján. 
+		\begin{equation}
+			Re = \frac{w \cdot d}{\nu} = \frac{\SI{0,1}{\meter\per\second} \cdot \SI{0,015}{\meter}}{\SI{1,15 10}{\meter\squared\per\second }}=1304,35
+		\end{equation}
+		\begin{equation}
+			Nu = \left[ 3,65 + \frac{ 0,19 \cdot \left( 1304,35 \cdot 8,11 \cdot\frac{0,015}{0,5}\right)^{0,8}}{1 + 0,0117 \left( 1304,35 \cdot 8,11 \cdot \frac{0,015}{0,5}\right)^{0,467}}\right] \cdot \left( \frac{8,11}{3,54}\right)^{0,11}  = 11,66
+		\end{equation}
+	\subsubsection{Hőátadási tényező számítása}
+		\begin{equation}
+			\alpha = Nu \cdot \frac{\lambda}{d} = 11,66 \cdot \frac{\SI{0,595}{\watt\per\meter\kelvin}}{\SI{0,015}{\meter}}= \SI{462,51}{\watt\per\meter\squared\kelvin} 
+		\end{equation}		
+\end{document}
+
+
+
