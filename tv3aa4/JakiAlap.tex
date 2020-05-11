@@ -1,15 +1,7 @@
-% !TeX TS-program = xelatex
 
-\documentclass[11pt, a4paper]{report}
+% A "book" dokumentumosztály fölösleges oldalakat szúr be a címoldal
+% és a tartalomjegyzék után.
 
-% Dokumentum adatok
-% =================
-\author{}
-\title{Műszaki hőtan feladatgyűjtemény}
-
-% A közös fájlok beszúrása
-% ========================
-\newcommand*{\JakiFolder}{./JAKI}%
 \usepackage[utf8]{inputenc}
 \usepackage[magyar]{babel}
 
@@ -47,9 +39,9 @@
 \usepackage[framemethod=tikz]{mdframed}
 % Megjegyzés
 \newcommand{\comment}[2][black!10]{%
-	\begin{mdframed}[hidealllines=true, backgroundcolor=#1, innerleftmargin=3pt, innerrightmargin=3pt, leftmargin=-3pt, rightmargin=-3pt]
-		Megjegyzés: #2
-	\end{mdframed}
+\begin{mdframed}[hidealllines=true, backgroundcolor=#1, innerleftmargin=3pt, innerrightmargin=3pt, leftmargin=-3pt, rightmargin=-3pt]
+Megjegyzés: #2
+\end{mdframed}
 }
 
 %\usepackage{titlesec}
@@ -134,10 +126,10 @@
 % Függőleges távolságok
 \newcommand{\reducedstrut}{\vrule width 0pt height 1.2\ht\strutbox depth 0.95\dp\strutbox\relax}
 \newcommand{\highlight}[2]{%
-	\begingroup
-	\setlength{\fboxsep}{1pt}% Vízszintes távolság
-	\colorbox{#1}{\reducedstrut$\displaystyle#2$\/}%
-	\endgroup
+  \begingroup
+  \setlength{\fboxsep}{1pt}% Vízszintes távolság
+  \colorbox{#1}{\reducedstrut$\displaystyle#2$\/}%
+  \endgroup
 }
 
 % Sortáv módosítás
@@ -161,28 +153,28 @@
 %When using babel or polyglossia with biblatex, loading csquotes is recommended to ensure that quoted texts are typeset according to the rules of your main language.
 \usepackage{csquotes}
 \usepackage[ 
-backend=biber, 
-url=false, 
-citestyle=numeric,%draft,
-bibstyle=numeric,%style=numeric,%authoryear,%numeric, 
-giveninits=true, 
-clearlang=true, 
-bibencoding=auto,
-sorting=none]{biblatex}
-
+	backend=biber, 
+	url=false, 
+	citestyle=numeric,%draft,
+	bibstyle=numeric,%style=numeric,%authoryear,%numeric, 
+	giveninits=true, 
+	clearlang=true, 
+	bibencoding=auto,
+	sorting=none]{biblatex}
+	
 \makeatletter
 
 \newrobustcmd*{\parentexttrack}[1]{%
-	\begingroup
-	\blx@blxinit
-	\blx@setsfcodes
-	\blx@bibopenparen#1\blx@bibcloseparen
-	\endgroup}
+  \begingroup
+  \blx@blxinit
+  \blx@setsfcodes
+  \blx@bibopenparen#1\blx@bibcloseparen
+  \endgroup}
 
 \AtEveryCite{%
-	\let\parentext=\parentexttrack%
-	\let\bibopenparen=\bibopenbracket%
-	\let\bibcloseparen=\bibclosebracket}
+  \let\parentext=\parentexttrack%
+  \let\bibopenparen=\bibopenbracket%
+  \let\bibcloseparen=\bibclosebracket}
 
 \makeatother
 
@@ -289,14 +281,16 @@ sorting=none]{biblatex}
 
 \newcommand\backmatterreport{%
 	\if@openright
-	\cleardoublepage
+		\cleardoublepage
 	\else
-	\clearpage
+		\clearpage
 	\fi
 	% \@mainmatterfalse
-}
+	}
 \makeatother
 
+
+% HYPERREF
 \hypersetup{
 	pdftitle={\JakiTitle}, 
 	pdfauthor={\JakiAuthor}, 
@@ -304,64 +298,13 @@ sorting=none]{biblatex}
 	citecolor = orange,
 	filecolor = red,
 	linkcolor = blue,
-	urlcolor = red}
-
-\begin{document}
-\section*{K6/3. feladat: Hőátadási tényező számítása}
-\addcontentsline{toc}{section}{K6/3. feladat: Hőátadási tényező számítása}
-	\begin{tabular}{ | p{2cm} | p{14cm} | } 
-		\hline
-		Szerző & Hadabás Márk István TV3AA4 \\ 
-		\hline
-		Szak & Vegyészmérnöki \\ 
-		\hline
-		Félév & 2019/2020 II. (tavaszi) félév \\ 
-		\hline
-	\end{tabular} \\
-	\vspace{0.5cm} 
-		
-	\noindent
-	15 °C-os víz áramlik a $d$=0,015 m átmérőjű, $L$=0,5 m hosszú csőben. A közepes áramlási sebesség $w$=0,1 m/s. A cső belső falának hőmérséklete $t_w$ =50 °C. Számítsa ki a hőátadási tényező értéket!
-	\\ \\
-	Hausensen képlet:
-		\[ Nu = \left[ 3,65 + \frac{0,19 \left( Re \cdot Pr \cdot \frac{d}{L} \right)^{0,8} }{1 + 0,117 \left( Re \cdot Pr \cdot \frac{d}{L} \right)^{0,467} } \right] \cdot \left( \frac{Pr}{Pr_w} \right)^{0,11}  \]
-	Érvényes, ha $Re$ < 2320 és 0,1 < $Re \cdot Pr \cdot \frac{d}{L}$; (di=belső átmérő) folyadékra.
-	\\ 
-	\subsubsection{Ismert jellemzők a kezdeti állapotban}
-		\begin{equation*}	
-			T= \SI{15}{\celsius}, 
-			\quad
-			d= \SI{0,015}{\meter},
-			\quad
-			L= \SI{0,5}{\meter},
-			\quad
-			w= \SI{0,1}{\meter\per\second},
-			\quad
-			t_w= \SI{50}{\celsius},			
-		\end{equation*}
-		\begin{equation*}
-			\lambda= \SI{0,595}{\watt\per\meter\kelvin},
-			\quad
-			\nu = \SI{1,15 10}{\meter\squared\per\second },
-			\quad
-			Pr_{15}= 8,11,
-			\quad
-			Pr_{50}= 3,54,			
-		\end{equation*}
-		\noindent\hrulefill
-	\subsubsection{Dimenzió mentes számok számítása}
-	A Re és a Nu szám számítása a megadott adatok alapján. 
-		\begin{equation}
-			Re = \frac{w \cdot d}{\nu} = \frac{\SI{0,1}{\meter\per\second} \cdot \SI{0,015}{\meter}}{\SI{1,15 10}{\meter\squared\per\second }}=1304,35
-		\end{equation}
-		\begin{equation}
-			Nu = \left[ 3,65 + \frac{ 0,19 \cdot \left( 1304,35 \cdot 8,11 \cdot\frac{0,015}{0,5}\right)^{0,8}}{1 + 0,0117 \left( 1304,35 \cdot 8,11 \cdot \frac{0,015}{0,5}\right)^{0,467}}\right] \cdot \left( \frac{8,11}{3,54}\right)^{0,11}  = 11,66
-		\end{equation}
-	\subsubsection{Hőátadási tényező számítása}
-		\begin{equation}
-			\alpha = Nu \cdot \frac{\lambda}{d} = 11,66 \cdot \frac{\SI{0,595}{\watt\per\meter\kelvin}}{\SI{0,015}{\meter}}= \SI{462,51}{\watt\per\meter\squared\kelvin} 
-		\end{equation}		
-\end{document}
+	urlcolor = red
+}
 
 
+% Az átmérőjel alapvonalra emelése
+%\makeatletter
+%\let\olddiameter\diameter
+%\renewcommand{\diameter}[0]{\raisebox{\depth}{\olddiameter}}
+%\makeatother
 
