@@ -53,7 +53,71 @@ $\dot{m} = \SI{40}{\kilogram\per\second}$
 \noindent\hrulefill
 
 % A feladat megoldása
-...
+\noindent A kondenzátorban elvont hőmennyiség:
+
+\begin{equation}
+	q_{EL} =\dfrac {\dot{Q}_K}{\dot{m}} = \SI{2125}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\noindent A bevezetett hőmennyiség:
+
+\begin{equation}
+	q_{BE} = h_1 - h'=\SI {3298}{\kilo\joule\per\kilogram}	
+\end{equation}
+
+\noindent A technikai munka:
+
+\begin{equation}
+	w_t = q_{BE} - q_{EL} =\SI{1173}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\noindent A termikus hatásfok kiszámítása:
+
+\begin{equation}
+	\eta_{T} = \dfrac {w_t}{q_{BE}} = \SI {35.56}{\percent}
+\end{equation}
+
+\noindent A turbina teljesítményének kiszámítása:
+
+\begin{equation}
+	P_T = w_t \cdot \dot{m} = \SI{46920}{\kilo\watt}
+\end{equation}
+
+\noindent Az entrópiák ismeretében, az alábbi egyenletből kiszámítható a fajlagos gőztartalom:
+
+\begin{equation}
+	s = (1-x) \cdot s' + x \cdot s''
+\end{equation}
+
+\begin{equation}
+	\SI {6.98}{\kilo\joule\per\kilogram\kelvin} = (1-x)\cdot \SI{0.47}{\kilo\joule\per\kilogram\kelvin} + x \cdot \SI{8.4}{\kilo\joule\per\kilogram\kelvin}
+	\quad 
+	\Rightarrow
+	\quad
+	x = 0.82
+\end{equation}
+
+\noindent A fajlagos gőztartalom ismeretében kiszámítható:
+
+\begin{equation}
+	h =  (1-x)\cdot h' + x\cdot h'' = (1-0.82)\cdot \SI{136}{\kilo\joule\per\kilogram} + 0.82 \cdot \SI{2560}{\kilo\joule\per\kilogram} = \SI{2123.68}{\kilo\joule\per\kilogram}	
+\end{equation}
+
+\noindent A technikai munka reverzibilis esetben:
+
+\begin{equation}
+	w_{t,ad,rev} = h_1- h = \SI{1310.32}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\noindent Innét már számítható a termodinamikus hatásfok:
+
+\begin{equation}
+	\eta_{TD} = \dfrac {w_{t,ad,irrev}}{w_{t,ad,rev}} = \dfrac {1173}{1310.32} = \SI{89.54}{\percent}
+\end{equation}
+
+\noindent A körfolyamat rajza:
+
+\noindent T-s diagram:
 
 % Oldaltörés
 \pagebreak
