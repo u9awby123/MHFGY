@@ -58,7 +58,7 @@ Ez alapján a folyadékhő:
 \ q_{1,2} = h_2-h_1 = \SI{611,67}{\kilo\joule\per\kilogram}
 \end{equation}
 
-A párolgáshő:
+A párolgási hő (vagy forráshő):
 \begin{equation}
 \ q_{2,3} = h_3-h_2 = \SI{2018,03}{\kilo\joule\per\kilogram}
 \end{equation}
@@ -125,7 +125,8 @@ Az egyenlet átrendezve $T_{\textit{köz}}$-re
 		\addplot[thick] table {./guh7ud/ts.txt};
 
 		% Az p = 9,81 bar-hoz tartozó izobár vonal
-		\addplot[ultra thick, blue, mid arrow=blue] table {./VX12Z6/ts_p981.txt};
+		\addplot[thick, black] table {./VX12Z6/ts_p981.txt};
+		\addplot[ultra thick, blue, mid arrow=blue] table {./VX12Z6/ts_p981_2.txt};
 		
 		%egyenesek
 		\draw[dashed] (axis cs:0.5047, 35) -- (axis cs:0.5047, 0);
@@ -157,7 +158,7 @@ Az egyenlet átrendezve $T_{\textit{köz}}$-re
 		\node[fill=white, rounded corners] at (axis cs: 7.05, 50) {$q_{3,4}$};
 		
 		%nyomás görbe jelölése
-		\node[blue, rotate = 80] at (axis cs:7.48, 460) {\SI{9,81}{\bar}};
+		\node[black, rotate = 80] at (axis cs:7.48, 460) {\SI{9,81}{\bar}};
 		
 	
 	\end{axis}
