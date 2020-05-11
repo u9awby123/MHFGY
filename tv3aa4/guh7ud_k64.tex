@@ -1,0 +1,75 @@
+
+
+\section*{K6/4. feladat: Hőátadás és lecsapódás függőleges csőfalon}
+\addcontentsline{toc}{section}{K6/4. feladat: Hőátadás és lecsapódás függőleges csőfalon}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Szalay István \\ 
+	\hline
+	Szak & \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent Határozza meg, hogy \textbf{száraz telített vízgőzből} mennyi csapódik le óránként egy $d = \SI{40}{\milli\meter}$ átmérőjű, $L = \SI{1}{\meter}$ magas, függőleges cső külső falára $p = \SI{1.01}{\bar}$ gőznyomás esetén, ha a csőfelület középhőmérséklete $T_F = \SI{60}{\celsius}$! A $p$ nyomáshoz tartozó forráspont $T_S = \SI{100}{\celsius}$.
+
+A víz anyagjellemzői a közepes $T_K=\frac{T_S + T_F}{2}$ hőmérsékleten: a párolgáshő $r = \SI{2257.3}{\kilo\joule\per\kilogram}$, a sűrűség $\varrho_{80} = \SI{971.6}{\kilogram\per\meter\cubed}$, a hővezetési tényező $\lambda_{80} = \SI{0.67}{\watt\per\meter\kelvin}$, a dinamikai viszkozitás $\eta_{80} = \SI{351e-6}{\kilogram\per\meter\second}$.
+
+\vspace{2mm}
+
+Nusselt folyadékréteg elmélete szerint a gőz és a lecsapódó folyadékréteg által befolyt csőfal közötti hőátadási tényező az alábbi alakban számolható, ha a folyadék áramlása réteges/lamináris:
+\vspace{-2mm}
+\begin{equation}
+	\alpha = c \left(\dfrac{r \varrho^2 \lambda^3 g}{\eta H \Delta T}\right)^{\tfrac{1}{4}}
+\end{equation}
+
+A $c$ értéke, illetve a $H$ jelentése a cső elhelyezkedésétől függ: függőleges fal vagy cső esetén $c_1 = \SI{0,943}{}$, és $H = L$ (az $L$ a magasság vagy függőleges hossz), vízszintes cső esetén $c_2 = \SI{0,726}{}$, és $H = d$ (a $d$ a külső átmérő).
+
+\subsubsection*{a) Függőleges cső vizsgálata}
+A gőz lecsapódása során a rejtett hőt adja le átadással a csőnek. Ezt a két hőáram egyenlőségével írhatjuk le, azaz $\dot{Q}_{\textit{rejtett}} = \dot{Q}_{\textit{átadás}}$. Kifejtve a két hőáram:
+\begin{equation}
+	\dot{Q}_{\textit{rejtett}} = \dot{m}r \quad \textrm{és} \quad \dot{Q}_{\textit{átadás}} = \alpha A \left(T_S - T_F\right) = \alpha d \pi L \left(T_S - T_F\right)
+\end{equation}
+
+A hőátadási tényező függőleges csőnél:
+\vspace{-2mm}
+\begin{equation}
+	\alpha_{\textit{függőleges}} = \SI{0.943}{} \left(\dfrac{r \varrho_{80}^2 \lambda_{80}^3 g}{\eta_{80} L \left(T_S - T_F\right)}\right)^{\tfrac{1}{4}} = \SI{4.338}{\watt\per\meter\squared\kelvin}
+\end{equation}
+
+A lecsapódás tömegárama a függőleges helyzetű csövön:
+\begin{equation}
+	\dot{m}_{\textit{függőleges}} = \dfrac{\alpha_{\textit{függőleges}} d \pi L \left(T_S - T_F\right)}{r} = \SI{9.65e-3}{\kilogram\per\second} = \SI{34.775}{\kilogram\per\hour}
+\end{equation}
+
+
+\subsubsection*{b) Vizsgáljuk meg a lecsapódott gőzmennyiséget akkor is, ha a cső vízszintes helyzetű!}
+A hőátadási tényező vízszintes csőnél:
+\vspace{-2mm}
+\begin{equation}
+	\alpha_{\textit{vízszintes}} = \SI{0.943}{} \left(\dfrac{r \varrho_{80}^2 \lambda_{80}^3 g}{\eta_{80} L \left(T_S - T_F\right)}\right)^{\tfrac{1}{4}} = \SI{7.468}{\watt\per\meter\squared\kelvin}
+\end{equation}
+
+A lecsapódás tömegárama a vízszintes helyzetű csövön:
+\begin{equation}
+	\dot{m}_{\textit{vízszintes}} = \dfrac{\alpha_{\textit{vízszintes}} d \pi L \left(T_S - T_F\right)}{r} = \SI{16.6e-3}{\kilogram\per\second} = \SI{59.86}{\kilogram\per\hour}
+\end{equation}
+
+\subsubsection*{c) A vízszintes vagy a függőleges elrendezést célszerű választani? Mikor nagyobb a hőátadási tényező?}
+A kérdés arra vonatkozik, hogy a $d$ és az $L$ viszonya alapján melyik elrendezést célszerű választani. A feladatot az alábbi egyenlőtlenség alakban célszerű megfogalmazni:
+\begin{equation}
+	\alpha_{\textit{függőleges}} < \alpha_{\textit{vízszintes}} 
+	\quad \Rightarrow \quad 
+	c_1 \left(\dfrac{\bcancel{r \varrho^2 \lambda^3 g}}{\cancel{\eta} L \cancel{\Delta T}}\right)^{\tfrac{1}{4}} 
+	< 
+	c_2 \left(\dfrac{\bcancel{r \varrho^2 \lambda^3 g}}{\cancel{\eta} d \cancel{\Delta T}}\right)^{\tfrac{1}{4}} 
+	\quad \Rightarrow \quad 
+	\dfrac{c_1^4}{c_2^4} d < L
+\end{equation}
+
+Azaz, ha $\SI{2.846}{} d < L$, akkor $\alpha_{\textit{függőleges}} < \alpha_{\textit{vízszintes}}$.
+
+\pagebreak

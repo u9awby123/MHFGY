@@ -1,0 +1,94 @@
+
+
+
+\section*{K1/9. feladat: Nedves vízgőz kiterjedése}
+\addcontentsline{toc}{section}{K1/9. feladat}
+$V_1 = \SI{1,5}{\meter\cubed}$ térfogatú, $p_1 = \SI{16}{\bar}$ nyomású és $x_1 = \SI{0,95}{}$ fajlagos gőztartalmú vízgőz \textbf{adiabatikusan} $p_2 = \SI{0,1}{\bar}$ nyomásig terjed ki. Határozza meg a kiterjedés kezdetén és végén a gőz állapotjelzőit, a gőz $m$ tömegét és a gőz által végzett $w_t$ technikai munkát! 
+
+\vspace{2mm}
+\noindent Ábrázolja a folyamatot $T-s$ diagramban!
+
+\subsubsection{Ismert jellemzők a kezdeti állapotban}
+\begin{equation*}
+	p_1 = \SI{16}{\bar}, 
+	\quad 
+	V_1 = \SI{1,5}{\meter\cubed}, 
+	\quad
+	x_1 = \SI{0,95}{},
+	\quad
+	h_1' = \SI{858,3}{\kilo\joule\per\kilogram},
+	\quad
+	h_1'' = \SI{2793}{\kilo\joule\per\kilogram}
+\end{equation*}
+\begin{equation*}
+	s_1' = \SI{2,344}{\kilo\joule\per\kilogram\kelvin},
+	\quad
+	s_1'' = \SI{6,442}{\kilo\joule\per\kilogram\kelvin},
+	\quad
+	v_1' = \SI{0,00116}{\meter\cubed\per\kilogram},
+	\quad
+	v_1'' = \SI{0,1238}{\meter\cubed\per\kilogram}
+\end{equation*}
+
+\subsubsection{Ismert jellemzők a végállapotban}
+\begin{equation*}
+	h_2' = \SI{191,9}{\kilo\joule\per\kilogram},
+	\quad
+	h_2'' = \SI{2584}{\kilo\joule\per\kilogram},
+	\quad
+	s_2' = \SI{0,6492}{\kilo\joule\per\kilogram\kelvin},
+	\quad
+	s_2'' = \SI{8,149}{\kilo\joule\per\kilogram\kelvin}
+\end{equation*}
+
+\noindent\hrulefill
+
+\subsubsection{Az állapotjelzők a kezdeti állapotban}
+A kezdeti állapothoz tartozó $h_1$ hőtartalom, $v_1$ fajtérfogat és $s_1$ entrópia a szélsőértékek és az $x_1$ fajlagos gőztartalom felhasználásával számolható:
+\begin{equation}
+	h_1 = \left(1 - x_1\right) h_1' + x_1 h_1'' 
+	= 
+	\SI{2696,27}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+	v_1 = \left(1 - x_1\right) v_1' + x_1 v_1'' 
+	= 
+	\SI{0,1176}{\meter\cubed\per\kilogram}
+\end{equation}
+\begin{equation}
+	s_1 = \left(1 - x_1\right) s_1' + x_1 s_1'' 
+	= 
+	\SI{6,237}{\kilo\joule\per\kilogram\kelvin}
+\end{equation}
+
+\noindent A kiterjedő gőz tömege az azonos állapotra vonatkozó térfogat és fajtérfogat hányadosa. A kezdeti állapotra mindkét mennyiség ismert:
+\begin{equation}
+	m = \dfrac{V_1}{v_1} = \SI{12,74}{\kilogram}
+\end{equation}
+
+\subsubsection{Az állapotjelzők a végállapotban}
+A végállapot állapotjelzőinek számolásához szükségünk van az ismert szélsőértékek mellett az $x_2$ fajlagos gőztartalomra is. Az állapotváltozás adiabatikus jellegű, emiatt $s_1 \approx s_2$ (ha reverzibilisnek tekintjük az állapotváltozást, akkor $s_1 = s_2$):
+\begin{equation}
+	s_2 = \left(1 - x_2\right) s_2' + x_2 s_2''
+	\quad 
+	\Rightarrow
+	\quad 
+	x_2
+	= 
+	\dfrac{s_2 - s_2'}{s_2'' - s_2'} 
+	\approx 
+	\dfrac{s_1 - s_2'}{s_2'' - s_2'} 
+	= 
+	\SI{0,745}{}
+\end{equation}
+
+\noindent A hőtartalom a végállapotban:
+\begin{equation}
+	h_2 = \left(1 - x_2\right) h_2' + x_2 h_2'' 
+	= 
+	\SI{1974}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\subsubsection{A technikai munka}
+Az állapotváltozás technikai munkáját az első főtétel átáramlott rendszerek
+
