@@ -43,7 +43,7 @@ h_4 = \SI{3263,6}{\kilo\joule\per\kilogram}
 
 \subsubsection*{a) Határozzuk meg vízgőzfejlesztéshez szűkséges energiát}
 
-A vizsgált folyamat p = áll. nyomáson megy végbe ezért, az első főtétel megfelelő alakja alapján kapjuk, hogy:
+A vizsgált folyamat $p = {\textit{állandó}}$ nyomáson megy végbe, ezért az első főtétel megfelelő alakja alapján  azt kapjuk, hogy:
 
 \begin{equation}
 \delta q = dh + \bcancel{\delta w_t}-\bcancel{vdp}
@@ -92,8 +92,7 @@ Az egyenlet átrendezve $T_{\textit{köz}}$-re
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
-	% Rács és vágómaszk
-	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	
 	%\clip (-1.5, -1) rectangle (14.5, 11);
 	
 	\pgfmathsetmacro{\RLEV}{220}
@@ -102,9 +101,9 @@ Az egyenlet átrendezve $T_{\textit{köz}}$-re
 	
 	% A tengelykeresztet az axis környezet hozza létre
 	\begin{axis}[
-	width=16cm, height=12cm,
+	width=16cm, height=13cm,
 	xmin=0, xmax=10.8,
-	ymin=0, ymax=475, 
+	ymin=0, ymax=550, 
 	axis lines = middle,
 	axis line style={->},
 	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
@@ -118,7 +117,7 @@ Az egyenlet átrendezve $T_{\textit{köz}}$-re
 		anchor=north east
 	},
 	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
-	ytick={100, 200, 300, 400}
+	ytick={100, 200, 300, 400, 500}
 	]
 	
 
@@ -135,7 +134,7 @@ Az egyenlet átrendezve $T_{\textit{köz}}$-re
 		\draw[dashed] (axis cs:7.47, 400) -- (axis cs:7.47, 0);
 		
 		%Sraffozás
-		\addplot[opacity=0, name path=A, domain=0.5047:7.47, samples=25] table {./VX12Z6/ts_p981.txt};
+		\addplot[opacity=0, name path=A, domain=0.5047:7.47, samples=25] table {./VX12Z6/ts_p981_2.txt};
 		\addplot[opacity=0, name path=B, domain=0.5047:7.47, samples=2] {0};
 		\addplot[gray!20] fill between [of=A and B];
 				
@@ -156,6 +155,9 @@ Az egyenlet átrendezve $T_{\textit{köz}}$-re
 		\node[fill=white, rounded corners] at (axis cs: 1.5, 40) {$q_{1,2}$};
 		\node[fill=white, rounded corners] at (axis cs: 4.5, 100) {$q_{2,3}$};
 		\node[fill=white, rounded corners] at (axis cs: 7.05, 50) {$q_{3,4}$};
+		
+		%nyomás görbe jelölése
+		\node[blue, rotate = 80] at (axis cs:7.48, 460) {\SI{9,81}{\bar}};
 		
 	
 	\end{axis}
