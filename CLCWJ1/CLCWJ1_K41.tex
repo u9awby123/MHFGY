@@ -2,7 +2,7 @@
 
 
 \section*{K4/1. feladat:Hűtőkörfolyamatok utóhűtővel}
-\addcontentsline{toc}{section}{K4/1. feladat:Hűtőkörfolyamatok utóhűtővel}
+\addcontentsline{toc}{section}{K4/1. feladat: Hűtőkörfolyamatok utóhűtővel}
 
 \begin{tabular}{ | p{2cm} | p{14cm} | } 
 	\hline
@@ -16,7 +16,7 @@
 \vspace{0.5cm}
 
 % A feladat szövege
-\noindent Egy ammóniák közvetítő közeggel dolgozó kompresszoros hűtőgép, utóhűtővel, \SI{-20}{\celsius} elpárolgási és \SI{25}{\celsius} kondenzációs hőmérséklet mellett $3\cdot10^5 W$ hűtőteljesítményt szolgáltat, $p_2/p_1 = \SI{10,0}{\bar}$ /  $\SI{1,90}{\bar}$ nyomásviszonynál. A kompresszió végén száraz telített gőz  $(x=\SI{1}{}) $ van.
+\noindent Egy ammónia közvetítő közeggel dolgozó kompresszoros hűtőgép, utóhűtővel, \SI{-20}{\celsius} elpárolgási és \SI{25}{\celsius} kondenzációs hőmérséklet mellett $3\cdot10^5 W$ hűtőteljesítményt szolgáltat, $p_K/p_H = \SI{10,0}{\bar}$ /  $\SI{1,90}{\bar}$ nyomásviszonynál. A kompresszió végén száraz telített gőz  $(x=\SI{1}{}) $ van.
 
 \vspace{2mm}
 
@@ -24,7 +24,7 @@ a) Határozzuk meg a kompresszió elején a gőz állapotjelzőit!
 
 b) Kiszámítandó a keringetett hűtőközeg mennyisége $(\dot{G})$ a kompresszoros elméleti teljesítménye $(Pelm)$
 
-c)és a fajlagos hűtőteljesítmény ($\epsilon$) !
+c)és a fajlagos hűtőteljesítmény ($\varepsilon$) !
 
 d) Mennyi a kondenzátorban leadott hő ?
 
@@ -88,6 +88,8 @@ d) Mennyi a kondenzátorban leadott hő ?
 \end{equation}
  
 \subsubsection*{b) Tömegfajlagos hőelvonás a hűtőtérből}
+
+\noindent Megkapjuk, hogy mekkora hőmennyiséget kell 1kg hűtőközegnek elvonnia a hűtőtérből ahhoz, hogy a körfolyamatot üzemeltetni tudjuk.
  
 \begin{equation}
   q_H = h_1-h_4 
@@ -101,17 +103,21 @@ d) Mennyi a kondenzátorban leadott hő ?
    {\dot{m}}_{NH3}= \dfrac{\dot{Q}_H}{q_h} = \SI{0,3018}{\kilogram\per\second}
 \end{equation}
 
+\noindent Át kell váltanunk a tömegfajlagos mértékegységeket, térfogatfajlagos mértékegységekre
+
 \subsubsection*{Térfogatfajlagos hűtőteljesítmény}
   
 \begin{equation}
-    {q}_{VOL} = q_H\cdot \rho_1
+    {q}_{VOL} = q_H \rho_1
     =
     \dfrac{q_H}{v_1}
     =\SI{1791,64}{\kilo\joule\per\meter\cubed}
 \end{equation} 
+\noindent VOL: Volumetrikus, térfogatra vonatkozó
+
 \subsubsection*{A kompresszor óránkénti lökettérfogata, a térfogatkiszorítás hatásfokának figyelembevételével}
 
-\noindent $ {\alpha}_{VOL} = 0,7 $
+\noindent $ {\alpha}_{VOL} = 0,7 $ Volumetrikus hatásfok, áramlási veszteséggel (térfogatkiszorítás hatásfoka) kalibrálva
 
 \begin{equation}
     {\dot{V}}_{H}= \dfrac{{\dot{Q}}_H}{{q}_{VOL} {\alpha}_{VOL}} = \SI{860,9}{\meter\cubed\per\hour}
@@ -121,27 +127,31 @@ d) Mennyi a kondenzátorban leadott hő ?
    n=210 \dfrac{1}{min}
 \end{equation}
 \begin{equation}
-    V = \dfrac{{\dot{V}}_{H}}{n} = 68 l 
+    V = \dfrac{{\dot{V}}_{H}}{n} = \SI{68}{liter} 
 \end{equation}
 
 \subsubsection*{A henger átmérője, ha a löketfurat 68 liter}
 
+ \noindent d:dugattyú furatátmérője
+ 
+ \noindent s: dugattyú lökete, távolság az alsó és felső holtpont között
+ 
 \begin{equation}
-    V=\dfrac{d^2\cdot\pi}{4\cdot s} = \dfrac{d^2\cdot\pi\cdot 1,2d}{4}
+    V=\dfrac{d^2 \pi}{4 s} = \dfrac{d^2\pi 1,2d}{4}
 \end{equation}
 
 \begin{equation}
-     d =\left(\dfrac{4V}{1,2\pi}\right)^{\dfrac{1}{3}} = 0,416 m
+     d =\left(\dfrac{4V}{1,2\pi}\right)^{\dfrac{1}{3}} = \SI{0,416}{\meter} 
 \end{equation}
 
 \begin{equation}
-     {P}_{elm}=\dot{m} \cdot W_K = \dot{m} (h_2 - h_1)=58,55 W
+     Pelm=\dot{m}  W_K = \dot{m} (h_2 - h_1)= \SI{58,55}{\kilo\watt }
 \end{equation}
 
 \begin{equation}
      \nu_o = 0,643
      \quad
-     {P}_{val} = \dfrac{{P}_{elm}}{\nu_o} = 91,06 kW
+     {P}_{val} = \dfrac{Pelm}{\nu_o} = \SI{91,06}{\kilo\watt }
 \end{equation}
 
 \subsubsection* { c) Fajlagos hűtőteljesítmény }
@@ -156,16 +166,16 @@ d) Mennyi a kondenzátorban leadott hő ?
      q_K = h_2 - h_ 3' = \SI{1167}{\kilo\joule\per\kilogram}
 \end{equation}
 \begin{equation}
-     \dot{Q}_K = \dot{m} \cdot q_K = 352 kW
+     \dot{Q}_K = \dot{m}  q_K =  \SI{352}{\kilo\watt } 
 \end{equation}
 
 \subsubsection*{e) Ha a lecsapatóban leadott hő is hasznosítható, akkor egy hőtranszportot kapunk, aminek a fajlagos hőteljesítménye}
 
 \begin{equation}
-    \epsilon = \dfrac{q_H + q_K}{W_K} = 11,14
+    \varepsilon = \dfrac{q_H + q_K}{W_K} = 11,14
 \end{equation}
 
-\subsubsection* {A hűtőgép kapcsolási vázlata és T-s diagramja}
+\subsubsection* {A hűtőgép kapcsolási vázlata és T-s diagramja: }
 
 \begin{figure}[h]
 	\centering
@@ -177,101 +187,159 @@ d) Mennyi a kondenzátorban leadott hő ?
 	
 		% Az ábra tartalma
 			%alsó
-			\draw (-5, -5) -- (-3.5, -5) -- (-3.5, -4.5) -- (-3, -5.5) -- (-2.5, -4.5) -- (-2, -5.5) -- (-1.5, -4.5) -- (-1, -5.5) -- (-0.5, -4.5) -- (0, -5.5) -- (0.5, -4.5) -- (1, -5.5) -- (1.5, -4.5) -- (1.5, -5)-- (5, -5);
-		       	  %nyíl fej rá
-		  	      \draw[-> ] (3, -5) -- (4, -5);
-		  	      
-		  	  \draw [ultra thick] (-4, -6) -- (-4, -4) -- (2, -4) -- (2, -6);
+				%hűtőtér hőcserélővel
+					\draw (-5, -5) -- (-3.5, -5) -- (-3.5, -4.5) -- (-3, -5.5) -- (-2.5, -4.5) -- (-2, -5.5) -- (-1.5, -4.5) -- (-1, -5.5) -- (-0.5, -4.5) -- (0, -5.5) -- (0.5, -4.5) -- (1, -5.5) -- (1.5, -4.5) -- (1.5, -5)-- (5, -5);
+				       	  %nyíl fej rá
+				  	      \draw[-> ] (3, -5) -- (4, -5);
+				  	      
+				  	  \draw [ultra thick] (-4, -6) -- (-4, -4) -- (2, -4) -- (2, -6);
 		  	  
-		  	  %feliratok
+		  	    %feliratok
 			  	  % szám: 4
-			  	  \node[anchor=mid] at (-5, -6) {$4$};
-			  	  \draw(-5, -6) circle(0.5);
+				  	  \node[anchor=mid] at (-5, -6) {$4$};
+				  	  \draw(-5, -6) circle(0.5);
 			  	   % szám: 1
-			  	  \node[anchor=mid] at (5, -6) {$1$};
-			  	  \draw(5, -6) circle(0.5);
+				  	  \node[anchor=mid] at (5, -6) {$1$};
+				  	  \draw(5, -6) circle(0.5);
 			  	  %ELP
-			  	  \node[anchor=mid] at (-1, -6) {$ELP$};
+				  	  \node[anchor=mid] at (-1, -6) {$ELP$};
 		  	      
 			%jobb oldal
-			\draw (5, -5) -- (5, 5);
-			      %nyíl fej rá
-		       	  \draw[-> ] (5, 3) -- (5, 4);
-		       	  
-		       	\draw (7, -1) -- (4, -1) -- (4, 1) -- (7,1);
-		       	\draw (5.5, -1) -- (5.5, 1);
-		       	\draw (5.5, 0) -- (7, 0);
+				\draw (5, -5) -- (5, 5);
+				    %nyíl fej rá
+					        \draw[-> ] (5, 3) -- (5, 4);
+			       %dugattyús kompresszor	  
+					       	\draw (7, -1) -- (4, -1) -- (4, 1) -- (7,1);
+					       	\draw (5.5, -1) -- (5.5, 1);
+					       	\draw (5.5, 0) -- (7, 0);
 		       	  
 			%felső
-			\draw (5, 5) -- (4, 5) -- (4, 4.5) -- (3.5, 5.5) --(3, 4.5) -- (2.5, 5.5)--(2, 4.5) -- (1.5, 5.5) -- (1, 4.5) -- (0.5, 5.5) -- (0, 4.5) -- (-0.5, 5.5) -- (-1, 4.5) -- (-1.5, 5.5) -- (-2, 4.5) -- (-2.5, 5.5) -- (-3, 4.5) -- (-3, 5) -- (-5, 5);
+				%hőcserélő a környezet felé
+						\draw (5, 5) -- (4, 5) -- (4, 4.5) -- (3.5, 5.5) --(3, 4.5) -- (2.5, 5.5)--(2, 4.5) -- (1.5, 5.5) -- (1, 4.5) -- (0.5, 5.5) -- (0, 4.5) -- (-0.5, 5.5) -- (-1, 4.5) -- (-1.5, 5.5) -- (-2, 4.5) -- (-2.5, 5.5) -- (-3, 4.5) -- (-3, 5) -- (-5, 5);
 		
-				  %nyíl fej rá
-			      \draw[->] (-3, 5) -- (-4, 5);
+			    %nyíl fej rá
+					    \draw[->] (-3, 5) -- (-4, 5);
 			      
-			       %feliratok
+			    %feliratok
 				      % szám: 2
-				      \node[anchor=mid] at (5, 6) {$2$};
-				      \draw(5, 6) circle(0.5);
+					      \node[anchor=mid] at (5, 6) {$2$};
+					      \draw(5, 6) circle(0.5);
 				      % szám: 3
-				      \node[anchor=mid] at (-5, 6) {$3$};
-				      \draw(-5, 6) circle(0.5);
+					      \node[anchor=mid] at (-5, 6) {$3$};
+					      \draw(-5, 6) circle(0.5);
 				      %LCS
-				      \node[anchor=mid] at (0, 4) {$L.CS$};
+					      \node[anchor=mid] at (0, 4) {$L.CS$};
 			
 			%baloldal
-			   %U.H
-			   \draw (-5, 5) -- (-5, 4) -- (-5.5, 4) -- (-4.5, 3.5) -- (-5.5, 3) -- (-4.5, 2.5) -- (-5.5, 2) -- (-4.5, 1.5) -- (-5.5, 1) -- (-5, 1) -- (-5, 0) -- (-5, -1);
+			
+				%U.H
+				   \draw (-5, 5) -- (-5, 4) -- (-5.5, 4) -- (-4.5, 3.5) -- (-5.5, 3) -- (-4.5, 2.5) -- (-5.5, 2) -- (-4.5, 1.5) -- (-5.5, 1) -- (-5, 1) -- (-5, 0) -- (-5, -1);
 			   
-			  \draw (-6, 0) rectangle (-4, -2);
-			  \draw (-4, -2) -- (-5, -1) -- (-6, -2);
-			  \draw (-5, -2) -- (-5, -5);
-			       %nyíl fej rá
-		   	       \draw[->] (-5, -3) -- (-5, -4);
+			   %fojtószelep
+				  \draw (-6, 0) rectangle (-4, -2);
+				  \draw (-4, -2) -- (-5, -1) -- (-6, -2);
+				  \draw (-5, -2) -- (-5, -5);
+				  
+			      
+			    %nyíl fej rá
+		   	      \draw[->] (-5, -3) -- (-5, -4);
 		   	       
-		   	        %felirat
-			   	       % szám: 3'
+		   	    %felirat
+			   	    % szám: 3'
 			   	       \node[anchor=mid] at (-6, 1) {$3'$};
 			   	       \draw(-6, 1) circle(0.5);
-			   	       %LCS
+			   	    %LCS
 			   	       \node[anchor=mid] at (-3.5, 2.5) {$U.H$};
 		
 	\end{tikzpicture}
 	\caption{Hűtőgép kapcsolási vázlata}
 \end{figure}
 
+
+
 \begin{figure}[h]
 	\centering
-	%\label{figure:CLCWJ1-tsd}
+	\label{figure:CLCWJ1-nh3_ts}
 	\begin{tikzpicture}
-	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
-	\clip (-1.5, -1) rectangle (14.5, 11);
-	
-	\begin{axis}[
-	width=16cm, height=12cm,
-	xmin=0, xmax=10.8,
-	ymin=0, ymax=475, 
-	axis lines = middle,
-	axis line style={->},
-	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
-	xlabel style={
-		at=(current axis.right of origin), 
-		anchor=north east
-	}, 
-	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
-	ylabel style={
-		at=(current axis.above origin), 
-		anchor=north east
-	},
-	%xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
-	%ytick={270, 300, 400, 500, 600, 700}
-	]
-	%\addplot[thick] table {./CLCWJ1/T_s_diagram.txt};
-	\end{axis}
-	
-	
+		% Rács és vágómaszk
+	   %\draw[step=1cm, gray, very thin] (-1.5, -1) grid (15.5, 14);;
+	   %\clip (-1.5, -1) rectangle (15, 14);
+		
+		
+		% A tengelykeresztet az axis környezet hozza létre
+		\begin{axis}[
+			width=16cm, height=14cm,
+			xmin=0, xmax=9,
+			ymin=-77.150, ymax=160, 
+			axis lines = left ,
+			axis line style={->},
+		%	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+		%	xlabel style={
+		%		at=(current axis.right of origin), 
+		%		anchor=west
+		%	}, 
+		%	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+		%	ylabel style={
+		%		at=(current axis.above origin), 
+		%		anchor=north east
+		%	},
+			xtick={0, 1, 2, 3, 4, 5, 6, 7, 8},
+			ytick={-77, -20, 0, 25, 70, 131, 140}
+			]
+			
+			
+			%  Fázishatár
+			\addplot[thick] table {./CLCWJ1/nh3_ts.txt};
+				
+			% Az p = 1.9 bar-hoz tartozó izobár vonal
+			\addplot[ultra thick, dashed, blue] table {./CLCWJ1/nh3_p1.9.txt};
+			
+			% Az p = 10 bar-hoz tartozó izobár vonal
+			\addplot[ultra thick, dashed, blue] table {./CLCWJ1/nh3_p10.txt};
+			
+			
+			\end{axis}
+			
+			%felső
+				\draw[->, red, ultra thick] (9.3, 5.3425) -- (3, 5.3425);
+				
+					\node[anchor=mid] at (9.9, 5.343) {$2.$};
+					\draw(9.9, 5.343) circle(0.3);
+					
+					\node[anchor=mid] at (2.1, 5.3425) {$3.$};
+					\draw(2.1, 5.3425) circle(0.3);
+				
+			%bal
+				\draw[->, red, ultra thick] (3, 5.3425) -- (2.35, 4.5) -- (3.2, 3);
+			
+					\node[anchor=mid] at (1.9, 4.5) {$3'.$};
+					\draw(1.9, 4.5) circle(0.3);
+					
+			
+			%alsó
+				\draw[->, red, ultra thick] (3.2, 3) -- (9.3, 3);
+				
+					\node[anchor=mid] at (3.2, 2.6) {$4.$};
+					\draw(3.2, 2.6) circle(0.3);
+					
+					\node[anchor=mid] at (9.3, 2.6) {$1.$};
+					\draw(9.3, 2.6) circle(0.3);
+				
+				
+			%jobb
+				\draw[->, red, ultra thick] (9.3, 3) -- (9.3, 5.343);
+				
+			%feliratok	
+				\node[anchor=mid] at (-0.55, 12.8) {$T \left(\si{\degreeCelsius}\right)$};
+				
+				\node[anchor=mid] at (14, -0.55) {$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$};
+				
+				\node[anchor=mid] at (11, 11) {$p_K$};
+				\node[anchor=mid] at (12.3, 10) {$p_H$};
+
+
 	\end{tikzpicture}
-	\caption{ $T-s$ diagram}
-	
+	\caption{$T-s$ diagram}
 \end{figure}
 
 
