@@ -1,0 +1,800 @@
+% A feladat címe automatikus számozás nélkül
+\section*{A vízgőz állapotváltozások ábrái}
+
+% Hozzáadás a tartalomjegyzékhez azonos címmel
+\addcontentsline{toc}{section}{A vízgőz állapotváltozások ábrái}
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Egressy Levente NY03MT és Lőkös Gábor G69PUV \\ 
+	\hline
+	Szak & Mechatronikaimérnök alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+
+
+% A feladat megoldása
+
+
+%p-v izochor
+
+\begin{figure}[h]
+	\centering
+	\label{figure:guh7ud-vgpvd}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{loglogaxis}[
+	width=16cm, height=12cm,
+	xmin=0.0003, xmax=10000,
+	ymin=0.006, ymax=5000, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$p \left(\si{\bar}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={0.001, 0.01, 0.1, 1, 10, 1000},
+	ytick={0.01, 0.1, 1, 10, 100, 1000},
+	extra x ticks={0.0031056,0.25},
+	extra x tick labels={$v_K$,$v_1$},
+	extra y ticks={220.64,0.2,1.75,50},
+	extra y tick labels={$p_K$,$p_1$,$p_2$,$p_3$},
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/pv.txt};
+	
+	% x jelölések
+	\node[anchor=south east] at (axis cs: 0.005, 5) {\pgf{$x=0$}};
+	\node[anchor=south east] at (axis cs: 1.2
+	, 5) {\pgf{$x=1$}};
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 0.25, 0.2) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 0.25, 0.2) circle (1mm);
+	
+	% 2-es pont
+	\node[anchor=south east] at (axis cs: 0.25, 1.75) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 0.25, 1.75) circle (1mm);
+	
+	% 3-as pont
+	\node[anchor=south east] at (axis cs: 0.25, 50) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 0.25, 50) circle (1mm);
+	
+	% Izochor vonal
+	\draw[->, very thick] (axis cs: 0.25, 0.2) -- (axis cs:  0.25, 50);
+	
+	% Függőleges vonal
+	\draw[very thin] (axis cs: 0.25, 0.2) -- (axis cs:  0.25, 0.006);
+	
+	% Vízszintes vonalak
+	\draw[very thin] (axis cs: 0.0003, 0.2) -- (axis cs:  0.25, 0.2);
+	\draw[very thin] (axis cs: 0.0003, 1.75) -- (axis cs:  0.25, 1.75);
+	\draw[very thin] (axis cs: 0.0003, 50) -- (axis cs:  0.25, 50);	
+	
+	% A kritikus pont
+	\node[anchor=south] at (axis cs: 0.0031056, 220.64) {$K$};
+	\fill[fill=black] (axis cs: 0.0031056, 220.64) circle (0.75mm);
+	
+	% A két görbe metszéspontja
+	%\node[anchor=north east] at (axis cs: 0.836481, 1.01418) {\pgfcircled{$1$}};
+	%\filldraw[black, fill=white] (axis cs: 0.836481, 1.01418) circle (1mm);
+	
+	\end{loglogaxis}
+	
+	\end{tikzpicture}
+	\caption{Izochor p-v diagram}
+\end{figure}
+
+\pagebreak
+
+%T-s izochor
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:vgtsd}
+	\begin{tikzpicture}
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=-1, xmax=10.8,
+	ymin=-30, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400}
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/ts.txt};
+	
+	% A kritikus pont
+	\node[anchor=south east] at (axis cs: 4.40696, 373.919) {\pgfcircled{$K$}};
+	\filldraw[black, fill=black] (axis cs: 4.40696, 373.919) circle (1mm);
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 3.5, 150) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 3.5, 150) circle (1mm);
+	
+	%2-es pont
+	\node[anchor=south east] at (axis cs: 5.9731, 263.941) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 5.9731, 263.941) circle (1mm);
+	
+	%3-as pont
+	\node[anchor=south east] at (axis cs: 6.497, 360.850) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 360.850) circle (1mm);
+	
+	
+	%Izochor_gorbe
+	\addplot[name path=A, ultra thick] table {./ny03mt_g69puv/izochor_gorbe.txt}; 
+	
+	%Függőleges vonalak és s jelölések
+	\draw[very thin] (axis cs: 3.5, 150) -- (axis cs:  3.5, 0);
+	\draw[very thin] (axis cs: 5.9731, 263.941) -- (axis cs:  5.9731, 0);
+	\draw[very thin] (axis cs: 6.497, 360.850) -- (axis cs:  6.497, 0);
+	\node[anchor=north west] at (axis cs: 3.3, -5) {\pgf{$s_1$}};
+	\filldraw[black, fill=white] (axis cs: 3.5, 0) circle (0.75mm);
+	\node[anchor=north west] at (axis cs: 5.9731, -5) {\pgf{$s_2$}};
+	\filldraw[black, fill=white] (axis cs: 5.9731, 0) circle (0.75mm);
+	\node[anchor=north west] at (axis cs: 6.357, -5) {\pgf{$s_3$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 0) circle (0.75mm);
+	
+	
+	
+	%x jelölések
+	\node[anchor=south east] at (axis cs: 3.5, 320) {\pgf{$x=0$}};
+	\node[anchor=south east] at (axis cs: 6.4, 320) {\pgf{$x=1$}};
+	
+	%Tjelolesek
+	%T_1jelölése
+	\draw[very thin] (axis cs: 0, 150) -- (axis cs:  3.5, 150);
+	\node[anchor=south east] at (axis cs: 0, 137) {\pgf{$T_1$}};
+	\filldraw[black, fill=white] (axis cs: 0, 150) circle (0.75mm);
+	
+	%T_2jelolese
+	\draw[very thin] (axis cs: 0, 263.941) -- (axis cs:  5.9731, 263.941);
+	\node[anchor=north east] at (axis cs: 0, 278.941) {\pgf{$T_2$}};
+	\filldraw[black, fill=white] (axis cs: 0, 263.941) circle (0.75mm);
+	
+	%T_3jelolese
+	\draw[very thin] (axis cs: 0, 360.850) -- (axis cs:  6.497, 360.850);
+	\node[anchor=north east] at (axis cs: 0, 375.850) {\pgf{$T_3$}};
+	\filldraw[black, fill=white] (axis cs: 0, 360.850) circle (0.75mm);
+	
+	% q jeloles
+	\node[anchor=south east] at (axis cs: 5.3, 100) {\pgf{$q_{12}$}};
+	\node[anchor=south east] at (axis cs: 6.57, 100) {\pgf{$q_{23}$}};
+	
+	%vonalkazas segedvonal
+	\draw[name path=B, ultra thin] (axis cs: 3.5, 0) -- (axis cs:  6.497, 0);
+	%vonalkazas
+	\addplot[grey!30] fill between[of=A and B];
+	
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{Izochor T-s diagram}
+\end{figure}
+
+\pagebreak
+
+%p-v izobar
+
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:guh7ud-vgpvd}
+	\begin{tikzpicture}
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{loglogaxis}[
+	width=16cm, height=12cm,
+	xmin=0.0003, xmax=10000,
+	ymin=0.006, ymax=5000, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$p \left(\si{\bar}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={0.001, 0.01, 0.1, 1, 10, 1000},
+	ytick={0.01, 0.1, 1, 10, 100, 1000},
+	extra x ticks={0.0031056,0.05,4.130687,25},
+	extra x tick labels={$v_K$,$v_1$,$v_2$,$v_3$},
+	extra y ticks={220.64,0.385954},
+	extra y tick labels={$p_K$,$p_1$},
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/pv.txt};
+	
+	% A kritikus pont
+	\node[anchor=south] at (axis cs: 0.0031056, 220.64) {$K$};
+	\fill[fill=black] (axis cs: 0.0031056, 220.64) circle (0.75mm);
+	
+	% x jelölések
+	\node[anchor=south east] at (axis cs: 0.005, 5) {\pgf{$x=0$}};
+	\node[anchor=south east] at (axis cs: 1.2, 5) {\pgf{$x=1$}};
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 0.05, 0.385954) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 0.05, 0.385954) circle (1mm);
+	
+	% 2-es pont
+	\node[anchor=south west] at (axis cs: 4.130687, 0.385954) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 4.130687, 0.385954) circle (1mm);
+	
+	% 3-as pont
+	\node[anchor=south east] at (axis cs: 25, 0.385954) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 25, 0.385954) circle (1mm);
+	
+	% Izobar vonal (150C0)
+	\draw[mid arrow,name path=A,->, very thick] (axis cs: 0.05, 0.385954) -- (axis cs:  25, 0.385954);
+	
+	% Függőleges vonal
+	\draw[very thin] (axis cs: 0.05, 0.385954) -- (axis cs:  0.05, 0.006);
+	\draw[very thin] (axis cs: 4.130687, 0.385954) -- (axis cs:  4.130687, 0.006);
+	\draw[very thin] (axis cs: 25, 0.385954) -- (axis cs:  25, 0.006);
+	
+	% Vízszintes vonalak
+	\draw[very thin] (axis cs: 0.0003, 0.385954) -- (axis cs:  0.05, 0.385954);
+	
+	%vonalkazas segedvonal
+	\draw[very thin,name path=B,ultra thin] (axis cs: 0.05, 0.006) -- (axis cs:  25, 0.006);
+	%\addplot+ [name path=B, ultra thin, domain= 0.05: 25, samples=2] {0.006};
+	
+	%vonalkazas
+	\addplot[grey!30] fill between[of=A and B];
+	
+	%W1-2,W2-3 pontok
+	\node[anchor=north east] at (axis cs: 0.75, 0.07) {\pgf{$w_1$}};
+	\node[anchor=north] at (axis cs: 10, 0.07) {\pgf{$w_2$}};
+	
+	
+	
+	\end{loglogaxis}
+	
+	\end{tikzpicture}
+	\caption{Izobár p-v diagram}
+\end{figure}
+
+\pagebreak
+
+%T-s izobár
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:vgtsd}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%\draw[step=1cm, gray, very thin] (-1.5, -0.5) grid (14.5, 10.5);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=-1, xmax=10.8,
+	ymin=-30, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400}
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/ts.txt};
+	
+	% x jelölések
+	\node[anchor=south east] at (axis cs: 3.5, 320) {\pgf{$x=0$}};
+	\node[anchor=south east] at (axis cs: 6.4, 320) {\pgf{$x=1$}};
+	
+	% A kritikus pont
+	\node[anchor=north west] at (axis cs: 4.40696, 373.919) {\pgfcircled{$K$}};
+	\filldraw[black, fill=black] (axis cs: 4.40696, 373.919) circle (1mm);
+	
+	% 50bar-os izobar vonal
+	\addplot[->, name path=A, ultra thick] table {./ny03mt_g69puv/50Bar_gorbe_1-3.txt}; 
+	\addplot[thick] table {./ny03mt_g69puv/50Bar_gorbe_maradek.txt};
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 3.5, 263.941) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 3.5, 263.941) circle (1mm);
+	
+	% 2-es pont
+	\node[anchor=south east] at (axis cs: 5.9731, 263.941) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 5.9731, 263.941) circle (1mm);
+	
+	% 3-as pont
+	\node[anchor=south east] at (axis cs: 6.614, 390.850) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 6.614, 390.850) circle (1mm);
+	
+	% Függőleges vonalak és s jelölések
+	\draw[very thin] (axis cs: 3.5, 263.941) -- (axis cs:  3.5, 0);
+	\draw[very thin] (axis cs: 5.9731, 263.941) -- (axis cs:  5.9731, 0);
+	\draw[very thin] (axis cs: 6.614, 390.850) -- (axis cs:  6.614, 0);
+	\node[anchor=north west] at (axis cs: 3.3, -5) {\pgf{$s_1$}};
+	\filldraw[black, fill=white] (axis cs: 3.5, 0) circle (0.75mm);
+	\node[anchor=north west] at (axis cs: 5.9731, -5) {\pgf{$s_2$}};
+	\filldraw[black, fill=white] (axis cs: 5.9731, 0) circle (0.75mm);
+	\node[anchor=north west] at (axis cs: 6.414, -5) {\pgf{$s_3$}};
+	\filldraw[black, fill=white] (axis cs: 6.614, 0) circle (0.75mm);
+	
+	% T jelölése
+	\draw[very thin] (axis cs: 0, 263.941) -- (axis cs:  3.5, 263.941);
+	\node[anchor=south east] at (axis cs: 0, 246.941) {\pgf{$T_{1,2}$}};
+	\filldraw[black, fill=white] (axis cs: 0, 263.941) circle (0.75mm);
+	
+	\draw[very thin] (axis cs: 0, 390.850) -- (axis cs:  6.614, 390.850);
+	\node[anchor=north east] at (axis cs: 0, 390.850) {\pgf{$T_3$}};
+	\filldraw[black, fill=white] (axis cs: 0, 390.850) circle (0.75mm);
+	
+	% p jelölése
+	\node[anchor=south west] at (axis cs: 6.614, 390.850) {\pgf{$p=kons.$}};
+	
+	% q jeloles
+	\node[anchor=south east] at (axis cs: 5.2, 135) {\pgf{$q_{12}$}};
+	\node[anchor=south east] at (axis cs: 6.65, 135) {\pgf{$q_{23}$}};
+	
+	%vonalkazas segedvonal
+	\addplot+ [name path=B, ultra thin, domain=3.5:6.614, samples=2] {0};
+	
+	%vonalkazas
+	\addplot[grey!30] fill between[of=A and B];
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{Izobár T-s diagram}
+\end{figure}
+
+\pagebreak
+
+%p-v izoterm
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:guh7ud-vgpvd}
+	\begin{tikzpicture}
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{loglogaxis}[
+	width=16cm, height=12cm,
+	xmin=0.0003, xmax=10000,
+	ymin=0.006, ymax=5000, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$p \left(\si{\bar}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={0.001, 0.01, 0.1, 1, 10, 1000},
+	ytick={0.01, 0.1, 1, 10, 100, 1000},
+	extra x ticks={0.0031056,0.05,1.672373,20.540213},
+	extra x tick labels={$v_K$,$v_1$,$v_2$,$v_3$},
+	extra y ticks={220.64},
+	extra y tick labels={$p_K$},
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/pv.txt};
+	
+	%izoterma (100C)
+	\addplot[ultra thick,name path=A,,->] table {./ny03mt_g69puv/100C izoterma.txt};	
+	
+	% A kritikus pont
+	\node[anchor=south] at (axis cs: 0.0031056, 220.64) {$K$};
+	\fill[fill=black] (axis cs: 0.0031056, 220.64) circle (0.75mm);
+	
+	% x jelölések
+	\node[anchor=south east] at (axis cs: 0.005, 5) {\pgf{$x=0$}};
+	\node[anchor=south east] at (axis cs: 1.2, 5) {\pgf{$x=1$}};
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 0.05, 1.014180) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 0.05, 1.014180) circle (1mm);
+	
+	% 2-es pont
+	\node[anchor=south west] at (axis cs: 1.672373, 1.014180) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 1.672373, 1.014180) circle (1mm);
+	
+	% 3-as pont
+	\node[anchor=south west] at (axis cs: 20.540213, 0.083741) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 20.540213, 0.083741) circle (1mm);
+	
+	% Függőleges vonal
+	\draw[very thin] (axis cs: 0.05, 1.014180) -- (axis cs:  0.05, 0.006);
+	\draw[very thin] (axis cs: 1.672373, 1.014180) -- (axis cs:  1.672373, 0.006);
+	\draw[very thin] (axis cs: 20.540213, 0.083741) -- (axis cs:  20.540213, 0.006);
+	
+	%vonalkazas segedvonal
+	\draw[very thin,name path=B,ultra thin] (axis cs: 0.05, 0.006) -- (axis cs: 20.540213, 0.006);
+	
+	%vonalkazas
+	\addplot[grey!30] fill between[of=A and B];
+	
+	%W1-2,W2-3 pontok
+	\node[anchor=north east] at (axis cs: 0.55, 0.1) {\pgf{$w_1$}};
+	\node[anchor=north] at (axis cs: 6, 0.1) {\pgf{$w_2$}};
+	
+	
+	\end{loglogaxis}
+	
+	\end{tikzpicture}
+	\caption{Izoterm p-v diagram}
+\end{figure}
+
+\pagebreak
+
+%T-s izoterm
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:vgtsd}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%\draw[step=1cm, gray, very thin] (-1.5, -0.5) grid (14.5, 10.5);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=-1, xmax=10.8,
+	ymin=-30, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400}
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/ts.txt};
+	
+	% A kritikus pont
+	\node[anchor=south east] at (axis cs: 4.40696, 373.919) {\pgfcircled{$K$}};
+	\filldraw[black, fill=black] (axis cs: 4.40696, 373.919) circle (1mm);
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 4.5, 263.941) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 4.5, 263.941) circle (1mm);
+	
+	%2-es pont
+	\node[anchor=south east] at (axis cs: 5.9731, 263.941) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 5.9731, 263.941) circle (1mm);
+	
+	%3-as pont
+	\node[anchor=south east] at (axis cs: 7.5, 263.941) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 7.5, 263.941) circle (1mm);
+	
+	
+	%Izoterma
+	\draw[->,name path=A, ultra thick] (axis cs: 4.5, 263.941) -- (axis cs: 7.5, 263.941);
+	
+	%Függőleges vonalak és s jelölések
+	\draw[very thin] (axis cs: 4.5, 263.941) -- (axis cs:  4.5, 0);
+	\draw[very thin] (axis cs: 5.9731, 263.941) -- (axis cs:  5.9731, 0);
+	\draw[very thin] (axis cs: 7.5, 263.941) -- (axis cs:  7.5, 0);
+	\node[anchor=north west] at (axis cs: 4.3, -5) {\pgf{$s_1$}};
+	\filldraw[black, fill=white] (axis cs: 4.5, 0) circle (0.75mm);
+	\node[anchor=north west] at (axis cs: 5.9731, -5) {\pgf{$s_2$}};
+	\filldraw[black, fill=white] (axis cs: 5.9731, 0) circle (0.75mm);
+	\node[anchor=north west] at (axis cs: 7.3, -5) {\pgf{$s_3$}};
+	\filldraw[black, fill=white] (axis cs: 7.5, 0) circle (0.75mm);
+	
+	
+	
+	%x jelölések
+	\node[anchor=south east] at (axis cs: 3.5, 320) {\pgf{$x=0$}};
+	\node[anchor=south east] at (axis cs: 6.4, 320) {\pgf{$x=1$}};
+	
+	%Tjelölése
+	\draw[very thin] (axis cs: 0, 263.941) -- (axis cs:  4.5, 263.941);
+	\node[anchor=south east] at (axis cs: 0, 263.941) {\pgf{$T_{1,2,3}$}};
+	\filldraw[black, fill=white] (axis cs: 0, 263.941) circle (0.75mm);
+	
+	% q jeloles
+	\node[anchor=south east] at (axis cs: 5.6, 100) {\pgf{$q_{12}$}};
+	\node[anchor=south east] at (axis cs: 7.1, 100) {\pgf{$q_{23}$}};
+	
+	%vonalkazas segedvonal
+	\draw[name path=B, ultra thin] (axis cs: 4.5, 0) -- (axis cs:  7.5, 0);
+	%vonalkazas
+	\addplot[grey!30] fill between[of=A and B];
+	
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{Izoterm T-s diagram}
+\end{figure}
+
+\pagebreak
+
+%p-v izobar
+
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:guh7ud-vgpvd}
+	\begin{tikzpicture}
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{loglogaxis}[
+	width=16cm, height=12cm,
+	xmin=0.0003, xmax=10000,
+	ymin=0.006, ymax=5000, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$p \left(\si{\bar}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={0.001, 0.01, 0.1, 1, 10, 1000},
+	ytick={0.01, 0.1, 1, 10, 100, 1000},
+	extra x ticks={0.0031056,2.429802,0.043,0.013260},
+	extra x tick labels={$v_K$,$v_1$,$v_2$},
+	extra y ticks={0.5,45.886615,200},
+	extra y tick labels={$p_1$,$p_2$,$p_3$},
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/pv.txt};
+	
+	% A kritikus pont
+	\node[anchor=south] at (axis cs: 0.0031056, 220.64) {$K$};
+	\fill[fill=black] (axis cs: 0.0031056, 220.64) circle (0.75mm);
+	
+	% x jelölések
+	\node[anchor=south east] at (axis cs: 0.005, 5) {\pgf{$x=0$}};
+	\node[anchor=south east] at (axis cs: 1.2, 5) {\pgf{$x=1$}};
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 2.229802, 0.26) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 2.429802, 0.500000) circle (1mm);
+	
+	% 2-es pont
+	\node[anchor=south west] at (axis cs: 0.05,  45.86615) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 0.043, 45.886615) circle (1mm);
+	
+	% 3-as pont
+	\node[anchor=south east] at (axis cs: 0.013260, 200.000000) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 0.013260, 200.000000) circle (1mm);
+	
+	% adiabata
+	\addplot[ultra thick, name path=A] table {./ny03mt_g69puv/pv_adiabata.txt}; 
+	
+	% Függőleges méretvonalak
+	\draw[very thin] (axis cs: 2.429802, 0.500000) -- (axis cs: 2.429802, 0.006);
+	\draw[very thin] (axis cs: 0.043, 45.886615) -- (axis cs:  0.043, 0.006);
+	\draw[very thin] (axis cs: 0.013260, 200.000000) -- (axis cs: 0.013260, 0.006);
+	
+	% Vízszintes vonalak
+	\draw[very thin] (axis cs: 0.0003, 0.500000) -- (axis cs: 2.429802, 0.500000);
+	\draw[very thin] (axis cs: 0.0003, 45.886615) -- (axis cs: 0.043, 45.886615);
+	\draw[very thin] (axis cs: 0.0003, 200) -- (axis cs: 0.013260, 200.000000);
+	
+	%v_3_felirat
+	\node[anchor=north west] at (axis cs:0.013260 , 0.011) {\pgf{$v_3$}};
+	
+	%vonalkazas segedvonal
+	\draw[name path=B,ultra thin] (axis cs:0.013260 , 0.006) -- (axis cs: 2.429802, 0.006);
+	
+	
+	%vonalkazas
+	\addplot[grey!30] fill between[of=A and B];
+	
+	%W1-2,W2-3 pontok
+	\node[anchor=north east] at (axis cs: 0.2, 0.5) {\pgf{$w$}};
+	%\node[anchor=north] at (axis cs: 0.0135, 1) {\pgf{$w_{23}$}};
+	
+	
+	
+	\end{loglogaxis}
+	
+	\end{tikzpicture}
+	\caption{Adiabatikus p-v diagram}
+\end{figure}
+
+\pagebreak
+
+%T-s adiabatikus
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:vgtsd}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%\draw[step=1cm, gray, very thin] (-1.5, -0.5) grid (14.5, 10.5);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=-1, xmax=10.8,
+	ymin=-30, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400}
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/ts.txt};
+	
+	% A kritikus pont
+	\node[anchor=south east] at (axis cs: 4.40696, 373.919) {\pgfcircled{$K$}};
+	\filldraw[black, fill=black] (axis cs: 4.40696, 373.919) circle (1mm);
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 6.497, 151.831) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 151.831) circle (1mm);
+	
+	%2-es pont
+	\node[anchor=south east] at (axis cs: 6.497, 185.850) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 190.850) circle (1mm);
+	
+	%3-as pont
+	\node[anchor=south east] at (axis cs: 6.497, 360.850) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 360.850) circle (1mm);
+	
+	
+	%p1_gorbe
+	\addplot[thick] table {./ny03mt_g69puv/adiabatikus_p1.txt}; 
+	\node[anchor=south east] at (axis cs: 5.4, 151.831) {\pgf{$p_1=const.$}};
+	
+	%p3_gorbe
+	\addplot[thick] table {./ny03mt_g69puv/50Bar görbe.txt};
+	\node[anchor=south east] at (axis cs: 4.7, 263.941) {\pgf{$p_3$}};
+	
+	%Függőleges vonalak és s jelölések
+	\draw[very thin] (axis cs: 6.497, 360.850) -- (axis cs:  6.497, 0);
+	\node[anchor=north west] at (axis cs: 6.2, -5) {\pgf{$s_{123}$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 0) circle (0.75mm);
+	
+	
+	
+	%x jelölések
+	\node[anchor=south east] at (axis cs: 3.5, 320) {\pgf{$x=0$}};
+	\node[anchor=south east] at (axis cs: 6.4, 320) {\pgf{$x=1$}};
+	
+	%Tjelolesek
+	%T_1jelölése
+	\draw[very thin] (axis cs: 0, 151.831) -- (axis cs:  1.860, 151.831);
+	\node[anchor=south east] at (axis cs: 0, 139) {\pgf{$T_1$}};
+	\filldraw[black, fill=white] (axis cs: 0, 151.831) circle (0.75mm);
+	
+	%T_2jelolese
+	%\draw[very thin] (axis cs: 0, 185.850) -- (axis cs:  6.497, 185.850);
+	%\node[anchor=north east] at (axis cs: 0, 278.941) {\pgf{$T_2$}};
+	%\filldraw[black, fill=white] (axis cs: 0, 263.941) circle (0.75mm);
+	
+	%T_3jelolese
+	\draw[very thin] (axis cs: 0, 360.850) -- (axis cs:  6.497, 360.850);
+	\node[anchor=north east] at (axis cs: 0, 375.850) {\pgf{$T_3$}};
+	\filldraw[black, fill=white] (axis cs: 0, 360.850) circle (0.75mm);
+	
+	%1-3_szakasz
+	\draw[ultra thick, mid arrow] (axis cs: 6.497, 151.831) -- (axis cs: 6.497, 360.850);
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{Adiabatikus T-s diagram}
+\end{figure}
+
+
+% Oldaltörés
+\pagebreak

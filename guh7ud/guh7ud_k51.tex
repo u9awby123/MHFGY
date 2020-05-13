@@ -31,21 +31,16 @@
 			\pgfmathsetmacro{\TK}{(\TA+\TB)/2}
 			
 			% Fal
-			\fill[gray,opacity=0.25] (0,0) -- (0,\L) -- ({\d/2-0.16},\L) -- ({\d/2-0.08}, {\L-0.12}) -- ({\d/2+0.08}, {\L +0.12}) -- ({\d/2+0.16}, \L) -- (\d, \L) -- (\d, 0);
-			\draw[] (0,\L) -- ({\d/2-0.16},\L) -- ({\d/2-0.08}, {\L-0.12}) -- ({\d/2+0.08}, {\L+0.12}) -- ({\d/2+0.16}, \L) -- (\d, \L);
-			\draw[ultra thick] (0,0) -- (0,\L);
-			\draw[ultra thick] (\d, 0) -- (\d, \L);
+			
 			
 			% Feliratok
-			\node[anchor=base east] at (0, \L) {tűztér};
-			\node[anchor=base west] at (\d, \L) {gőz};
 			
 			% Tengelyek
 			\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
 			\draw[->] (-1,0) -- (4.25,0) node[anchor=base east, shift={(0,-0.5)}]{$x$};
 			
 			% Hőáram és hőáramsűrűség
-			\draw[->, ultra thick] (0.5,{\L+0.35}) -- ({\d/2},{\L+0.35}) node[anchor=south]{$\dot{q}_a$} -- ({\d - 0.5},{\L+0.35});
+			
 			
 			% A hővezetési tényező
 			\node[anchor=base] at ({\d/2},{\L-0.5}) {$\lambda_1$};
