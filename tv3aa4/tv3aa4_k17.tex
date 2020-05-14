@@ -1,24 +1,3 @@
-% !TeX TS-program = xelatex
-
-\documentclass[11pt, a4paper]{report}
-
-% Dokumentum adatok
-% =================
-\author{}
-\title{Műszaki hőtan feladatgyűjtemény}
-
-% A közös fájlok beszúrása
-% ========================
-\newcommand*{\JakiFolder}{./JAKI}%
-
-% A közös fájlok a JAKI tárolóban vannak, amit az MHFGY-vel 
-% közös mappába kell letölteni (clone/pull).
-\input{JakiAlap.tex}				% Formázás, csomagok
-\input{JakiTikz.tex}				% Rajzoló parancsok
-
-% A dokumentum kezdete
-% ====================
-\begin{document}
 	\section*{K1/7. feladat: Túlhevített vízgőz sűrítése állandó hőmérsékleten}
 	\addcontentsline{toc}{section}{K1/7. feladat}
 		\begin{tabular}{ | p{2cm} | p{14cm} | } 
@@ -64,13 +43,13 @@
 
 		\subsubsection{Belső energia megváltozása}
 			Termodinamika I. főtétele szerint a belső energia egy állapotjelző, tehát teljes differenciál.
-			\[ \int_{1}^{2} du = u_1 - u_1 = \Delta u_{12}
+			\[ \int_{1}^{2} \dif u = u_1 - u_1 = \Delta u_{12}
 			\]  
 			Ugyan akkor ez zárt rendszerre igaz, de nyitott rendszerre az entalpiát alkalmazzuk. Gibbs egyenlet:
-			\[ H=U+pv\]  
-			\[U=H-pv\] 
+			\[ h=u+pv\]  
+			\[u=h-pv\] 
 			\begin{equation}
-				\Delta u_{12} = u_2 - u_1 = \left(h_2 -p_2 \cdot v_2\right) - \left(h_1 -p_1 \cdot v_1\right) 				 
+				\Delta u_{12} = u_2 - u_1 = \left(h_2 -p_2  v_2\right) - \left(h_1 -p_1  v_1\right) 				 
 			\end{equation}
 			\begin{equation}
 				\Delta u_{12} = \left( \SI{2793}{\kilo\joule\per\kilogram} - \SI{15,55e5}{\pascal} \cdot \SI{0,1272}{\meter\cubed\per\kilogram} \right) - \left( \SI{2827}{\kilo\joule\per\kilogram} - \SI{10e5}{\pascal} \cdot \SI{0,206}{\meter\cubed\per\kilogram} \right) 
@@ -81,14 +60,14 @@
                                 Figyeljünk a nyomás mértékegységére!
 		\subsubsection{Hőforgalom számítása}
 			Termodinamika II. főtétele szerint:
-			\[ ds=(1/T) \cdot  \delta q\] 
-			Ezt q-ra rendezve:
-			\[ q=T \cdot ds \]
-			teljes differenciál az s-nél:
-			\[ \int_{1}^{2} Tds= T(s_2-s_1) \]
-			mert T kivihető integrál jel elé:
+			\[ \dif s=(1/T)\delta q\] 
+			Ezt $q$-ra rendezve:
+			\[ q=T\dif s \]
+			teljes differenciál az $s$-nél:
+			\[ \int_{1}^{2} T\dif s= T(s_2-s_1) \]
+			mert $T$ kivihető integrál jel elé:
 			\begin{equation}
-				q_{12} = T_1 \cdot \left( s_2 - s_1\right) 
+				q_{12} = T_1\left( s_2 - s_1\right) 
 			\end{equation}   
 			\begin{equation}
 				q_{12} = \SI{473,15}{\kelvin} \left( \SI{6,430}{\kilo\joule\per\kilogram\kelvin} -\SI{6,662}{\kilo\joule\per\kilogram\kelvin}   \right) 
@@ -99,10 +78,10 @@
                                  Figyeljünk a hőmérséklet mértékegységére!
 		\subsubsection{Munka forgalom}
 			Termodinamika I. főtétele alapján:
-				\[ du = \delta q - \delta w \]
+				\[ \dif u = \delta q - \delta w \]
 			Ezt átrendezve és integrálva:					 
 			\begin{equation}
-				w_{12} = q_{12}- \Delta U_{12} 
+				w_{12} = q_{12}- \Delta u_{12} 
 			\end{equation}	
 			\begin{equation}
 				w_{12} = \SI{-123,13}{\kilo\joule\per\kilogram} - \SI{-25,76}{\kilo\joule\per\kilogram} 
@@ -110,6 +89,7 @@
 			\begin{equation}
 				w_{12} = \SI{-97,3}{\kilo\joule\per\kilogram}
 			\end{equation}
+\pagebreak
 		\subsubsection{T-S diagram}	
 		\begin{figure}[h]
 			\centering
@@ -151,5 +131,6 @@
 			\end{tikzpicture}
 			\caption{Vízgőz $T-s$ diagram}
 		\end{figure}		
-\end{document}
+\pagebreak
+
 
