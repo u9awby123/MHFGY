@@ -125,11 +125,89 @@ Innen pedig az expanzió végrehajtása után az entalpia:
 
 \noindent Ebből pedig a munkát:
 \begin{equation}
-	W_{t} = h_{1} - h_{2uj}
+	w_{t} = h_{1} - h_{2uj}
 	=
 	\SI{87,8276}{\dfrac{\kilo\joule}{\kilogram}}
 \end{equation}
 \begin{equation}
-	W_{ad} = m_{g}W_{t} = \SI{69190,58}{\kilo\joule} \Rightarrow \SI{69190583}{\joule}
+	W_{ad} = m_{g}w_{t} = \SI{69190,58}{\kilo\joule} \Rightarrow \SI{69190583}{\joule}
 \end{equation}
 \subsubsection{T-s diagram}
+%\begin{figure}[h]
+	%\centering
+	%\begin{tikzpicture}	
+%	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% Tengelyek
+%	\draw[->] ({0}, {0}) -- ({14}, {0}) node[anchor=base east, shift={(0.4,-0.7)}]{$s$ [\si{\kilo\joule\per\kilogram\kelvin}]};
+%	\draw[->] ({0}, {0}) -- ({0}, {10}) node[anchor=north east]{$T$ $[\si{\celsius}]$};
+	
+%	\begin{axis}[
+%	axis lines = middle,
+%	axis line style = {draw = none},
+%	xlabel={},
+%	ylabel={},
+%	ytick={100, 200, 300, 400},
+%	%yticklabels={{$T_1=116,19$}, {$T''=128,37$}, {$T_2=200$}},
+%	ytick style={draw=none},
+%	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+%	%xticklabels={{$s_1=5,46$}, {$s''=7,04$}, {$s_2=7,30$}},
+%	x tick label style={rotate=90,anchor=east},
+%	xtick style={draw=none},
+%	width=15cm, height=10cm, xmin=0, ymin=0
+%	]
+	
+	%T-s alap
+%	\addplot [thick] table {./RXEZFF/ts.txt}; %T-s diagram alap
+	
+ %	\end{axis}
+%	\end{tikzpicture}
+%	\caption{Az állapotváltozás T-s diagramja}
+%\end{figure}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[	
+	width=16cm, height=12cm,
+	xmin=0, xmax=10.8,
+	ymin=0, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400}
+	]
+	
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./RXEZFF/ts.txt};
+	
+	%nyomás
+	\addplot[thick, blue] table {./RXEZFF/p28.txt};
+	\node[blue, rotate = 75] at (axis cs:6.638, 370) {$p_{1}= \SI{28}{\bar}$};
+	\addplot[thick, blue] table {./RXEZFF/p1.txt};
+	\node[blue, rotate = 77] at (axis cs:8.263, 370) {$p_{2}= \SI{1}{\bar}$};
+	
+	%entalpia
+	\addplot[thick, red] table {./RXEZFF/fojtas.txt};
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{Fojtás a $T-s$ diagramon}
+\end{figure}
