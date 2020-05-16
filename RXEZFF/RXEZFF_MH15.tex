@@ -1,3 +1,10 @@
+%változók
+\newcommand\skalazas{0.9}		
+\newcommand\Tegy{230.04}
+\newcommand\Tketto{99.6}
+\newcommand\segy{2.613}
+\newcommand\sketto{2.845}
+
 \section*{MH 15. Vízgőz fojtása}
 \addcontentsline{toc}{section}{MH 15. feladat}
 
@@ -47,13 +54,13 @@ Ennek meghatározásához, először ki kell számolni a $h_{1}$-et: ($h_{1}^{''
 	=
 	\SI{997,02}{\dfrac{\kilo\joule}{\kilogram}}
 \end{equation}
-A fajlagos gőztartalmat úgy kapjuk meg, hogy figyelembe vesszük, hogy az entalpia a fojtás során nem változik, a két állapot között ezért $h_{1} = h_{2}$. Ehhez először azonban meg kell határoznunk a $h_{2}^{''}$-t, amelyet a fajlagos párolgáshő segítségével ki lehet számolni:
+A fajlagos gőztartalmat úgy kapjuk meg, hogy figyelembe vesszük, hogy az entalpia a fojtás során állandó, a két állapot között ezért fennáll, hogy $h_{1} = h_{2}$. Ehhez először azonban meg kell határoznunk a $h_{2}^{''}$-t, amelyet a fajlagos párolgáshő segítségével ki lehet számolni:
 \begin{equation}
 	h_{2}^{''} = r_{2} + h_{1}^{'}
 	=
 	\SI{2675,4}{\dfrac{\kilo\joule}{\kilogram}}
 \end{equation}
-Végül pedig, a 2-es állapothoz tartozó fajlagos gőztartalmat az entalpia képletének átrendezéséből:
+\tab Végül pedig, a 2-es állapothoz tartozó fajlagos gőztartalmat az entalpia képletének átrendezéséből:
 \begin{equation}
 	h_{2} = \left(1 - x_{2}\right) h_{2}' + x_{2} h_{2}^{''}
 	\quad 
@@ -84,7 +91,7 @@ A keletkezett gőz tömegének számításához szükségünk van a kiindulási 
 
 
 \subsubsection{Az entrópia növekedés számítása}
-Az entrópiaváltozást ki lehet számolni, a két állapot entrópiájának különbségeként, amelyeket a következő módon kapunk:
+Az entrópia növekedését ki lehet számolni, a két állapot entrópiájának különbségeként, amelyeket a következő módon kapunk:
 ($s_{1}^{''} = \SI{6,213}{\dfrac{\kilo\joule}{kgK}}$ gőztáblázatból)
 \begin{equation}
 	s_{1}
@@ -100,7 +107,7 @@ Az entrópiaváltozást ki lehet számolni, a két állapot entrópiájának kü
 	=
 	\SI{2,8575}{\dfrac{\kilo\joule}{\kilogram\kelvin}}
 \end{equation}
-Ezekből az entrópia növekedése az állapotváltozás során:
+\tab Ezekből az entrópia növekedése az állapotváltozás során:
 \begin{equation}
 	\Delta s = s_{2} - s_{1}\approx \SI{0,2344}{\dfrac{\kilo\joule}{\kilogram\kelvin}}
 \end{equation}
@@ -116,14 +123,14 @@ Ebből kifolyólag:
 	=
 	\SI{0,2178}{}
 \end{equation}
-Innen pedig az expanzió végrehajtása után az entalpia:
+\tab Innen pedig az expanzió végrehajtása után az entalpia:
 \begin{equation}
 	h_{2uj} = (1 - x_{ad})h_{2}^{'} + x_{ad}h_{2}^{''}
 	=
 	\SI{909,1924}{\dfrac{\kilo\joule}{\kilogram}}
 \end{equation}
 
-\noindent Ebből pedig a munkát:
+	Ebből pedig a munkát:
 \begin{equation}
 	w_{t} = h_{1} - h_{2uj}
 	=
@@ -133,48 +140,14 @@ Innen pedig az expanzió végrehajtása után az entalpia:
 	W_{ad} = m_{g}w_{t} = \SI{69190,58}{\kilo\joule} \Rightarrow \SI{69190583}{\joule}
 \end{equation}
 \subsubsection{T-s diagram}
-%\begin{figure}[h]
-	%\centering
-	%\begin{tikzpicture}	
-%	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
-	%\clip (-1.5, -1) rectangle (14.5, 11);
-	
-	% Tengelyek
-%	\draw[->] ({0}, {0}) -- ({14}, {0}) node[anchor=base east, shift={(0.4,-0.7)}]{$s$ [\si{\kilo\joule\per\kilogram\kelvin}]};
-%	\draw[->] ({0}, {0}) -- ({0}, {10}) node[anchor=north east]{$T$ $[\si{\celsius}]$};
-	
-%	\begin{axis}[
-%	axis lines = middle,
-%	axis line style = {draw = none},
-%	xlabel={},
-%	ylabel={},
-%	ytick={100, 200, 300, 400},
-%	%yticklabels={{$T_1=116,19$}, {$T''=128,37$}, {$T_2=200$}},
-%	ytick style={draw=none},
-%	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
-%	%xticklabels={{$s_1=5,46$}, {$s''=7,04$}, {$s_2=7,30$}},
-%	x tick label style={rotate=90,anchor=east},
-%	xtick style={draw=none},
-%	width=15cm, height=10cm, xmin=0, ymin=0
-%	]
-	
-	%T-s alap
-%	\addplot [thick] table {./RXEZFF/ts.txt}; %T-s diagram alap
-	
- %	\end{axis}
-%	\end{tikzpicture}
-%	\caption{Az állapotváltozás T-s diagramja}
-%\end{figure}
+
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
-	% Rács és vágómaszk
-	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
-	%\clip (-1.5, -1) rectangle (14.5, 11);
-	
+			
 	% A tengelykeresztet az axis környezet hozza létre
 	\begin{axis}[	
-	width=16cm, height=12cm,
+	width=16*\skalazas cm, height=12*\skalazas cm,
 	xmin=0, xmax=10.8,
 	ymin=0, ymax=475, 
 	axis lines = middle,
@@ -189,8 +162,11 @@ Innen pedig az expanzió végrehajtása után az entalpia:
 		at=(current axis.above origin), 
 		anchor=north east
 	},
-	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
-	ytick={100, 200, 300, 400}
+	xtick = {2.6, 2.9}, %kicsit széthúztam a két pontot hogy ne lógjanak egymásba és olvashatóak legyenek
+	xticklabels = {{$s_1=2.61$},{$s_2=2.84$}},
+	x tick label style={rotate=90,anchor=east,tick style={draw=none}},
+	ytick = {\Tegy, \Tketto},
+	yticklabels = {{$T_1=230.04$},{$T_2=99.6$}},
 	]
 	
 	
@@ -206,6 +182,16 @@ Innen pedig az expanzió végrehajtása után az entalpia:
 	%entalpia
 	\addplot[thick, red] table {./RXEZFF/fojtas.txt};
 	
+	\node[red, rotate = -83] at (axis cs:3.3, 165) {$h=\SI{997.02}{\kilo\joule\per\kilogram}$};
+	
+	%állapotjelzők	függőleges
+	\draw[dashed] (axis cs:2.611, \Tegy) -- (axis cs:0, \Tegy);
+	\draw[dashed] (axis cs:1.303, \Tketto) -- (axis cs:0, \Tketto);
+		
+	%vízszintes
+	\draw[dashed] (axis cs:\segy, 230.332) -- (axis cs:\segy, 0);
+	\draw[dashed] (axis cs:\sketto, 100.317) -- (axis cs:\sketto, 0);
+		
 	\end{axis}
 	
 	\end{tikzpicture}
