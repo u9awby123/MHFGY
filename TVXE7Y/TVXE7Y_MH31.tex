@@ -1,0 +1,141 @@
+
+
+\section*{MH31. feladat: Fojtószelepes ammónia hűtőgép}
+\addcontentsline{toc}{section}{MH31. feladat: Fojtószelepes ammónia hűtőgép}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Steiber Árpád \\ 
+	\hline
+	Szak & Vegyészmérnöki \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent Egy kompresszoros ammóniás hűtőgép - fojtószeleppel - hűtőteljesítménye \SI{-15}{\celsius} elpárolgási és \SI{25}{\celsius} kondenzációs hőmérséklet mellett  \SI{10000}{\joule\per\second}. Határozza meg a kompresszió véghőmérsékletét adiabatikus, reverzibilis esetben, ha a kompresszor száraz telített gőzt szív be. Mennyi a körfolyamatban keringetett ammóniák mennyisége, a körfolyamat fenntartásához szükséges villamos teljesítmény, valamint a hűtővíz mennyisége, ha annak felmelegedése $\Delta$T = \SI{10}{\celsius} lehet?
+\vspace{0.5cm}
+Adatok:
+\begin{center}
+	T = \SI{-15}{\celsius}-nál \hspace{1cm} h''=\SI{1662.66}{\kilo\joule\per\kilo\gram}  \hspace{4.2cm} s''= \SI{9.015}{\kilo\joule\per\kilo\gram} \\
+\hspace{0.1cm}	T = \SI{25}{\celsius}-nál \hspace{1.5cm} h'=\SI{536,29}{\kilo\joule\per\kilo\gram} \hspace{1cm} log p-h diagramból $h_2$= \SI{1954.0}{\kilo\joule\per\kilo\gram} \\
+		$c_v$=\SI{4.18}{\kilo\joule\per\kilo\gram\kelvin} ...  víz fajhő, (a kompresszor végén az entalpia $h_2$) \hspace{2.2cm}
+		
+\end{center}
+
+\vspace{2mm}
+
+Rajzolja le a folyamatot T-s diagramban, jelölje be az elvondandó hőt és a kívülről bevezetett munkát!
+\vspace{2mm}
+A hűtőtérből elvont hő:
+\begin{equation}
+q_h=h_1-h_4=h_1-h_3=\SI{1662.66}{\kilo\joule\per\kilo\gram}-\SI{536.29}{\kilo\joule\per\kilo\gram} = \SI{1126.37}{\kilo\joule\per\kilo\gram}
+\end{equation}
+Az ammónia tömegárama:
+\begin{equation}
+\dot{m}_A=\frac{Q_H}{q_H}=\frac{\SI{100}{\kilo\joule\per\second}}{\SI{1126.37}{\kilo\joule\per\kilo\gram}}=\SI{0.08868}{\kilo\gram\per\second}=\SI{319.61}{\kilo\gram\per\hour}
+\end{equation}
+A kompresszor technikai munkája:
+\begin{equation}
+w_k=h_2-h_1=\SI{1954}{\kilo\joule\per\kilo\gram}-\SI{1662.66}{\kilo\joule\per\kilo\gram}=\SI{291.34}{\kilo\joule\per\kilo\gram}
+\end{equation}
+A folyamat fenntartásához szükséges villamos teljesítmény:
+\begin{equation}
+P=W\dot{m}_A=\SI{291}{\kilo\joule\per\kilo\gram}\SI{0.08878}{\kilo\gram\per\second}=\SI{25.865}{\watt}
+\end{equation}
+A környezet felé leadott hőmennyiség:
+\begin{equation}
+Q_k=h_2-h_3=h_2-h_4=\SI{1954}{\kilo\joule\per\kilo\gram}-\SI{536.3}{\kilo\joule\per\kilo\gram}=\SI{1417.7}{\kilo\joule\per\kilo\gram}
+\end{equation}
+A hűtővíz mennyisége
+\begin{equation}
+\dot{m}_v=\frac{Q_H}{cp_v\Delta T} = \frac{\SI{100}{\kilo\joule\per\second}}{\SI{4.18}{\kilo\joule\per\kilo\gram\kelvin}\SI{10}{\kelvin}}=\SI{2.39}{\kilo\gram\per\second}
+\end{equation}
+\begin{figure}[h]
+	\centering
+	\label{figure:Ts}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	%\draw[step=1cm, gray, very thin] (-1.5, -1) grid (15.5, 14);;
+	%\clip (-1.5, -1) rectangle (15, 14);
+	
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=17cm, height=14cm,
+	xmin=0, xmax=9,
+	ymin=-77.150, ymax=160, 
+	axis lines = left ,
+	axis line style={->},
+	%	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	%	xlabel style={
+	%		at=(current axis.right of origin), 
+	%		anchor=west
+	%	}, 
+	%	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	%	ylabel style={
+	%		at=(current axis.above origin), 
+	%		anchor=north east
+	%	},
+	]
+	
+	
+	%  Fázishatár
+	\addplot[thick] table {./TVXE7Y/nh3_ts.txt};
+	\addplot[dashed] table {./TVXE7Y/P1.txt};
+	\addplot[dashed] table {./TVXE7Y/P2.txt};
+
+	
+	
+	\end{axis}
+	
+	%felső
+	\draw[->, red, ultra thick] (9.95, 5.3425) -- (3.15, 5.3425);
+	
+	\node[anchor=mid] at (10.5, 5.8) {$2.$};
+	\draw(10.5, 5.8) circle(0.3);
+	
+	\node[anchor=mid] at (2.7, 5.3425) {$3.$};
+	\draw(2.7, 5.3425) circle(0.3);
+	
+	%bal
+	\draw[->, red, ultra thick] (3.15, 5.3425) to[out= -20, in=160] (5, 3);
+	\draw[red, dashed] (3.15, 5.3425) -- (3.15, 3);
+	
+	
+	%alsó
+	\draw[->, red, ultra thick] (5, 3) -- (9.95, 3);
+	\draw[red, dashed] (3.15, 3) -- (5, 3);
+	
+	\node[anchor=mid] at (5, 3.5) {$4.$};
+	\draw(5, 3.5) circle(0.3);
+	
+	\node[anchor=mid] at (10.5, 3.5) {$1.$};
+	\draw(10.5, 3.5) circle(0.3);
+	
+	
+	%jobb
+	\draw[->, red, ultra thick] (9.95, 3) -- (9.95, 5.343);
+	
+	%feliratok	
+	\node[anchor=mid] at (-0.55, 12.8) {$T \left(\si{\degreeCelsius}\right)$};
+	
+	\node[anchor=mid] at (16, -0.55) {$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$};
+	
+	%jelölések
+	\draw[black,dashed] (3.15,0) -- (3.15,3) -- (5, 3) -- (5, 0) -- (0,0);
+
+	\draw[black, dashed] (5, 3) -- (5, 0) -- (9.95, 0) -- (9.95,3) -- (5,3);
+		
+	\node[anchor=mid] at (4.075, 1.5) {$h_4$};
+	
+	\node[anchor=mid] at (7.475, 1.5) {$q_H$};
+	\node[anchor=mid] at (11, 11) {$p_F$};
+	\node[anchor=mid] at (12.3, 10) {$p_A$};
+
+	\end{tikzpicture}
+	\caption{$T-s$ diagram}
+\end{figure}
+
+\pagebreak
