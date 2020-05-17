@@ -12,7 +12,7 @@
 \end{tabular}
 \vspace{0.5cm}
 
-\noindent A feladat egy nagy kiterjedésű homogén síkfal stacioner állapotú hőátszármaztatása esetén kiszámítani a hőáramsűrűséget és a fal két oldalán a hőfokesést. A fal két oldalán ismert a hőmérséklet ezek $T_{1}=\SI{400}{\degreeCelsius}$ és $T_{4}=\SI{200}{\degreeCelsius}$. A fal egyik oldalán a hőátadási tényező értéke az átváltás után $\alpha_1$ a másik oldalon $\alpha_2$, a fal hőátadási tényezője $\lambda$. A fal vastagsága $\delta=\SI {16}{\milli\meter}=\SI {0,016}{\meter}$.
+\noindent A feladat egy nagy kiterjedésű homogén síkfal állandósult állapotú hőátszármaztatása esetén kiszámítani a hőáramsűrűséget és a fal két oldalán a hőfokesést. A fal két oldalán ismert a hőmérséklet ezek $T_{1}=\SI{400}{\degreeCelsius}$ és $T_{4}=\SI{200}{\degreeCelsius}$. A fal egyik oldalán a hőátadási tényező értéke az átváltás után $\alpha_1$ a másik oldalon $\alpha_2$, a fal hőátadási tényezője $\lambda$. A fal vastagsága $\delta=\SI {16}{\milli\meter}=\SI {0,016}{\meter}$.
 
 \begin{equation*}
 	\alpha_1=\SI{1162}{\watt\per\meter\squared\kelvin},
@@ -87,7 +87,7 @@
 
 \noindent A hőáramsűrűség a rendszerben létrejövő hőátadások és hővezetések esetén is megegyezik. 
 
-\begin{equation}\label{elso}
+\begin{equation}\label{e:mdpm86_elso}
 \begin{split}
 &\dot{q}=\dot{q}_{\textit{át1}} =\dot{q}_v=\dot{q}_{\textit{át2}}\\&\dot{q}=\alpha_1 (T_1-T_2)= \dfrac{\lambda_1}{\delta_1} (T_2 - T_3) = \alpha_2 (T_3-T_4)
 \end{split}
@@ -108,11 +108,7 @@ T_1-T_4=\dot{q}\left(\dfrac{1}{\alpha_1}+\dfrac{\delta}{\lambda}+\dfrac{1}{\alph
 \noindent Ahol a hőátadási tényezőket és hővezetési tényezőt a következő módon vonhatjuk össze.
 
 \begin{equation}
-\begin{split}
-&\kappa=\dfrac{1}{\dfrac{1}{\alpha_1}+\dfrac{\delta}{\lambda}+\dfrac{1}{\alpha_2}}\\
-&\kappa=\dfrac{1}{\dfrac{1}{\SI{1162}{\watt\per\meter\squared\kelvin}}+\dfrac{\SI {0,016}{\meter}}{\SI{44,652}{\watt\per\meter\kelvin}}+\dfrac{1}{\SI{581,5}{\watt\per\meter\squared\kelvin}}}
-=\SI{340,38}{\watt\per\meter\squared\kelvin}
-\end{split}
+\kappa=\dfrac{1}{\dfrac{1}{\alpha_1}+\dfrac{\delta}{\lambda}+\dfrac{1}{\alpha_2}}=\dfrac{1}{\dfrac{1}{\SI{1162}{\watt\per\meter\squared\kelvin}}+\dfrac{\SI{0,016}{\meter}}{\SI{44,652}{\watt\per\meter\kelvin}}+\dfrac{1}{\SI{581,5}{\watt\per\meter\squared\kelvin}}}=\SI{340,38}{\watt\per\meter\squared\kelvin}
 \end{equation} 
 
 \noindent A hőáramsűrűség ezután a teljes hőmérséklet különbség és a $\kappa$ szorzataként számítható.
@@ -121,7 +117,7 @@ T_1-T_4=\dot{q}\left(\dfrac{1}{\alpha_1}+\dfrac{\delta}{\lambda}+\dfrac{1}{\alph
 \dot{q}=\kappa(T_1-T_4)=\SI{340,38}{\watt\per\meter\squared\kelvin}(\SI{400}{\degreeCelsius}-\SI{200}{\degreeCelsius})=\SI{68076,71}{\watt\per\meter\squared}
 \end{equation}
 
-\noindent Ismerve a hőáramsűrűség értékét kiszámolhatjuk a hőfokeséseket. Az ehhez szükséges egyenletek kifejezhetőek az \ref{elso} egyenletből.
+\noindent Ismerve a hőáramsűrűség értékét kiszámolhatjuk a hőfokeséseket. Az ehhez szükséges egyenletek kifejezhetőek az \ref{e:mdpm86_elso} egyenletből.
 
 \begin{equation}
 T_1-T_2=\dfrac{1}{\alpha_1}\dot{q}=\dfrac{1}{\SI{1162}{\watt\per\meter\squared\kelvin}}\SI{68076,71}{\watt\per\meter\squared}=\SI{58,54}{\kelvin}=\SI{58,54}{\degreeCelsius}

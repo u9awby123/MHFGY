@@ -12,10 +12,10 @@
 \end{tabular}
 \vspace{0.5cm}
 
-\noindent A feladat freon-12 anyag kondenzációja esetén a hőátadási tényező meghatározása. Az anyag $ d=\SI {20}{\milli\meter}$ külső átmérőjű vízszintes csövek felületén csapódik le, melyekből egymás alatt $z= 18db$ helyezkedik el függőleges síkban és víz folyik bennük. A kondenzáció hőmérséklete $T_{k}=\SI{25}{\degreeCelsius}$, a csőfal hőmérsékletét pedig $T_f=\SI{21}{\degreeCelsius}$-ra becsüljük. Ismert $T=\SI{23}{\degreeCelsius}$-on a freon-12 $\rho$ sűrűsége, a $\lambda$ hőátszármaztatási tényező, a $\eta$ dinamikai viszkozitás és az $r$ fűtőérték.
+\noindent A feladat freon-12 anyag kondenzációja esetén a hőátadási tényező meghatározása. Az anyag $ d=\SI {20}{\milli\meter}$ külső átmérőjű vízszintes csövek felületén csapódik le, melyekből egymás alatt $z= 18db$ helyezkedik el függőleges síkban és víz folyik bennük. A kondenzáció hőmérséklete $T_{k}=\SI{25}{\degreeCelsius}$, a csőfal hőmérsékletét pedig $T_f=\SI{21}{\degreeCelsius}$-ra becsüljük. Ismert $T=\SI{23}{\degreeCelsius}$-on a freon-12 $\varrho$ sűrűsége, a $\lambda$ hőátszármaztatási tényező, a $\eta$ dinamikai viszkozitás és az $r$ fűtőérték.
 
 \begin{equation*}
-	\rho=\SI{1318}{\kilogram\per\meter\cubed},
+	\varrho=\SI{1318}{\kilogram\per\meter\cubed},
 	\quad 
 	\lambda=\SI{0,0897}{\watt\per\meter\kelvin},
 	\quad 
@@ -26,22 +26,22 @@
 
 \noindent\hrulefill
 
-\noindent A probléma megoldására az alábbi Nusselt képlet alkalmas.Ez egy cső esetét vizsgálva ahol $h=d$ a következő.
+\noindent A probléma megoldására az alábbi Nusselt-képlet alkalmas.Ez egy cső esetét vizsgálva ahol $H=d$ a következő.
 
 \begin{equation}
-\alpha_{v}=0,726\left(\dfrac{r g \rho^2 \lambda^3 }{\eta}\dfrac{1}{H \Delta T} \right)^\tfrac{1}{4}
+\alpha_{v}=0,726\left(\dfrac{r g \varrho^2 \lambda^3 }{\eta}\dfrac{1}{H \Delta T} \right)^\tfrac{1}{4}
 \end{equation} 
 
-\noindent A feladatmegoldás során a nehézségi gyorsulást $g=\SI{9,81}{\meter\per\second\squared}$-nek tekintjük. Az egyetlen dolog amit meg kell határozni már csak a $\Delta T$.
+\noindent A feladatmegoldás során a nehézségi gyorsulást $g=\SI{9,81}{\meter\per\second\squared}$-nek tekintjük. Az egyetlen dolog amit, meg kell határozni már csak a $\Delta T$.
 
 \begin{equation}
 \Delta T = T_k-T_f=\SI{25}{\degreeCelsius}-\SI{21}{\degreeCelsius}=\SI{4}{\degreeCelsius}=\SI{4}{\kelvin}
 \end{equation} 
 
-\noindent Az értékeket a Nusselt képletbe helyettesítve a következő eredményt kapjuk.
+\noindent Az értékeket a Nusselt-képletbe helyettesítve a következő eredményt kapjuk.
 
 \begin{equation}
-\alpha_{v}=0,726\left(\dfrac{r g \rho^2 \lambda^3 }{\eta}\dfrac{1}{H \Delta T} \right)^\tfrac{1}{4}=\SI{1241,89}{\watt\per\meter\squared\kelvin}
+\alpha_{v}=0,726\left(\dfrac{r g \varrho^2 \lambda^3 }{\eta}\dfrac{1}{H \Delta T} \right)^\tfrac{1}{4}=\SI{1241,89}{\watt\per\meter\squared\kelvin}
 \end{equation} 
 
 \noindent A fenti egyenlet csak egyetlen csőre vonatkozik így a következő módon ki kell számolnunk az egymás alatt elhelyezkedő csövekre.
