@@ -1,0 +1,198 @@
+\section*{K7/7. feladat: Cső a csőben hőcserélő} 
+\addcontentsline{toc}{section}{K7/7. feladat}
+
+%feladatleírás
+Egy "cső a csőben" típusú hőcserélőnél az alábbi adatokat mértük:
+\vspace{5mm}
+
+%alapadatok
+
+$t_{1k}=\SI{43,0}{\celsius}$
+\quad
+$t_{1v}=\SI{28,6}{\celsius}$
+
+$t_{2k}=\SI{12,5}{\celsius}$
+\quad
+$t_{2v}=\SI{19,6}{\celsius}$
+
+${\dot{V}}_1=\SI{3,923}{\liter\per\min} = \SI{0.23538}{\meter\cubed\per\hour}$
+
+${\dot{V}}_2=\SI{7,95}{\liter\per\min} = \SI{0.477}{\meter\cubed\per\hour} $
+
+Mindkét közeg víz.
+
+$c_{viz}=\SI{4,18}{\kilo\joule\per\kilo\gram\kelvin}$
+
+$A=\SI{0.35}{\meter\squared}$ 	<- a hőcserélő felülete
+
+$\kappa_C=\SI{760}{\watt\per\meter\squared\kelvin}$	<- a hőcserélő úgynevezett tiszta hőátviteli tényezője
+
+$\rho=\SI{998}{\kilo\gram\per\meter\cubed}$
+
+
+%Rajz
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[every path/.style={line cap=rect}][scale=5]
+	%cső
+	\draw [ultra thick] (0,0) -- (8.5,0);
+	\draw [ultra thick] (8.5,0) -- (8.5,0.5);
+	\draw [ultra thick] (8,0.5) -- (10,0.5);
+	\draw [ultra thick] (9.5,0.5) -- (9.5,-1);
+	\draw [ultra thick] (0,0) -- (0,-6);
+	\draw [ultra thick] (0,-6) -- (8.5,-6);
+	\draw [ultra thick] (8.5,-6) -- (8.5,-6.5);
+	\draw [ultra thick] (8,-6.5) -- (10,-6.5);
+	\draw [ultra thick] (9.5,-1) -- (1,-1);
+	\draw [ultra thick] (1,-1) -- (1,-5);
+	\draw [ultra thick] (1,-5) -- (9.5,-5);
+	\draw [ultra thick] (9.5,-5) -- (9.5,-6.5);
+	%áramvonal
+	\draw [ultra thick][->] (9,0.5) -- (9,1.5) node[anchor=east]{$t_{1v}$};
+	\draw [ultra thick][<-] (9,-6.5) -- (9,-7.5) node[anchor=west]{$t_{1k}$} node[anchor=east]{$\dot{V}_1$};
+	\draw [ultra thick][<-] (9.5,-0.5) -- (10.5,-0.5) node[anchor=north]{$\dot{V}_2$} node[anchor=south]{$t_{2k}$};
+	\draw [ultra thick] (9.5,-0.5) -- (0.5,-0.5);
+	\draw [ultra thick][mid arrow] (0.5,-0.5) -- (0.5,-5.5);
+	\draw [ultra thick] (9.5,-5.5) -- (0.5,-5.5);
+	\draw [ultra thick][->] (9.5,-5.5) -- (10.5,-5.5) node[anchor=north]{$t_{2v}$};
+	\end{tikzpicture}
+	\caption{Cső a csőben hőcserélő.}
+\end{figure}
+
+%kérdések
+a/ Rajzolja le a hőmérséklet-hely függvényt!
+
+b/ Állapítsa meg a hőcserélő elpiszkolódásának mértékét!
+
+Ha a lerakódás zömmel mészkőben dús vízkő ($\lambda_k =\SI{2.15}{\watt\per\meter\kelvin} $) mekkora a rétegvastagság? ($\delta_k =?$)
+
+\pagebreak
+
+%kidolgozás
+\subsection*{Megoldás:}
+
+\subsection*{a/ feladatrész:}
+
+Írjuk fel az átszármaztatott hőáramot!
+
+\begin{equation}
+	{\dot{Q}}_{at}={\dot{V}}_1\cdot\rho\cdot c_{viz}\cdot (t_{1k}-t_{1v})
+\end{equation}
+
+illetve:
+
+\begin{equation}
+	{\dot{Q}}_{at} = \kappa_D\cdot A\cdot LMTD
+\end{equation}
+
+A (7.24)-es egyenletből határozzuk meg ${\dot{Q}}_{at}$ értékét!
+
+\begin{equation}
+	{\dot{Q}}_{at} = \SI{0.23538}{\meter\cubed\per\hour} \cdot \SI{998}{\kilo\gram\per\meter\cubed} \cdot \SI{4,18}{\kilo\joule\per\kilo\gram\kelvin} \cdot (\SI{43,0}{\celsius} - \SI{28,6}{\celsius}) 
+\end{equation}
+
+(Mivel a zárójelben hőmérséklet különbség szerepel a °C-t nem szükséges átváltani K-re.)
+
+\begin{equation}
+	{\dot{Q}}_{at} = \SI{14139.66}{\kilo\joule\per\hour} = \SI {3.93}{\kilo\watt}
+\end{equation}
+
+A (7.25)-ös egyenletből fejezzük ki $\kappa_D$ -t!
+
+\begin{equation}
+	\kappa_D = \frac{{\dot{Q}}_{at}}{A \cdot LMTD}
+\end{equation}
+
+LMTD (logaritmikus hőmérséklet különbség) meghatározása:
+
+\begin{equation}
+	LMTD = \dfrac{(t_{1k}-t_{2v}) \cdot (t_{1v}-t_{2k})}{ln(\dfrac{(t_{1k}-t_{2v})}{(t_{1v}-t_{2k})})} 
+\end{equation}
+
+\begin{equation}
+	LMTD = \dfrac{(\SI{43,0}{\celsius}-\SI{19,6}{\celsius}) \cdot (\SI{28,6}{\celsius}-\SI{12,5}{\celsius})}{ln(\dfrac{(\SI{43,0}{\celsius}-\SI{19,6}{\celsius})}{(\SI{28,6}{\celsius}-\SI{12,5}{\celsius})})} 
+\end{equation}
+
+\begin{equation}
+	LMTD = \SI {19.52}{\celsius} = \SI {292.52}{\kelvin}
+\end{equation}
+
+
+$\kappa_D$ kiszámítása:
+
+\begin{equation}
+	\kappa_D = \dfrac {\SI {3.93}{\kilo\watt}}{\SI{0.35}{\meter\squared}\cdot \SI {19.52}{\celsius}} = \SI {575.23}{\watt\per\meter\squared\kelvin}
+\end{equation}
+
+\pagebreak
+%A hőmérséklet-hely függvény:
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\pgfmathsetmacro{\L}{8}
+	\pgfmathsetmacro{\AÖ}{10}
+	
+	\pgfmathsetmacro{\kelvin}{6}
+	\pgfmathsetmacro{\TAK}{43/\kelvin}
+	\pgfmathsetmacro{\TAV}{28.6/\kelvin}
+	\pgfmathsetmacro{\TBK}{12.5/\kelvin}
+	\pgfmathsetmacro{\TBV}{19.6/\kelvin}
+	
+	% Tengelyek
+	\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
+	\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
+	
+	% Az összes felület
+	\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
+	\draw (\AÖ,-0.1) -- (\AÖ,0.1);
+	\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
+	
+	% A két T(A)
+	%\draw[red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
+	%\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
+	
+	\draw[ultra thick, color=red, mid arrow=red, domain=0:\AÖ, smooth, variable=\A] plot (\A, {\TAK - (\TAK-\TBV)/(270*0.00187555)*(1 - exp(-0.00187555*760*\A*0.35/\AÖ) )});
+	\draw[ultra thick, color=blue, mid arrow=blue, domain=\AÖ:0, smooth, variable=\A] plot (\A, {\TBV - (\TAK-\TBV)/(547*0.00187555)*(1 - exp(-0.00187555*760*\A*0.35/\AÖ) )});
+	
+	% A hőmérséklet értékek
+	\draw (-0.1,\TAK) -- (0.1,\TAK);
+	\node[anchor=base east] at (0,\TAK) {$t_{1k}$};
+	\node[anchor=north east] at (0,\TAK) {$\SI{43}{\celsius}$};
+	
+	\draw (-0.1,\TBV) -- (0.1,\TBV);
+	\node[anchor=base east] at (0,\TBV) {$t_{2v}$};
+	
+	\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
+	\node[anchor=base west] at (\AÖ,\TBK) {$t_{2k}$};
+	\node[anchor=north west] at (\AÖ,\TBK) {$\SI{12.5}{\celsius}$};
+	
+	\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
+	\node[anchor=base west] at (\AÖ,\TAV) {$t_{1v}$};
+	
+	\end{tikzpicture}
+	\caption{A hőmérséklet-hely függvények.}
+\end{figure}
+
+
+\subsection*{b/ feladatrész:}
+
+Írjuk fel a termikus ellenállások egyenletét az úgynevezett "tiszta" és "piszkos" -k között!
+
+\begin{equation}
+	\frac{1}{\kappa_D}=\frac{1}{\kappa_C}+\frac{\delta_k}{\lambda_k}
+\end{equation}
+
+Ebből a lerakódások vastagsága:
+
+\begin{equation}
+	\delta_k=(\frac{1}{\kappa_D}-\frac{1}{\kappa_C})\cdot\lambda_k
+\end{equation}
+
+\begin{equation}
+\delta_k=(\frac{1}{\SI {575.23}{\watt\per\meter\squared\kelvin}}-\frac{1}{\SI{760}{\watt\per\meter\squared\kelvin}})\cdot \SI{2.15}{\watt\per\meter\kelvin}
+\end{equation}
+
+\begin{equation}
+	\delta_k = \SI {0.0009}{\meter} = \SI {0.9}{\milli\meter}
+\end{equation}
