@@ -1,0 +1,82 @@
+% A tengelykeresztet az axis környezet hozza létre
+	\begin{loglogaxis}[
+	width=9.6cm, height=8cm,
+	xmin=0.0003, xmax=10000,
+	ymin=0.006, ymax=5000, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east, xshift={8mm}
+	}, 
+	ylabel=$p \left(\si{\bar}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east yshift={1mm}
+	},
+	xtick={0.001, 0.01, 1, 10,100, 1000},
+	ytick={0.01, 0.1, 10, 1000},
+	extra x ticks={2.429802,0.043,0.013260, 0.1},
+	extra x tick labels={$v_1$,$v_2$, $ $},
+	extra y ticks={0.5,45.886615,200, 1, 100},
+	extra y tick labels={$p_1$,$p_2$,$p_3$, $10^0$ $ $},
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/pv.txt};
+	
+	% A kritikus pont
+	\node[anchor=south] at (axis cs: 0.0031056, 220.64) {\pgfcircled{$K$}};
+	\fill[fill=black] (axis cs: 0.0031056, 220.64) circle (0.75mm);
+	
+	% x jelölések
+	\node[anchor=west] at (axis cs: 0.001, 5) {\pgf{$x=0$}};
+	\node[anchor=west] at (axis cs: 0.75, 5) {\pgf{$x=1$}};
+	
+	% 1-es pont
+	\node[anchor=north east] at (axis cs: 2.429802, 0.500000) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 2.429802, 0.500000) circle (1mm);
+	
+	% 2-es pont
+	\node[anchor=south west] at (axis cs: 0.05,  45.86615) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 0.043, 45.886615) circle (1mm);
+	
+	% 3-as pont
+	\node[anchor=south] at (axis cs: 0.013260, 200.000000) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 0.013260, 200.000000) circle (1mm);
+	
+	% adiabata
+	\addplot[ultra thick, name path=A] table {./ny03mt_g69puv/adiabata.txt}; 
+	
+	% Függőleges méretvonalak
+	\draw[very thin] (axis cs: 2.429802, 0.500000) -- (axis cs: 2.429802, 0.006);
+	\draw[very thin] (axis cs: 0.043, 45.886615) -- (axis cs:  0.043, 0.006);
+	\draw[very thin] (axis cs: 0.013260, 200.000000) -- (axis cs: 0.013260, 0.006);
+	
+	% Vízszintes vonalak
+	\draw[very thin] (axis cs: 0.0003, 0.500000) -- (axis cs: 2.429802, 0.500000);
+	\draw[very thin] (axis cs: 0.0003, 45.886615) -- (axis cs: 0.043, 45.886615);
+	\draw[very thin] (axis cs: 0.0003, 200) -- (axis cs: 0.013260, 200.000000);
+	
+	%v_3_felirat
+	\node[anchor=north east] at (axis cs:0.015360 , 0.018) {\pgf{$v_3$}};
+	
+	%vonalkazas segedvonal
+	\draw[name path=B,ultra thin] (axis cs:0.013260 , 0.006) -- (axis cs: 2.429802, 0.006);
+
+	
+	%vonalkazas
+	\addplot[gray!30] fill between[of=A and B];
+	
+	%W1-2,W2-3 pontok
+	\node[anchor=north] at (axis cs: 0.25, 0.4) {\pgf{$w$}};
+	%\node[anchor=north] at (axis cs: 0.0135, 1) {\pgf{$w_{23}$}};
+	
+	
+	
+	\end{loglogaxis}
