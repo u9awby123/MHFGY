@@ -1,0 +1,90 @@
+
+	% Rács és vágómaszk
+	%\draw[step=1cm, gray, very thin] (-1.5, -0.5) grid (14.5, 10.5);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=9.6cm, height=8cm,
+	xmin=-1, xmax=10.8,
+	ymin=-45, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east, xshift={8mm}
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 8, 9},
+	ytick={100, 200, 300, 400},
+	extra x ticks={7},
+	extra x tick labels={$ $},
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/ts.txt};
+	
+	% A kritikus pont
+	\node[anchor=south east] at (axis cs: 4.40696, 373.919) {\pgfcircled{$K$}};
+	\filldraw[black, fill=black] (axis cs: 4.40696, 373.919) circle (1mm);
+	
+	% 1-es pont
+	\node[anchor=north east] at (axis cs: 6.497, 151.831) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 151.831) circle (1mm);
+	
+	%2-es pont
+	\node[anchor=south west] at (axis cs: 6.497, 185.850) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 190.850) circle (1mm);
+	
+	%3-as pont
+	\node[anchor=south east] at (axis cs: 6.497, 360.850) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 360.850) circle (1mm);
+	
+	
+	%p1_gorbe
+	\addplot[thick] table {./ny03mt_g69puv/adiabatikus_p1.txt}; 
+	\node[anchor=south] at (axis cs: 4, 151.831) {\pgf{$p_1=const.$}};
+	
+	%p3_gorbe
+	\addplot[thick] table {./ny03mt_g69puv/50Bar görbe.txt};
+	\node[anchor=south] at (axis cs: 4.5, 263.941) {\pgf{$p_3$}};
+	
+	%Függőleges vonalak és s jelölések
+	\draw[very thin] (axis cs: 6.497, 360.850) -- (axis cs:  6.497, 0);
+	\node[anchor=north west] at (axis cs: 6.2, -5) {\pgf{$s_{123}$}};
+	\filldraw[black, fill=white] (axis cs: 6.497, 0) circle (0.75mm);
+	
+	
+	
+	%x jelölések
+	\node[anchor=south east] at (axis cs: 2.4, 200) {\pgf{$x=0$}};
+	\node[anchor=west] at (axis cs: 7.2, 120) {\pgf{$x=1$}};
+	
+	%Tjelolesek
+		%T_1jelölése
+	\draw[very thin] (axis cs: 0, 151.831) -- (axis cs:  1.860, 151.831);
+	\node[anchor=east] at (axis cs: 0, 151.831) {\pgf{$T_1$}};
+	\filldraw[black, fill=white] (axis cs: 0, 151.831) circle (0.75mm);
+	
+		%T_2jelolese
+	%\draw[very thin] (axis cs: 0, 185.850) -- (axis cs:  6.497, 185.850);
+	%\node[anchor=north east] at (axis cs: 0, 278.941) {\pgf{$T_2$}};
+	%\filldraw[black, fill=white] (axis cs: 0, 263.941) circle (0.75mm);
+	
+		%T_3jelolese
+	\draw[very thin] (axis cs: 0, 360.850) -- (axis cs:  6.497, 360.850);
+	\node[anchor=east] at (axis cs: 0, 360.850) {\pgf{$T_3$}};
+	\filldraw[black, fill=white] (axis cs: 0, 360.850) circle (0.75mm);
+	
+	%1-3_szakasz
+	\draw[ultra thick, mid arrow] (axis cs: 6.497, 151.831) -- (axis cs: 6.497, 360.850);
+	
+	\end{axis}
+	

@@ -1,0 +1,68 @@
+% A tengelykeresztet az axis környezet hozza létre
+	\begin{loglogaxis}[
+	width=9.6cm, height=8cm,
+	xmin=0.0003, xmax=10000,
+	ymin=0.006, ymax=5000, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east, xshift={8mm}
+	}, 
+	ylabel=$p \left(\si{\bar}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={0.001, 0.01, 1, 10,100, 1000},
+	ytick={0.01, 0.1, 10, 100, 1000},
+	extra x ticks={0.0031056,0.1 ,0.25},
+	extra x tick labels={$ $,$ $, $v_1$},
+	extra y ticks={220.64,0.2,1.75,50,1},
+	extra y tick labels={$p_K$,$p_1$,$p_2$,$p_3$,$ $},
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./ny03mt_g69puv/pv.txt};
+	
+	% x jelölések
+	\node[anchor=west] at (axis cs: 0.001, 5) {\pgf{$x=0$}};
+	\node[anchor=west] at (axis cs: 0.75, 5) {\pgf{$x=1$}};
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 0.25, 0.2) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 0.25, 0.2) circle (1mm);
+	
+	% 2-es pont
+	\node[anchor=south east] at (axis cs: 0.25, 1.75) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 0.25, 1.75) circle (1mm);
+	
+	% 3-as pont
+	\node[anchor=south east] at (axis cs: 0.25, 50) {\pgfcircled{$3$}};
+	\filldraw[black, fill=white] (axis cs: 0.25, 50) circle (1mm);
+	
+	% Izochor vonal
+	\draw[->, very thick] (axis cs: 0.25, 0.2) -- (axis cs:  0.25, 50);
+	
+	% Függőleges vonal
+	\draw[very thin] (axis cs: 0.25, 0.2) -- (axis cs:  0.25, 0.006);
+	
+	% Vízszintes vonalak
+	\draw[very thin] (axis cs: 0.0003, 0.2) -- (axis cs:  0.25, 0.2);
+	\draw[very thin] (axis cs: 0.0003, 1.75) -- (axis cs:  0.25, 1.75);
+	\draw[very thin] (axis cs: 0.0003, 50) -- (axis cs:  0.25, 50);	
+	
+	% A kritikus pont
+	\node[anchor=south] at (axis cs: 0.0031056, 220.64) {\pgfcircled{$K$}};
+	\fill[fill=black] (axis cs: 0.0031056, 220.64) circle (0.75mm);
+	
+	% A két görbe metszéspontja
+	%\node[anchor=north east] at (axis cs: 0.836481, 1.01418) {\pgfcircled{$1$}};
+	%\filldraw[black, fill=white] (axis cs: 0.836481, 1.01418) circle (1mm);
+	
+	\end{loglogaxis}
