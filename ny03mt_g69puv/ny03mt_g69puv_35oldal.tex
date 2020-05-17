@@ -1,0 +1,238 @@
+% A feladat címe automatikus számozás nélkül
+\section*{A vízgőz állapotváltozások ábrái}
+
+% Hozzáadás a tartalomjegyzékhez azonos címmel
+\addcontentsline{toc}{section}{A vízgőz állapotváltozások ábrái}
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Egressy Levente NY03MT és Lőkös Gábor G69PUV \\ 
+	\hline
+	Szak & Mechatronikai mérnöki alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+
+\noindent A vízgőz állapotváltozások megértése során sokat segíthet azok ábráinak ismerete. Az alábbiakban az izochor, izobár, izoterm és adiabatikus állapotváltozások p-v és T-s diagramjai vannak bemutatva.
+
+Az állapotábrát három részre bontja a fázishatárgörbe. Ennek baloldala az alsó határgörbe (a telített vagy forrponti folyadék állapothoz tartozó görbe) jobboldala pedig a felső határgörbe (a száraz telített gőz állapothoz tartozó görbe). Az alsó határgörbétől balra folyékony halmazállapotú víz van, a két határgörbe alatt nedvesgőz, a felső határgörbétől jobbra pedig túlhevített gőz.
+
+A két görbe a kritikus pontban találkozik. A kritikus pont hőmérsékleténél magasabb hőmérsékletű légnemű fázist gáznak, az annál alacsonyabb hőmérsékletűt gőznek nevezzük.
+
+% A feladat megoldása
+
+\subsection*{a) Az izochor állapotváltozás p-v és T-s diagramja:}
+
+Izochor állapotváltozás során a $v$ fajtérfogat állandó, fizikai munkavégzés nincs, viszont van nyomásváltozás. Ez pedig azt jelenti hogy technikai munkavégzés történik.
+
+A $w_t$ technikai munkát az alábbi módon számolhatjuk ki a p-v diagram felhasználásával:
+
+\begin{equation*}
+	w_t = v (p_2 - p_1)
+\end{equation*}
+
+A $q$ tömegfajlagos hőtartalom számítására pedig az alábbi képletet használhatjuk:
+
+\begin{equation*}
+p_{13} = u_2-_1 = h_2-h_1-v(p_2-p_1)
+\end{equation*}
+
+
+%izochor
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.545\textwidth} 
+		\centering
+		\begin{tikzpicture}
+		
+		\input{./ny03mt_g69puv/pv_izochor.tex}
+		
+		\end{tikzpicture}
+		\caption{Izochor p-v diagram}
+		
+	\end{subfigure}
+	\begin{subfigure}[b]{0.435\textwidth}
+		\centering
+		\begin{tikzpicture}
+		
+		\input{./ny03mt_g69puv/ts_izochor.tex}
+		
+		\end{tikzpicture}
+		\caption{Izochor T-s diagram}
+		
+	\end{subfigure}
+\end{figure}
+
+% Oldaltörés
+\pagebreak
+
+\subsection*{b) Az izobár állapotváltozás p-v és T-s diagramja:}
+
+Az izobár állapotváltozás során az állapotváltozás egy $p=constans$ nyomáson megy végbe. Az izobár-vonal nedves és száraz gőzmezőbe eső szakaszait külön vizsgáljuk.
+
+A tömegfajlagos hőmennyiség számítása:
+
+\begin{equation*}
+q_1 = T_s (s_2-s_1) = (1-x_1)r = h_2-h_1
+\end{equation*}
+
+\begin{equation*}
+q_2 = h_3-h_2
+\end{equation*}
+
+\begin{equation*}
+q_{13} = q_1+q_2 = h_3-h_1
+\end{equation*}
+
+A tömegfajlagos fizikai munka számítása:
+
+\begin{equation*}
+w_{13} = w_1+w_2 = p(v_2-v_1)
+\end{equation*}
+
+%izobár
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.545\textwidth} 
+		\centering
+		\begin{tikzpicture}
+		
+		\input{./ny03mt_g69puv/pv_izobar.tex}
+		
+		\end{tikzpicture}
+		\caption{Izobár p-v diagram}
+		
+	\end{subfigure}
+	\begin{subfigure}[b]{0.435\textwidth}
+		\centering
+		\begin{tikzpicture}
+		
+		\input{./ny03mt_g69puv/ts_izobar.tex}
+		
+		\end{tikzpicture}
+		\caption{Izobár T-s diagram}
+		
+	\end{subfigure}
+\end{figure}
+
+\pagebreak
+
+\subsection*{c) Az izoterm állapotváltozás p-v és T-s diagramja:}
+
+Az izoterm állapotváltozás során az állapotváltozás egy $T=constans$ hőmérsékleten megy végbe. Az állapotváltozást itt is két szakaszra bontjuk, külön vizsgálva a nedves és a száraz gőzmezőbe tartozó szakaszokat.
+
+A tömegfajlagos hőmennyiség számítása:
+
+\begin{equation*}
+q_1 = T_{123} (s_2-s_1) = (1-x_1)r = h_2-h_1
+\end{equation*}
+
+\begin{equation*}
+q_2 = T_{123}(s_3-s_2)
+\end{equation*}
+
+\begin{equation*}
+q_{13} = q_1+q_2 = T_{123}(s_3-s_2)
+\end{equation*}
+
+A tömegfajlagos fizikai munka számítása:
+
+\begin{equation*}
+w_1 = p_{12}(v_2-v_1)
+\end{equation*}
+
+\begin{equation*}
+w_2 = q_2 = T_{123}(s_3-s_2) 
+\end{equation*}
+
+\begin{equation*}
+w_{13} = w_1+w_2 = p(v_3-v_1)
+\end{equation*}
+
+A tömegfajlagos belső energiaváltozás számítása:
+
+\begin{equation*}
+\Delta u_1 = u_2-u_1 = (1-x_1)\rho
+\end{equation*}
+
+\begin{equation*}
+\Delta u_2 =0
+\end{equation*}
+
+%izoterm
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.545\textwidth} 
+		\centering
+		\begin{tikzpicture}
+		
+		\input{./ny03mt_g69puv/pv_izoterm.tex}
+		
+		\end{tikzpicture}
+		\caption{Izoterm p-v diagram}
+		
+	\end{subfigure}
+	\begin{subfigure}[b]{0.435\textwidth}
+		\centering
+		\begin{tikzpicture}
+		
+		\input{./ny03mt_g69puv/ts_izoterm.tex}
+		
+		\end{tikzpicture}
+		\caption{Izoterm T-s diagram}
+		
+	\end{subfigure}
+\end{figure}
+
+\pagebreak
+
+\subsection*{d) Az adiabatikus állapotváltozás p-v és T-s diagramja:}
+
+Vízgőz adiabatikus állapotváltozása során a termodinamikai rendszerünk a környezetével nem cserél hőt, vagyis a rendszer entrópiája állandó ($s=constans$). A hőmérséklet megváltozását a vízgőz összenyomásából eredő melegedés, vagy kitágulásából eredő lehűlés okozza. Emellett befolyásolja még a vízgőz kicsapódásakor felszabaduló látens hő, illetve a kicsapódott víz saját hőtartalma. Expanzió (tágulás) esetén a belső energia csökken, kompresszió (sűrítés) esetén nő.
+
+A tömegfajlagos fizikai munka számítása:
+
+\begin{equation*}
+w = u_3-u_1 = h_3-h_1-(p_1v_1+p_3v_3)
+\end{equation*}
+
+A technikai munka számítása:
+
+\begin{equation*}
+w_t = h_3-h_1
+\end{equation*}
+
+
+%adiabatikus
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.545\textwidth} 
+		\centering
+		\begin{tikzpicture}
+		
+		\input{./ny03mt_g69puv/pv_adiabata.tex}
+		
+		\end{tikzpicture}
+		\caption{Adiabatikus p-v diagram}
+		
+	\end{subfigure}
+	\begin{subfigure}[b]{0.435\textwidth}
+		\centering
+		\begin{tikzpicture}
+		
+		\input{./ny03mt_g69puv/ts_adiabata.tex}
+		
+		\end{tikzpicture}
+		\caption{Adiabatikus T-s diagram}
+		
+	\end{subfigure}
+\end{figure}
+
+\pagebreak
