@@ -1,0 +1,48 @@
+\vspace{5mm}
+\begin{equation}
+	\frac{W_{komp}}{W_{exp}}=1,3 \%
+	\quad
+    P_{szivo} =\SI{837,5}{\kilo\watt}
+	\end{equation}
+
+\vspace{2mm}
+\section*{Megoldás:}
+
+\begin{equation}
+x_2 = \frac{s_2-s'}{s''-s'} =\frac{6,508-0,4761}{8,393-0,4761}=0,7619
+\end{equation}
+\begin{equation}
+i_2=(1-x_2)+i''x_2
+=137,83\cdot(1-0,7619)+3530\cdot0,7619=\SI{2066,6}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+	W_{exp}=i_1-i_2=\SI{3530}{\kilo\joule\per\kilogram}-\SI{2066,6}{\kilo\joule\per\kilogram}=\SI{1463,84}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+P_{exp}=W_{exp}\cdot m=\SI{1463,84}{\kilo\joule\per\kilogram}\cdot \SI{44,4}{\kilogram\per\second}=\SI{64423,07}{\kilo\watt}
+\end{equation}
+
+
+
+
+\begin{equation}
+x_2 = \frac{s_2-s'}{s''-s'} =\frac{0,5604-0,4761}{8,393-0,4761}=0,23
+\end{equation}
+\begin{equation}
+i_2=(1-x_2)+i''x_2
+=137,83\cdot(1-0,23)+158,3\cdot0,23=\SI{143,9}{\kilo\joule\per\kilogram}
+\end{equation}
+\begin{equation}
+W_{komp}=i_1-i_2=\SI{158,3}{\kilo\joule\per\kilogram}-\SI{143,9}{\kilo\joule\per\kilogram}+\SI{158,3}{\kilo\joule\per\kilogram}-\SI{137,8}{\kilo\joule\per\kilogram}=\SI{18,86}{\kilo\joule\per\kilogram}
+\end{equation}
+
+\begin{equation}
+P_{kom}=W_{komp}\cdot m=\SI{18,68}{\kilo\joule\per\kilogram}\cdot \SI{44,4}{\kilogram\per\second}=\SI{837,68}{\kilo\watt}
+\end{equation}
+\noindent Hatásfok:
+\begin{equation}
+\frac{W_{komp}}{W_{exp}}=1,3 \%
+\end{equation}
+\vspace{2mm}
+\section*{T-s diagram :}
+\vspace{2mm}
