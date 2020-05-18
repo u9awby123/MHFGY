@@ -12,7 +12,7 @@
 			\vspace{0.5cm} 		
 			%\noindent
 			\\
-		Izotermikus folyamat során 1 kg $p_1$=10 bar nyomású és $t_1$=200 °C hőmérsékletű vízgőz \textit{száraz telített állapotúvá válik}. Határozza meg a végállapotban a nyomást, az állapotváltozással kapcsolatos a munkát és a  gőz belső energiájának megváltozását. Ábrázolja a változást T-s rendszerben! \\
+		Izotermikus folyamat során 1 kg $p_1=10 bar$ nyomású és $T_1=200 °C$ hőmérsékletű vízgőz \textit{száraz telített állapotúvá válik}. Határozza meg a végállapotban a nyomást, az állapotváltozással kapcsolatos a munkát és a  gőz belső energiájának megváltozását. Ábrázolja a változást $T-s$ rendszerben! \\
 		\subsubsection{Ismert jellemzők a kezdeti állapotban} 
 			\begin{equation*}
 				m= \SI{1}{\kilogram}, 
@@ -21,7 +21,7 @@
 				\quad
 				p_2= \SI{15,55}{\bar},
 				\quad
-				t_1=\SI{200}{\celsius} = konst.
+				T_1=\SI{200}{\celsius} = \text{állandó}
 			\end{equation*}
 		\subsubsection{Gőztáblázatból származó adatok}
 			\begin{equation*}
@@ -48,9 +48,9 @@
 			Ugyan akkor ez zárt rendszerre igaz, de nyitott rendszerre az entalpiát alkalmazzuk. Gibbs egyenlet:
 			\[ h=u+pv\]  
 			\[u=h-pv\] 
-			\begin{equation}
+			\begin{equation*}
 				\Delta u_{12} = u_2 - u_1 = \left(h_2 -p_2  v_2\right) - \left(h_1 -p_1  v_1\right) 				 
-			\end{equation}
+			\end{equation*}
 			\begin{equation}
 				\Delta u_{12} = \left( \SI{2793}{\kilo\joule\per\kilogram} - \SI{15,55e5}{\pascal} \cdot \SI{0,1272}{\meter\cubed\per\kilogram} \right) - \left( \SI{2827}{\kilo\joule\per\kilogram} - \SI{10e5}{\pascal} \cdot \SI{0,206}{\meter\cubed\per\kilogram} \right) 
 			\end{equation}
@@ -60,29 +60,34 @@
                                 Figyeljünk a nyomás mértékegységére!
 		\subsubsection{Hőforgalom számítása}
 			Termodinamika II. főtétele szerint:
-			\[ \dif s=(1/T)\delta q\] 
-			Ezt $q$-ra rendezve:
-			\[ q=T\dif s \]
-			teljes differenciál az $s$-nél:
-			\[ \int_{1}^{2} T\dif s= T(s_2-s_1) \]
-			mert $T$ kivihető integrál jel elé:
-			\begin{equation}
+			\[ \dif s=\dfrac {1}{T} \delta q\] 
+			Felszorzunk $T$-vel, majd $q$-ra rendezünk:
+			\[ \delta q=T\dif s \]
+			Teljes differenciált képzünk mindkét oldalnál:
+			\[\int_{1}^{2} \delta q = \int_{1}^{2} T\dif s \]
+                                Elvégezzük az integrálást, $T$ kivihető az integrál jel elé, mert $T=\text{állandó}$:
+			\begin{equation*}
 				q_{12} = T_1\left( s_2 - s_1\right) 
-			\end{equation}   
+			\end{equation*}   
 			\begin{equation}
 				q_{12} = \SI{473,15}{\kelvin} \left( \SI{6,430}{\kilo\joule\per\kilogram\kelvin} -\SI{6,662}{\kilo\joule\per\kilogram\kelvin}   \right) 
 			\end{equation}
 			\begin{equation}
 				q_{12} = \SI{-123,13}{\kilo\joule\per\kilogram}
 			\end{equation}	
-                                 Figyeljünk a hőmérséklet mértékegységére!
+                                 Figyeljünk a helyes hőmérséklet skálára!
 		\subsubsection{Munka forgalom}
 			Termodinamika I. főtétele alapján:
 				\[ \dif u = \delta q - \delta w \]
-			Ezt átrendezve és integrálva:					 
-			\begin{equation}
+			Ezt átrendezzük $\delta w$-re:
+				\[ \delta w = \delta q - \dif u \]	 
+			Teljes differenciált képzünk:
+				\[\int_{1}^{2} \delta w = \int_{1}^{2} \delta q - \int_{1}^{2} \delta u \]
+			Majd integrálunk:
+			\begin{equation*}
 				w_{12} = q_{12}- \Delta u_{12} 
-			\end{equation}	
+			\end{equation*}
+			Előzőleg számolt értékeinkkel kiszámoljuk a $w_{12}$ értékét:
 			\begin{equation}
 				w_{12} = \SI{-123,13}{\kilo\joule\per\kilogram} - \SI{-25,76}{\kilo\joule\per\kilogram} 
 			\end{equation}	
@@ -90,13 +95,11 @@
 				w_{12} = \SI{-97,3}{\kilo\joule\per\kilogram}
 			\end{equation}
 \pagebreak
-		\subsubsection{T-S diagram}	
+		\subsubsection{T-s diagram}	
 		\begin{figure}[h]
 			\centering
 			\label{figure:guh7ud-vgtsd}
 			\begin{tikzpicture}
-			% Rács és vágómaszk
-			\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
 
 			\begin{axis}[
 			width=16cm, height=12cm,
