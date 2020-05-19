@@ -1,113 +1,118 @@
-\section*{MH20}
-\begin{tabular}{ | p{2cm} | p{14cm} | } 
-	\hline
-	Név & Rezi Bence \\ 
-	\hline
-	Szak & Gépészmérnök \\ 
-	\hline
-	Félév & 2019/2020 II. (tavaszi) félév \\ 
-	\hline
-\end{tabular}
-\vspace{0.5cm}
 
-\noindent 	Számítsa ki a hőerőmű tápszivattyújának villamos teljesítményét egy \SI{200}{\bar} nyomású és \SI{600}{\celsius} hőmérsékletű, 160 t/h mennyiségű gőzt termelő kazánnál,ha a kompresszió adiabatikus és reverzibilis valamint a tápvíz \SI{0,05}{\bar} nyomású telített folyadék.Határozza meg az előbbi paraméterekkel rendelkező körfolyamat esetén hogy a tápszivattyú teljesítménye hány százaléka a turbina teljesítményének.
+	\section*{MH20: Tápszivattyú villamos teljesítménye}
+	\addcontentsline{toc}{section}{MH20-as feladat}
+	\begin{tabular}{ | p{2cm} | p{14cm} | } 
+		\hline
+		Név & Rezi Bence \\ 
+		\hline
+		Szak & Gépészmérnöki alapszak \\ 
+		\hline
+		Félév & 2019/2020 II. (tavaszi) félév \\ 
+		\hline
+	\end{tabular}
+	\vspace{0.5cm}
 
-\vspace{2mm}
-\noindent Mutassa be T-s diagramban a tápszivattyú munkájának megfelelő területet! 
+	\noindent 	Számítsa ki a hőerőmű tápszivattyújának villamos teljesítményét egy \SI{200}{\bar} nyomású és \SI{600}{\celsius} hőmérsékletű, 160 t/h mennyiségű gőzt termelő kazánnál,ha a kompresszió adiabatikus és reverzibilis valamint a tápvíz \SI{0,05}{\bar} nyomású telített folyadék. Határozza meg az előbbi paraméterekkel rendelkező körfolyamat esetén hogy a tápszivattyú teljesítménye hány százaléka a turbina teljesítményének.
 
-\vspace{5mm}
-\noindent Adatok : p0,05-nél :
-\begin{equation*}
-	i' = \SI{137,83}{\kilo\joule\per\kilogram},
+	\vspace{2mm}
+	\noindent Mutassa be T-s diagramban a tápszivattyú munkájának megfelelő területet! 
+
+	\vspace{5mm}
+	\noindent Adatok: $p_L = \SI{0,05}{\bar}$ -nál :
+	\begin{equation*}
+	h' = \SI{137,83}{\kilo\joule\per\kilogram},
 	\quad
 	s' = \SI{0,4761}{\kilo\joule\per\kilogram\kelvin}
-\end{equation*}
-\begin{equation*}
-	i'' = \SI{2561}{\kilo\joule\per\kilogram},
+	\end{equation*}
+	\begin{equation*}
+	h'' = \SI{2561}{\kilo\joule\per\kilogram},
 	\quad
 	s'' = \SI{8,393}{\kilo\joule\per\kilogram\kelvin}
-\end{equation*}
+	\end{equation*}
 
-\vspace{2mm}
-\noindent Adatok : p200-nál :
-\begin{equation*}
+	\vspace{2mm}
+	\noindent Adatok: $p_F = \SI{200}{\bar}$ -nál :
+	\begin{equation*}
 	T  =\SI{30}{\celsius}
 	\quad
-	i = \SI{143,9}{\kilo\joule\per\kilogram},
+	h_3 = \SI{143,9}{\kilo\joule\per\kilogram},
 	\quad
 	s' = \SI{0,4303}{\kilo\joule\per\kilogram\kelvin}
-\end{equation*}
-\begin{equation*}
+	\end{equation*}
+	\begin{equation*}
 	T  =\SI{40}{\celsius}
 	\quad
-	i = \SI{185,3}{\kilo\joule\per\kilogram},
+	h_4 = \SI{185,3}{\kilo\joule\per\kilogram},
 	\quad
 	s' = \SI{0,5640}{\kilo\joule\per\kilogram\kelvin}
-\end{equation*}
-\begin{equation*}
+	\end{equation*}
+	\begin{equation*}
 	T  =\SI{600}{\celsius}
 	\quad
-	i = \SI{3530}{\kilo\joule\per\kilogram},
+	h_1 = \SI{3530}{\kilo\joule\per\kilogram},
 	\quad
 	s' = \SI{6,508}{\kilo\joule\per\kilogram\kelvin}
-\end{equation*}
-\vspace{5mm}
+	\end{equation*}
+	\vspace{5mm}
 
-\noindent Megoldás:
-\vspace{2mm}
+	\noindent Megoldás:
+	\vspace{2mm}
 
+	\noindent A végállapot állapotjelzőinek számolásához szükségünk van az ismert szélsőértékek mellett az $x_2$ fajlagos gőztartalomra is. Az állapotváltozás adiabatikus jellegű, emiatt $s_1 \approx s_2$ (ha reverzibilisnek tekintjük az állapotváltozást, akkor $s_1 = s_2$):
 
+	\begin{equation*}
+	x_2 = \frac{s_2-s'}{s''-s'} =0,7619
+	\end{equation*}
+ 
 
-
-
-\begin{equation}
-x_2 = \frac{s_2-s'}{s''-s'} =0,7619
-\end{equation}
-
-\begin{equation}
-i_2=x_2\cdot i''+(1-x_2)\cdot i_2'=i = \SI{1984,3}{\kilo\joule\per\kilogram}
-\end{equation}
-
-\begin{equation}
-W_{komp}=i_1-i_2=\SI{1545,7}{\kilo\joule\per\kilogram}
-\end{equation}
-
-\begin{equation}
-q_{be}=i_1-i_2'=\SI{3392,17}{\kilo\joule\per\kilogram}
-\end{equation}
-
-\begin{equation}
-q_{el}=i_2-i_2'=\SI{1846,47}{\kilo\joule\per\kilogram}
-\end{equation}
-
-\begin{equation}
-W_{exp}=q_{be}-q_{el}=\SI{1546,23}{\kilo\joule\per\kilogram}
-\end{equation}
-
-\begin{equation}
-\frac{W_{komp}}{W_{exp}}=1,3 \%
-\end{equation}
-
-\begin{equation}
-\dot{m}= \SI{1,84}{\kilogram\per\second}
-\end{equation}
-
-\begin{equation}
-P_{szivo} = W \cdot \dot{m} =\SI{837,5}{\kilo\watt}
-\end{equation}
-
-
-\noindent T-s diagram :
-\vspace{2mm}
+ 
+	\begin{equation*}
+	h_2=x_2\cdot h''+(1-x_2)\cdot h_2'=h = \SI{1984,3}{\kilo\joule\per\kilogram}
+	\end{equation*}
 
 
 
-\begin{figure}[h]
+	\begin{equation*}
+	w_{Sz}=h_1-h_2=\SI{1545,7}{\kilo\joule\per\kilogram}
+	\end{equation*}
+
+	 \noindent A végállapotbeli állapotjelzőket felhasználva  meghatározhatjuk a tömegfajlagos munkát melyet  turbina a végez, a tápszivattyú  tömegfajlagos munkájának meghatározásához   szükséges meghatározni a $q_{be}$ és $q_{el}$ -t a kezdeti és végállapotbeli állapotjelzők segítségével:
+ 
+	\begin{equation*}
+	q_{be}=h_1-h_2'=\SI{3392,17}{\kilo\joule\per\kilogram}
+	\end{equation*}
+
+	\begin{equation*}
+	q_{el}=h_2-h_2'=\SI{1846,47}{\kilo\joule\per\kilogram}
+	\end{equation*}
+
+	\begin{equation*}
+	w_{T}=q_{be}-q_{el}=\SI{1546,23}{\kilo\joule\per\kilogram}
+	\end{equation*}
+
+	\noindent A tápszivattyúra és a turbinára is ugyan az a  tömegáram vonatkoztatható így a tömegfajlgos munkák ismeretében számíthatható a teljesítmény illetve a teljesítmények aránya:
+
+	\begin{equation*}
+	\frac{w_{Sz}}{w_{T}}=1,3 \%
+	\end{equation*}
+
+	\begin{equation*}
+	\dot{m}= \SI{1,84}{\kilogram\per\second}
+	\end{equation*}
+
+	\begin{equation*}
+	P_{szivo} = w_{Sz} \cdot \dot{m} =\SI{837,5}{\kilo\watt}
+	\end{equation*}
+
+
+	\noindent T-s diagram :
+	\vspace{2mm}
+
+	\begin{figure}[h]
 	\centering
 	\label{figure:guh7ud-vgtsd}
 	\begin{tikzpicture}
 
-	
 	% A tengelykeresztet az axis környezet hozza létre
 	\begin{axis}[
 	width=16cm, height=12cm,
@@ -134,8 +139,8 @@ P_{szivo} = W \cdot \dot{m} =\SI{837,5}{\kilo\watt}
 	
 	% A nedves gőzmező fázishatárai
 	\addplot[thick] table {./QWP76T/ts.txt};
-	\addplot[very thin] table {./QWP76T/005bar.txt};
-	\addplot[very thin] table {./QWP76T/200bar.txt};
+	\addplot[ultra thin] table {./QWP76T/005bar.txt};
+	\addplot[ultra thin] table {./QWP76T/200bar.txt};
 	
     \node[anchor=south east] at (axis cs: 6.508, 600) {\pgfcircled{$1$}};
 	\filldraw[black, fill=black] (axis cs: 6.508, 600) circle (1mm);
@@ -150,16 +155,70 @@ P_{szivo} = W \cdot \dot{m} =\SI{837,5}{\kilo\watt}
 	\filldraw[black, fill=black] (axis cs: 8.394, 32.874) circle (1mm);
 	
 	
-	\addplot[thick, mid arrow,name path=a] table {./QWP76T/ts2.txt};
+	\addplot[ ultra thin,mid arrow,name path=a] table {./QWP76T/ts2.txt};
 	
-	\draw[thick,mid arrow] (axis cs:6.508, 32.874  ) -- (axis cs:0.4761, 32.874  );
-	\draw[thick,mid arrow] (axis cs:6.508, 600 ) -- (axis cs:  6.508, 32.874 );
-	\draw[thick,name path=b] (axis cs:0.4761, 32.874  ) -- (axis cs: 6.508, 32.874 );
-	\addplot[gray!30] fill between[of=a and b];
+	\draw[ultra thin,mid arrow] (axis cs:6.508, 32.874  ) -- (axis cs:0.4761, 32.874  );
+	\draw[ultra thin,mid arrow] (axis cs:6.508, 600 ) -- (axis cs:  6.508, 32.874 );
+	\draw[ultra thin] (axis cs:0.4761, 32.874  ) -- (axis cs: 6.508, 32.874 );
+	\draw[ultra thin] (axis cs:0.4761, 32.874  ) -- (axis cs: 0.4761, 40  );
+    %\draw[ultra thin,] (axis cs: 3.989 ,364.327) -- (axis cs:  4.966, 364.327 );
+	%\addplot[ultra thin,mid arrow, name path=b] table {./QWP76T/ts1.txt};
+	%\addplot[gray!30] fill between[of=a and b];
 	
 	\end{axis}
 	
 	
 	\end{tikzpicture}
-	\caption{Víz-gőz $T-s$ diagram}
+	\caption{Víz-gőz $T-s$ diagram}	
+	\end{figure}
+	\begin{figure}[h]
+	\centering
+	\label{figure:guh7ud-vgtsd}
+	\begin{tikzpicture}
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0, xmax=2,
+	ymin=0, ymax=50, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={0.5,1,1.5, 2},
+	ytick={10,20,30,40,60}
+	]
+	\node[anchor=south east] at (axis cs: 4.40696, 373.919) {\pgfcircled{$K$}};
+	\filldraw[black, fill=black] (axis cs: 4.40696, 373.919) circle (1mm);
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	% A nedves gőzmező fázishatárai
+	\addplot[very thin,] table {./QWP76T/ts.txt};
+	\addplot[thick,mid arrow,] table {./QWP76T/ts1.txt};
+	\addplot[thick,mid arrow] table {./QWP76T/ts3.txt};
+	\addplot[very thin,mid arrow] table {./QWP76T/200bar.txt};
+	\node[anchor=south east] at (axis cs:  0.4761, 40) {\pgfcircled{$4$}};
+	\filldraw[black, fill=black] (axis cs:  0.4761, 40) circle (1mm);
+	\node[anchor=south east] at (axis cs: 0.4761, 32.874) {\pgfcircled{$2'$}};
+	\filldraw[black, fill=black] (axis cs: 0.4761, 32.874) circle (1mm);
+	\draw[ultra thin,] (axis cs:6.508, 32.874  ) -- (axis cs:  0.4761, 32.874 );
+	\draw[thick,mid arrow,name path=a] (axis cs:0.4761, 32.874  ) -- (axis cs: 0.4761, 40  );
+	\draw[ultra thin,name path=b] (axis cs: 3.989 ,364.327) -- (axis cs:  4.966, 364.327 );
+	\addplot[gray!30] fill between[of=a and b];
+	
+	
+	
+	\end{axis}
+	
+	
+	\end{tikzpicture}
+	\caption{Tápszivattyú munkája a Víz-gőz $T-s$ diagramon}
 \end{figure}
