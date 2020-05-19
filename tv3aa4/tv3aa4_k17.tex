@@ -121,15 +121,16 @@
 			ytick={100, 200, 300, 400},
 			]					
 
-			\addplot[thick] table {ts-diagram-fázishatár.txt};
-
+			\addplot[thick] table {./tv3aa4/ts-diagram-fázishatár.txt};
+			\addplot[ultra thick, dashed, blue] table {./tv3aa4/izobar10bar.txt};
+			\addplot[ultra thick, dashed, red] table {./tv3aa4/izobar1555.txt};
 			\node[anchor=south east] at (axis cs: 6.430, 200) {\pgfcircled{$2$}};
 			\node[anchor=south west] at (axis cs: 6.662, 200) {\pgfcircled{$1$}};	
 			\node[circle,fill=red,inner sep=0pt,minimum size=3pt] (a) at (axis cs: 6.662, 200) {};
 			\node[circle,fill=red,inner sep=0pt,minimum size=3pt] (a) at (axis cs: 6.430, 200) {};											
 			\draw[black, thick, dashed] (axis cs: 6.662, 200) -|(axis cs: 6.662, 0);
 			\draw[black, thick, dashed] (axis cs: 6.430, 200) -|(axis cs: 6.430, 0);
-			\draw[black, thick]	(axis cs: 6.430, 200)-|	(axis cs: 6.662, 200);	
+			\draw[black, thick]	(axis cs: 6.430, 200)-|	(axis cs: 6.662, 200);
 			\end{axis}									
 			\end{tikzpicture}
 			\caption{Vízgőz $T-s$ diagram}
