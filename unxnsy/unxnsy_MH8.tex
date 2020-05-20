@@ -1,0 +1,85 @@
+\section*{MH8 Feladat: Csővezetékben áramló vízgőz nyomása}
+\addcontentsline{toc}{section}{MH8 Feladat: Csővezetékben áramló vízgőz nyomása}
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Kustán Gergely UNXNSY \\ 
+	\hline
+	Szak & Mechatronikai mérnök  \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent
+Egy csővezetékben $\SI{230}{\celsius}$ hőmérsékletű telített vízgőz áramlik. Milyen nyomást mutat a vezetékre kapcsolt manométer, ha a barométerállás $b=\SI{650}{\milli\meter} Hg$?(kb. $\SI{1200}{\meter}$ tengerszint feletti magasságban)
+
+\subsection*{Adatok}
+\begin{equation*}
+	T=\SI{230}{\celsius}
+	\quad
+	b=\SI{650}{\milli\meter} Hg
+	\quad
+	(\SI{1}{\milli\meter}Hg=\SI{133,32}{\pascal})
+\end{equation*}
+\noindent
+Adatok a vízgőztáblázatból:
+
+\begin{equation*}
+	p_1=\SI{27}{\bar}
+	\quad
+	T_1=\SI{228,06}{\celsius}
+\end{equation*}
+
+\begin{equation*}
+	p_2=\SI{28}{\bar}
+	\quad
+	T_2=\SI{230,04}{\celsius}
+\end{equation*}
+\subsection*{Megoldás}
+Ahhoz hogy megtudjuk mennyit mutat a manométer először meg kell határozni a nyomás változást $\SI{1}{\celsius}$-onként:
+
+\begin{equation}
+	\Delta{T_1}=T_2-T_1=\SI{1,98}{\celsius}
+\end{equation}
+
+\noindent
+$\SI{1,98}{\celsius}$ alatt változik a nyomás $\SI{1}{\bar}$-t, ez egy egyszerű arányossággal kiszámítható a $\SI{1}{\celsius}$-onkénti nyomás változás:
+
+\begin{equation}
+	\Delta{p_x}=\frac{1}{\Delta{T_1}}1=\SI{0,505}{\bar}
+\end{equation}
+
+\noindent
+A $\SI{228,06}{\celsius}$-os hőmérséklethez képest $\SI{1,94}{\celsius}$-kal tér el a kérdezett hőfoktól és már tudjuk mennyivel nő a nyomás hőfokonként így ezekből kiszámítható a $p_1$-es értékhez tartozó növekedés:
+
+\begin{equation}
+	\Delta{p_y}=\frac{\Delta{T_2}}{1}\Delta{p_x}
+	= 
+	\SI{0,9797}{\bar}
+\end{equation}
+
+\noindent
+$\SI{230}{\celsius}$-on a nyomás:
+\begin{equation}
+	p_{\SI{230}{\celsius}}
+	=
+	p_1+\Delta{p_y}=\SI{27,9797}{\bar}
+\end{equation}
+
+\noindent
+A manométeren mutatott nyomás:
+\begin{equation*}
+	b=\SI{650}{\milli\meter} Hg
+ 	= 
+ 	\SI{0,86658}{\bar}
+\end{equation*}
+
+\begin{equation}
+	p_m=p_{\SI{230}{\celsius}}-b
+	=
+	\SI{27,11312}{\bar}
+\end{equation}
+
+\pagebreak
+

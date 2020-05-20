@@ -1,0 +1,151 @@
+\section*{K1/2. Feladat: Levegő melegítése állandó nyomáson}
+\addcontentsline{toc}{section}{K1/2. feladat: Levegő melegítése állandó nyomáson}
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Kustán Gergely UNXNSY \\ 
+	\hline
+	Szak & Mechatronikai mérnök  \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent
+Határozzuk meg azt a hőmennyiséget, amely $\SI{180}{\kilogram}$ levegő állandó nyomáson történő felmelegítéséhez szükséges $\SI{300}{\celsius}$ és $\SI{1200}{\celsius}$ hőmérsékletek között.
+\subsection*{Adatok}
+\begin{equation*}
+	m = \SI{180}{\kilogram},
+	\quad
+	T_1 = \SI{300}{\celsius},
+	\quad
+	T_2 = \SI{1200}{\celsius} 
+\end{equation*}
+\noindent A számításhoz szükséges még a kérdezett hőintervallumhoz tartozó közepes fajhőre amit közvetlenül a gőztáblázatból nem lehet leolvasni. A táblázatban csak a $(0-T)$ $\SIUnitSymbolCelsius$ közötti intervallumra vonatkozó értékek találhatók, ill. egy-egy adott hőfokhoz tartozó érték.
+A feladathoz szükséges értékek:
+\begin{equation*}
+	c_{p(0-300)} = c_{p1} = \SI{1,019}{\kilo\joule\per\kilogram\kelvin} 
+\end{equation*}
+
+\begin{equation*}
+	c_{p(0-1200)} = c_{p2} = \SI{1,108}{\kilo\joule\per\kilogram\kelvin} 
+\end{equation*}
+
+\subsection*{Megoldás}
+A $Q_{1,2}$ hőmennyiséghez ki először számítani a $300-1200$ $\SIUnitSymbolCelsius$ közötti közepes fajhőt, ami a táblázatból kiolvasott értékek segítségével meghatározható. Mivel az állapotváltozás \textbf{állandó nyomáson történik (izobar)}  ezért fenn áll a következő összefüggés amit átrendezve kiszámolható a közepes fajhő:
+
+\begin{equation}
+	\delta{q}=\dif{h}-v\dif{p} 
+	\Rightarrow
+	\dif{p}=\SI{0}{\pascal} 
+\end{equation}
+
+\begin{equation*}
+	\delta{q}=c_p \dif{T}
+\end{equation*}
+
+\begin{equation}
+	q_{1,2} = \int_{T_1}^{T_2}c_{p1,2}dT 
+	= 
+	c_{p1,2}(T_2-T_1) 
+	\Rightarrow 
+	c_{p1,2} =\dfrac{q_{1,2}}{T_2-T_1} 
+\end{equation}
+
+\noindent
+Az $q_{1,2}$ tömegfajlagos hőmennyiség (1.2)-es egyenletből:
+\begin{equation}
+	q_{1,2} = \int_{0}^{T_2}c_{p2}dT - \int_{0}^{T_1}c_{p1}dT
+	= 
+	c_{p2}T_2 - c_{p1}T_1
+\end{equation}
+
+\subsection*{A közepes fajhő}
+\begin{equation}
+	c_{p1,2} =\dfrac{c_{p2}T_2 - c_{p1}T_1}{T_2-T_1}
+	=
+	\SI{1,1377}{\kilo\joule\per\kilogram\kelvin}
+\end{equation}
+
+%T-c_p
+
+\usepgfplotslibrary{fillbetween}
+
+\begin{figure}[h]
+	\centering
+	\label{figure:vgtsd}
+	\begin{tikzpicture}
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0, xmax=1650,
+	ymin=900, ymax=1300, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$T \left(\si{\degreeCelsius}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$c_p \left(\si{\joule\per\kilogram\kelvin}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={0, 200, 400, 600, 800, 1000, 1400},
+	ytick={900, 950, 1000, 1050, 1150, 1200, 1250},
+	extra x ticks={300, 1200},
+	extra x tick labels={$T_1$,$T_2$},
+	extra y ticks={1019, 1100, 1108},
+	extra y tick labels={$c_{p1}$, $ $, $c_{p2}$},
+	]
+	
+	% Az adat az MHFGY Wolfram-jegyzetfüzetből származik
+	
+	\addplot[very thick, name path=A] table {./unxnsy/c_p-T 1.txt};
+	\addplot[very thick, name path=C] table {./unxnsy/c_p-T 2.txt};
+	\addplot[very thick] table {./unxnsy/c_p-T.txt};
+	
+	% 1-es pont
+	\node[anchor=south east] at (axis cs: 300, 1045.11) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 300, 1045.11) circle (1mm);
+	
+	%2-es pont
+	\node[anchor=south east] at (axis cs: 1200, 1207.37) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 1200, 1207.37) circle (1mm);
+	
+	
+
+	%T_1 és T_2 Függőleges vonalak 
+	\draw[very thin] (axis cs: 300, 1137.7) -- (axis cs:  300, 0);
+	\draw[very thin] (axis cs: 1200, 1207.37) -- (axis cs:  1200, 0);
+	
+	%Vízszintes fajhő vonalak
+	\draw[very thin, name path=B] (axis cs: 0, 1019) -- (axis cs:  300, 1019);
+	\draw[very thin] (axis cs: 0, 1108) -- (axis cs:  1200, 1108);
+	\draw[very thin, name path=D] (axis cs: 300, 1137.7) -- (axis cs:  1200, 1137.7);
+	
+	
+	\addplot[gray!30] fill between[of=A and B];
+	\addplot[gray!30] fill between[of=C and D];
+
+	\node[anchor=south east] at (axis cs: 800, 1200) {\pgf{$c_p(T)$}};
+	\draw[very thin, <-] (axis cs: 850, 1162.50) -- (axis cs: 800, 1210);
+	
+
+
+\end{axis}
+
+\end{tikzpicture}
+\caption{Izobar $T-c_p$}
+\end{figure}
+
+
+\subsection*{A felmelegítéshez szükséges hőmennyiség}
+\begin{equation}
+	Q_{1,2} = m \int_{T_1}^{T_2}c_{p1,2}dT = mc_{p1,2}(T_2-T_1) 
+	=
+	\SI{184307,4}{\kilo\joule}
+\end{equation}
+\pagebreak
