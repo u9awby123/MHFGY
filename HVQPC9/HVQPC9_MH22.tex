@@ -1,0 +1,134 @@
+% A feladat címe automatikus számozás nélkül
+\section*{K3/22. feladat: Rankine-Clausius-körfolyamat hasznos teljesítménye}
+
+% Hozzáadás a tartalomjegyzékhez azonos címmel
+\addcontentsline{toc}{section}{K3/22. feladat: Rankine-Clausius-körfolyamat hasznos teljesítménye}
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Paksai Márk (HVQPC9)\\ 
+	\hline
+	Szak & Gépészmérnök \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+ Reverzibilis Rankine-Clausius körfolyamat hasznos teljesítménye $P = \SI{30}{\kW}$. A körfolyamat $p_1 = \SI{70}{\bar}$ és $p_k = \SI{0,05}{\bar}$ nyomáshatárok között játszódik le. A túlhevítési hőmérséklet $t = \SI{500}{\celsius}$. Rajzolja le a körfolyamatot $T$-$s$ diagramban és a tápszivattyú munkájának figyelmen kívül hagyásával, határozza meg a kondenzátorban óránként elvonódó hőt! (kcal/h-ban)\par
+ \bigskip
+ \noindent
+ Adatok:
+\begin{center}
+	\begin{tabular}{ ll } 
+		$p_1 = \SI{70}{\bar}$ & $p_k = \SI{0,05}{\bar}$\\ [2ex]
+		$h_1 = \SI{3411}{\frac{\kJ}{\kg}}$ & $h' = \SI{136}{\frac{\kJ}{\kg}}$ \\[2ex] 	
+		$s_1 = \SI{6,8}{\frac{\kJ}{\kg\K}}$ & $h'' = \SI{2560}{\frac{\kJ}{\kg}}$\\[2ex] 	
+		& $s' = \SI{0,47}{\frac{\kJ}{\kg\K}}$ \\[2ex] 
+		& $s'' = \SI{8,4}{\frac{\kJ}{\kg\K}}$\\[2ex]
+	\end{tabular}
+\end{center}
+\bigskip
+
+% A feladat megoldása
+\noindent
+A végállapot állapotjelzőinek számításához szükségünk van az ismert szélsőértékek mellett az $x_2$ fajlagos gőztartalomra is. Az állapotváltozás adiabatikus jellegű, emiatt $s_1 \approx s_2$ (ha reverzibilisnek tekintjük az állapotváltozást, akkor $s_1 = s_2$).
+
+\begin{equation}
+	s_1 = s_2 = (1-x_2)\cdot s'_2 + x_2 \cdot s''_2
+\end{equation}
+
+\begin{equation}
+	x_2 = \frac{s_1-s'_2}{s''_2-s'_2} = \frac{6,8-0,47}{8,4-0,47} = 0,798
+\end{equation}
+
+\begin{equation}
+	h_2 = (1-x_2) \cdot h' + x_2 \cdot h'' = (1-0,798) \cdot 136 + 0,798 \cdot 2560 = \SI{2070,35}{\frac{\kilo\joule}{\kilo\gram}}
+\end{equation}
+
+\noindent
+A végállapotbeli állapotjelzőket felhasználva illetve a fajlagos gőztartalom ismeretében meghatározhatjuk a tömegfajlagos munkát:
+
+\begin{equation}
+	w = h_1 - h_2 = 3411 - 2070,35 = \SI{1340,65}{\frac{\kilo\joule}{\kilo\gram}}
+\end{equation}
+
+\noindent
+A tömegfajlagos munka és a hasznos teljesítmény ismeretében kiszámíthatjuk a tömegáramot:
+
+\begin{equation}
+	P_h = w \cdot \dot{m}
+\end{equation}
+
+\begin{equation}
+	\dot{m} = \frac{P_h}{w} = \frac{\SI{30}{\frac{\kilo\joule}{\second}}}{\SI{1340,65}{\frac{\kilo\joule}{\kilo\gram}}} = \SI{0,0223}{\frac{\kilo\joule}{\kilo\gram}} = \SI{80,56}{\frac{\kilo\gram}{\hour}}
+\end{equation}
+
+\begin{equation}
+	q_{el} = h_2 - h_3 = 2070,35 - 136 = \SI{1934,35}{\frac{\kilo\joule}{\kilo\gram}}
+\end{equation}
+
+\begin{equation}
+	Q_K = q_{el} \cdot \dot{m} = \SI{1934,35}{\frac{\kilo\joule}{\kilo\gram}} \cdot \SI{80,56}{\frac{\kilo\gram}{\hour}} = \SI{155831}{\frac{\kilo\gram}{\hour}} = \SI{37244,50}{\frac{kcal}{\hour}}
+\end{equation}
+\vspace{1cm}
+
+% Ábra elkészítése 
+\begin{figure}[h]
+\centering
+\label{figure:guh7ud-vgtsd}
+	\begin{tikzpicture}
+	
+% A tengelykeresztet az axis környezet hozza létre
+		\begin{axis}[
+			width=16cm, height=12cm,
+			xmin=0, xmax=10.5,
+			ymin=0, ymax=550, 
+			axis lines = middle,
+			axis line style={->},
+			xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+			xlabel style={
+				at=(current axis.right of origin), 
+				anchor=north east
+			}, 
+			ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+			ylabel style={
+				at=(current axis.above origin), 
+				anchor=north east
+			},
+			xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+			ytick={100, 200, 300, 400 , 500 , 600}
+		]
+			\node[anchor=south east] at (axis cs: 4.40696, 373.919) {\pgfcircled{$K$}};
+			\filldraw[black, fill=black] (axis cs: 4.40696, 373.919) circle (1mm);
+
+% Az adatok az MHFGY Wolfram-jegyzetfüzetből származnak
+			\addplot[thick] table {./HVQPC9/ts.txt};
+			\addplot[ultra thin] table {./HVQPC9/005bar.txt};
+			\addplot[ultra thin] table {./HVQPC9/70bar.txt};
+			
+			\node[anchor=south east] at (axis cs: 6.803, 500.850) {\pgfcircled{$1$}};
+			\filldraw[black, fill=black] (axis cs: 6.803, 500.850) circle (1mm);
+			
+			\node[anchor=south east] at (axis cs: 6.803, 32.874) {\pgfcircled{$2$}};
+			\filldraw[black, fill=black] (axis cs: 6.803, 32.874) circle (1mm);
+			
+			\node[anchor=south east] at (axis cs: 0.476, 32.874) {\pgfcircled{$2'$}};
+			\filldraw[black, fill=black] (axis cs: 0.476, 32.874) circle (1mm);
+			
+			\addplot[ ultra thin,mid arrow,name path=a] table {./HVQPC9/70bar.txt};
+			
+			\draw[ultra thin,mid arrow] (axis cs:6.803, 500.850 ) -- (axis cs: 6.803, 32.874 );
+			\draw[ultra thin,mid arrow] (axis cs:6.803, 32.874 ) -- (axis cs:0.476, 32.874  );
+	
+		\end{axis}
+	
+	\end{tikzpicture}
+	\caption{ $T-s$ diagram}	
+\end{figure}
+
+% Oldaltörés
+\pagebreak	
+	
