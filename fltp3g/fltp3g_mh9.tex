@@ -1,0 +1,56 @@
+\section*{MH9: Vízgőz állapotjelzői}
+\addcontentsline{toc}{section}{MH9}
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Szauer János, FLTP3G \\ 
+	\hline
+	Szak & Mechatronika mérnöki alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{2mm}
+
+\noindent
+Határozza meg a $p = \SI{60}{\bar}$ nyomású és $x = \SI{0,95}{}$ fajlagos gőztartalmú vízgőz hőmérsékletét, fajtérfogatát, entrópiáját és belső energiáját, vízgőztáblázat illetve $i-s$, vagy $T-s$ diagram segítségével!
+
+\subsubsection{Vízgőztáblázat által kikeresett adatok:}
+\begin{equation*}
+	T_s(\SI{60}{bar}) = \SI{275,56}{\celsius},
+	\quad
+	v' = \SI{0.00132}{\meter\cubed\per\kilogram},
+	\quad
+	v'' = \SI{0.0324}{\meter\cubed\per\kilogram}
+	\quad
+	s' = \SI{3.0277}{\kilo\joule\per\kilogram}, 
+\end{equation*}
+	
+\begin{equation*}
+	s'' = \SI{5.8878}{\kilo\joule\per\kilogram},
+	\quad
+	h' = \SI{1213.9}{\kilo\joule\per\kilogram}, 
+	\quad
+	h'' = \SI{2785}{\kilo\joule\per\kilogram},
+\end{equation*}
+
+\noindent\hrulefill
+
+\subsubsection{Az állapotjelzők számítása}
+A  $h_x$ hőtartalom, $v_x$ fajtérfogat és $s_x$ entrópia a szélsőértékek és az $x$ fajlagos gőztartalom felhasználásával számolható:
+
+\begin{equation*}
+	h_x = \left(1 - x\right) h' + x h'' = \SI{2706.16}{\kilo\joule\per\kilogram}
+\end{equation*}
+\begin{equation*}
+	v_x = \left(1 - x\right) v' + x v'' = \SI{0.03087}{\meter\cubed\per\kilogram}
+\end{equation*}
+\begin{equation*}
+	s_x = \left(1 - x\right) s' + x s'' = \SI{5.745}{\kilo\joule\per\kilogram\kelvin}
+\end{equation*}
+\begin{equation*}
+	 u_x = h - p v_x = \SI{2520.94}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+
+% Oldaltörés
+\pagebreak

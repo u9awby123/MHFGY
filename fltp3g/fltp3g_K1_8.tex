@@ -1,0 +1,258 @@
+\section*{K1/8. feladat: Túlhevített vízgőz sűrítése állandó nyomáson}
+\addcontentsline{toc}{section}{K1/8. feladat}
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Szauer János, FLTP3G \\ 
+	\hline
+	Szak & Mechatronika mérnöki alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{1.5mm}
+
+\noindent
+
+$\SI{1}{\kilogram}$ vízgőzt, $p = \SI{10}{\bar}$ állandó nyomáson $v_1 = \SI{0,206}{\meter\cubed\per\kilogram}$ fajtérfogatról $v_2 = \SI{0,12}{\meter\cubed\per\kilogram}$ fajtérfogatra komprimálunk. Határozza meg a gőz egyéb állapotjelzőit a kezdeti (1) és végállapotban (2), a folyamattal kapcsolatos hőmennyiséget, munkát és belső energiaváltozást.
+
+\vspace{2mm}
+
+\noindent Ábrázolja a folyamatot $T-s$ és $p-v$ diagramban!
+
+\subsubsection{Ismert adatok az 1. állapotban:}
+\begin{equation*}
+	T_1 = \SI{200}{\celsius},
+	\quad
+	h_1 = \SI{2827}{\kilo\joule\per\kilogram}, 
+	\quad
+	v_1 = \SI{0,206}{\meter\cubed\per\kilogram}
+\end{equation*}
+
+\subsubsection{Ismert adatok a 2. állapotban:}
+\begin{equation*}
+	T_2 = \SI{180}{\celsius},
+	\quad
+	h_2' = \SI{762,7}{\kilo\joule\per\kilogram},
+	\quad
+	h_2'' = \SI{2778}{\kilo\joule\per\kilogram}
+\end{equation*}
+\vspace{1.5mm}
+\begin{equation*}
+	v_2 = \SI{0,12}{\meter\cubed\per\kilogram},
+	\quad
+	v_2' = \SI{0,00113}{\meter\cubed\per\kilogram},
+	\quad
+	v_2'' = \SI{0,1946}{\meter\cubed\per\kilogram}
+\end{equation*}
+
+\noindent\hrulefill
+
+\vspace{2mm}
+\subsubsection{Megoldás:}
+
+
+
+\noindent
+1-es pontban a gőz túlhevített állapotú $T_2 = T_s(\SI{10}{bar}) < T_1$.
+\vspace{2mm}
+
+\noindent
+2-es pont a nedves gőzmezőben van ,ezért $v_2'<v_2<v_2''$.
+\vspace{2mm}
+
+\noindent
+A 2. pont $h_2$ hőtartalom számolásához szükségünk van az ismert szélsőértékek mellett az $x_2$ fajlagos gőztartalomra is. Az állapotváltozás izobár jellegű. A $v_2$ fajtérfogat és a szélsőértékek felhasználásával az $x_2$ fajlagos gőztartalom számolható:
+
+\begin{equation*}
+	v_2 = \left(1 - x_2\right) v_2' + x_2 v_2''
+	\quad 
+	\Rightarrow
+	\quad 
+	x_2 = \dfrac{v_2 - v_2'}{v_2'' - v_2'} = \SI{0,6144}{}
+\end{equation*}
+
+\noindent A hőtartalom a 2. pontban:
+\begin{equation*}
+	h_2 = \left(1 - x_2\right) h_2' + x_2 h_2'' = \SI{2000,92}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+\pagebreak
+
+\noindent A hőforgalom:
+
+\begin{equation*}
+	q_{1,2} = h_2 - h_1 = \SI{-826}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+\noindent A munkafogalom:
+
+\begin{equation*}
+	w_{1,2} = p(v_2 - v_1) = \SI{-86}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+\noindent A belsőenergia megváltozása:
+
+\begin{equation*}
+	\Delta u_{1,2} = q_{1,2} - w_{1,2} = \SI{-740}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+
+
+% T-s
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0, xmax=10.8,
+	ymin=0, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400},
+	extra y ticks={180},
+	extra y tick labels={$T_s$},
+	]
+
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./fltp3g/ts.txt};
+	
+	% Az p = 10 bar-hoz tartozó izobár vonal
+	\addplot[ultra thick, dashed, blue] table {./fltp3g/ts_10bar.txt};
+	\node[anchor=north east, blue] at (axis cs: 8, 430) {$p$};
+	
+	% A h_1 = 2827 kJ/kg tartozó izobár vonal
+	\addplot[ultra thick, dashed] table {./fltp3g/ts_h1.txt};
+	\node[anchor=north east] at (axis cs: 6.6, 300) {$h_1$};
+	
+	% A h_2 = 2000.92 kJ/kg tartozó izobár vonal
+	\addplot[ultra thick, dashed] table {./fltp3g/ts_h2.txt};
+	\node[anchor=north east] at (axis cs: 4.4, 300) {$h_2$};
+	
+	% Az x = 61.44 %-os fajlagos gőztartalom részleges vonala
+	\addplot[thick, dashed] table {./fltp3g/ts_x6144.txt};
+	\node[anchor=north east] at (axis cs: 5.3, 300) {$x_2$};
+	
+	% A két görbe metszéspontja
+	\node[anchor=west] at (axis cs: 6.69916, 200.924) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 6.69916, 200.924) circle (1mm);
+	
+	\node[anchor=south west] at (axis cs: 4.87401, 180.028) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 4.87401, 180.028) circle (1mm);
+	
+	\draw[very thin] (axis cs: 6.69916, 200.924) -- (axis cs: 6.69916, 0);
+	\draw[very thin] (axis cs: 4.87401, 180.028) -- (axis cs: 4.87401, 0);
+
+	% <- Vonal
+	\addplot[ultra thick,mid arrow] table {./fltp3g/ts1_10bar.txt};
+	
+	\addplot[ultra thick,name path=A] table {./fltp3g/ts2_10bar.txt};
+
+	% Sraffozás
+	\draw[name path=B, ultra thin]  (axis cs: 6.69916, 0) -- (axis cs:  4.87401, 0) ;
+	\addplot[gray!30] fill between[of=A and B];
+
+	\node[anchor=north east] at (axis cs: 6.35, 120) {$q_{1,2}$};
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{T-s diagram}
+\end{figure}
+
+
+
+% p-v
+\begin{figure}[h]
+	\centering
+	\label{figure:guh7ud-vgpvd}
+	\begin{tikzpicture}
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{loglogaxis}[
+	width=16cm, height=12cm,
+	xmin=0.0003, xmax=10000,
+	ymin=0.006, ymax=5000, 
+	axis lines = middle,
+	axis line style={->},
+	log origin x=infty,
+	log origin y=infty,
+	xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$p \left(\si{\bar}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={0.001, 0.01, 1, 10, 100, 1000},
+	ytick={0.01, 0.1, 1, 10, 100, 1000},
+	extra x ticks={0.0031056 ,0.206, 0.1},
+	extra x tick labels={$v_K$, $v_1$, $v_2$},
+	extra y ticks={220.64},
+	extra y tick labels={$p_K$},
+	]
+
+	% A nedves gőzmező fázishatárai
+	\addplot[thick] table {./fltp3g/pv.txt};
+
+	% Az x = 61.44 %-os fajlagos gőztartalom részleges vonala
+	\addplot[thick, dashed] table {./fltp3g/pv_x6144.txt};
+	\node[anchor=north east] at (axis cs: 10, 0.1) {$x_2$};
+	
+	% A T = 180°C-hoz tartozó izoterma
+	\addplot[ultra thick, dashed, blue] table {./fltp3g/pv_180C.txt};
+	\node[anchor=north east, blue] at (axis cs: 0.001028, 170) {$T_2$};
+	
+	% A T = 200°C-hoz tartozó izoterma
+	\addplot[ultra thick, dashed, blue] table {./fltp3g/pv_200C.txt};
+	\node[anchor=north east, blue] at (axis cs: 0.001028, 330.96) {$T_1$};
+
+	% A kritikus pont
+	\node[anchor=south] at (axis cs: 0.0031056, 220.64) {$K$};
+	\fill[fill=black] (axis cs: 0.0031056, 220.64) circle (0.75mm);
+	
+	% A két görbe metszéspontja
+	\node[anchor=south west] at (axis cs: 0.206, 10) {\pgfcircled{$1$}};
+	\filldraw[black, fill=white] (axis cs: 0.206, 10) circle (1mm);
+	
+	\node[anchor=north east] at (axis cs: 0.1, 10) {\pgfcircled{$2$}};
+	\filldraw[black, fill=white] (axis cs: 0.1, 10) circle (1mm);
+	
+	\draw[very thin] (axis cs: 0.1, 10) -- (axis cs:  0.1, 0.006);
+	\draw[very thin] (axis cs: 0.206, 10) -- (axis cs:  0.206, 0.006);
+	
+	\draw[name path=A,->,very thick] (axis cs: 0.206, 10) -- (axis cs:  0.1, 10);
+	
+	\draw[name path=B, ultra thin] (axis cs: 0.206, 0.006) -- (axis cs:  0.1, 0.006);
+	\addplot[gray!30] fill between[of=A and B];
+	
+	\draw[very thin] (axis cs: 0.07, 0.7) -- (axis cs:  0.15, 0.2);
+	\node[anchor=north east] at (axis cs: 0.072, 0.95) {$w_{1,2}$};
+	
+	\end{loglogaxis}
+	
+	\end{tikzpicture}
+	\caption{Víz-gőz $p-v$ diagram}
+\end{figure}
+
+
+
+
+
+% Oldaltörés
+\pagebreak
