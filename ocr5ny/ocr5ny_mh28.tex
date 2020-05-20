@@ -1,0 +1,226 @@
+\section*{MH28. feladat: Hőerőmű termikus jellemzői és fajlagos mutatói}
+\addcontentsline{toc}{section}{MH28. feladat: Hőerőmű termikus jellemzői és fajlagos mutatói}
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Jobban Bátor \\ 
+	\hline
+	Szak & Mechatronikai mérnöki alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent Határozza meg, egy kondenzációs hőerőmű legfőbb termikus jellemzőit, fajlagos mutatóit.
+
+\noindent Alapadatok:
+
+	 $G_{g} = \SI{125}{\tonne\per\hour}$ --- gőzfogyasztás 
+	
+	 $p_{0} = \SI{28.29}{\bar}$; $t_{0} = \SI{535}{\celsius}$ --- friss gőz állapot
+			
+	 $p_{k} = \SI{0.044}{\bar}$; $t_{k} = \SI{30.7}{\celsius}$ --- kondenzátor nyomás illetve hőmérséklet	
+	 
+	 $\Delta T_{\textit{víz}} = \SI{10}{\celsius}$ --- hűtővíz hőfokváltozása a kondenzátorban
+	 
+	 $\eta_{\textit{eff}} = \SI{0.92}{}$ --- turbina eff. hatásfoka ($\eta_{td}$) gőzbeömlő szervek okozta nyomás veszteség: ${6}{\%}$
+	 
+	 $\eta_{k} = \SI{0.85}{}$ --- kazánhatásfok	
+	 
+	 $H_{i} = \SI{12.56}{\mega\J\per\kilogram}$ --- szén fűtőérték
+	 
+	 $\eta_{\textit{mech}} = \SI{0.89}{}$ --- mech. hatásfok
+
+\begin{enumerate}
+	\setlength\itemsep{0em}
+	\item Számítsa ki a valóságos exp. végpontjában a gőz állapotjelzőit, közben ábrázolja a teljes körfolyamatot $t-s$ diagramban!
+	\item Mennyi a turb. eff. teljesítménye, fajlagos gőzfogyasztása, fajlagos hőfogyasztása,
+	\item a hőerőmű gazdasági összhatásfoka, az óránkénti eltüzelt szén mennyisége,
+	\item a kondenzáláshoz felhasznált hűtővíz mennyisége?
+\end{enumerate}
+
+\noindent\hrulefill
+
+\vspace{2mm}
+
+\noindent A turbina eff. telj.-e.
+
+\vspace{2mm}
+
+\noindent A ${6}{\%}$-os nyomásveszteség miatt az expanzió $p_0^{x} = \SI{82.99}{\bar}$-ról indul és $p_k = p_2 = \SI{0.044}{\bar}$ vonalig tart.
+
+\begin{equation*}
+	i_o^{x} = \SI{3480}{\kJ\per\kilogram} \quad 
+	i_2 = \SI{2062}{\kJ\per\kilogram} \quad 
+	x_2 = \SI{0.797}{}
+\end{equation*}
+
+\vspace{2mm}
+
+\noindent Az izentrópikus hőesés: 
+\begin{equation}
+	h_0 = i_0^{x} - i_2 = \SI{831} - \SI{492.5} = \SI{1418}{\kJ\per\kilogram}
+\end{equation}
+
+\vspace{2mm}
+
+\noindent A valóságos hőesés:
+\begin{equation}
+	h_{\textit{eff}} = h_0 \cdot \eta_{\textit{eff}} = \SI{1418} \cdot \SI{0.92} = \SI{1304.5}{\kJ\per\kilogram}
+\end{equation}
+
+\vspace{2mm}
+
+\noindent A valóságos expanzió végpontjában a gőz állapota:
+
+\vspace{2mm}
+
+\begin{equation*}
+i_{\textit{2val}} = \SI{2019.7}{\kJ\per\kilogram} \quad 
+p_2 = \SI{0.044}{\bar} \quad 
+t_2 = \SI{30.7}{\celsius} \quad 
+x_{\textit{2val}} = \SI{0.81}{}
+\end{equation*}
+
+\vspace{2mm}
+
+\noindent Eff. telj.:
+
+\begin{equation}
+	P_{\textit{eff}} = \dfrac{G_g \cdot h_{eff}}{\SI{3600}{}} = \dfrac{\SI{125e3}{} \cdot \SI{1304.5}{}}{\SI{3600}{}} = \SI{45.26e3}{\kW}
+\end{equation}
+
+\vspace{2mm}
+
+\noindent Belső fajl. gőzfogyasztás:
+
+\begin{equation}
+	g_0^x = \dfrac{\SI{3600}{}}{h_{eff}} = \dfrac{\SI{3600}{}}{\SI{1304.5}{}} =  \SI{2.761}{\dfrac {\kilogram_{\textit{gőz}}} {\kWh}}
+\end{equation}
+
+\noindent A fajl. hőfogyasztás (egységnyi villamosenergia termeléséhez szükséges hőenergia):
+
+\vspace{2mm}
+
+$i_{k} = \SI{128.5}{\kJ\per\kilogram}$ --- a tápvíz hőtartalma
+
+\vspace{2mm}
+
+\begin{equation}
+	q = \dfrac {{g_0^x}{(i_0^x - i_k)}} {\eta_{k} \cdot \eta_{\textit{mech}}} = \dfrac{\SI{2.76} (\SI{3480} - \SI{128.5})} {\SI{0.85}{} \cdot \SI{0.89}{}} = \SI{3.398}{\dfrac {\kJ_{\textit{hő}}} {\kJ_{\textit{villamos energia}}}}
+\end{equation}
+
+\noindent mivel
+\vspace{2mm}
+
+\begin{equation}
+	q = \dfrac {\SI{1}{}} {\eta_{ö}} = \dfrac {\SI{1}{}} {\eta_{T} \cdot \eta_{\textit{td}} \cdot \eta_{k} \cdot \eta_{m}}
+\end{equation}
+
+\vspace{2mm}
+
+\begin{equation}
+	\eta_{T} \cdot \eta_{\textit{td}} = \dfrac {i_0^{x} - i_{\textit{2val}}} {i_0^{x} - i_{k}} = \dfrac {h_{\textit{eff}}} {i_0^{x} - i_{k}}
+\end{equation}
+
+\vspace{2mm}
+
+\noindent Hőerőmű gazdasági hatásfoka (össz-):
+
+\begin{equation}
+	\eta_{\textit{gazd}} = \dfrac {\SI{1}{}} {q} = \SI{29.43}{\%}
+\end{equation}
+
+\vspace{2mm}
+
+\noindent Az óránkénti eltüzelt szén mennyisége:
+
+\begin{equation}
+	G_{\textit{szén}} = \dfrac{{G_{g}}{(i_0^x - i_{k})}} {H_{i} \cdot \eta_{k} \cdot \eta_{\textit{mech}}} = \dfrac{\SI{125e3} (\SI{3480} - \SI{128.5})} {\SI{12.56e3}{} \cdot \SI{0.85}{} \cdot \SI{0.89}{}} = \SI{44.08}{\tonne\per\hour}
+\end{equation}
+
+\vspace{2mm}
+
+\noindent A kondenzáláshoz szükséges víz mennyiséges: $ c_{v} = \SI{4.187}{\kJ\per\kilogram\celsius}$
+
+\vspace{2mm}
+
+\begin{equation}
+	G_{\textit{víz}} = \dfrac{{G_{g}}{(i_{\textit{2val}} - i_{k})}} {c_{v} \cdot  \Delta t_{\textit{víz}}} = \dfrac{\SI{125e3} (\SI{2091.7} - \SI{128.5})} {\SI{4.187}{} \cdot \SI{10}{}} = \SI{5861.2}{\tonne\per\hour}
+\end{equation}
+
+\vspace{2mm}
+
+kb. $\SI{47}{}$-szerese a gőztermelésnek
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	
+	\begin{axis}[
+	axis lines = middle,
+	axis line style = {->},
+	xlabel={$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$},
+	ylabel={$T \left(\si{\celsius}\right)$},
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	},
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	ytick={30.847, 230.057, 535},
+	yticklabels={{$30.847$}, {$230.057$}, {$535$}},
+	xtick={0.445, 2.61, 6.212, 7.368},
+	xticklabels={{$0.445$}, {$2.61$}, {$6.212$}, {$7.368$}},
+	x tick label style={rotate=90,anchor=east},
+	ytick style={draw=none},
+	xtick style={draw=none},
+	width=15cm, height=10cm, xmin=0, xmax=10, ymin=0, ymax=700,
+	]
+	
+	
+	\addplot [] table {./ocr5ny/ts.txt}; %T-s
+	\addplot [ultra thick, red] table {./ocr5ny/p28.txt};
+
+	%körfolyamat ábrázolása	
+	\draw[fill, red] (axis cs:7.368, 535) circle [radius = 1mm];
+	\draw[fill, red] (axis cs:6.221, 230.057) circle [radius = 1mm];
+	\draw[fill, red] (axis cs:2.61, 230.057) circle [radius = 1mm];
+	\draw[fill, red] (axis cs:0.445, 30.847) circle [radius = 1mm];
+	\draw[fill, red] (axis cs:7.368, 30.847) circle [radius = 1mm];
+
+	\draw[ultra thick, dashed, red] (axis cs:0.445, 30.847) -- (axis cs:7.368, 30.847);
+	\draw[ultra thick, red] (axis cs:2.61, 230.057) -- (axis cs:6.212, 230.057);
+	\draw[ultra thick, red] (axis cs:7.368, 30.847) -- (axis cs:7.368, 535);
+	
+	%a körfolyamat iránya
+	\draw[mid arrow=red, dashed, red] (axis cs:7.368, 30.847) -- (axis cs:0.445, 30.847);
+	\draw[mid arrow=red, red] (axis cs:2.61, 230.057) -- (axis cs:6.212, 230.057);
+	\draw[mid arrow=red, red] (axis cs:7.368, 535) -- (axis cs:7.368, 30.847);
+	
+	%értékek jelölése
+	\draw[thick, dashed, red] (axis cs:0, 30.847) -- (axis cs:0.445, 30.847);
+	\draw[thick, dashed, red] (axis cs:0, 230.057) -- (axis cs:2.61, 230.057);
+	\draw[thick, dashed, red] (axis cs:0, 535) -- (axis cs:7.368, 535);
+
+	\draw[thick, dashed, red] (axis cs: 0.445, 0) -- (axis cs:0.445, 30.847);
+	\draw[thick, dashed, red] (axis cs: 2.61, 0) -- (axis cs:2.61, 230.057);
+	\draw[thick, dashed, red] (axis cs: 6.212, 0) -- (axis cs:6.212, 230.057);
+	\draw[thick, dashed, red] (axis cs: 7.368, 0) -- (axis cs:7.368, 535);	
+	\draw[thick, dashed, red] (axis cs:7.368, 0) -- (axis cs:7.368, 30.847);
+
+		
+	\end{axis}
+	
+	\end{tikzpicture}
+		\caption{Víz-gőz $T-s$ diagram}
+\end{figure}
+
+
+\pagebreak
+
