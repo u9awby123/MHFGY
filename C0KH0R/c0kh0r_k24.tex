@@ -1,0 +1,315 @@
+\section*{K2/4. feladat: Vízgőz melegítése}
+\addcontentsline{toc}{section}{K2/4. feladat}
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Zoboki Péter, C0KH0R \\ 
+	\hline
+	Szak & Mechatronikai mérnök \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent Határozza meg, hogy mennyi hőt kell közölni $1 kg$ $p_1 = \SI{1,76}{bar}$ nyomású és $x = 0,7$ fajlagos gőztartalmú vízgőzzel \\* a/ állandó térfogaton ahhoz, hogy a hőmérséklet $\SI{200}{\celsius}$ legyen, \\*
+b/ állandó nyomáson szintén a megadott hőmérsékletig. Először i-s diagram segítségével oldja meg a feladatot, majd ábrázolja az állapotváltozást T-s és p-v diagramban is, és határozza meg a végállapotban (2) a gőz többi állapotjelzőit is ($v_2;p_2;h_2;u_2$) gőztáblázat segítségével!  
+
+
+% adatok, még helyre igazítom
+\vspace{1cm}
+Gőztáblázatból:
+$p_1 = {\SI{1,76}{bar}}$ (1,8 ata)-nál	\\
+$h_1' = {\SI{488,18}{\kJ\per\kilogram}}$; \quad $v_1' = {\SI{0,00106}{\meter\cubed\per\kilogram}}$	\\*
+$h_1'' = {\SI{2071}{\kJ\per\kilogram}}$; \quad $v_1'' = {\SI{0,9954}{\meter\cubed\per\kilogram}}$ 	\\*
+$T_{s1} = {\SI{116,3}{\celsius}}$ 	\\
+% számolás kezdete
+
+\noindent A tömegfajlagos entalpia ($h$) az  \ding{172}-es pontban a következőképpen számítható: \\*
+\begin{equation}
+h_1=(1-x)\cdot h_1'+x\cdot h_1''=(1-0,7)\cdot 488,18+0,7\cdot 2700,39=\SI{2036,727}{\kJ\per\kilogram}
+\end{equation}
+\noindent Ugyanebben a pontban a fajtérfogat ($v$): 
+\begin{equation}
+v_1=(1-x)\cdot v_1'+x\cdot v_1''=(1-0,7)\cdot 0,00106+0,7\cdot0,9954=\SI{0,697098}{\meter\cubed\per\kilogram}
+\end{equation} \\*
+\newpage
+
+\noindent Ezt követően a \ding{173}-as pont adatainak meghatározása: \\*
+%További adatok az interpolációhoz
+\noindent
+\vspace{0,5cm}
+A $T_2 ={\SI{200}{\celsius}}$-os és $v_1=v_2=$... állapotú gőz nyomása és hőtartalma interpoláció alapján: \\*
+3 bar-nál $v_3={\SI{0,7161}{\meter\cubed\per\kilogram}}$; \quad $h_3={\SI{2864}{\kJ\per\kilogram}}$ \\*
+4 bar-nál $v_4={\SI{0,5341}{\meter\cubed\per\kilogram}}$; \quad $h_4={\SI{2859}{\kJ\per\kilogram}}$ \\*
+\noindent
+
+%Magyarázat
+
+Túlhevített gőzről van szó, vagyis ezen tartományban a vízgőz már csak gáz halmazállapotú, így itt alkalmazhatóak az ideális gázokra vonatkozó összefüggések. \\*
+Boyle-Mariotte törvénye:
+
+%Számítás
+
+\begin{equation*}
+p_1\cdot v_1=p_2\cdot v_2
+\end{equation*} \\*
+\vspace{0,5cm}
+\noindent
+Utóbbi a megadott két nyomáshoz tartozó értékekkel könnyen igazolható. \\*
+\textbf {A \ding{173}-es pont paraméterei} \\*
+ Mindezek alapján - és mert tudjuk hogy $v_1=v_2$ -, a $p_2$ nyomás a következőképpen számítható: 
+\begin{equation}
+p_2=\frac{v_3}{v_2}\cdot p_3=\frac{{\SI{0,7161}{\meter\cubed\per\kilogram}}}{\SI{0,697098}{\meter\cubed\per\kilogram}}\cdot {\SI{3}{bar}}\approx 3,08 bar
+\end{equation} \\*
+A $h_2$, azaz a kettes pontban az entalpia a gőztáblázatból kiolvasható. \\*
+$h_2={\SI{2865,61}{\kJ\per\kilogram}}$
+ \\*
+ \\*
+
+%% a feladat
+
+
+ a/ \textbf{Izochor állapotváltozás}\\*
+ \\*
+ Izochor állapot változás ($dv=0$) esetén a közölt hő számítása: \\*
+ $dq=dh-v\cdot dp$ alapján \\* 
+ \begin{equation}
+ dh=h_2-h_1={\SI{2865,61}{\kJ\per\kilogram}}-{\SI{2036,727}{\kJ\per\kilogram}}={\SI{828,883}{\kJ\per\kilogram}}
+\end{equation}
+ $q_{12}={\SI{828,883}{\kJ\per\kilogram}}$ \\*
+ A közölt hő teljes egészében a belső energia megváltoztatására fordítódik, munkaforgalom nincs (lásd p-v diagram). Éppen ezért: \\*
+ \vspace{5mm}
+ $u_{12}=q_{12}={\SI{828,883}{\kJ\per\kilogram}}$ \\*
+\newpage
+ \textbf {p-v diagram}
+  \begin{figure}[h]
+ 	\centering
+\begin{tikzpicture}
+
+\begin{loglogaxis}[
+width=12cm, height=12cm,
+xmin=0.3, xmax=9,
+ymin=0.6, ymax=9, 
+axis lines = middle,
+axis line style={->},
+log origin x=infty,
+log origin y=infty,
+xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+xlabel style={
+	at=(current axis.right of origin), 
+	anchor=north east
+}, 
+ylabel=$p \left(\si{\bar}\right)$, 
+ylabel style={
+	at=(current axis.above origin), 
+	anchor=north east
+},
+xtick={0.001, 0.01, 0.1, 1, 10, 100, 1000},
+ytick={0.01, 0.1, 1,  10, 100, 1000},
+]
+%p-v kitoltese
+\addplot[thick, dashed] table {./c0kh0r/pvalso.txt};
+\addplot[thick, dashed, blue] table {./c0kh0r/pvfelso.txt};
+\node [anchor=south west, blue] at (axis cs:1, 2) {$x=1$};
+\addplot[thick] table {./c0kh0r/izochor.txt};
+\addplot[thick, orange, dashed] table {./c0kh0r/p2vonal.txt};
+\node [anchor=south west, black] at (axis cs: 0.3, 3.08) {$p_2$};
+\addplot[thick, orange, dashed] table {./c0kh0r/p1vonal.txt};
+\node [anchor=south west, black] at (axis cs: 0.3, 1.76) {$p_1$};
+\addplot[thick, orange, dashed] table {./c0kh0r/vallando.txt};
+\node [anchor=south east, black] at (axis cs: 0.697098, 0.6) {$v_{0}$};
+
+\node[anchor=south east] at (axis cs: 0.697098, 1.76) {\pgfcircled{$1$}};
+\fill[fill=black] (axis cs:0.697098, 1.76) circle (0.75mm);
+
+\node[anchor=south east] at (axis cs: 0.697098, 3.08) {\pgfcircled{$2$}};
+\fill[fill=black] (axis cs:0.697098, 3.08) circle (0.75mm);
+
+
+
+\end{loglogaxis}
+
+\end{tikzpicture}
+
+\end{figure} \\*
+\textit{Megjegyzés: a kék szaggatott vonal a vízgőz fázishatárát jelöli} \\*
+\\*
+
+ 
+
+ b/ \textbf{Izobár állapotváltozás}\\*
+ \\*
+ \textbf{Adatok:} \\*
+ \vspace{5mm}
+ $h_1, v_1$ az a/ pontból ismertek, $h_2$ és $v_2$ pedig a gőztáblázatból kereshető ki \\*
+ $h_1={\SI{2036,727}{\kJ\per\kilogram}}$; \quad $h_2 = {\SI{2871}{\kJ\per\kilogram }}$   \\*
+ $v_1={\SI{0,697098}{\meter\cubed\per\kilogram}}$; \quad $v_2 = {\SI{1,225}{\meter\cubed\per\kilogram}}$	\\*
+ \noindent
+ A közölt hő ez esetben ($dp=0$):	\\*
+ \begin{equation}
+ q_{1-2}=\Delta h={\SI{2871}{\kJ\per\kilogram}}-{\SI{2036,727}{\kJ\per\kilogram}}={\SI{834,273}{\kJ\per\kilogram}}
+ \end{equation}
+ \noindent
+ Ez két részre oszlik, egyrészt a belső energia változására, másrészt a térfogati munkára (lásd p-v diagram)	\\*
+ \begin{equation*}
+ 	dq=du+dw
+ \end{equation*}	
+ A $dw$ a következőképpen számítható:
+ \begin{equation*}
+ 	dw=p\cdot dv
+ \end{equation*}
+melyből a térfogat megváltozása: \\*
+ \begin{equation}
+ dv={\SI{1,225}{\meter\cubed\per\kilogram}}-{\SI{0,697098}{\meter\cubed\per\kilogram}}={\SI{0,527902}{\meter\cubed\per\kilogram}}
+ \end{equation}
+ $p={\SI{1,76}{bar}}={\SI{176000}{\newton\per\meter\squared}}$, ismert mivel izobár állapotváltozásról van szó.  \\*
+ \\*
+ A térfogati munka számítása: \\*
+ \begin{equation} 
+ w_{12}={\SI{176000}{\newton\per\meter\squared}}\cdot {\SI{0,527902}{\meter\cubed\per\kilogram}}={\SI{92910,752}{\newton\meter\per\kilogram}}={\SI{92910,752}{\joule\per\kilogram}}={\SI{92,911}{\kJ\per\kilogram}}
+ \end{equation} 
+ A belső energia megváltozása tehát egyenlő a közölt hő és a térfogati munka különbségével: \\*
+ \begin{equation}
+ du=dq-dw={\SI{834,273}{\kJ\per\kilogram}}-{\SI{92,911}{\kJ\per\kilogram}}={\SI{741,362}{\kJ\per\kilogram}}
+ \end{equation}
+\\* 
+
+ \textbf {T-s diagram}
+
+ \begin{figure}[h]
+ 	\centering
+\begin{tikzpicture}[scale=1]
+% Draw axes
+\draw[step=1cm, gray, very thin] (0, 0) grid (0, 0); %gridbe ha kell negyzetracs 
+\begin{axis}[
+width=12cm, height=12cm,
+xmin=0, xmax=10.8,
+ymin=0, ymax=475, 
+axis lines = middle,
+axis line style={->},
+xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+xlabel style={
+	at=(current axis.right of origin), 
+	anchor=north east
+}, 
+ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+ylabel style={
+	at=(current axis.above origin), 
+	anchor=north east
+},
+xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+ytick={100, 200, 300, 400}
+]
+% haranggörbe
+\addplot[thick] table {./c0kh0r/tsalso.txt};
+\addplot[thick] table {./c0kh0r/tsfelso.txt};
+%x 0.7-hez tartozó izobár vonal
+\addplot[thick, dashed, blue] table {./c0kh0r/izobar.txt};
+\addplot [thick] table {./c0kh0r/ts07.txt};
+\node[anchor=north east] at (axis cs:9,250){$p=1,76bar$};
+%T1
+\addplot[thick, dashed] table {./c0kh0r/t1vonal.txt};
+\node[anchor=south west] at (axis cs:0,116.22){$T_1$};
+%T2
+\addplot[thick, dashed] table {./c0kh0r/t2vonal.txt};
+\node[anchor=south west] at (axis cs:0,200){$T_2$};
+%1-es pont
+\addplot[thick, dashed] table {./c0kh0r/1espont.txt};
+\node[anchor=south east] at (axis cs: 5.4411,	116.22) {\pgfcircled{$1$}};
+\fill[fill=black] (axis cs:5.4411,	116.22) circle (0.75mm);
+%2-es pont
+\addplot[thick, dashed] table {./c0kh0r/2espont.txt};
+\node[anchor=south east] at (axis cs: 7.1434,	116.22) {\pgfcircled{$1"$}};
+\fill[fill=black] (axis cs:7.1434,	116.22) circle (0.75mm);
+%3-as pont
+\addplot[thick, dashed] table {./c0kh0r/3aspont.txt};
+\node[anchor=south east] at (axis cs:7.5689,	200) {\pgfcircled{$2$}};
+\fill[fill=black] (axis cs:7.5689,	200) circle (0.75mm);
+%q1_2
+\addplot [name path=A] table {./c0kh0r/ts07.txt}; %a görbe adatait tartalmazza
+\addplot [name path=B,black] table {
+	x y
+	5.4411 0
+	7.5689 0
+}; 
+\addplot [orange] fill between [of=A and B]; %kitöltés
+\node[anchor=north east] at (axis cs:7,50){$q_{12}$};
+% A kritikus pont
+\node[anchor= south east] at (axis cs:4.42,	374) {$K$};
+\filldraw[ fill=black] (axis cs:4.42,	374) circle (1mm);
+\end{axis}
+\end{tikzpicture}
+\end{figure} 
+\newpage
+
+\textbf{p-v diagram} 
+\begin{figure}[h]
+	\centering
+\begin{tikzpicture}
+
+\begin{loglogaxis}[
+width=12cm, height=12cm,
+xmin=0.3, xmax=9,
+ymin=0.6, ymax=9, 
+axis lines = middle,
+axis line style={->},
+log origin x=infty,
+log origin y=infty,
+xlabel=$v \left(\si{\meter\cubed\per\kilogram}\right)$, 
+xlabel style={
+	at=(current axis.right of origin), 
+	anchor=north east
+}, 
+ylabel=$p \left(\si{\bar}\right)$, 
+ylabel style={
+	at=(current axis.above origin), 
+	anchor=north east
+},
+xtick={0.001, 0.01, 0.1, 1, 10, 100, 1000},
+ytick={0.01, 0.1, 1, 10, 100, 1000},
+%extra x ticks={0.0031056},
+%extra x tick labels={$v_K$},
+%extra y ticks={220.64},
+%extra y tick labels={$p_K$}
+]
+%p-v kitoltese
+%haranggorbe
+\addplot[thick] table {./c0kh0r/pvalso.txt};
+\addplot[thick, dashed, blue] table {./c0kh0r/pvfelso.txt};
+%p-v vonal es pontjai, hataroloi
+\addplot[thick] table {./c0kh0r/pvonal.txt};
+\node [anchor=south west, blue] at (axis cs:1, 2) {$x=1$};
+\addplot[thick, dashed, orange] table {./c0kh0r/v1vonal.txt};
+\node [anchor=south east, black] at (axis cs: 0.697098, 0.6) {$v_1$};
+\addplot[thick, dashed, orange] table {./c0kh0r/v2vonal.txt};
+\node [anchor=south west, black] at (axis cs: 1.225, 0.6) {$v_2$};
+\addplot[thick, dashed, orange] table {./c0kh0r/pallando.txt};
+\node [anchor=south west, black] at (axis cs: 0.3, 1.76) {$p_0$};
+\addplot [name path=C] table {./c0kh0r/pvonal.txt}; %a görbe adatait tartalmazza
+\addplot [name path=D,black] table {
+	x y
+	0.697098 0.6
+	1.225 0.6
+}; 
+\addplot [orange] fill between [of=C and D]; %kitöltés
+
+\node [anchor=south east, black] at (axis cs: 1 , 1) {$w_{12}$};
+
+\node[anchor=south east] at (axis cs: 0.697098, 1.76) {\pgfcircled{$1$}};
+\fill[fill=black] (axis cs:0.697098,	1.76) circle (0.75mm);
+
+\node[anchor=south west] at (axis cs: 1.225,	1.76) {\pgfcircled{$2$}};
+\fill[fill=black] (axis cs:1.225,	1.76) circle (0.75mm);
+
+\end{loglogaxis}
+
+\end{tikzpicture}
+\end{figure} \\*
+\textit{Megjegyzés: a kék szaggatott vonal a vízgőz fázishatárát jelöli} 
+
+% abrak vege
+
+
+
