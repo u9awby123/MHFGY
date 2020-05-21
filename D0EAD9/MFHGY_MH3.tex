@@ -1,0 +1,97 @@
+
+
+\section*{MH3. feladat}
+\addcontentsline{toc}{section}{MH3. feladat}
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Török Zoltán D0EAD9 \\ 
+	\hline
+	Szak & Gépészmérnök alapszak\\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+\noindent  Mennyi munkát kaphatunk abból a körfolyamatból, amelynek a termikus hatásfoka $\eta_T=0,37$ és az elvezetett hőmennyiség  \SI{45}{\kilo\joule}?&&( Az eredmény: $W_{kinyert}=\SI{26,43e3}{\joule}$ )
+\\
+\\
+\noindent Elvezetett hőmennyiség: ${Q_{el}=-\SI{45}{\kilo\joule}$ (ez azért lesz negatív előjelű, mert ez a hőmennyiség távozik a rendszerünkből)
+\\
+Körfolyamat munkája: W
+\\
+Bevezetett hőmennyiség: ${Q_{be}
+
+\begin{equation}
+W=Q_{be}+Q_{el} 
+\end{equation}
+
+\begin{equation}
+\eta_T=\dfrac{\omega}{Q_{be}}
+\end{equation}
+
+ A (3.1)-es és a (3.2)-es egyenleteket felhasználva megkapjuk az egyenletünket mely által kifejezhetjük a körfolyamatba bevezetett hőmennyiség  értékét.\\
+\\
+\begin{equation*}
+\eta_T=\dfrac{\omega}{Q_{be}}=\dfrac{Q_{be}+Q_{el}}{Q_{be}}=1+\dfrac{-\SI{45}{\kilo\joule}}{Q_{be}}
+\end{equation*}
+Az egyenletünk a termikus hatásfok behelyettesítése után:\\
+\begin{equation*}
+0,37=1+\dfrac{-\SI{45}{\kilo\joule}}{Q_{be}}
+\end{equation*}
+
+Az egyenletünket kirendezzük a ${Q_{be}$-re:\\
+\begin{equation*}
+{Q_{be}=\dfrac{-\SI{45}{\kilo\joule}}{0,37-1}=\dfrac{-\SI{45}{\kilo\joule}}{-0,63}=\SI{71,429}{\kilo\joule} 
+\end{equation*}
+A kezdeti egyenletünkbe ezután vissza helyettesítjük a ${Q_{be}$ értékét, és ezáltal kifejezhetjük a körfolyamat  kinyerhető munkát.
+	\begin{equation*}
+	W=Q_{be}+Q_{el}=\SI{71,429}{\kilo\joule}-\SI{45}{\kilo\joule}=\SI{26,429}{\kilo\joule}
+	\end{equation*}
+	\noident A körfolyamatból kinyerhető munka: $W=\SI{26,429}{\kilo\joule}$
+	 \\
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=8cm, height=8cm,
+	xmin=0, xmax=8,
+	ymin=260, ymax=320, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degree\kelvin}\right)$, 
+	ylabel style={at=(current axis.above origin), anchor=north east
+	},
+	xtick={2,5},
+	xticklabels={$s_1$,$s_2$},
+	ytick={278,300},
+	yticklabels={$T_1$,$T_2$},
+	]
+	\draw[dashed](axis cs:2,0)--(axis cs:2,320);
+	\draw[dashed](axis cs:5,0)--(axis cs:5,320);
+	\draw[dashed](axis cs:0,278)--(axis cs:8,278);
+	\draw[dashed](axis cs:0,300)--(axis cs:8,300);
+\draw[mid arrow=red, red, ultra thick](axis cs:2,278) -- (axis cs:2,300);
+\draw[mid arrow=red, red, ultra thick](axis cs:2,300) -- (axis cs:5,300);
+\draw[mid arrow=red, red, ultra thick](axis cs:5,300) -- (axis cs:5,278); 
+\draw[mid arrow=red, red, ultra thick](axis cs:5,278) -- (axis cs:2,278);
+
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+\\
+\\
+\\
+
+\noident Az entrópia, illetve a hőmérséklet értékeket nem ismerjük, de a szemléltetés kedvéért ábrázolhatjuk Carnot-körfolyamatként.\\
+\\
+ A körfolyamat körbejárási iránya negatív, azaz óramutató járásával megegyező forgásirányú, mert fenntartása energia befektetést nem igényel(ha igényelne energia befektetést pozitív körbejárású lenne).
+

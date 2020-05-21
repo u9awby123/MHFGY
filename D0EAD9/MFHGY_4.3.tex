@@ -1,0 +1,109 @@
+
+% A feladat címe automatikus számozás nélkül
+\section*{K4/3. feladat: Hőszivattyú fűtőteljesítménye}
+
+% Hozzáadás a tartalomjegyzékhez azonos címmel
+\addcontentsline{toc}{section}{K5/1. feladat: Hőterjedés sík kazánfalban}
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Török Zoltán D0EAD9 \\ 
+	\hline
+	Szak & Gépészmérnök alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+\noindent Mekkora fűtőteljesítményt szolgáltat egy olyan Carnot-körfolyamat szerint müködő hőszivattyú, amelynek teljesítmény-szükséglete $\SI{50}{\kilo\watt}$, továbbá +$\SI{5}{\celsius}$ és $\SI{27}{\celsius}$ határok között dolgozik?
+Ábrázolja a körfolyamatot T-s diagramban és jelölje meg rajta a fűtésre használható hőt!\\
+\begin{tabular}{ l l l }
+	($\SI{0}{\celsius}=\SI{273}{\kelvin}$); &
+	T_1=+$\SI{5}{\celsius}=\SI{278}{\kelvin}$; &  T_2=+$\SI{27}{\celsius}=\SI{300}{\kelvin}$
+\end{tabular} 
+\\
+\noident
+Elvont tömegfajlagos hőmennyiség: $q_H$
+\\
+Bevezetett tömegfajlagos munka: w
+\\
+Fajlagos hűtőteljesítmény:$\epsilon$
+\begin{equation}
+\epsilon=\dfrac{q_H}{w}
+\end{equation}
+\noident Tömegfajlagos hőmennyiség számítása:
+A $T_{konst}$ hőmérséklet értéke állandó az adott szakaszon
+\begin{equation}
+q_{1,2}= \int\limits_{s_1}^{s_2} T_{konst} \ ds \ = T_{áll} \ 
+\cdot \ \int\limits_{s_1}^{s_2}  \ ds \ =T_{áll} \cdot (s_2-s_1) = T_{áll} \cdot \Delta s 
+\end{equation}
+\begin{equation}
+q_H=T_2\cdot \Delta s
+\end{equation}
+\noident A körfolyamat tömegfajlagos munkája:
+\begin{equation}
+w=T_2\cdot\Delta s - T_1\cdot\Delta s=(T_2-T_1) \cdot\Delta s
+\end{equation}
+A (4.3)-as és a(4.4)-es egyenletek által kifejezhetjük a fajlagos hűtőteljesítményt:
+\\
+\begin{equation}
+\epsilon=\dfrac{q_H}{w}=\dfrac{T_2 \cdot \Delta s}{ (T_2-T_1) \cdot\Delta s }=\dfrac{T_2}{ (T_2-T_1)}=\dfrac{\SI{300}{\kelvin}}{ (\SI{300}{\kelvin}-\SI{278}{\kelvin})}=\dfrac{\SI{300}{\kelvin}}{ \SI{22}{\kelvin}}=13,636
+\end{equation}
+\noisdent Bővítjük (4.5)-ös egyenletet a tömegárammal (megszorozzuk a következő törttel: $\dfrac{ \dot{m}}{\dot{m}}$,az egyenlet nem változik mert lényegében 1-el szorozzuk meg).
+\begin{equation}
+\epsilon=\dfrac{q_H \cdot \dot{m}}{w\cdot \dot{m}}
+\end{equation}
+\noident A teljesítmény-szükséglet(a körfolyamat fenntartásához szükséges kűlsőleg bevitt teljesiítmény) egyenlő a tömegfajlagos bevezetett munka és a tömegáram szorzatával: $\SI{50}{\kilo\watt}=w\cdot \dot{m}$\\
+\\
+($Q_H=q_H\cdot \dot{m}$)
+
+\begin{equation}
+\epsilon=\dfrac{q_H \cdot \dot{m}}{w\cdot \dot{m}}=\dfrac{Q_H }{\SI{50}{\kilo\watt}}
+\end{equation}
+Az egyenletet kifejezzük az elvont hőmennyiségre:
+\begin{equation}
+Q_H= P \cdot \epsilon=\SI{50}{\kilo\watt}\cdot 13,636=\SI{681,82}{\kilo\joule}
+\end{equation}
+\noident A hőszivattyú által szolgáltatott fűtőteljesítmény:  $Q_H=\SI{681,82}{\kilo\joule}$
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=8cm, height=8cm,
+	xmin=0, xmax=8,
+	ymin=260, ymax=320, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degree\kelvin}\right)$, 
+	ylabel style={at=(current axis.above origin), anchor=north east
+	},
+	xtick={2,5},
+	xticklabels={$s_1$,$s_2$},
+	ytick={260.1,278,300},
+	yticklabels={$260$,$T_1=278$,$T_2=300$},
+	]
+	\draw[dashed](axis cs:2,0)--(axis cs:2,320);
+	\draw[dashed](axis cs:5,0)--(axis cs:5,320);
+	\draw[dashed](axis cs:0,278)--(axis cs:8,278);
+	\draw[dashed](axis cs:0,300)--(axis cs:8,300);
+	
+	 \draw[mid arrow=red, red, ultra thick](axis cs:2,300) -- (axis cs:2,278);
+	 \draw[mid arrow=red, red, ultra thick](axis cs:5,300) -- (axis cs:2,300);
+	 \draw[mid arrow=red, red, ultra thick](axis cs:5,278) -- (axis cs:5,300); 
+	 \draw[mid arrow=red, red, ultra thick](axis cs:2,278) -- (axis cs:5,278);
+	
+	\end{axis}
+\end{tikzpicture}
+\end{figure}
+\\
+\noident A körfolyamat körbejárási iránya pozitív , azaz óramutató járásával ellentétes forgásirányú, mert fenntartása energia befektetést igényel(ha igényelne energia befektetést, akkor negatív körbejárású lenne).
