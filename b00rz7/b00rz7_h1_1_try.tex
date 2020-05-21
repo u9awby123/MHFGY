@@ -1,0 +1,189 @@
+% A feladat címe automatikus számozás nélkül
+\section*{K1/1. feladat: Levegő térfogatárama}
+
+% Hozzáadás a tartalomjegyzékhez azonos címmel
+\addcontentsline{toc}{section}{K1/1. feladat: Levegő térfogatárama}
+
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Kocsor Péter Ernő B00RZ7 \\ 
+	\hline
+	Szak & Mechatronikai mérnöki alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+\noindent Áramló gáz mennyiségét a következő termodinamikai módszerrel is mérhetjük: a mérendő gázáramba egy villamos fűtőtestet építünk be, mely a gázzal ismert hőmennyiséget közöl és közben - a fűtött szakasz előtt és után - termoelemmel mérjük a gáz hőfokváltozását. A termoelem " hideg" pontját a fűtött szakasz előtt, a "meleg" pontját a fűtött szakasz után helyezzük el.
+
+\subsubsection*{a) Számítsuk ki egy $A_{} = \SI{3e-3}{\meter\squared}$  keresztmetszetű csövön /$ \diameter Q_{}= \SI{61,8}{\milli\meter}$/ átáramló \textit{levegő sebességét és térfogatáramát} , ha a fűtőtest teljesítményfelvétele $\SI{0,57}{\kilo\watt}$, a termoelemmel mért feszültség-különbség $\SI{0,63}{\milli\volt}$ ($1 fok=\SI{0,042}{\milli\volt}$). A fűtött szakasz előtt $\SI{42,7}{\celsius} $ a hőmérséklet. Az áramlás a levegő állandó, $\SI{0.981}{\bar}$ nyomása mellett történik.}
+
+
+\begin{figure}[h]
+	\centering
+	\label{figure:sm}
+	\begin{tikzpicture}
+	%\draw[step=1cm, gray, very thin] (-6, -2) grid (11, 8);
+	%felső téglalap
+	\draw[ultra thick]  (-5, 4.5) -- (5, 4.5);
+	\draw[ultra thick]  (5, 5) -- (-5, 5);
+%	\fill[pattern={Lines[angle=45, distance=2mm]}] (-5, 5) rectangle (5, 4.5);
+%	\fill[pattern={Lines[angle=-45, distance=2mm]}] (-5, 5) rectangle (5, 4.5);
+	%alsó téglalap
+	\draw[ultra thick]  (-5, 0.5) -- (5, 0.5);
+	\draw[ultra thick]  (5, 0) -- (-5, 0);
+%	\fill[pattern={Lines[angle=45, distance=2mm]}] (-5, 0) rectangle (5, 0.5);
+%	\fill[pattern={Lines[angle=-45, distance=2mm]}] (-5, 0) rectangle (5, -0.5);
+	\draw[dash pattern={on 8mm off 1mm on 0.5mm off 1mm}] (-6, 2.5) -- (6, 2.5);
+	%fűtőberendezés
+	\draw[ultra thick] (0.5,0.5)--(0.5,4);
+	\draw[ultra thick] (0.5,4)--(-0.5,4);
+	\draw[ultra thick] (-0.5,4)--(0,3.5);
+	\draw[ultra thick] (-0.5,3)--(0,3.5);
+	\draw[ultra thick] (-0.5,3)--(0,2.5);
+	\draw[ultra thick] (-0.5,2)--(0,2.5);
+	\draw[ultra thick] (-0.5,2)--(0,1.5);
+	\draw[ultra thick] (-0.5,1)--(0,1.5);
+	\draw[ultra thick] (-0.5,1)--(0,0.5);
+	
+	\draw[ultra thick] (0,0.5)--(0,-0.75);
+	\draw[ultra thick] (0.5,0.5)--(0.5,-0.75);
+	\draw[ultra thick] (0.3,-0.75)--(0.5,-0.75);
+	\draw[ultra thick] (0.2,-0.75)--(0,-0.75);
+	\draw[ultra thick] (0.2,-0.5)--(0.2,-1);
+	\draw[ultra thick] (0.3,-0.25)--(0.3,-1.25);
+	%termoelem
+	\draw[ultra thick] (0, 7) circle (1);
+	\draw (1,7)--(2,7);
+	\draw (2,7)--(2,2.75);
+	\draw (2,2.5) circle(0.25);
+	\node[anchor=north] at (-2.5, 3) {$H$};
+	\node[anchor=north] at (2.5, 3) {$M$};
+	
+	\draw (-1,7)--(-2,7);
+	\draw (-2,7)--(-2,2.75);
+	\draw (-2,2.5) circle(0.25);
+	
+	\draw[->, ultra thick] (-1, 6) -- (1, 8) node[midway, anchor=north west, xshift={20mm}, yshift={8mm}]{$\Delta U_{}$};
+	
+	\draw[ultra thick] (-2+0.17677669,2.5+0.17677669)--(-1,5.5);
+	\draw[ultra thick] (2+0.17677669,2.5+0.17677669)--(3,5.5);
+	\draw[ultra thick] (3,5.5)--(-1,5.5);
+	
+	%random feliratok :'(
+	\draw[<->] (4, 0.5) -- (4, 4.5);
+	\node[anchor=north] at (3.5, 2) {$\diameter Q$};
+	\draw (4.25,3)--(5,4);
+	\node[anchor=north] at (5.25, 4.25) {$A$};
+	
+	\draw[->, ultra thick] (-5, 2) -- (-3, 2) node[midway, anchor=north west, xshift={0mm}, yshift={-5mm}]{$ w_{}$};
+	
+	\draw (-0.25,1.5)--(-1.5,1);
+	\node[anchor=east] at (-1.5,1) {$\dot{Q}$};
+	
+	%oldalsó cuccosok
+	\draw [ultra thick] (-4.5, 4) arc [radius=0.5, start angle=0, end angle=180];
+	\draw [ultra thick] (-4.5, 4) arc [radius=2.5, start angle=0, end angle=-36.8698976458];
+	\draw [ultra thick] (-5, 2.5) arc [radius=2.5, start angle=180-36.8698976458, end angle=180];
+	\draw [ultra thick] (-5.5, 1) arc [radius=0.5, start angle=180, end angle=270];
+	\draw [ultra thick] (-5.5, 4) arc [radius=2.5, start angle=180, end angle=180+36.8698976458];
+	
+	\draw [ultra thick] (4.5, 1) arc [radius=0.5, start angle=180, end angle=360];
+	\draw [ultra thick] (4.5, 1) arc [radius=2.5, start angle=180, end angle=180-36.8698976458];
+	\draw [ultra thick] (5, 2.5) arc [radius=2.5, start angle=36.8698976458, end angle=0];
+	\draw [ultra thick] (5, 2.5) arc [radius=2.5, start angle=0-36.8698976458, end angle=0];
+	\draw [ultra thick] (5.5, 4) arc [radius=0.5, start angle=0, end angle=90];
+	
+	%adatok1
+	\node[anchor=west] at (5.5,7) {Adatok:};
+	\node[anchor=west] at (7,7) {$\dot{Q_{}}=\SI{0.57}{\kilo\watt}$};
+	\node[anchor=west] at (7,6.5) {$A_{}=\SI{3e-3}{\meter\squared}$};
+	\node[anchor=west] at (7,6) {$\Delta U_{}=\SI{0.63}{\milli\volt}$};
+	\node[anchor=west] at (7,5.5) {(1 fok $=\SI{0.042}{\milli\volt}$)};
+	\node[anchor=west] at (7,5) {$ T_{H}=\SI{42.7}{\celsius}$};
+	\node[anchor=west] at (7,4.5) {$p_{} = \SI{0.981}{\bar}= áll.$};
+	
+	%adatok2
+	\node[anchor=west] at (6,3.5) {levegő fajhője (táblázatból):};
+	\node[anchor=west] at (6,2.5) {$c_{p_{0}}= \SI{1.003}{\kilo\joule\per\kilo\gram\kelvin} .. \SI{0}{\celsius}-on $};
+	\node[anchor=west] at (6,1.5) {$c_{p_{100}}= \SI{1.010}{\kilo\joule\per\kilo\gram\kelvin} .. \SI{100}{\celsius}$};
+	
+	%adatok3
+	\node[anchor=west] at (6,0.5) {levegő sűrűsége:};
+	\node[anchor=west] at (5,-0.25) {$\varrho_{0}= \SI{1.2928}{\kilo\gram\per\meter\cubed}/ \SI{0}{\celsius},\SI{760}{\milli\meter}  Hg/$};
+	\node[anchor=west] at (6,-1.25) { $ w_{} = $ ? $  \si{\meter\per\second} $ };
+	\node[anchor=west] at (8,-1.25) { $ \dot{V_{}}= $ ? $ \si{\meter\cubed\per\second} $};
+	
+	\end{tikzpicture}
+\end{figure}
+
+
+% Oldaltörés
+\pagebreak
+\noindent A megoldáshoz először kiszámoljuk a $\Delta T$-t, majd a mért levegő közepes hőkapacitását és sűrűségét.
+\begin{equation*}
+\Delta T=\dfrac{\SI{0.63}{\milli\volt}}{\SI{0.042}{\milli\volt}}=\SI{15}{\celsius}
+\end{equation*}
+\begin{equation*}
+T_{M}=T_{H}+ \Delta T = \SI{57.7}{\celsius} ( \SI{330,85}{\kelvin})
+\end{equation*}
+\noindent A hőkapacitás hőmérséklet függő változását vehetjük közelítően lineáris változásnak, így a mért levegő közepes hőkapacitását a következő módon számoljuk:
+\begin{equation*}
+c_{kzp}=\dfrac{c_{p_{100}}-c_{p_{0}}}{\SI{100}{\celsius}} \cdot \dfrac{T_{M}+T_{H}}{2} + c_{p_{0}}= \SI{1.006514}{\kilo\joule\per\kilo\gram\kelvin}
+\end{equation*}
+\noindent A sűrűségszámításhoz összegyűjtjük az összes állapot jellemzőit (nyomás és hőmérséklet), majd az egyesített gáztörvényt, valamint a sűrűség és térfogat közötti fordított arányosságot felhasználva megadjuk az egyes állapotokhoz tartozó sűrűséget. 
+
+\begin{tabular}{ | p{3 cm} | p{6 cm} | p{5.5 cm} | } 
+	\hline
+	Sűrűségállapot & Hőmérséklet & Nyomás \\ 
+	\hline
+	$\varrho_{0}$ & $\SI{0}{\celsius} (\SI{273.15}{\kelvin}) $ & $ \SI{760}{\milli\meter}Hg (\SI{101325}{\pascal}) $ \\ 
+	\hline
+	$\varrho_{1}$ & $\SI{42.7}{\celsius} (\SI{315.85}{\kelvin}) $ & $ \SI{0.981}{\bar} (\SI{98100}{\pascal}) $ \\ 
+	\hline
+	$\varrho_{2}$ & $\SI{57.7}{\celsius} (\SI{330.85}{\kelvin}) $ & $ \SI{0.981}{\bar} (\SI{98100}{\pascal}) $ \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+\begin{equation*}
+\dfrac{p_{1} \cdot V_{1}}{T_{1}}=\dfrac{p_{2} \cdot V_{2}}{T_{2}}
+\end{equation*}
+\noindent Mivel $m_{}= V_{} \cdot \varrho_{}$  és $m_{1}=m_{2}$, így:
+\begin{equation*}
+\dfrac{1}{T_{p_{1}}\cdot \varrho_{1}}=\dfrac{p_{2}}{T_{2}\cdot \varrho_{2}}
+\end{equation*}
+\begin{equation*}
+\dfrac{p_{1} \cdot T_{2} }{T_{1} \cdot p_{2}}=\dfrac{\varrho_{1}}{\varrho_{2}}
+\end{equation*}
+\noindent Az így kapott eredmények:
+\begin{equation*}
+\varrho_{1}=\SI{1.08244}{\kilo\gram\per\meter\cubed}
+\end{equation*}
+\begin{equation*}
+\varrho_{2}=\SI{1.03337}{\kilo\gram\per\meter\cubed}
+\end{equation*}
+\begin{equation*}
+\varrho_{kzp}=\SI{1.0579}{\kilo\gram\per\meter\cubed}
+\end{equation*}
+\noindent Ezután felírjuk a levegő szállításos hőáramának növekedésére vonatkozó egyenletet:
+\begin{equation*}
+\dot{Q}= \Delta T \cdot \dot{m} \cdot c_{kzp}
+\end{equation*}
+\noindent Kifejezzük a $\dot{m}-et$:
+\begin{equation*}
+\dot{m}= \dfrac{\dot{Q}}{\Delta T \cdot c_{kzp}}= \SI{0.037754}{\kilo\gram\per\second}
+\end{equation*}
+\noindent A tömegáram értékét leosztva a sűrűséggel megkapjuk  a térfogatáramot, majd azt elosztva a cső keresztmetszetével pedig a sebességet:
+\begin{equation*}
+\dot{V}= \dfrac{\dot{m}}{\varrho_{kzp}}= \SI{0.03568775}{\meter\cubed\per\second}
+\end{equation*}
+\begin{equation*}
+w_{}= \dfrac{\dot{V}}{A_{}}= \SI{11.8959}{\meter\per\second}
+\end{equation*}
+\subsubsection*{b) Mire fordítódik a közölt hő? }
+\noindent A közölt hő egy része a levegő melegedését okozza, a másik része pedig a melegedés miatti kitágulás munkáját fedezi.
+\pagebreak
