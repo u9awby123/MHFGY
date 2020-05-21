@@ -24,40 +24,40 @@ A jelenség magyarázata az, hogy a cső hővezetési ellenállása eleinte lass
 a) Határozza meg a kritikus átmérőt megadó összefüggést a hőátviteli tényező szélsőértékének megkeresésével!
 
 b) Határozza meg konkrétan egy acélcső és egy azbeszt-cementcső kritikus külső átmérőjét, ha a cső külső fala és a környezet közötti hőátadási tényező 
-\[\alpha_k = \SI{8}{\watt\per\meter\squared\kelvin}; \lambda_{\textit{acél}} = \SI{45,4}{\watt\per\meter\kelvin}; \lambda_{azb} = \SI{0,1}{\watt\per\meter\kelvin}\]
+\[\alpha_K = \SI{8}{\watt\per\meter\squared\kelvin}; \lambda_{\textit{acél}} = \SI{45,4}{\watt\per\meter\kelvin}; \lambda_{azb} = \SI{0,1}{\watt\per\meter\kelvin}\]
 % A feladat megoldása
 
 Az a) feladat megoldása:
 A cső hővesztesége a következő képlettel számolható: 
 
 \begin{equation}
-	\dot{q} = \frac{1}{\frac{\log{\frac{d_k}{d_b}}}{2 \pi \lambda}+\frac{1}{\alpha_k d_k \pi}}
+	\dot{q} = \frac{1}{\frac{\log{\frac{d_K}{d_B}}}{2 \pi \lambda}+\frac{1}{\alpha_K d_K \pi}}
 \end{equation}
 A cső hőveszteségének a reciproka a cső höellenállása. A hőellenállás értéke a következő képlettel számolható:
 \begin{equation}
-	R_L = \frac{1}{2 \pi \lambda}\ln{\frac{d_k}{d_b}}+\frac{1}{\alpha_k d_k \pi} 
+	R_L = \frac{1}{2 \pi \lambda}\ln{\frac{d_K}{d_B}}+\frac{1}{\alpha_K d_K \pi} 
 \end{equation}
 
 
-ahol \(R_L\) a hőellenállás, \(\lambda\) a csőszigetelés hővezetése, \(d_k\) a cső külső átmérője, \(d_b\) a cső belső átmérője, \(\alpha_k\) pedig a hőátadási tényező. Vesszük az \(R_L\)-nek a \(d_k\) szerinti parciális deriváltját.
+ahol \(\dot{q}\) a hőáramsűrűség, \(R_L\) a hőellenállás, \(\lambda\) a csőszigetelés hővezetése, \(d_K\) a cső külső átmérője, \(d_B\) a cső belső átmérője, \(\alpha_K\) pedig a hőátadási tényező. Vesszük az \(R_L\)-nek a \(d_K\) szerinti parciális deriváltját.
 
 \begin{equation}
-	\frac{\partial R_L}{\partial d_k} = \frac{1}{2 \pi \lambda d_k} - \frac{1}{\alpha_k d_k^2 \pi}
+	\frac{\partial R_L}{\partial d_K} = \frac{1}{2 \pi \lambda d_K} - \frac{1}{\alpha_K d_K^2 \pi}
 \end{equation}
 
 Ahol ennek a deriváltnak az értéke \(0\), ott a hőellenállásnak minimuma van, ahol a hőellenállásnak minimuma van, ott a hőveszteségnek maximuma van.
 
-\[0 = \frac{1}{2 \pi \lambda d_k}-\frac{1}{\alpha_k d_k^2 \pi}\]
+\[0 = \frac{1}{2 \pi \lambda d_K}-\frac{1}{\alpha_K d_K^2 \pi}\]
 
-\[\frac{1}{\alpha_k d_k^2 \pi} = \frac{1}{2 \pi \lambda d_k}\]
+\[\frac{1}{\alpha_K d_K^2 \pi} = \frac{1}{2 \pi \lambda d_K}\]
 
-\[2 \pi \lambda d_k = \alpha_k d_k^2 \pi\]
+\[2 \pi \lambda d_K = \alpha_K d_K^2 \pi\]
 
-\[\frac{2 \lambda}{\alpha_k} = d_k\]
+\[\frac{2 \lambda}{\alpha_K} = d_K\]
 
 Tehát a kritikus átmérő:
 \begin{equation}
-	d_{krit} = \frac{2 \lambda}{\alpha_k}
+	d_{krit} = \frac{2 \lambda}{\alpha_K}
 \end{equation}
 
 A b) feladat megoldása:
