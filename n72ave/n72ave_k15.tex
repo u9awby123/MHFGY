@@ -1,0 +1,197 @@
+% !TeX TS-program = xelatex
+
+% Dokumentum adatok
+% =================
+\author{Csöngedi Máté}
+\title{Műszaki hőtan feladatgyűjtemény}
+\date{}
+\usetikzlibrary{arrows,decorations.markings}
+
+% Hozzáadás a tartalomjegyzékhez azonos címmel
+\section*{K1/5. feladat: Levegő Carnot-körfolyamata}
+\addcontentsline{toc}{section}{K1/5. feladat}
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Csöngedi Máté, N72AVE \\ 
+	\hline
+	Szak & Mechatronikai mérnöki alapszak \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+\noindent Határozzuk meg egy munkát szolgáltató Carnot-körfolyamatot végző 1 kg levegő termikus állapotjelzőit a körfolyamat jellemző pontjaiban, továbbá a körfolyamattal kapcsolatos hőmennyiséget és munkát, valamint a körfolyamat termikus hatásfokát. Rajzolja le a körfolyamatot p-v és T-s diagramban! A körfolyamatban a legnagyobb hőmérséklet, $T_2 = \SI{600}{\celsius}$, a nyomás $\SI{60}{\bar}$; a legkisebb hőmérséklet, $T_3 = \SI{100}{\celsius}$, a nyomás $\SI{1}{\bar}$. Gázállandó: $R_{lev} = \SI{287,07}{\joule\per\kilogram\kelvin}$; adiabatikus kitevő: $\kappa$ = \si{1,4}.
+
+% A feladat megoldása
+
+\subsubsection{Adatok kigyűjtése:}
+
+\begin{equation*}
+	m = \SI{1}{\kilogram}, 
+	\quad 
+	T_1 = T_2 = \SI{600}{\celsius} = \SI{873,15}{\kelvin}, 
+	\quad
+	p_1 = \SI{60}{\bar} = \SI{6e6}{\pascal},
+\end{equation*}
+	
+\begin{equation*}
+	T_3 = T_4 = \SI{100}{\celsius} = \SI{373,15}{\kelvin},
+	\quad
+	p_3 = \SI{1}{\bar} = \SI{e5}{\pascal},
+	\quad
+	R_{lev} = \SI{287,07}{\joule\per\kilogram\kelvin},
+	\quad
+	\kappa = \si{1,4}
+\end{equation*}
+
+\noindent\hrulefill
+
+\subsubsection{Megoldás:}
+
+% 1-es pont
+\noindent\ding{172}-es pont:
+\begin{equation*}
+	v_1 = \dfrac{R_{lev}T_1}{p_1}=\SI{0,0417}{\meter\cubed\per\kilogram}
+\end{equation*}
+
+% 3-as pont
+\noindent\ding{174}-as pont:
+\begin{equation*}
+	v_3 = \dfrac{R_{lev}T_3}{p_3}=\SI{1,0712}{\meter\cubed\per\kilogram}
+\end{equation*}
+
+% 2-es pont
+\noindent\ding{173}-es pont:
+\begin{equation}
+	\left.
+	\begin{array}{lcl}
+	$\ding{172}$\rightarrow$\ding{173}$\enspace $izoterm$\enspace p_1 v_1 = p_2 v_2\\
+	$\ding{173}$\rightarrow$\ding{174}$\enspace $adiabatikus$\enspace p_2 		v_2^\kappa = p_3 v_3^\kappa
+	\end{array}
+	\right\rbrace
+	\quad \Rightarrow \quad  
+	p_2 = \dfrac{p_1 v_1}{v_2}
+\end{equation}
+
+\par A fenti egyenletet behelyettesítve az alsóba azt kapjuk, hogy: $p_1 v_1 v_2^{\kappa-1} = p_3v_3^\kappa$,\\
+
+\par $v_2$-t kifejezve kapjuk: $v_2=\sqrt[\leftroot{-2}\uproot{2}{\kappa-1}]{\dfrac{p_3v_3^\kappa}{p_1 v_1}}=\SI{0,1278}{\meter\cubed\per\kilogram}$,\\
+
+\par a kapott értéket visszahelyettesítve a (3.1)-esbe: $p_2=\SI{1957746,479}{\pascal}=\SI{19,6}{bar}$.
+\newline\\
+
+% 4-es pont
+\noindent\ding{175}-es pont:
+\begin{equation}
+	\left.
+	\begin{array}{lcl}
+	p_3 v_3 = p_4 v_4\\
+	p_4 v_4^\kappa = p_1 v_1^\kappa
+	\end{array}
+	\right\rbrace
+	\quad \Rightarrow \quad  
+	p_4 = \dfrac{p_3 v_3}{v_4}
+\end{equation}
+
+\par Ugyanazzal a módszerrel meghatározzuk $v_4$-et: 		$v_4=\sqrt[\leftroot{-2}\uproot{2}{\kappa-1}]{\dfrac{p_1v_1^\kappa}{p_3 v_3}}=\SI{0,3498}{\meter\cubed\per\kilogram}$,\\
+
+\par majd $v_4$-et visszahelyettesítve a (3.2)-esbe kapjuk: $p_4=\SI{306174,9571}{\pascal}=\SI{3,06}{\bar}$.
+\newline\\
+
+\noindent Hőbevezetés:
+\begin{equation*}
+	q_{1,2}=w_{1,2}=R_{lev}T_1\ln{\dfrac{p_1}{p_2}}=\SI{280,4}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+\noindent Elvezetett hő:
+\begin{equation*}
+	q_{3,4}=w_{3,4}=R_{lev}T_3\ln{\dfrac{p_3}{p_4}}=\SI{-119,8}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+\noindent A körfolyamat által termelt munka:
+\begin{equation*}
+	w=q_{1,2}+q_{3,4}=\SI{160,6}{\kilo\joule\per\kilogram}
+\end{equation*}
+
+\noindent A körfolyamat termikus hatásfoka:
+\begin{equation*}
+	\eta_T=\dfrac{w}{q_{1,2}}=\si{0,573}=\SI{57,3}{\%}
+\end{equation*}
+
+\subsubsection{A p-v és T-s diagram:}
+\begin{figure}[ht]
+	\begin{subfigure}[b]{0.5\textwidth}  % p-v diagram jelleghelyesen
+		\centering
+		\begin{tikzpicture}[
+			> = latex, dot/.style = {draw,fill,circle,inner sep=1pt},
+			arrow inside/.style = {postaction=decorate,decoration={markings,mark=at position .55 with \arrow{>}}}
+			]
+			\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 8);
+			\draw[->, thick] (0,0) -- (5.5,0) node[right]{$v \left(\si{\meter\cubed\per\kilogram}\right)$}; 
+			% 1,5 m^3/kg = 6 egység
+			\draw[->, thick] (0,0) -- (0,6.5) node[left]{$p \left(\si{\bar}\right)$};  
+			% 70 bar = 7 egység
+			\node[dot,label={above right:$1$}] (@1) at (0.1668,6) {};
+			\node[dot,label={above right:$2$}] (@2) at (0.5112,1.96) {};
+			\node[dot,label={above right:$3$}] (@3) at (4.284,0.1) {};
+			\node[dot,label={above right:$4$}] (@4) at (1.3992,0.306) {};
+			\draw[arrow inside] (@1) to[looseness=.7,bend right=10] (@2);
+			\draw[arrow inside] (@2) to[looseness=.7,bend right=30] (@3);
+			\draw[arrow inside] (@3) to[looseness=.7,bend left=10] (@4);
+			\draw[arrow inside] (@4) to[looseness=.7,bend left=20] (@1);
+			\draw[dashed] (@1) to (0,6);
+			\draw[dashed] (@2) to (0,1.96);
+			\draw[dashed] (@3) to (0,0.1);
+			\draw[dashed] (@4) to (0,0.306);
+			\draw (-0.5,6.0) node {$p_1$};
+			\draw (-0.5,1.96) node {$p_2$};
+			\draw (-0.5,0.1) node {$p_3$};
+			\draw (-0.5,0.306) node {$p_4$};
+			\draw[dashed] (@1) to (0.1668,0);
+			\draw[dashed] (@2) to (0.5112,0);
+			\draw[dashed] (@3) to (4.284,0);
+			\draw[dashed] (@4) to (1.3992,0);
+			\draw (0.1668,-0.5) node {$v_1$};
+			\draw (0.5112,-0.5) node {$v_2$};
+			\draw (4.284,-0.5) node {$v_3$};
+			\draw (1.3992,-0.5) node {$v_4$};
+		\end{tikzpicture}
+		\caption{p-v diagram}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}  % T-s diagram jelleghelyesen
+		\centering
+		\begin{tikzpicture}[
+			> = latex,
+			dot/.style = {draw,fill,circle,inner sep=1pt},
+			arrow inside/.style = {postaction=decorate,decoration={markings,mark=at position .55 with \arrow{>}}}
+			]
+			\draw[->, thick] (0,0) -- (4.5,0) node[right]{$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$};
+			% Δs = 0,537 kJ/kgK, 0 pont = 1, 0,537*5 = 2,685 
+			\draw[->, thick] (0,0) -- (0,6.75) node[left]{$T \left(\si{\degreeCelsius}\right)$};
+			% 100 °C = 1 egység  
+			\node[dot,label={above left:$1$}] (@1) at (1,6) {};
+			\node[dot,label={right:$2$}] (@2) at (3.685,6) {};
+			\node[dot,label={right:$3$}] (@3) at (3.685,1) {};
+			\node[dot,label={below left:$4$}] (@4) at (1,1) {};
+			\draw[arrow inside, thick] (@1) -- (@2);
+			\draw[arrow inside, thick] (@2) -- (@3);
+			\draw[arrow inside, thick] (@3) -- (@4);
+			\draw[arrow inside, thick] (@4) -- (@1);
+			\draw[dashed] (@4) to (1,0);
+			\draw[dashed] (@3) to (3.685,0);
+			\draw (1,-0.5) node {$s_1$,$s_4$};
+			\draw (3.685,-0.5) node {$s_2$,$s_3$};
+			\draw[dashed] (@4) to (0,1);
+			\draw[dashed] (@1) to (0,6);
+			\draw (-0.5,1) node {$T_1$,$T_2$};
+			\draw (-0.5,6) node {$T_3$,$T_4$};
+		\end{tikzpicture}
+		\caption{T-s diagram}
+	\end{subfigure}%
+	\caption{Diagramok ábrázolása}
+	\label{figure:fre}
+\end{figure}
