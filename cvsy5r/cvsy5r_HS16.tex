@@ -24,14 +24,14 @@ A jelenség magyarázata az, hogy a cső hővezetési ellenállása eleinte lass
 a) Határozza meg a kritikus átmérőt megadó összefüggést a hőátviteli tényező szélsőértékének megkeresésével!
 
 b) Határozza meg konkrétan egy acélcső és egy azbeszt-cementcső kritikus külső átmérőjét, ha a cső külső fala és a környezet közötti hőátadási tényező 
-\[\alpha_k = \SI{8}{\watt\per\meter\squared\kelvin}; \lambda_{\textit{acél}} = \SI{45,4}{\watt\per\meter\kelvin}; \lambda_{azb} = \SI{0,4}{\watt\per\meter\kelvin}\]
+\[\alpha_k = \SI{8}{\watt\per\meter\squared\kelvin}; \lambda_{\textit{acél}} = \SI{45,4}{\watt\per\meter\kelvin}; \lambda_{azb} = \SI{0,1}{\watt\per\meter\kelvin}\]
 % A feladat megoldása
 
 Az a) feladat megoldása:
 A cső hővesztesége a következő képlettel számolható: 
 
 \begin{equation}
-tartalom...
+	\dot{q} = \frac{1}{\frac{\log{\frac{d_k}{d_b}}}{2 \pi \lambda}+\frac{1}{\alpha_k d_k \pi}}
 \end{equation}
 A cső hőveszteségének a reciproka a cső höellenállása. A hőellenállás értéke a következő képlettel számolható:
 \begin{equation}
@@ -64,13 +64,13 @@ A b) feladat megoldása:
 
 A kritikus átmérő acélcső esetén:
 
-\[d_{\textit{acél}} = \frac{2 \SI{45,4}{\watt\per\meter\kelvin}}{\SI{8}{\watt\per\meter\squared\kelvin}} = \SI{11,35}{\meter}\]
+\[d_{\textit{acél}} = \frac{ \SI{90,8}{\watt\per\meter\kelvin}}{\SI{8}{\watt\per\meter\squared\kelvin}} = \SI{11,35}{\meter}\]
 
 A kritikus átmérő azbeszt cső esetén:
 
-\[d_{azb} = \frac{2 \SI{0,1}{\watt\per\meter\kelvin}}{\SI{8}{\watt\per\meter\squared\kelvin}} = \SI{0,025}{\meter}\]
+\[d_{azb} = \frac{ \SI{0,2}{\watt\per\meter\kelvin}}{\SI{8}{\watt\per\meter\squared\kelvin}} = \SI{0,025}{\meter}\]
 
-A hőveszteség-átmérő diagram az acélcső esetén:
+A hőáram és az átmérő kapcsolata diagramon ábrázolható mindkét cső esetén.
 
 \begin{figure}[h]
 	\centering
@@ -122,8 +122,8 @@ A hőveszteség-átmérő diagram az acélcső esetén:
 	% A tengelykeresztet az axis környezet hozza létre
 	\begin{axis}[
 	width=16cm, height=12cm,
-	xmin=0, xmax=3.5,
-	ymin=0, ymax=30, 
+	xmin=0, xmax=2,
+	ymin=0, ymax=0.2, 
 	axis lines = middle,
 	axis line style={->},
 	xlabel=$d_{k} \left(\si{\meter}\right)$, 
@@ -136,12 +136,12 @@ A hőveszteség-átmérő diagram az acélcső esetén:
 		at=(current axis.above origin), 
 		anchor=north east
 	},
-	xtick={0.5, 1, 1.5, 2, 2.5, 3},
-	ytick={5, 10, 15, 20, 25, 30}
+	xtick={0.5, 1, 1.5},
+	ytick={0.04, 0.08, 0.12, 0.16}
 	]
 	
 	
-	\addplot [red, domain=0:3] {1/(ln(x/1)/(2*3.1416*0.1)+1/(8*x*3.1416))};
+	\addplot [red, domain=0:3] {1/(ln(x/0.001)/(2*3.1416*0.1)+1/(8*x*3.1416))};
 	
 	\end{axis}
 	
