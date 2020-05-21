@@ -1,22 +1,78 @@
+\begin{document}
 \section*{7/4. Csőfal hőszigetelésének számítása}
+
 
 \addcontentsline{toc}{section}{7/4. Csőfal hőszigetelésének számítása}
 
-\begin{tabular}{ | p{2cm} | p{14cm} | } 
+\begin{tabular}{ | p{3cm} | p{12cm} | } 
 	\hline
-	Zelovics Szabolcs NS9IZH \\ 
+	Zelovics Szabolcs NS9IZH  & \\  \\
 	\hline
-	Vegyészmérnök BSC \\ 
+	Vegyészmérnök BSC  & \\  \\
 	\hline
 	Félév & 2019/2020 II. (tavaszi) félév \\ 
 	\hline
 \end{tabular}
 \vspace{0.5cm}
 
-\noindent Egy kazánban ...
+\noindent Pincében falon kívül felszerelt $\SI{1/2}{\inch}$ melegvíz vezetéket samottal szigetelnek. Hogyan változik a hőveszteség a szigetelés vastagságával?$D_k_r_i_t$ = ? . Hogyan változik üvegszálas szigetelés használatakor?
 
-% A feladat megoldása
-...
+\subsubsection{Adatok}
+\begin{equation*}
+	$d_k = \SI{0,0215}{\meter}$, $t_f_l = \SI{65}{\celsius}$
+	\quad 
+	 $\alpha_1 = \SI{11,6}{\watt\per\meter\cubed\kelvin}$, 
+	\quad
+	$t_l_e_v = \SI{5}{\celsius}$,
+	\quad
+	$\lambda_s = \SI{0,47}{\watt\per\meter\kelvin},
+	\quad
+	$l_u = {0,07}{\inch}$
+\end{equation*}
 
-% Oldaltörés
+\noindent Gyakorlatban a csőfal termikus ellenállása a szigetelés mellet elhanyagoltható, ennek figyelembevételével a lineáris hőáram:
+\begin{equation*}
+	 \dot{q_l} = \frac{T_1 - T_2}{\frac{ln(\frac{D}{dk})}{2\pi\lambda}+\frac{1}{\alpha D\pi}}
+\end{equation}
+
+\noindent A kritikus átmérő 
+\begin{equation*}
+D_k_r_i_t = \frac{2\lambda}{\alpha}
+\end{equation*}
+
+$D_K_s_a_m = \SI{0,081034}{\meter}$
+
+$D_K_u_v = \SI{0,00687}{\meter}$
+
+
+
+\begin{tabular}{ | p{2cm} | p{2cm} | p{3cm} | p{3cm} | } 
+	\hline
+	D & \szigma & q(W/m) & q(W/m) \\
+	\hline
+	mm & mm & samott & üvegszál \\ 
+	\hline
+	21,5 & 0 & 47,0164 & 47,0128 \\
+	\hline
+	41 & 19,5 & 67,5943 & 18,5275 \\
+	\hline
+	61 & 39,5 & 74,7213 & 13,0449 \\
+	\hline
+	81 & 59,5 & 76,1487 & 10,6827 \\
+	\hline
+	101 & 79,5 & 75,4187 & 9,3342 \\
+	\hline
+	121 & 99,5 & 73,9071 & 8,4485 \\
+	\hline
+	221 & 199,5 & 65,7028 & 6,3854 \\
+	\hline
+	321 & 299,5 & 59,9463 & 5,5336 \\
+	\hline
+	421 & 399,5 & 55,9479 & 5,0413 \\
+	\hline
+\end{tabular}
+
+
+
+
 \pagebreak
