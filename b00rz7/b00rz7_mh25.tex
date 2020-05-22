@@ -162,11 +162,32 @@
 	
 	% A nedves gőzmező fázishatárai
 	\addplot[thick] table {./guh7ud/ts.txt};
+	\addplot[thick, dashed] table {./b00rz7/p16.txt};
+	\addplot[thick, dashed] table {./b00rz7/p0_5.txt};
+	\addplot[thick, dashed] table {./b00rz7/p0_2.txt};
+	\addplot[thick, dashed] table {./b00rz7/p0_1.txt};
+	\addplot[thick] table {./b00rz7/tslegend.txt};
 	
+	\node[anchor=north east] at (axis cs: 0.5, 75) {\pgfcircled{$1$}};
+
 	
+	\node[anchor=north east] at (axis cs: 2, 225) {\pgfcircled{$2$}};
+
+	
+	\node[anchor=north east] at (axis cs: 6.5, 180) {\pgfcircled{$3$}};
+
+	
+	\node[anchor=north east] at (axis cs: 7.5, 380) {\pgfcircled{$4$}};
+
+	
+	\node[anchor=north east] at (axis cs: 7, 40) {\pgfcircled{$5$}};
+
 	
 	\end{axis}
-	
+	\node[anchor=east] at (9, 8) {$p_{}=\SI{16}{\bar}$};
+	\node[anchor=east] at (12, 9) {$p_{}=\SI{0.5}{\bar}$};
+	\node[anchor=east] at (14, 10) {$p_{}=\SI{0.2}{\bar}$};
+	\node[anchor=west] at (13, 7) {$p_{}=\SI{0.1}{\bar}$};
 	\end{tikzpicture}
 	\caption{Víz-gőz $T-s$ diagram}
 \end{figure}
