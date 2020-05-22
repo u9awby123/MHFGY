@@ -1,1 +1,133 @@
-0
+\section*{HS34:  Hőcserélő számítása}
+\addcontentsline{toc}{section}{}
+
+
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Kovács Dániel \\ 
+	\hline
+	Szak &  Mechatronikai mérnöki alapszak\\
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+\noindent Egy $A_{\ddot{O}} = \SI{15}{\meter\squared}$ hőátadó felületű csőköteges hőcserélőben $\dot{m}_a = \SI{820}{\kilogram\per\hour}$ tömegáramú cseppfolyós ammóniát kell vízzel lehűtenünk. Az ammónia belépési hőmérséklete $T_{ak} = \SI{25}{\celsius}$, a rendelkezésre álló hűtővíz hőmérséklete $T_{vk} = \SI{12}{\celsius}$.
+
+Számítsa ki mekkorák lesznek a kilépési hőmérsékletek ha az ellenáramú hőcserélőn $\dot{m}_v = \SI{1130}{\kilogram\per\hour}$ tömegáramú vizet áramoltatunk keresztül és a hőátszármaztatási tényező $\kappa = \SI{160}{\watt\per\meter\squared\kelvin}$ ?
+
+A víz fajhője $c_v = \SI{4.18}{\kilo\joule\per\kilogram\kelvin}$, az ammónia fajhője $c_a = \SI{4.6}{\kilo\joule\per\kilogram\kelvin}$.
+
+
+
+\subsubsection*{A léptékhelyes hőmérséklet-hely függvények}
+A véghőmérsékletek megrajzolása után megrajzolhatók a hőmérséklet-hely függvények.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\pgfmathsetmacro{\L}{4}
+		\pgfmathsetmacro{\AÖ}{8}
+		
+		\pgfmathsetmacro{\kelvin}{6}
+		\pgfmathsetmacro{\TAK}{25/\kelvin}
+		\pgfmathsetmacro{\TAV}{15.32/\kelvin}
+		\pgfmathsetmacro{\TBK}{12/\kelvin}
+		\pgfmathsetmacro{\TBV}{19.72/\kelvin}
+		
+		% Tengelyek
+		\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
+		\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
+		
+		% Az összes felület
+		\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
+		\draw (\AÖ,-0.1) -- (\AÖ,0.1);
+		\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
+		
+		% A két T(A)
+		%\draw[red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
+		%\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
+		
+		\draw[ultra thick, color=red, mid arrow=red, domain=0:\AÖ, smooth, variable=\A] plot (\A, {%
+			\TAK - (\TAK-\TBV)/(1047*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
+			});
+		\draw[ultra thick, color=blue, mid arrow=blue, domain=\AÖ:0, smooth, variable=\A] plot (\A, {%
+			\TBV - (\TAK-\TBV)/(1312*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
+			});
+		
+		% A hőmérséklet értékek
+		\draw (-0.1,\TAK) -- (0.1,\TAK);
+		\node[anchor=base east] at (0,\TAK) {$T_{ak}$};
+		\node[anchor=north east] at (0,\TAK) {$\SI{25}{\celsius}$};
+		
+		\draw (-0.1,\TBV) -- (0.1,\TBV);
+		\node[anchor=base east] at (0,\TBV) {$T_{vv}$};
+		
+		\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
+		\node[anchor=base west] at (\AÖ,\TBK) {$T_{vk}$};
+		\node[anchor=north west] at (\AÖ,\TBK) {$\SI{12}{\celsius}$};
+		
+		\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
+		\node[anchor=base west] at (\AÖ,\TAV) {$T_{av}$};
+		
+		% A hőmérsékletkülönbség
+		%\pgflength[xb={\AÖ*0.25}, yb={0.75*\TBV+0.25*\TBK}, xa={\AÖ*0.25}, ya={0.75*\TAK+0.25*\TAV}, alim=0, blim=0, ra=0, ny=0]{$\Delta T$};
+		
+	\end{tikzpicture}
+	\caption{A hőmérséklet-hely függvények.}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\pgfmathsetmacro{\L}{4}
+		\pgfmathsetmacro{\AÖ}{8}
+		
+		\pgfmathsetmacro{\kelvin}{6}
+		\pgfmathsetmacro{\TAK}{25/\kelvin}
+		\pgfmathsetmacro{\TAV}{15.32/\kelvin}
+		\pgfmathsetmacro{\TBK}{12/\kelvin}
+		\pgfmathsetmacro{\TBV}{19.72/\kelvin}
+		
+		% Tengelyek
+		\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
+		\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
+		
+		% Az összes felület
+		\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
+		\draw (\AÖ,-0.1) -- (\AÖ,0.1);
+		\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
+		
+		% A két T(A)
+		%\draw[red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
+		%\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
+		
+		\draw[ultra thick, color=red, mid arrow=red, domain=0:\AÖ, smooth, variable=\A] plot (\A, {%
+			\TAK - (\TAK-\TBK)/(1047*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
+			});
+		\draw[ultra thick, color=blue, mid arrow=blue, domain=0:\AÖ, smooth, variable=\A] plot (\A, {%
+			\TBK + (\TAK-\TBK)/(1312*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
+			});
+		
+		% A hőmérséklet értékek
+		\draw (-0.1,\TAK) -- (0.1,\TAK);
+		\node[anchor=base east] at (0,\TAK) {$T_{ak}$};
+		\node[anchor=north east] at (0,\TAK) {$\SI{25}{\celsius}$};
+		
+		\draw (-0.1,\TBV) -- (0.1,\TBV);
+		\node[anchor=base west] at (\AÖ,\TBV) {$T_{vv}$};
+		
+		\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
+		\node[anchor=base east] at (0,\TBK) {$T_{vk}$};
+		\node[anchor=north east] at (0,\TBK) {$\SI{12}{\celsius}$};
+		
+		\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
+		\node[anchor=base west] at (\AÖ,\TAV) {$T_{av}$};
+		
+		% A hőmérsékletkülönbség
+		%\pgflength[xb={\AÖ*0.25}, yb={0.75*\TBV+0.25*\TBK}, xa={\AÖ*0.25}, ya={0.75*\TAK+0.25*\TAV}, alim=0, blim=0, ra=0, ny=0]{$\Delta T$};
+		
+	\end{tikzpicture}
+	\caption{A hőmérséklet-hely függvények.}
+\end{figure}
