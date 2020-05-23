@@ -1,0 +1,101 @@
+\section*{K3/1. feladat: Rankine-Clausius körfolyamat termodinamikai hatásfoka}
+    \addcontentsline{toc}{section}{K3/1. feladat}
+        \begin{tabular}{ | p{2cm} | p{14cm} | } 
+            \hline
+            Szerző & Vetési Tamás DJWW2H \\
+            \hline
+            Szak & Mechatronikai mérnöki \\
+            \hline
+            Félév & 2019/2020 II. (tavaszi) félév \\
+            \hline
+        \end{tabular}
+            \vspace{0.5cm}
+            %\noindent
+            \\
+A feladat leírása:
+A vízgőz állapotjelzői a turbina előtt $60 bar$, és $420 °C$, a kondenzátornyomás $0,04 bar$. Határozzuk meg a gőz nedvességtartalmát a turbina után és a termodinamikai hatásfokot, ha a belső veszteségek okozta irreverzibilitás miatt az adott nyomásviszonyhoz tartoz elméleti hőesés $230 kJ/kg$ értékkel csökken.
+
+\subsubsection{Adatok} 
+			\begin{equation*}
+				p_1= \SI{60}{\bar},
+				\quad
+				p_2= \SI{0,04}{\bar}
+				\quad
+				\end{equation*}
+				\begin{equation*}
+				T_1=\SI{420}{\celsius},
+				\quad
+				\Delta h_{veszt.} = \SI{230}{\kilo\joule\per\kilogram},
+				\quad
+				\end{equation*}
+				\begin{equation*}
+				h_4= \SI{3225}{\kilo\joule\per\kilogram},
+				\quad
+				h_{5A} = \SI{1991}{\kilo\joule\per\kilogram\kelvin},
+				\quad
+				\end{equation*}
+				\begin{equation*}
+				h"_5 = \SI{2554}{\kilo\joule\per\kilogram\kelvin},
+				\quad
+				x_{5A} = \SI{0,7686}
+				\quad
+				\quad
+				\quad
+				\quad
+				\end{equation*}
+				\begin{equation*}
+				\eta_{TD} = \text{?},
+				\quad
+				1-x_5 = \text{?}
+			\end{equation*}
+			\noindent\hrulefill
+
+\subsubsection{A termodinamikai hatásfok:}
+A $\eta_{TD}$ termodinamikai hatásfok, amely az irreverzibilis (nem megfordítható)
+ valós állapotváltozások hatásait veszi figyelembe.
+				\begin{equation*}
+				\quad
+				\quad
+				\quad
+				\eta_{TD} = \dfrac{w_{t,ad,irrev}}{w_{t,ad,rev}}
+				\quad
+			\end{equation*}
+
+\noindent
+Ahol:
+\begin{itemize}
+	\item  \text{w_{t,ad,rev}: \text{ideális, reverzibilis, adiabatikus kiterjedés technikai munkája, amely egyben izentrópikus is}}
+\end{itemize}
+\begin{itemize}
+	\item  \text{w_{t,ad,irrev}: \text{valós, irreverzibilis, adiabatikus kiterjedés technikai munkája, ami nem izentrópikus}}
+\end{itemize}
+
+\pagebreak
+\subsubsection{A hőtartalom az irreverzibilis esetben:}
+Ahhoz, hogy ki tudjuk számolni a termodinamikai hatásfokot, a meglévő adatok mellé ki kell számítani az irreverzibilis esethez tartozó hőtartalmat:
+\begin{equation*}
+h_5 = h_{5A} + \Delta h_{veszt.} = \SI{2221}{\kilo\joule\per\kilogram}
+\end{equation*}
+\noindent
+A $h_5$ kiszámítása után ki tudjuk számolni a termodinamikai hatásfokot:
+
+\begin{equation*}
+\eta_{TD} = \dfrac{w_{t,ad,irrev}}{w_{t,ad,rev}} =  \dfrac{h_4 - h_5}{h_4-h_{5A}} = \text{0,8136}
+\end{equation*}
+
+\subsubsection{A nedvességtartalom a turbina után:}
+\begin{equation*}
+ \dfrac{x_5-x_{5A}}{h_5-h_{5A}} =  \dfrac{1 - x_{5A}}{h"_5-h_{5A}}
+\end{equation*}
+
+\noindent
+Az egyenlet átrendezése után:
+\begin{equation*}
+x_5 = \dfrac{h_5-h_{5A}}{h"_5-h_{5A}}\left( 1 - x_{5A}\right) +x_{5A} = \text{0,8631}
+\end{equation*}
+
+\noindent
+A nedvességtartalom:
+\begin{equation*}
+1 - x_5 = \text{0,1369} = \text{13,69\%}
+\end{equation*}
