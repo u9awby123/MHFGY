@@ -73,6 +73,83 @@ $D_K_u_v = \SI{0,00687}{\meter}$
 \end{tabular}
 
 
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		% Fiktív értékek a vázlathoz
+		\pgfmathsetmacro{\DB}{4}
+		\pgfmathsetmacro{\DK}{7}
+		\pgfmathsetmacro{\DJ}{13}
+		\pgfmathsetmacro{\lambdaA}{8}
+		\pgfmathsetmacro{\lambdaJ}{2.9}
+		\pgfmathsetmacro{\alfaL}{11.5}
+		\pgfmathsetmacro{\qlin}{326.815}
+		
+		\pgfmathsetmacro{\RA}{\DB/2}
+		\pgfmathsetmacro{\RB}{\DK/2}
+		\pgfmathsetmacro{\RC}{\DJ/2}
+		
+		\pgfmathsetmacro{\L}{5}
+		
+		\pgfmathsetmacro{\kelvin}{4.2}
+		\pgfmathsetmacro{\TA}{11/\kelvin}
+		\pgfmathsetmacro{\TB}{9.33/\kelvin}
+		\pgfmathsetmacro{\TC}{1/\kelvin}
+		
+		% KÖRBEVÁGÁS
+		\clip ({-1.25}, {-(\L)-2}) rectangle ({2.2*\RC}, {\L+2});
+		
+		% A csőfal és a jégréteg
+		\fill[gray, opacity=100] (\RA,\L) -- ({(\RA+\RB)/2-0.16},\L) -- ({(\RA+\RB)/2-0.08}, {\L-0.12}) -- ({(\RA+\RB)/2+0.08}, {\L+0.12}) -- ({(\RA+\RB)/2+0.16}, \L) -- (\RB, \L) -- (\RB, -\L) -- ({(\RA+\RB)/2+0.16}, -\L) -- ({(\RA+\RB)/2+0.08}, {-\L+0.12}) -- ({(\RA+\RB)/2-0.08}, {-\L-0.12}) -- ({(\RA+\RB)/2-0.16},-\L) -- (\RA,-\L);
+		\draw[] (\RA,\L) -- ({(\RA+\RB)/2-0.16},\L) -- ({(\RA+\RB)/2-0.08}, {\L-0.12}) -- ({(\RA+\RB)/2+0.08}, {\L+0.12}) -- ({(\RA+\RB)/2+0.16}, \L) -- (\RB, \L);
+		\draw[] (\RA,-\L) -- ({(\RA+\RB)/2-0.16},-\L) -- ({(\RA+\RB)/2-0.08}, {-\L-0.12}) -- ({(\RA+\RB)/2+0.08}, {-\L+0.12}) -- ({(\RA+\RB)/2+0.16}, -\L) -- (\RB, -\L);
+		
+		\fill[blue, opacity=0.05] (\RB,\L) -- ({(\RB+\RC)/2-0.16},\L) -- ({(\RB+\RC)/2-0.08}, {\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {\L+0.12}) -- ({(\RB+\RC)/2+0.16}, \L) -- (\RC, \L) -- (\RC, -\L) -- ({(\RB+\RC)/2+0.16}, -\L) -- ({(\RB+\RC)/2+0.08}, {-\L+0.12}) -- ({(\RB+\RC)/2-0.08}, {-\L-0.12}) -- ({(\RB+\RC)/2-0.16},-\L) -- (\RB,-\L);
+		\draw[] (\RB,\L) -- ({(\RB+\RC)/2-0.16},\L) -- ({(\RB+\RC)/2-0.08}, {\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {\L+0.12}) -- ({(\RB+\RC)/2+0.16}, \L) -- (\RC, \L);
+		\draw[] (\RB,-\L) -- ({(\RB+\RC)/2-0.16},-\L) -- ({(\RB+\RC)/2-0.08}, {-\L-0.12}) -- ({(\RB+\RC)/2+0.08}, {-\L+0.12}) -- ({(\RB+\RC)/2+0.16}, -\L) -- (\RC, -\L);
+		
+		\draw[ultra thick] (\RA,-\L) -- (\RA,\L);
+		\draw[ultra thick] (\RB,-\L) -- (\RB,\L);
+		\draw[ultra thick] (\RC,-\L) -- (\RC,\L);
+		
+		% Tengelyek
+		\draw[->] (0,-\L) -- (0,\L+1) node[anchor=north east]{$T$};
+		\draw[->] (-1.25, 0) -- (\RC+2, 0) node[anchor=base east, shift={(0,-0.5)}]{$r$};
+		
+		% A hővezetési és hőátadási tényezők
+		\node[anchor=base] at ({(\RA+\RB)/2},{\L-0.5}) {$\lambda_{cso}$};
+		\node[anchor=base] at ({(\RB+\RC)/2},{\L-0.5}) {$\lambda_{szig.}$};
+		
+		% Az átmérők
+		\pgflength[xa={-\RA}, ya={-\L}, xb={\RA}, yb={-\L}, alim=0, blim=1, ra=0.6]{$\diameter d_s = 12.7mm$};
+		\pgflength[xa={-\RB}, ya={-\L}, xb={\RB}, yb={-\L}, alim=0, blim=1, ra=1.2]{$\diameter d_k = 21.5mm$};
+		\pgflength[xa={-\RC}, ya={-\L}, xb={\RC}, yb={-\L}, alim=0, blim=1, ra=1.8]{$\diameter D$};
+		
+		% T(r) körülbelüli hőmérséklet-hely függvény
+		\draw[red, ultra thick] (0.5,\TA) -- (\RA,\TA);
+		\draw[ultra thick, color=red, domain=\RA:\RB, smooth, variable=\r] plot (\r, {\TA - ((\r-\RA)*10/9)/\kelvin});
+		\draw[ultra thick, color=red, domain=\RB:\RC, smooth, variable=\r] plot (\r, {\TB - ((\r-\RB)*50/18)/\kelvin});
+		
+		\draw[red, ultra thick] (\RC,\TC) -- (1.5*\RC,\TC);
+		
+		% A hőmérséklet értékek
+		\draw (-0.1,\TA) -- (0.1,\TA);
+		\node[anchor=base east] at (0,\TA) {$T_1$};
+		\node[anchor=south west] at (0,\TA) {$\SI{65}{\celsius}$};
+		
+		\draw (-0.1,\TB) -- (0.1,\TB);
+		\draw[black, opacity=0.5, dashed] (0,\TB) -- (\RB,\TB);
+		\node[anchor=base east] at (0,\TB) {$T_2$};
+		
+		\draw (-0.1,\TC) -- (0.1,\TC);
+		\draw[black, opacity=0.5, dashed] (0,\TC) -- (\RC,\TC);
+		\node[anchor=base east] at (0,\TC) {$T_3$};
+		\node[anchor=south west] at (0,\TC) {$\SI{5}{\celsius}$};
+		
+	\end{tikzpicture}
+	\caption*{A hőmérséklet-hely függvény vázlata.}
+\end{figure}
+
 
 
 \pagebreak
