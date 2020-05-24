@@ -13,121 +13,162 @@
 \end{tabular}
 \vspace{0.5cm}
 
-\noindent Egy $A_{\ddot{O}} = \SI{15}{\meter\squared}$ hőátadó felületű csőköteges hőcserélőben $\dot{m}_a = \SI{820}{\kilogram\per\hour}$ tömegáramú cseppfolyós ammóniát kell vízzel lehűtenünk. Az ammónia belépési hőmérséklete $T_{ak} = \SI{25}{\celsius}$, a rendelkezésre álló hűtővíz hőmérséklete $T_{vk} = \SI{12}{\celsius}$.
+\noindent Egy $A_{\ddot{O}} = \SI{25}{\meter\squared}$ hőátadó felületű hőcserélőben, amelynek hőátszármaztatási tényezője $\kappa = \SI{175}{\watt\per\meter\squared\kelvin}$, a hőátadó közeg $\dot{w}_m = \SI{2900}{\watt\per\kelvin}$ konvektív vízértékű, a hőfelvevő közeg pedig $\dot{w}_h = \SI{7200}{\watt\per\kelvin}$. \\
+A két közeg belépési hőmérséklete $T_{mb} = \SI{185}{\celsius}$ illetve $T_{hb} = \SI{18}{\celsius}$. A hőcsere veszteségmentesnek tekinthető. \\
+\\
+Meghatározandók: \\
+\\
+a) egyenáramú kapcsolás esetén a kilépési hőmérsékletek $(T_{mk}$;$ $T_{hk})$ és az átszármaztatott hőáram $(\dot{Q})$ \\
+b) ellenáramú kapcsolás esetén ugyanezek \\
+\\
+\subsubsection*{a) Egyenáramú esetben} \\
+A meghatározandó ismeretlenek a $T_{mk}$;$ $T_{hk}$ kilépési hőmérsékletek, emiatt két független egyenletet kell felírnunk. Így az alábbi kétismeretlenes egyenletrendszert tudjuk felírni:\\
 
-Számítsa ki mekkorák lesznek a kilépési hőmérsékletek ha az ellenáramú hőcserélőn $\dot{m}_v = \SI{1130}{\kilogram\per\hour}$ tömegáramú vizet áramoltatunk keresztül és a hőátszármaztatási tényező $\kappa = \SI{160}{\watt\per\meter\squared\kelvin}$ ?
+\begin{equation*}
+	\begin{array}{l}
+		-\Delta \dot{Q}_m = \Delta \dot{Q}_h
+		\\ \\
+		\Delta T\!\left(A_{\ddot{O}}\right) = \Delta T
+	\end{array}
+	\quad \Rightarrow \quad
+	\left.
+	\begin{array}{l}
+		I.\: -\dot{w}_m \left({T_{mk}} - T_{mb}\right) 
+		= \dot{w}_h \left({T_{hk}} - T_{hb}\right) 
+		\\ \\
+		II.\: \left(T_{mb} - {T_{hb}}\right) \mathrm{e}^{-\kappa \overrightarrow{\overleftarrow{m}} A_{\ddot{O}}} = {T_{mk}} - T_{hk}
+	\end{array}
+	\right\rbrace
+\end{equation}
+\\
 
-A víz fajhője $c_v = \SI{4.18}{\kilo\joule\per\kilogram\kelvin}$, az ammónia fajhője $c_a = \SI{4.6}{\kilo\joule\per\kilogram\kelvin}$.
+Az egyenletrendszerbe behelyettesíthetjük az alábbi értékeket: \\
+\begin{equation*}
+	\varphi = \dfrac{\dot{w}_m}{\dot{w}_h} = 0,4028
+	\quad \textrm{és} \quad 
+	\eta = \mathrm{e}^{-\kappa \overrightarrow{\overleftarrow{m}} A_{\ddot{O}}} = \mathrm{e}^{-2,1161} = 0,1205
+\end{equation}
+\\
+Ahol a $\varphi$ a konvektív vízértékek hányadosa, az $\eta$ az exponenciális függvény értéke. \\
+\\
+A behelyettesítés után: \\
+\begin{equation*}
+	\left.
+	\begin{array}{l}
+		I.\: \varphi \left( T_{mb} - {T_{mk}} \right) 
+		= {T_{hk}} - T_{hb} 
+	\\ \\
+		II.\: \left(T_{mb} - {T_{hb}}\right) \eta = {T_{mk}} - T_{hk}
+	\end{array}
+\right\rbrace
+\end{equation}
+\\
+Fejezzük ki ${T_{hk}}$-t az $I.$ egyenletből és helyettesítsük be a $II.$-ba:
+\begin{equation*}
+	I.\: {T_{hk}} = \varphi T_{mb} + T_{hb} - \varphi {T_{mk}} 
+\end{equation}
 
+\begin{equation*}
+    II.\: \left(T_{mb} - {T_{hb}}\right) \eta = {T_{mk}} - \varphi T_{mb} - T_{hb} + \varphi {T_{mk}}
+\end{equation}
 
+\begin{equation*}
+    II.\: T_{mk} = \frac{\left(T_{mb} - {T_{hb}}\right) \eta + \varphi T_{mb} + T_{hb}}{1 + \varphi}
+\end{equation}
 
-\subsubsection*{A léptékhelyes hőmérséklet-hely függvények}
-A véghőmérsékletek megrajzolása után megrajzolhatók a hőmérséklet-hely függvények.
+Ide az adott értékeket behelyettesítve megkapjuk a $T_{mk}$ értéket: \\
+\begin{equation*}
+    T_{mk} = \frac{\left(\SI{185}{\celsius} - {\SI{18}{\celsius}}\right) 0,1205 + 0,4028 * \SI{185}{\celsius} + {\SI{18}{\celsius}}}{1 + 0,4028} = \SI{80,2976}{\celsius} ≈ \SI{80,3}{\celsius}
+\end{equation}
 
-\begin{figure}[h]
-	\centering
-	\begin{tikzpicture}
-		\pgfmathsetmacro{\L}{4}
-		\pgfmathsetmacro{\AÖ}{8}
-		
-		\pgfmathsetmacro{\kelvin}{6}
-		\pgfmathsetmacro{\TAK}{25/\kelvin}
-		\pgfmathsetmacro{\TAV}{15.32/\kelvin}
-		\pgfmathsetmacro{\TBK}{12/\kelvin}
-		\pgfmathsetmacro{\TBV}{19.72/\kelvin}
-		
-		% Tengelyek
-		\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
-		\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
-		
-		% Az összes felület
-		\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
-		\draw (\AÖ,-0.1) -- (\AÖ,0.1);
-		\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
-		
-		% A két T(A)
-		%\draw[red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
-		%\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
-		
-		\draw[ultra thick, color=red, mid arrow=red, domain=0:\AÖ, smooth, variable=\A] plot (\A, {%
-			\TAK - (\TAK-\TBV)/(1047*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
-			});
-		\draw[ultra thick, color=blue, mid arrow=blue, domain=\AÖ:0, smooth, variable=\A] plot (\A, {%
-			\TBV - (\TAK-\TBV)/(1312*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
-			});
-		
-		% A hőmérséklet értékek
-		\draw (-0.1,\TAK) -- (0.1,\TAK);
-		\node[anchor=base east] at (0,\TAK) {$T_{ak}$};
-		\node[anchor=north east] at (0,\TAK) {$\SI{25}{\celsius}$};
-		
-		\draw (-0.1,\TBV) -- (0.1,\TBV);
-		\node[anchor=base east] at (0,\TBV) {$T_{vv}$};
-		
-		\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
-		\node[anchor=base west] at (\AÖ,\TBK) {$T_{vk}$};
-		\node[anchor=north west] at (\AÖ,\TBK) {$\SI{12}{\celsius}$};
-		
-		\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
-		\node[anchor=base west] at (\AÖ,\TAV) {$T_{av}$};
-		
-		% A hőmérsékletkülönbség
-		%\pgflength[xb={\AÖ*0.25}, yb={0.75*\TBV+0.25*\TBK}, xa={\AÖ*0.25}, ya={0.75*\TAK+0.25*\TAV}, alim=0, blim=0, ra=0, ny=0]{$\Delta T$};
-		
-	\end{tikzpicture}
-	\caption{A hőmérséklet-hely függvények.}
-\end{figure}
+Visszahelyettesítve az $I.$ egyenletbe, megkapjuk $T_{hk}$ értékét: \\
+\begin{equation*}
+    {T_{hk}} = 0,4028 * \SI{185}{\celsius} + \SI{18}{\celsius} - 0,4028 *  \SI{80,3}{\celsius} = \SI{60,1732}{\celsius} ≈ \SI{60,17}{\celsius}
+\end{equation}
 
-\begin{figure}[h]
-	\centering
-	\begin{tikzpicture}
-		\pgfmathsetmacro{\L}{4}
-		\pgfmathsetmacro{\AÖ}{8}
-		
-		\pgfmathsetmacro{\kelvin}{6}
-		\pgfmathsetmacro{\TAK}{25/\kelvin}
-		\pgfmathsetmacro{\TAV}{15.32/\kelvin}
-		\pgfmathsetmacro{\TBK}{12/\kelvin}
-		\pgfmathsetmacro{\TBV}{19.72/\kelvin}
-		
-		% Tengelyek
-		\draw[->] (0,-1) -- (0,\L+1) node[anchor=north east]{$T$};
-		\draw[->] (-1.25,0) -- (\AÖ+1,0) node[anchor=base east, shift={(0,-0.5)}]{$A$};
-		
-		% Az összes felület
-		\draw[gray, dashed] (\AÖ,0) -- (\AÖ,\L+0.5);
-		\draw (\AÖ,-0.1) -- (\AÖ,0.1);
-		\node[anchor=base, shift={(0,-0.5)}] at (\AÖ,0) {$A_{\ddot{O}}$};
-		
-		% A két T(A)
-		%\draw[red, ultra thick] (0,\TAK) -- (\AÖ,\TAV);
-		%\draw[mid arrow=blue, blue, ultra thick] (\AÖ,\TBK) -- (0,\TBV);
-		
-		\draw[ultra thick, color=red, mid arrow=red, domain=0:\AÖ, smooth, variable=\A] plot (\A, {%
-			\TAK - (\TAK-\TBK)/(1047*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
-			});
-		\draw[ultra thick, color=blue, mid arrow=blue, domain=0:\AÖ, smooth, variable=\A] plot (\A, {%
-			\TBK + (\TAK-\TBK)/(1312*0.000192738)*(1 - exp(-0.000192738*160*\A*15/\AÖ) )%
-			});
-		
-		% A hőmérséklet értékek
-		\draw (-0.1,\TAK) -- (0.1,\TAK);
-		\node[anchor=base east] at (0,\TAK) {$T_{ak}$};
-		\node[anchor=north east] at (0,\TAK) {$\SI{25}{\celsius}$};
-		
-		\draw (-0.1,\TBV) -- (0.1,\TBV);
-		\node[anchor=base west] at (\AÖ,\TBV) {$T_{vv}$};
-		
-		\draw (-0.1+\AÖ,\TBK) -- (0.1+\AÖ,\TBK);
-		\node[anchor=base east] at (0,\TBK) {$T_{vk}$};
-		\node[anchor=north east] at (0,\TBK) {$\SI{12}{\celsius}$};
-		
-		\draw (-0.1+\AÖ,\TAV) -- (0.1+\AÖ,\TAV);
-		\node[anchor=base west] at (\AÖ,\TAV) {$T_{av}$};
-		
-		% A hőmérsékletkülönbség
-		%\pgflength[xb={\AÖ*0.25}, yb={0.75*\TBV+0.25*\TBK}, xa={\AÖ*0.25}, ya={0.75*\TAK+0.25*\TAV}, alim=0, blim=0, ra=0, ny=0]{$\Delta T$};
-		
-	\end{tikzpicture}
-	\caption{A hőmérséklet-hely függvények.}
-\end{figure}
+Ezután a $\dot{Q}$ = $\dot{w}_h \left({T_{hk}} - T_{hb}\right)$ egyenletet felhasználva, megkapjuk a $\dot{Q}$ értéket: \\
+\begin{equation*}
+    \dot{Q} = \dot{w}_h \left({T_{hk}} - T_{hb}\right) = \SI{7200}{\watt\per\kelvin} (\SI{333,32}{\kelvin} - \SI{291,15}{\kelvin}) = 3,03647*10^5 W
+\end{equation}
+
+Tehát egyenáramú kapcsolás (a)) esetében: \\
+\begin{equation*}
+    T_{mk} = \SI{80,3}{\celsius};   T_{hk} = \SI{60,17}{\celsius};  \dot{Q} = 3,03647*10^5 W
+    \hline
+\end{equation}
+\pagebreak
+
+\subsubsection*{b) Ellenáramú esetben} \\
+A meghatározandó ismeretlenek a $T_{mk}$;$ $T_{hk}$ kilépési hőmérsékletek, emiatt két független egyenletet kell felírnunk. Így az alábbi kétismeretlenes egyenletrendszert tudjuk felírni:\\
+\begin{equation*}
+	\begin{array}{l}
+		-\Delta \dot{Q}_m = \Delta \dot{Q}_h
+		\\ \\
+		\Delta T\!\left(A_{\ddot{O}}\right) = \Delta T
+	\end{array}
+	\quad \Rightarrow \quad
+	\left.
+	\begin{array}{l}
+		I.\: -\dot{w}_m \left({T_{mk}} - T_{mb}\right) 
+		= \dot{w}_h \left({T_{hk}} - T_{hb}\right) 
+		\\ \\
+		II.\: \left(T_{mb} - {T_{hk}}\right) \mathrm{e}^{-\kappa \overrightarrow{\overleftarrow{m}} A_{\ddot{O}}} = {T_{mk}} - T_{hb}
+	\end{array}
+	\right\rbrace
+\end{equation}
+\\
+
+Az egyenletrendszerbe behelyettesíthetjük az alábbi értékeket: \\
+\begin{equation*}
+	\varphi = \dfrac{\dot{w}_m}{\dot{w}_h} = 0,4028
+	\quad \textrm{és} \quad 
+	\eta = \mathrm{e}^{-\kappa \overrightarrow{\overleftarrow{m}} A_{\ddot{O}}} = \mathrm{e}^{-0,9009} = 0,4062
+\end{equation}
+\\
+Ahol a $\varphi$ a konvektív vízértékek hányadosa, az $\eta$ az exponenciális függvény értéke. \\
+\\
+A behelyettesítés után: \\
+\begin{equation*}
+	\left.
+	\begin{array}{l}
+		I.\: \varphi \left( T_{mb} - {T_{mk}} \right) 
+		= {T_{hk}} - T_{hb} 
+	\\ \\
+		II.\: \left(T_{mb} - {T_{hk}}\right) \eta = {T_{mk}} - T_{hb}
+	\end{array}
+\right\rbrace
+\end{equation}
+\\
+Fejezzük ki ${T_{hk}}$-t az $I.$ egyenletből és helyettesítsük be a $II.$-ba:
+\begin{equation*}
+	I.\: {T_{hk}} = \varphi T_{mb} + T_{hb} - \varphi {T_{mk}} 
+\end{equation}
+
+\begin{equation*}
+	II.\: {T_{mk}} + \eta \left(\varphi T_{mb} + T_{hb} - \varphi {T_{mk}}\right) = \eta T_{mb} + T_{hb}
+\end{equation}
+
+\begin{equation*}
+	II.\: {T_{mk}} = \dfrac{\eta T_{mb} + T_{hb} - \eta \left(\varphi T_{mb} + T_{hb}\right)}{1-\eta \varphi}
+\end{equation}
+
+Ide az adott értékeket behelyettesítve megkapjuk a $T_{mk}$ értéket: \\
+\begin{equation*}
+    {T_{mk}} = \dfrac{0,4062 * \SI{185}{\celsius} + \SI{18}{\celsius} - 0,4062 \left(0,4028 * \SI{185}{\celsius} + \SI{18}{\celsius}\right)}{1-0,4062 * 0,4028} = \SI{66,4363}{\celsius} ≈ \SI{66,44}{\celsius}
+\end{equation}
+
+Visszahelyettesítve az $I.$ egyenletbe, megkapjuk $T_{hk}$ értékét: \\
+\begin{equation*}
+    {T_{hk}} = 0,4028 * \SI{185}{\celsius} + \SI{18}{\celsius} - 0,4028 * \SI{66,44}{\celsius} = \SI{65,756}{\celsius} ≈ \SI{65,76}{\celsius}
+\end{equation}
+
+Ezután a $\dot{Q}$ = $\dot{w}_h \left({T_{hk}} - T_{hb}\right)$ egyenletet felhasználva, megkapjuk a $\dot{Q}$ értéket: \\
+\begin{equation*}
+    \dot{Q} = \dot{w}_h \left({T_{hk}} - T_{hb}\right) = \SI{7200}{\watt\per\kelvin} (\SI{338,91}{\kelvin} - \SI{291,15}{\kelvin}) = 3,43872*10^5 W
+\end{equation}
+
+Tehát ellenáramú kapcsolás (b)) esetében: \\
+\begin{equation*}
+    T_{mk} = \SI{66,44}{\celsius};   T_{hk} = \SI{65,76}{\celsius};  \dot{Q} = 3,43872*10^5 W
+    \hline
+\end{equation}
